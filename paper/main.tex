@@ -1,0 +1,178 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{balance}
+
+\begin{document}
+
+\title{Confidence-Gated Multi-Agent Fall Detection: Retrieval-Augmented Reasoning and Cost-Sensitive Response on Wearable IMU Data}
+
+\author{%
+\IEEEauthorblockN{Anonymous Authors}
+\IEEEauthorblockA{%
+\textit{Affiliation TBD}\\
+Email: TBD}
+}
+
+\maketitle
+
+\begin{abstract}
+Wearable inertial fall detectors achieve strong average accuracy but remain brittle on ambiguous near-fall activities and provide neither calibrated uncertainty routing nor an explicit response policy under asymmetric false-negative cost. We present a \emph{confidence-gated multi-agent} architecture that wraps a fixed Tier-1 detector---instantiated as the CNN--LSTM--Attention backbone of Bhatti \textit{et al.}---with (i)~a dual-threshold confidence gate, (ii)~retrieval-augmented $k$-nearest-neighbor case memory, (iii)~local large-language-model (LLM) chain-of-thought reasoning over biomechanical evidence, and (iv)~a cost-sensitive action agent. On SisFall under subject-independent five-fold cross-validation with a locked evaluation protocol, the full stack (\texttt{gate\_knn\_llm}) improves mean F1 from $0.759{\pm}0.014$ to $0.887{\pm}0.029$ and mean recall from $0.759{\pm}0.022$ to $0.977{\pm}0.037$, while reducing normalized response cost by approximately $83\%$ relative to the same Tier-1 checkpoint. Ablations show that gating or retrieval alone is insufficient; paired ambiguous-case comparisons further show that Mistral substantially outperforms a heuristic reasoner (mean F1 $0.972$ vs.\ $0.034$). We position results as gains over a fair reimplementation of the Bhatti-style detector under our protocol, not as a claim against the original KFall multi-phase tables.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Fall detection, wearable IMU, confidence gating, retrieval-augmented reasoning, large language models, cost-sensitive decision making, SisFall.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:intro}
+
+Population aging and independent living motivate continuous fall monitoring with wearable inertial measurement units (IMUs)~\cite{iglesias2019wearable,nurek2020fallsurvey,sisfall2017}. Modern deep detectors can reach competitive accuracy on curated benchmarks, yet practical systems still fail in three ways that matter for safety-critical deployment. First, near-fall activities (e.g., sitting with compensatory motions) induce ambiguous windows that a softmax classifier force-labels. Second, edge models rarely expose calibrated uncertainty that can defer difficult cases. Third, a binary fall/ADL prediction is not a response policy: emergency escalation, caregiver notification, and logging have unequal costs, especially when false negatives dominate clinical risk.
+
+Bhatti \textit{et al.}~\cite{bhatti2025beyond} propose a strong hybrid CNN--LSTM--Attention detector for multi-phase fall analysis on wearable IMUs (``Beyond Falls''). Their contribution is primarily \emph{detection}. We ask a complementary question: \emph{given a fixed Tier-1 detector, can an agentic wrapper improve the safety operating point---raising recall and lowering expected response cost---while providing structured explanations on escalated windows?}
+
+This paper answers affirmatively with a confidence-gated multi-agent pipeline. Uncertain predictions are escalated to an evidence serializer, a growing $k$-NN memory of past cases, and a local LLM reasoner that emits JSON rationales; an Action Agent then maps decisions to simulated response tiers under cost $10\cdot\mathrm{FN}+1\cdot\mathrm{FP}$. Our primary evaluation is SisFall~\cite{sisfall2017} with subject-independent five-fold cross-validation, forced inclusion of near-fall codes D18/D19, and a homogeneous evaluation budget of $1000$ stratified windows per fold.
+
+\paragraph{Contributions.}
+\begin{itemize}
+\item A complete agentic architecture---gate, evidence, retrieval, LLM CoT, action---wrapped around a Bhatti-style Tier-1 backbone without modifying its weights at inference.
+\item A locked paper protocol (splits, calibration, cost, near-fall metrics) that enables fair ablations: \texttt{tier1\_only} $\rightarrow$ \texttt{gate\_only} $\rightarrow$ \texttt{gate\_knn} $\rightarrow$ \texttt{gate\_llm} $\rightarrow$ \texttt{gate\_knn\_llm}.
+\item Five-fold SisFall evidence that the full stack improves F1/recall and normalized cost on every fold, with paired LLM backend comparisons on shared ambiguous IDs.
+\item An honest positioning relative to Bhatti~\textit{et al.}: gains are versus the \emph{same} Tier-1 checkpoint under our SisFall protocol; we do not claim to supersede the original KFall multi-phase tables.
+\end{itemize}
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Wearable Fall Detection}
+Classical threshold and shallow-learning detectors have been succeeded by CNN, LSTM, TCN, and Transformer variants on public corpora such as SisFall~\cite{sisfall2017} and KFall~\cite{kfall2021}. Surveys emphasize the trade-off between sensitivity and false alarms in free living~\cite{iglesias2019wearable}. Bhatti \textit{et al.}~\cite{bhatti2025beyond} integrate CNN, LSTM, and attention for pre-/transition-/post-fall phases. We reuse their architectural motif as Tier-1 and add decision-time agents rather than proposing another detector backbone as the sole contribution.
+
+\subsection{Uncertainty and Selective Prediction}
+Calibration and abstention~\cite{guo2017calibration} motivate routing low-confidence samples to stronger (or human) decision makers. Our dual-threshold gate implements selective escalation tailored to fall cost asymmetry.
+
+\subsection{Retrieval and LLM Agents for Sensing}
+Retrieval-augmented generation and compact encoders such as MiniLM~\cite{minilm2020} support case-based reasoning. Local LLM runtimes~\cite{ollama,mistral2023,qwen2024} enable offline CoT without cloud APIs. We apply these ideas to IMU evidence rather than text-native tasks.
+
+\section{Method}
+\label{sec:method}
+
+Fig.~\ref{fig:arch} summarizes the pipeline.
+
+\begin{figure*}[!t]
+\centering
+\input{fig/architecture}
+\caption{Confidence-gated multi-agent fall detection. High/low confidence windows are decided by the Tier-1 detector; ambiguous windows escalate to evidence serialization, $k$-NN retrieval, LLM reasoning, and a cost-sensitive Action Agent.}
+\label{fig:arch}
+\end{figure*}
+
+\subsection{Tier-1 Detector}
+Given a window $\mathbf{x}\in\mathbb{R}^{C\times T}$ (here $C{=}6$, $T{=}90$), a backbone $f_\theta$ produces logits and embedding $\mathbf{e}$. We convert logits to fall probability $p(\mathrm{fall})$. The primary backbone is CNN--LSTM--Attention following Bhatti~\textit{et al.}~\cite{bhatti2025beyond}; we additionally train a zoo (CNN1D, LSTM, CNN--LSTM, TCN, ModernTCN~\cite{iglesias2023modern}, TSMixer~\cite{tsmixer2023}, PatchTST~\cite{patchtst2023}, Transformer~\cite{vaswani2017attention}) under the same protocol for context (Table~\ref{tab:backbone}).
+
+\subsection{Confidence Gate}
+A dual-threshold gate with calibrated $(\tau_{\mathrm{low}},\tau_{\mathrm{high}})$ routes windows:
+\begin{equation}
+\begin{cases}
+\mathrm{ADL}, & p \le \tau_{\mathrm{low}},\\
+\mathrm{Fall}, & p \ge \tau_{\mathrm{high}},\\
+\mathrm{Ambiguous}, & \text{otherwise.}
+\end{cases}
+\end{equation}
+Thresholds are calibrated on subject-held-out training windows. Mode \texttt{tier1\_only} disables meaningful escalation by collapsing the ambiguous band.
+
+\subsection{Evidence Serializer}
+For escalated windows we compute biomechanical descriptors (free-fall, impact magnitude, stillness, tilt) and serialize them into natural-language evidence for retrieval and prompting.
+
+\subsection{Retrieval Memory}
+A $k$-NN memory stores MiniLM~\cite{minilm2020} embeddings of evidence text with labels and features. At escalation time we retrieve $k{=}5$ neighbors (cosine similarity) as few-shot context.
+
+\subsection{LLM Reasoner}
+An LLM reasoner (backend $\in\{\texttt{ollama},\texttt{heuristic}\}$) consumes evidence and neighbors and returns a JSON decision with rationale. We evaluate heuristic, Mistral~\cite{mistral2023}, and Qwen2.5~\cite{qwen2024} on paired ambiguous IDs. Production full-stack rows use Ollama~\cite{ollama}.
+
+\subsection{Action Agent and Cost}
+The Action Agent maps severity cues to simulated actions (emergency / notify / monitor / log). Expected response cost uses
+\begin{equation}
+\mathrm{Cost} = 10\cdot \mathrm{FN} + 1\cdot \mathrm{FP}.
+\end{equation}
+We report \emph{cost per 1000 windows} so folds with equal evaluation budgets are comparable.
+
+\subsection{System Modes}
+Ablations instantiate cumulative agents:
+\texttt{tier1\_only}, \texttt{gate\_only}, \texttt{gate\_knn}, \texttt{gate\_llm}, and \texttt{gate\_knn\_llm} (full stack).
+
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Dataset and Splits}
+We use SisFall~\cite{sisfall2017} windows with six IMU channels. Subject-independent five-fold splits hold out subjects; within each training fold a subject-held-out validation fraction tunes training and gate calibration. Near-fall activities D18/D19 are required and forced into capped test slices (minimum per code).
+
+\subsection{Protocol}
+Training uses class imbalance handling (\texttt{pos\_weight}), mixup, and cost-sensitive decision thresholds. The \textbf{main paper tables} use a homogeneous evaluation budget of $n{=}1000$ stratified test windows per fold. An archived Fold~0 run with $n{=}4000$ provides a detailed ablation ladder including \texttt{gate\_llm}. Seed is fixed ($42$).
+
+\subsection{Metrics}
+We report F1, recall/sensitivity, specificity, near-fall false-alarm rate on D18/D19, escalated-subset F1, escalation rate, and normalized response cost. Significance uses paired bootstrap $95\%$ confidence intervals of mean fold-wise deltas; Wilcoxon signed-rank $p$-values are reported for completeness ($n{=}5$).
+
+\section{Results}
+\label{sec:results}
+
+\input{table/tab_positioning}
+
+\subsection{Main Comparison vs.\ Tier-1}
+Table~\ref{tab:perfold} shows that \texttt{gate\_knn\_llm} improves F1 on every fold ($+0.114$ to $+0.164$). Table~\ref{tab:meanstd} summarizes five-fold means: F1 $0.759{\rightarrow}0.887$, recall $0.759{\rightarrow}0.977$, cost/1000 $1151{\rightarrow}200$ (about $83\%$ reduction). Bootstrap CIs for $\Delta$F1, $\Delta$recall, and $\Delta$cost/1000 exclude zero.
+
+\input{table/tab_perfold}
+\input{table/tab_meanstd}
+
+\subsection{Ablations}
+Table~\ref{tab:ablation} (Fold~0, $n{=}4000$) shows that \texttt{gate\_only} matches Tier-1 on aggregate F1, \texttt{gate\_knn} does not unlock large gains, and \texttt{gate\_llm} alone can inflate near-fall FAR. The full stack reaches F1 $0.907$, recall $0.993$, and escalated F1 $0.952$ at substantially lower cost. Thus retrieval and LLM reasoning are complementary.
+
+\input{table/tab_ablation}
+
+\subsection{LLM Backends on Ambiguous Cases}
+Table~\ref{tab:llm} compares reasoners on shared ambiguous IDs. Heuristic mean F1 is near zero ($0.034$), while Mistral reaches $0.972$ and Qwen2.5 $0.823$. This supports the claim that language-model reasoning---not merely escalation---drives ambiguous-case recovery.
+
+\input{table/tab_llm}
+
+\subsection{Backbone Context}
+Table~\ref{tab:backbone} reports detector-only Fold~0 metrics for the backbone zoo. We fix \texttt{cnn\_lstm\_attn} as the primary Tier-1 model for all agentic tables to keep comparisons fair to the Bhatti-style architecture.
+
+\input{table/tab_backbone}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{How We Differ from the Base Paper}
+Table~\ref{tab:positioning} summarizes the conceptual gap: Bhatti~\textit{et al.} optimize multi-phase detection; we optimize a \emph{decision system} around a detector. Fair numerical comparison in this manuscript is therefore \texttt{tier1\_only} vs.\ \texttt{gate\_knn\_llm} under identical SisFall folds and checkpoints. The original Beyond Falls evaluation emphasizes KFall multi-class settings~\cite{bhatti2025beyond,kfall2021}; SisFall is our primary runnable binary+near-fall corpus with D18/D19 instrumentation.
+
+\subsection{How We Outperform the Fair Baseline}
+Outperformance is threefold: (i)~higher F1 and recall on every fold; (ii)~large reduction in normalized response cost under FN-heavy weighting; (iii)~high escalated-subset F1 when the gate defers. Near-fall FAR improvements are modest and are \emph{not} claimed as the primary differentiator.
+
+\subsection{Limitations}
+Local LLMs add latency on escalated windows; we report escalation rates rather than claiming real-time free-living deployment. External validation on KFall remains future work pending raw data. With five folds, nonparametric $p$-values are coarse; bootstrap CIs are the primary uncertainty quantification. Detector-only F1 under our cost-sensitive operating point is intentionally not optimized as a leaderboard F1${\ge}0.90$ claim.
+
+\section{Conclusion}
+\label{sec:concl}
+
+We introduced a confidence-gated multi-agent wrapper for wearable fall detection that escalates ambiguous IMU windows to retrieval-augmented LLM reasoning and a cost-sensitive Action Agent. Under subject-independent five-fold SisFall evaluation with a locked protocol, the full stack consistently outperforms the same Bhatti-style Tier-1 detector in F1, recall, and normalized response cost, while ablations and paired LLM comparisons explain where the gains arise. This evidence supports a Q1-oriented narrative centered on \emph{agentic safety layers around strong detectors}, complementary to backbone-centric fall detection research.
+
+\section*{Acknowledgment}
+The authors thank collaborators and computing facility staff for GPU support.
+
+\appendices
+\section{Reproducibility Notes}
+Primary artifacts: per-fold JSON under \texttt{results/fold\{0--4\}/}, aggregates \texttt{results/aggregate\_*}, and briefs \texttt{results/GUIDE\_BRIEF.md}, \texttt{results/Q1\_SUBMISSION\_PACK.md}. Paper tables can be regenerated via \texttt{python scripts/generate\_paper\_tables.py}.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

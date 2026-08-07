@@ -1,0 +1,1377 @@
+{
+  "metrics": {
+    "accuracy": 0.898,
+    "precision": 0.815028901734104,
+    "recall": 0.986013986013986,
+    "sensitivity": 0.9860139860139837,
+    "specificity": 0.8318739054290704,
+    "f1": 0.8924050632911392,
+    "tp": 423,
+    "tn": 475,
+    "fp": 96,
+    "fn": 6,
+    "escalation_rate": 0.443,
+    "n_escalated": 443,
+    "n_d18": 80,
+    "n_d19": 80,
+    "n_near_fall": 160,
+    "false_alarm_rate_near_fall": 0.175,
+    "escalated_f1": 0.9528301886792453,
+    "false_alarm_rate_ambiguous": 0.175,
+    "ambiguous_f1": 0.9528301886792453,
+    "missed_fall_rate": 0.013986013986013986,
+    "expected_response_cost": 156.0,
+    "latency_tier1_ms": 8.958081815339947,
+    "latency_escalated_ms": 12807.761530125405,
+    "latency_mean_ms": 5678.8280094166985,
+    "ece": 0.0890850057974458,
+    "tau_low": 0.15526315789473683,
+    "tau_high": 0.55,
+    "backend": "ollama",
+    "n": 1000,
+    "model": "cnn_lstm_attn",
+    "comparable_ablation_mode": "gate_knn_llm",
+    "name": "agentic_ollama"
+  },
+  "samples": [
+    {
+      "p_fall": 0.8974556922912598,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8974556922912598,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8974556922912598,
+      "rationale": "High-confidence Tier-1 fall (p=0.897 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 89.90727295167744,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.88g\n- Post-impact stillness: 0.00s\n- Body tilt change: 0.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.85g\n- Peak gyroscope: 4.0 deg/s\n- Activity context code: F07\n- Tier-1 fall probability: 0.897",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.08913499116897583,
+      "gate": {
+        "route": "adl",
+        "p_fall": 0.08913499116897583,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9108650088310242,
+      "rationale": "High-confidence Tier-1 ADL (p=0.089 <= 0.15526315789473683).",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 6.466193008236587,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.005s\n- Impact magnitude: 1.82g\n- Post-impact stillness: 0.01s\n- Body tilt change: 16.1 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.09g\n- Peak gyroscope: 99.3 deg/s\n- Activity context code: D02\n- Tier-1 fall probability: 0.089",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.9270901083946228,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.9270901083946228,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9270901083946228,
+      "rationale": "High-confidence Tier-1 fall (p=0.927 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 6.587976007722318,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.85g\n- Post-impact stillness: 0.26s\n- Body tilt change: 1.3 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.82g\n- Peak gyroscope: 2.5 deg/s\n- Activity context code: F14\n- Tier-1 fall probability: 0.927",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.2621225416660309,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.2621225416660309,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.75,
+      "rationale": "Free-fall duration and impact magnitude are higher than most similar cases which were classified as ADL. However, the body tilt change is within the range of some of those cases. The event duration, mean acceleration, peak gyroscope, and activity context code also align with the ADL classification. Given the conservative approach to missed falls, this event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D19_SA06_R05.txt_284987: - Free-fall duration: 0.060s - Impact magnitude: 4.51g - Post-impact stillness: 0.00s - Body tilt change: 73.1 deg - Event duration: 0.45s - Mean acceleration: 1.54g - Peak gyroscope: 94.8 deg/s - Activity context code: D19 \u2192 ADL",
+        "Case D19_SA11_R03.txt_540240: - Free-fall duration: 0.000s - Impact magnitude: 1.55g - Post-impact stillness: 0.34s - Body tilt change: 9.9 deg - Event duration: 0.45s - Mean acceleration: 0.87g - Peak gyroscope: 53.5 deg/s - Activity context code: D19 \u2192 ADL",
+        "Case D19_SE06_R02.txt_1318902: - Free-fall duration: 0.160s - Impact magnitude: 4.00g - Post-impact stillness: 0.06s - Body tilt change: 87.5 deg - Event duration: 0.45s - Mean acceleration: 1.16g - Peak gyroscope: 148.5 deg/s - Activity context code: D19 \u2192 ADL",
+        "Case D19_SA09_R01.txt_437423: - Free-fall duration: 0.190s - Impact magnitude: 2.57g - Post-impact stillness: 0.00s - Body tilt change: 12.8 deg - Event duration: 0.45s - Mean acceleration: 0.89g - Peak gyroscope: 80.2 deg/s - Activity context code: D19 \u2192 ADL",
+        "Case D19_SA23_R01.txt_1151572: - Free-fall duration: 0.145s - Impact magnitude: 5.49g - Post-impact stillness: 0.00s - Body tilt change: 165.0 deg - Event duration: 0.45s - Mean acceleration: 1.14g - Peak gyroscope: 268.9 deg/s - Activity context code: D19 \u2192 ADL"
+      ],
+      "latency_ms": 19560.614291927777,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.035s\n- Impact magnitude: 1.02g\n- Post-impact stillness: 0.28s\n- Body tilt change: 12.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.85g\n- Peak gyroscope: 106.7 deg/s\n- Activity context code: D19\n- Tier-1 fall probability: 0.262",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.8694162368774414,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8694162368774414,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8694162368774414,
+      "rationale": "High-confidence Tier-1 fall (p=0.869 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 10.60176093596965,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.19g\n- Post-impact stillness: 0.14s\n- Body tilt change: 0.5 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.16g\n- Peak gyroscope: 3.3 deg/s\n- Activity context code: F08\n- Tier-1 fall probability: 0.869",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.19658394157886505,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.19658394157886505,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.8,
+      "rationale": "Free-fall duration and impact magnitude are similar to ADL cases (D11_SE11_R02.txt_1450307, D11_SA10_R03.txt_478568), but the post-impact stillness and body tilt change are higher than any of the similar cases. However, they are still within the range of ADL events. Given the conservative approach to missed falls, this event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D11_SE11_R02.txt_1450307: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.00s - Body tilt change: 2.5 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 25.3 deg/s - Activity context code: D11 \u2192 ADL",
+        "Case D11_SE02_R04.txt_1215098: - Free-fall duration: 0.000s - Impact magnitude: 3.91g - Post-impact stillness: 0.34s - Body tilt change: 14.4 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 184.4 deg/s - Activity context code: D11 \u2192 ADL",
+        "Case D11_SE10_R05.txt_1427602: - Free-fall duration: 0.000s - Impact magnitude: 1.01g - Post-impact stillness: 0.01s - Body tilt change: 0.6 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 4.5 deg/s - Activity context code: D11 \u2192 ADL",
+        "Case D11_SA10_R03.txt_478568: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.28s - Body tilt change: 0.4 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 3.8 deg/s - Activity context code: D11 \u2192 ADL",
+        "Case D11_SA09_R04.txt_427602: - Free-fall duration: 0.000s - Impact magnitude: 1.10g - Post-impact stillness: 0.11s - Body tilt change: 11.2 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 44.1 deg/s - Activity context code: D11 \u2192 ADL"
+      ],
+      "latency_ms": 11112.543486058712,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.01g\n- Post-impact stillness: 0.33s\n- Body tilt change: 0.3 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.99g\n- Peak gyroscope: 4.7 deg/s\n- Activity context code: D11\n- Tier-1 fall probability: 0.197",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.35644811391830444,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.35644811391830444,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9,
+      "rationale": "The event has a high Tier-1 fall probability (0.356) and similar characteristics to previous falls in terms of free-fall duration, impact magnitude, post-impact stillness, body tilt change, event duration, mean acceleration, peak gyroscope, and activity context code. The only difference is the peak gyroscope value which is higher than some of the previous cases but still within a reasonable range for a fall.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F07_SA18_R05.txt_908414: - Free-fall duration: 0.000s - Impact magnitude: 1.59g - Post-impact stillness: 0.00s - Body tilt change: 20.3 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 44.1 deg/s - Activity context code: F07 \u2192 FALL",
+        "Case F07_SA15_R03.txt_754902: - Free-fall duration: 0.000s - Impact magnitude: 1.68g - Post-impact stillness: 0.05s - Body tilt change: 14.5 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 66.3 deg/s - Activity context code: F07 \u2192 FALL",
+        "Case F04_SA03_R01.txt_136169: - Free-fall duration: 0.000s - Impact magnitude: 1.44g - Post-impact stillness: 0.06s - Body tilt change: 3.9 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 50.4 deg/s - Activity context code: F04 \u2192 FALL",
+        "Case F02_SA16_R04.txt_798960: - Free-fall duration: 0.000s - Impact magnitude: 1.55g - Post-impact stillness: 0.02s - Body tilt change: 16.2 deg - Event duration: 0.45s - Mean acceleration: 1.11g - Peak gyroscope: 44.4 deg/s - Activity context code: F02 \u2192 FALL",
+        "Case F07_SA10_R05.txt_499646: - Free-fall duration: 0.000s - Impact magnitude: 1.49g - Post-impact stillness: 0.28s - Body tilt change: 16.8 deg - Event duration: 0.45s - Mean acceleration: 1.09g - Peak gyroscope: 87.6 deg/s - Activity context code: F07 \u2192 FALL"
+      ],
+      "latency_ms": 10507.573126931675,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.74g\n- Post-impact stillness: 0.03s\n- Body tilt change: 21.8 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.10g\n- Peak gyroscope: 59.1 deg/s\n- Activity context code: F04\n- Tier-1 fall probability: 0.356",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.5323094129562378,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.5323094129562378,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.7,
+      "rationale": "Free-fall duration and impact magnitude are higher than the average of similar cases (D02_SE10_R01.txt_1415087, D02_SE10_R01.txt_1415086, D02_SE02_R01.txt_1205591, D05_SA10_R02.txt_469019, D04_SE10_R01.txt_1418686) which were all classified as ADL. However, the body tilt change and peak gyroscope values are lower than the average of similar cases. The event duration and mean acceleration are close to the average of similar cases. Given the conservative approach on missed falls, the event is classified as ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D02_SE10_R01.txt_1415087: - Free-fall duration: 0.050s - Impact magnitude: 1.90g - Post-impact stillness: 0.10s - Body tilt change: 23.4 deg - Event duration: 0.45s - Mean acceleration: 1.08g - Peak gyroscope: 98.5 deg/s - Activity context code: D02 \u2192 ADL",
+        "Case D02_SE10_R01.txt_1415086: - Free-fall duration: 0.050s - Impact magnitude: 1.90g - Post-impact stillness: 0.10s - Body tilt change: 33.1 deg - Event duration: 0.45s - Mean acceleration: 1.09g - Peak gyroscope: 98.5 deg/s - Activity context code: D02 \u2192 ADL",
+        "Case D02_SE02_R01.txt_1205591: - Free-fall duration: 0.080s - Impact magnitude: 1.76g - Post-impact stillness: 0.07s - Body tilt change: 9.9 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 98.4 deg/s - Activity context code: D02 \u2192 ADL",
+        "Case D05_SA10_R02.txt_469019: - Free-fall duration: 0.000s - Impact magnitude: 1.69g - Post-impact stillness: 0.29s - Body tilt change: 16.3 deg - Event duration: 0.45s - Mean acceleration: 1.08g - Peak gyroscope: 44.5 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D04_SE10_R01.txt_1418686: - Free-fall duration: 0.050s - Impact magnitude: 1.90g - Post-impact stillness: 0.10s - Body tilt change: 29.3 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 98.2 deg/s - Activity context code: D04 \u2192 ADL"
+      ],
+      "latency_ms": 15185.34201697912,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.24g\n- Post-impact stillness: 0.17s\n- Body tilt change: 8.9 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.08g\n- Peak gyroscope: 36.4 deg/s\n- Activity context code: D09\n- Tier-1 fall probability: 0.532",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.850888729095459,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.850888729095459,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.850888729095459,
+      "rationale": "High-confidence Tier-1 fall (p=0.851 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 10.377216967754066,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.03g\n- Post-impact stillness: 0.26s\n- Body tilt change: 0.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.01g\n- Peak gyroscope: 4.4 deg/s\n- Activity context code: F12\n- Tier-1 fall probability: 0.851",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.829462468624115,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.829462468624115,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.829462468624115,
+      "rationale": "High-confidence Tier-1 fall (p=0.829 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 3.34902701433748,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.01g\n- Post-impact stillness: 0.03s\n- Body tilt change: 0.7 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.99g\n- Peak gyroscope: 6.4 deg/s\n- Activity context code: F13\n- Tier-1 fall probability: 0.829",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.38644641637802124,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.38644641637802124,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "The event has a short free-fall duration (0.000s), high impact magnitude (0.99g), moderate post-impact stillness (0.10s), and minimal body tilt change (0.2 deg). These parameters are similar to the ADL cases D13_SA07_R01.txt_326933, D13_SA03_R04.txt_123032, D13_SA14_R05.txt_685870, and D13_SE06_R01.txt_1310504 which all had an ADL outcome. The Tier-1 fall probability (0.386) is also relatively low compared to the other cases.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D13_SA07_R01.txt_326933: - Free-fall duration: 0.000s - Impact magnitude: 1.05g - Post-impact stillness: 0.19s - Body tilt change: 19.4 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 52.5 deg/s - Activity context code: D13 \u2192 ADL",
+        "Case D13_SA03_R04.txt_123032: - Free-fall duration: 0.000s - Impact magnitude: 1.84g - Post-impact stillness: 0.06s - Body tilt change: 53.0 deg - Event duration: 0.45s - Mean acceleration: 1.11g - Peak gyroscope: 128.5 deg/s - Activity context code: D13 \u2192 ADL",
+        "Case D13_SA14_R05.txt_685870: - Free-fall duration: 0.000s - Impact magnitude: 1.40g - Post-impact stillness: 0.15s - Body tilt change: 50.6 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 133.9 deg/s - Activity context code: D13 \u2192 ADL",
+        "Case D13_SE06_R01.txt_1310504: - Free-fall duration: 0.000s - Impact magnitude: 0.99g - Post-impact stillness: 0.10s - Body tilt change: 0.6 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 4.3 deg/s - Activity context code: D13 \u2192 ADL",
+        "Case D13_SA03_R05.txt_123270: - Free-fall duration: 0.000s - Impact magnitude: 1.23g - Post-impact stillness: 0.00s - Body tilt change: 32.6 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 104.5 deg/s - Activity context code: D13 \u2192 ADL"
+      ],
+      "latency_ms": 14615.314260940067,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.99g\n- Post-impact stillness: 0.10s\n- Body tilt change: 0.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.97g\n- Peak gyroscope: 6.2 deg/s\n- Activity context code: D13\n- Tier-1 fall probability: 0.386",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.27280911803245544,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.27280911803245544,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9,
+      "rationale": "The event shares similar characteristics with multiple historical falls (Case F08_SA23_R02.txt_1163250, Case F08_SA20_R04.txt_1010756, Case F08_SA09_R03.txt_449467, and Case F07_SA18_R05.txt_908432) in terms of free-fall duration, impact magnitude, post-impact stillness, event duration, mean acceleration, and activity context code. The peak gyroscope value is higher than some historical falls but still within a reasonable range for a fall. Given the conservative approach to missed falls, this event is classified as a fall.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F08_SA23_R02.txt_1163250: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.20s - Body tilt change: 8.5 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 64.6 deg/s - Activity context code: F08 \u2192 FALL",
+        "Case F06_SA13_R05.txt_651671: - Free-fall duration: 0.000s - Impact magnitude: 1.46g - Post-impact stillness: 0.08s - Body tilt change: 8.5 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 44.8 deg/s - Activity context code: F06 \u2192 FALL",
+        "Case F08_SA20_R04.txt_1010756: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.15s - Body tilt change: 0.8 deg - Event duration: 0.45s - Mean acceleration: 1.04g - Peak gyroscope: 8.8 deg/s - Activity context code: F08 \u2192 FALL",
+        "Case F08_SA09_R03.txt_449467: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.13s - Body tilt change: 23.7 deg - Event duration: 0.45s - Mean acceleration: 0.94g - Peak gyroscope: 68.1 deg/s - Activity context code: F08 \u2192 FALL",
+        "Case F07_SA18_R05.txt_908432: - Free-fall duration: 0.000s - Impact magnitude: 1.52g - Post-impact stillness: 0.20s - Body tilt change: 11.2 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 80.6 deg/s - Activity context code: F07 \u2192 FALL"
+      ],
+      "latency_ms": 14451.302372966893,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.03g\n- Post-impact stillness: 0.18s\n- Body tilt change: 0.7 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.00g\n- Peak gyroscope: 8.7 deg/s\n- Activity context code: F08\n- Tier-1 fall probability: 0.273",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.4172889292240143,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.4172889292240143,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "The event duration, mean acceleration, and body tilt change are similar to historical ADL cases (D01_SA05_R01.txt_204757, D01_SE06_R01.txt_1291580, D01_SA02_R01.txt_51708, D01_SA15_R01.txt_717880, D01_SE03_R01.txt_1223514). However, the impact magnitude and peak gyroscope values are higher than most of these cases, but still within the range of ADLs. The Tier-1 fall probability is 0.417, which is close to the threshold for a fall prediction (usually above 0.5), but given the conservative approach, it's classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D01_SA05_R01.txt_204757: - Free-fall duration: 0.000s - Impact magnitude: 1.49g - Post-impact stillness: 0.35s - Body tilt change: 26.4 deg - Event duration: 0.45s - Mean acceleration: 0.95g - Peak gyroscope: 56.3 deg/s - Activity context code: D01 \u2192 ADL",
+        "Case D01_SE06_R01.txt_1291580: - Free-fall duration: 0.000s - Impact magnitude: 1.48g - Post-impact stillness: 0.00s - Body tilt change: 9.7 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 58.4 deg/s - Activity context code: D01 \u2192 ADL",
+        "Case D01_SA02_R01.txt_51708: - Free-fall duration: 0.000s - Impact magnitude: 1.35g - Post-impact stillness: 0.06s - Body tilt change: 23.5 deg - Event duration: 0.45s - Mean acceleration: 0.94g - Peak gyroscope: 75.1 deg/s - Activity context code: D01 \u2192 ADL",
+        "Case D01_SA15_R01.txt_717880: - Free-fall duration: 0.000s - Impact magnitude: 1.54g - Post-impact stillness: 0.06s - Body tilt change: 23.1 deg - Event duration: 0.45s - Mean acceleration: 1.08g - Peak gyroscope: 72.1 deg/s - Activity context code: D01 \u2192 ADL",
+        "Case D01_SE03_R01.txt_1223514: - Free-fall duration: 0.000s - Impact magnitude: 1.71g - Post-impact stillness: 0.01s - Body tilt change: 8.0 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 64.4 deg/s - Activity context code: D01 \u2192 ADL"
+      ],
+      "latency_ms": 15846.426383010112,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.43g\n- Post-impact stillness: 0.00s\n- Body tilt change: 3.0 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.02g\n- Peak gyroscope: 48.9 deg/s\n- Activity context code: D01\n- Tier-1 fall probability: 0.417",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.8654425144195557,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8654425144195557,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8654425144195557,
+      "rationale": "High-confidence Tier-1 fall (p=0.865 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 10.986309964209795,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.91g\n- Post-impact stillness: 0.23s\n- Body tilt change: 0.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.88g\n- Peak gyroscope: 6.7 deg/s\n- Activity context code: F11\n- Tier-1 fall probability: 0.865",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.8930845260620117,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8930845260620117,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8930845260620117,
+      "rationale": "High-confidence Tier-1 fall (p=0.893 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 9.109161095693707,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.04g\n- Post-impact stillness: 0.00s\n- Body tilt change: 0.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.01g\n- Peak gyroscope: 4.7 deg/s\n- Activity context code: F06\n- Tier-1 fall probability: 0.893",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.07546257227659225,
+      "gate": {
+        "route": "adl",
+        "p_fall": 0.07546257227659225,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9245374277234077,
+      "rationale": "High-confidence Tier-1 ADL (p=0.075 <= 0.15526315789473683).",
+      "action": {
+        "action": "monitor",
+        "severity": "none",
+        "reason": "ADL/near-fall \u2014 enhanced monitoring",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 7.741629029624164,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.015s\n- Impact magnitude: 3.44g\n- Post-impact stillness: 0.08s\n- Body tilt change: 30.7 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.25g\n- Peak gyroscope: 234.4 deg/s\n- Activity context code: D11\n- Tier-1 fall probability: 0.075",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.29382455348968506,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.29382455348968506,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.8,
+      "rationale": "The event has a short free-fall duration (0.000s), moderate impact magnitude (0.99g), brief post-impact stillness (0.01s), and minimal body tilt change (0.1 deg). These characteristics are similar to the ADL cases D07_SA07_R04.txt_320760, D05_SE04_R01.txt_1253071, D07_SA23_R02.txt_1136536, D07_SA18_R01.txt_882240, and D07_SE10_R01.txt_1422130. The Tier-1 fall probability of 0.294 is relatively low, suggesting a higher likelihood of an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D07_SA07_R04.txt_320760: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.00s - Body tilt change: 0.6 deg - Event duration: 0.45s - Mean acceleration: 1.01g - Peak gyroscope: 4.5 deg/s - Activity context code: D07 \u2192 ADL",
+        "Case D05_SE04_R01.txt_1253071: - Free-fall duration: 0.000s - Impact magnitude: 1.60g - Post-impact stillness: 0.06s - Body tilt change: 21.7 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 44.3 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D07_SA23_R02.txt_1136536: - Free-fall duration: 0.000s - Impact magnitude: 0.98g - Post-impact stillness: 0.09s - Body tilt change: 10.7 deg - Event duration: 0.45s - Mean acceleration: 0.93g - Peak gyroscope: 44.5 deg/s - Activity context code: D07 \u2192 ADL",
+        "Case D07_SA18_R01.txt_882240: - Free-fall duration: 0.000s - Impact magnitude: 1.25g - Post-impact stillness: 0.10s - Body tilt change: 28.0 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 107.5 deg/s - Activity context code: D07 \u2192 ADL",
+        "Case D07_SE10_R01.txt_1422130: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.29s - Body tilt change: 1.1 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 4.7 deg/s - Activity context code: D07 \u2192 ADL"
+      ],
+      "latency_ms": 16005.354780936614,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.99g\n- Post-impact stillness: 0.01s\n- Body tilt change: 0.1 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.97g\n- Peak gyroscope: 3.2 deg/s\n- Activity context code: D07\n- Tier-1 fall probability: 0.294",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.32820838689804077,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.32820838689804077,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "Free-fall duration and impact magnitude are similar to previous ADL cases (D12_SE07_R01.txt_1358005, D12_SE13_R05.txt_1498884, D12_SA19_R05.txt_940026). However, body tilt change and peak gyroscope are slightly higher than the previous ADL cases but still lower than the fall case (D12_SE02_R02.txt_1215787). Given the conservative approach on missed falls, event is classified as ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D12_SE07_R01.txt_1358005: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.05s - Body tilt change: 0.4 deg - Event duration: 0.45s - Mean acceleration: 1.04g - Peak gyroscope: 5.2 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SE13_R05.txt_1498884: - Free-fall duration: 0.000s - Impact magnitude: 1.07g - Post-impact stillness: 0.09s - Body tilt change: 7.5 deg - Event duration: 0.45s - Mean acceleration: 1.01g - Peak gyroscope: 26.4 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SE06_R01.txt_1309213: - Free-fall duration: 0.000s - Impact magnitude: 1.01g - Post-impact stillness: 0.25s - Body tilt change: 3.1 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 25.4 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SA19_R05.txt_940026: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.09s - Body tilt change: 1.5 deg - Event duration: 0.45s - Mean acceleration: 1.00g - Peak gyroscope: 9.4 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SE02_R02.txt_1215787: - Free-fall duration: 0.000s - Impact magnitude: 1.12g - Post-impact stillness: 0.33s - Body tilt change: 27.1 deg - Event duration: 0.45s - Mean acceleration: 1.02g - Peak gyroscope: 63.5 deg/s - Activity context code: D12 \u2192 ADL"
+      ],
+      "latency_ms": 13213.744751992635,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.03g\n- Post-impact stillness: 0.04s\n- Body tilt change: 1.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.01g\n- Peak gyroscope: 5.2 deg/s\n- Activity context code: D12\n- Tier-1 fall probability: 0.328",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.6635584831237793,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.6635584831237793,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.6635584831237793,
+      "rationale": "High-confidence Tier-1 fall (p=0.664 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 8.536568027921021,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.46g\n- Post-impact stillness: 0.10s\n- Body tilt change: 13.0 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.07g\n- Peak gyroscope: 44.9 deg/s\n- Activity context code: F02\n- Tier-1 fall probability: 0.664",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.3136874735355377,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.3136874735355377,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "moderate",
+      "confidence": 0.8,
+      "rationale": "The event duration, mean acceleration, peak gyroscope, and body tilt change are within the range of similar historical cases that resulted in falls (F05). The free-fall duration and impact magnitude are slightly higher than some of the cases but still fall within a reasonable range. Given the conservative approach to missed falls, the event is classified as a fall.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "moderate",
+        "reason": "Moderate fall \u2014 notify caregiver (simulated)",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F05_SA11_R04.txt_547633: - Free-fall duration: 0.065s - Impact magnitude: 2.25g - Post-impact stillness: 0.00s - Body tilt change: 8.1 deg - Event duration: 0.45s - Mean acceleration: 1.28g - Peak gyroscope: 172.5 deg/s - Activity context code: F05 \u2192 FALL",
+        "Case F05_SA11_R02.txt_547055: - Free-fall duration: 0.085s - Impact magnitude: 2.25g - Post-impact stillness: 0.02s - Body tilt change: 5.4 deg - Event duration: 0.45s - Mean acceleration: 1.25g - Peak gyroscope: 160.2 deg/s - Activity context code: F05 \u2192 FALL",
+        "Case F05_SA11_R04.txt_547638: - Free-fall duration: 0.055s - Impact magnitude: 2.38g - Post-impact stillness: 0.04s - Body tilt change: 44.8 deg - Event duration: 0.45s - Mean acceleration: 1.15g - Peak gyroscope: 172.5 deg/s - Activity context code: F05 \u2192 FALL",
+        "Case F05_SA16_R01.txt_802550: - Free-fall duration: 0.015s - Impact magnitude: 15.87g - Post-impact stillness: 0.00s - Body tilt change: 67.4 deg - Event duration: 0.45s - Mean acceleration: 2.12g - Peak gyroscope: 286.6 deg/s - Activity context code: F05 \u2192 FALL",
+        "Case F05_SA15_R04.txt_752209: - Free-fall duration: 0.080s - Impact magnitude: 2.15g - Post-impact stillness: 0.05s - Body tilt change: 17.6 deg - Event duration: 0.45s - Mean acceleration: 1.27g - Peak gyroscope: 156.1 deg/s - Activity context code: F05 \u2192 FALL"
+      ],
+      "latency_ms": 9607.350645004772,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.095s\n- Impact magnitude: 3.77g\n- Post-impact stillness: 0.00s\n- Body tilt change: 16.8 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.36g\n- Peak gyroscope: 140.5 deg/s\n- Activity context code: F05\n- Tier-1 fall probability: 0.314",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.8001103401184082,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8001103401184082,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8001103401184082,
+      "rationale": "High-confidence Tier-1 fall (p=0.800 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 9.719660971313715,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.02g\n- Post-impact stillness: 0.21s\n- Body tilt change: 0.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.00g\n- Peak gyroscope: 7.5 deg/s\n- Activity context code: F03\n- Tier-1 fall probability: 0.800",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.4051738381385803,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.4051738381385803,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.6,
+      "rationale": "The event has a longer free-fall duration (0.015s) and higher impact magnitude (1.21g) compared to most similar cases (D14_SA01_R03.txt_21654, D14_SA15_R03.txt_737707, D14_SE11_R03.txt_1452836, D14_SE11_R01.txt_1452345, D14_SA09_R04.txt_431139) which were classified as ADL. However, the post-impact stillness (0.19s) and body tilt change (31.3 deg) are within the range of these cases. The event duration (0.45s), mean acceleration (1.00g), peak gyroscope (117.0 deg/s), and activity context code (D14) are similar to most cases. Given the conservative approach, this event is classified as a fall.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D14_SA01_R03.txt_21654: - Free-fall duration: 0.000s - Impact magnitude: 1.09g - Post-impact stillness: 0.14s - Body tilt change: 66.5 deg - Event duration: 0.45s - Mean acceleration: 0.88g - Peak gyroscope: 167.9 deg/s - Activity context code: D14 \u2192 ADL",
+        "Case D14_SA15_R03.txt_737707: - Free-fall duration: 0.000s - Impact magnitude: 1.08g - Post-impact stillness: 0.14s - Body tilt change: 13.1 deg - Event duration: 0.45s - Mean acceleration: 1.04g - Peak gyroscope: 55.4 deg/s - Activity context code: D14 \u2192 ADL",
+        "Case D14_SE11_R03.txt_1452836: - Free-fall duration: 0.000s - Impact magnitude: 1.61g - Post-impact stillness: 0.21s - Body tilt change: 3.5 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 135.4 deg/s - Activity context code: D14 \u2192 ADL",
+        "Case D14_SE11_R01.txt_1452345: - Free-fall duration: 0.000s - Impact magnitude: 1.11g - Post-impact stillness: 0.14s - Body tilt change: 12.1 deg - Event duration: 0.45s - Mean acceleration: 0.99g - Peak gyroscope: 58.6 deg/s - Activity context code: D14 \u2192 ADL",
+        "Case D14_SA09_R04.txt_431139: - Free-fall duration: 0.000s - Impact magnitude: 1.14g - Post-impact stillness: 0.28s - Body tilt change: 2.9 deg - Event duration: 0.45s - Mean acceleration: 1.01g - Peak gyroscope: 26.7 deg/s - Activity context code: D14 \u2192 ADL"
+      ],
+      "latency_ms": 18533.236410003155,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.015s\n- Impact magnitude: 1.21g\n- Post-impact stillness: 0.19s\n- Body tilt change: 31.3 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.00g\n- Peak gyroscope: 117.0 deg/s\n- Activity context code: D14\n- Tier-1 fall probability: 0.405",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.8355059027671814,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8355059027671814,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8355059027671814,
+      "rationale": "High-confidence Tier-1 fall (p=0.836 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 15.53286297712475,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.15g\n- Post-impact stillness: 0.14s\n- Body tilt change: 29.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.11g\n- Peak gyroscope: 80.7 deg/s\n- Activity context code: D16\n- Tier-1 fall probability: 0.836",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.5310719013214111,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.5310719013214111,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8,
+      "rationale": "The event has a high Tier-1 fall probability (0.531), and the impact magnitude, mean acceleration, and peak gyroscope values are similar to cases F14_SA13_R01.txt_662241, F15_SA03_R04.txt_153142, and F14_SA20_R02.txt_1018666 which were classified as falls. The body tilt change is low, but stillness and event duration are within the range of these cases.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F14_SA13_R01.txt_662241: - Free-fall duration: 0.000s - Impact magnitude: 0.95g - Post-impact stillness: 0.08s - Body tilt change: 1.5 deg - Event duration: 0.45s - Mean acceleration: 0.93g - Peak gyroscope: 5.9 deg/s - Activity context code: F14 \u2192 FALL",
+        "Case F15_SA03_R04.txt_153142: - Free-fall duration: 0.000s - Impact magnitude: 0.95g - Post-impact stillness: 0.26s - Body tilt change: 0.6 deg - Event duration: 0.45s - Mean acceleration: 0.92g - Peak gyroscope: 4.4 deg/s - Activity context code: F15 \u2192 FALL",
+        "Case F14_SA20_R02.txt_1018666: - Free-fall duration: 0.000s - Impact magnitude: 0.97g - Post-impact stillness: 0.09s - Body tilt change: 0.6 deg - Event duration: 0.45s - Mean acceleration: 0.94g - Peak gyroscope: 5.6 deg/s - Activity context code: F14 \u2192 FALL",
+        "Case F15_SA13_R05.txt_664840: - Free-fall duration: 0.000s - Impact magnitude: 1.31g - Post-impact stillness: 0.05s - Body tilt change: 37.9 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 96.5 deg/s - Activity context code: F15 \u2192 FALL",
+        "Case F13_SA03_R03.txt_149829: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.09s - Body tilt change: 49.6 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 141.4 deg/s - Activity context code: F13 \u2192 FALL"
+      ],
+      "latency_ms": 12611.928998026997,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.97g\n- Post-impact stillness: 0.33s\n- Body tilt change: 0.0 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.95g\n- Peak gyroscope: 4.7 deg/s\n- Activity context code: F13\n- Tier-1 fall probability: 0.531",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.2801896929740906,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.2801896929740906,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "Free-fall duration and impact magnitude are similar to historical ADL cases (D05_SA03_R01.txt_110445, D05_SA05_R03.txt_214018, D05_SA02_R01.txt_59483). However, the body tilt change and peak gyroscope values are higher than those cases, but still within the range of ADL events. The event duration and mean acceleration are also similar to both fall and ADL cases. Given the conservative approach on missed falls, this event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D06_SA15_R05.txt_728699: - Free-fall duration: 0.000s - Impact magnitude: 1.15g - Post-impact stillness: 0.07s - Body tilt change: 9.6 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 51.2 deg/s - Activity context code: D06 \u2192 ADL",
+        "Case D05_SE04_R01.txt_1253071: - Free-fall duration: 0.000s - Impact magnitude: 1.60g - Post-impact stillness: 0.06s - Body tilt change: 21.7 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 44.3 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SA03_R01.txt_110445: - Free-fall duration: 0.000s - Impact magnitude: 1.49g - Post-impact stillness: 0.06s - Body tilt change: 13.4 deg - Event duration: 0.45s - Mean acceleration: 1.17g - Peak gyroscope: 53.1 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SA05_R03.txt_214018: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.05s - Body tilt change: 6.8 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 53.4 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SA02_R01.txt_59483: - Free-fall duration: 0.000s - Impact magnitude: 1.99g - Post-impact stillness: 0.06s - Body tilt change: 13.3 deg - Event duration: 0.45s - Mean acceleration: 1.14g - Peak gyroscope: 54.6 deg/s - Activity context code: D05 \u2192 ADL"
+      ],
+      "latency_ms": 12493.87610598933,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.23g\n- Post-impact stillness: 0.07s\n- Body tilt change: 13.3 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.98g\n- Peak gyroscope: 47.9 deg/s\n- Activity context code: D06\n- Tier-1 fall probability: 0.280",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.08286473900079727,
+      "gate": {
+        "route": "adl",
+        "p_fall": 0.08286473900079727,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9171352609992027,
+      "rationale": "High-confidence Tier-1 ADL (p=0.083 <= 0.15526315789473683).",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 11.319929035380483,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.065s\n- Impact magnitude: 1.86g\n- Post-impact stillness: 0.00s\n- Body tilt change: 10.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.06g\n- Peak gyroscope: 123.9 deg/s\n- Activity context code: D02\n- Tier-1 fall probability: 0.083",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.9252040982246399,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.9252040982246399,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9252040982246399,
+      "rationale": "High-confidence Tier-1 fall (p=0.925 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 9.131534025073051,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.88g\n- Post-impact stillness: 0.32s\n- Body tilt change: 0.9 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.86g\n- Peak gyroscope: 13.2 deg/s\n- Activity context code: F07\n- Tier-1 fall probability: 0.925",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.21637192368507385,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.21637192368507385,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "The event duration, free-fall duration, impact magnitude, and body tilt change are similar to historical cases labeled as ADL. However, the peak gyroscope value is higher than most of the similar cases, which could suggest a near-fall or stumble. Given the conservative approach on missed falls, this event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D05_SA05_R03.txt_214018: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.05s - Body tilt change: 6.8 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 53.4 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SE06_R02.txt_1299219: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.01s - Body tilt change: 1.5 deg - Event duration: 0.45s - Mean acceleration: 0.91g - Peak gyroscope: 26.4 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SE04_R01.txt_1253071: - Free-fall duration: 0.000s - Impact magnitude: 1.60g - Post-impact stillness: 0.06s - Body tilt change: 21.7 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 44.3 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SA06_R04.txt_265516: - Free-fall duration: 0.000s - Impact magnitude: 1.26g - Post-impact stillness: 0.01s - Body tilt change: 5.7 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 39.4 deg/s - Activity context code: D05 \u2192 ADL",
+        "Case D05_SE07_R04.txt_1351442: - Free-fall duration: 0.000s - Impact magnitude: 1.08g - Post-impact stillness: 0.03s - Body tilt change: 0.9 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 5.0 deg/s - Activity context code: D05 \u2192 ADL"
+      ],
+      "latency_ms": 9255.643947981298,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.04g\n- Post-impact stillness: 0.06s\n- Body tilt change: 0.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.01g\n- Peak gyroscope: 5.2 deg/s\n- Activity context code: D05\n- Tier-1 fall probability: 0.216",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.25385239720344543,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.25385239720344543,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "Free-fall duration and impact magnitude are similar to previous ADL cases (D18_SA18_R02.txt_896486, D18_SA16_R02.txt_794661, D18_SA11_R04.txt_539383, D18_SA05_R01.txt_231685, D18_SA07_R05.txt_335012). However, the post-impact stillness and body tilt change are slightly higher than most of these cases. Given the conservative approach to missed falls, the event is classified as ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D18_SA18_R02.txt_896486: - Free-fall duration: 0.000s - Impact magnitude: 1.92g - Post-impact stillness: 0.09s - Body tilt change: 30.1 deg - Event duration: 0.45s - Mean acceleration: 1.15g - Peak gyroscope: 158.4 deg/s - Activity context code: D18 \u2192 ADL",
+        "Case D18_SA16_R02.txt_794661: - Free-fall duration: 0.000s - Impact magnitude: 1.75g - Post-impact stillness: 0.09s - Body tilt change: 31.6 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 126.2 deg/s - Activity context code: D18 \u2192 ADL",
+        "Case D18_SA11_R04.txt_539383: - Free-fall duration: 0.000s - Impact magnitude: 1.36g - Post-impact stillness: 0.22s - Body tilt change: 21.4 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 56.2 deg/s - Activity context code: D18 \u2192 ADL",
+        "Case D18_SA05_R01.txt_231685: - Free-fall duration: 0.000s - Impact magnitude: 1.51g - Post-impact stillness: 0.32s - Body tilt change: 21.3 deg - Event duration: 0.45s - Mean acceleration: 0.95g - Peak gyroscope: 59.2 deg/s - Activity context code: D18 \u2192 ADL",
+        "Case D18_SA07_R05.txt_335012: - Free-fall duration: 0.000s - Impact magnitude: 1.29g - Post-impact stillness: 0.35s - Body tilt change: 17.1 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 51.5 deg/s - Activity context code: D18 \u2192 ADL"
+      ],
+      "latency_ms": 13700.540161924437,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.40g\n- Post-impact stillness: 0.32s\n- Body tilt change: 5.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.03g\n- Peak gyroscope: 60.3 deg/s\n- Activity context code: D18\n- Tier-1 fall probability: 0.254",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.904790997505188,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.904790997505188,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.904790997505188,
+      "rationale": "High-confidence Tier-1 fall (p=0.905 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 13.357503921724856,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.01g\n- Post-impact stillness: 0.24s\n- Body tilt change: 0.7 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.99g\n- Peak gyroscope: 4.5 deg/s\n- Activity context code: F08\n- Tier-1 fall probability: 0.905",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.9512794017791748,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.9512794017791748,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9512794017791748,
+      "rationale": "High-confidence Tier-1 fall (p=0.951 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 6.102488958276808,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.05g\n- Post-impact stillness: 0.18s\n- Body tilt change: 0.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.03g\n- Peak gyroscope: 2.6 deg/s\n- Activity context code: F12\n- Tier-1 fall probability: 0.951",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.8116709589958191,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8116709589958191,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8116709589958191,
+      "rationale": "High-confidence Tier-1 fall (p=0.812 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 6.4860740676522255,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.96g\n- Post-impact stillness: 0.02s\n- Body tilt change: 1.0 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.93g\n- Peak gyroscope: 8.3 deg/s\n- Activity context code: F11\n- Tier-1 fall probability: 0.812",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.2822053134441376,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.2822053134441376,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "Free-fall duration and impact magnitude are similar to ADL cases (D17_SE15_R02.txt_1547916, D17_SA21_R05.txt_1047790), while post-impact stillness is slightly longer than most ADL cases but shorter than fall cases (D17_SE02_R02.txt_1220655, D17_SA01_R05.txt_26648). Body tilt change and event duration are within the range of both ADL and fall cases. Mean acceleration is also similar to both ADL and fall cases. Peak gyroscope is lower than most fall cases but higher than some ADL cases. Given the conservative approach, the event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D17_SE15_R02.txt_1547916: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.06s - Body tilt change: 7.6 deg - Event duration: 0.45s - Mean acceleration: 1.02g - Peak gyroscope: 75.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SE02_R02.txt_1220655: - Free-fall duration: 0.000s - Impact magnitude: 1.40g - Post-impact stillness: 0.01s - Body tilt change: 15.1 deg - Event duration: 0.45s - Mean acceleration: 1.09g - Peak gyroscope: 95.2 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA01_R05.txt_26648: - Free-fall duration: 0.000s - Impact magnitude: 1.08g - Post-impact stillness: 0.33s - Body tilt change: 17.9 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 129.3 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA21_R05.txt_1047790: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.06s - Body tilt change: 8.3 deg - Event duration: 0.45s - Mean acceleration: 0.96g - Peak gyroscope: 21.2 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA03_R03.txt_127887: - Free-fall duration: 0.000s - Impact magnitude: 1.35g - Post-impact stillness: 0.07s - Body tilt change: 6.7 deg - Event duration: 0.45s - Mean acceleration: 1.09g - Peak gyroscope: 57.5 deg/s - Activity context code: D17 \u2192 ADL"
+      ],
+      "latency_ms": 14978.49278501235,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.04g\n- Post-impact stillness: 0.07s\n- Body tilt change: 0.9 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.02g\n- Peak gyroscope: 5.1 deg/s\n- Activity context code: D17\n- Tier-1 fall probability: 0.282",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.36181336641311646,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.36181336641311646,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "Free-fall duration and impact magnitude are similar to historical ADL cases (D17_SA06_R05.txt_282600, D17_SE07_R04.txt_1364276, D17_SE15_R02.txt_1547916, D17_SE06_R01.txt_1315043). Post-impact stillness and body tilt change are within the range of ADL cases. Mean acceleration is slightly higher than some ADL cases but still within acceptable limits for an ADL event.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D17_SA06_R05.txt_282600: - Free-fall duration: 0.000s - Impact magnitude: 1.17g - Post-impact stillness: 0.18s - Body tilt change: 22.1 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 109.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA01_R05.txt_26648: - Free-fall duration: 0.000s - Impact magnitude: 1.08g - Post-impact stillness: 0.33s - Body tilt change: 17.9 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 129.3 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SE07_R04.txt_1364276: - Free-fall duration: 0.000s - Impact magnitude: 1.14g - Post-impact stillness: 0.08s - Body tilt change: 19.2 deg - Event duration: 0.45s - Mean acceleration: 0.93g - Peak gyroscope: 65.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SE15_R02.txt_1547916: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.06s - Body tilt change: 7.6 deg - Event duration: 0.45s - Mean acceleration: 1.02g - Peak gyroscope: 75.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SE06_R01.txt_1315043: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.17s - Body tilt change: 15.3 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 88.4 deg/s - Activity context code: D17 \u2192 ADL"
+      ],
+      "latency_ms": 11927.667371928692,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.04g\n- Post-impact stillness: 0.21s\n- Body tilt change: 7.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.99g\n- Peak gyroscope: 17.2 deg/s\n- Activity context code: D17\n- Tier-1 fall probability: 0.362",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.958369255065918,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.958369255065918,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.958369255065918,
+      "rationale": "High-confidence Tier-1 fall (p=0.958 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 11.11722202040255,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.06g\n- Post-impact stillness: 0.33s\n- Body tilt change: 0.3 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.04g\n- Peak gyroscope: 4.8 deg/s\n- Activity context code: F04\n- Tier-1 fall probability: 0.958",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.739640474319458,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.739640474319458,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.739640474319458,
+      "rationale": "High-confidence Tier-1 fall (p=0.740 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 7.100532995536923,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.02g\n- Post-impact stillness: 0.32s\n- Body tilt change: 1.0 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.00g\n- Peak gyroscope: 7.7 deg/s\n- Activity context code: D12\n- Tier-1 fall probability: 0.740",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.3476708233356476,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.3476708233356476,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9,
+      "rationale": "The event shares similar characteristics with multiple historical falls (Case F02_SA16_R04.txt_798960, Case F01_SE06_R05.txt_1321010, Case F01_SA06_R03.txt_285721, Case F02_SA13_R01.txt_644741, Case F01_SA06_R05.txt_286362) in terms of free-fall duration, impact magnitude, event duration, mean acceleration, and activity context code. The body tilt change is slightly higher than the average but still within a reasonable range for a fall.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F02_SA16_R04.txt_798960: - Free-fall duration: 0.000s - Impact magnitude: 1.55g - Post-impact stillness: 0.02s - Body tilt change: 16.2 deg - Event duration: 0.45s - Mean acceleration: 1.11g - Peak gyroscope: 44.4 deg/s - Activity context code: F02 \u2192 FALL",
+        "Case F01_SE06_R05.txt_1321010: - Free-fall duration: 0.000s - Impact magnitude: 1.56g - Post-impact stillness: 0.08s - Body tilt change: 7.3 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 45.1 deg/s - Activity context code: F01 \u2192 FALL",
+        "Case F01_SA06_R03.txt_285721: - Free-fall duration: 0.000s - Impact magnitude: 1.44g - Post-impact stillness: 0.30s - Body tilt change: 15.0 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 34.8 deg/s - Activity context code: F01 \u2192 FALL",
+        "Case F02_SA13_R01.txt_644741: - Free-fall duration: 0.000s - Impact magnitude: 1.30g - Post-impact stillness: 0.15s - Body tilt change: 14.6 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 85.3 deg/s - Activity context code: F02 \u2192 FALL",
+        "Case F01_SA06_R05.txt_286362: - Free-fall duration: 0.000s - Impact magnitude: 1.45g - Post-impact stillness: 0.08s - Body tilt change: 20.5 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 42.7 deg/s - Activity context code: F01 \u2192 FALL"
+      ],
+      "latency_ms": 14251.310438034125,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.03g\n- Post-impact stillness: 0.00s\n- Body tilt change: 3.8 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.98g\n- Peak gyroscope: 15.3 deg/s\n- Activity context code: F02\n- Tier-1 fall probability: 0.348",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.4702615439891815,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.4702615439891815,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.8,
+      "rationale": "The event has a short free-fall duration (0.000s), moderate impact magnitude (1.02g), brief post-impact stillness (0.03s), and a significant body tilt change (6.8 deg). However, the similar cases all have lower body tilt changes and higher peak gyroscope values, suggesting they were ADL events. Given the conservative approach to missed falls, this event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D12_SE02_R02.txt_1215787: - Free-fall duration: 0.000s - Impact magnitude: 1.12g - Post-impact stillness: 0.33s - Body tilt change: 27.1 deg - Event duration: 0.45s - Mean acceleration: 1.02g - Peak gyroscope: 63.5 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SA13_R03.txt_633070: - Free-fall duration: 0.000s - Impact magnitude: 1.01g - Post-impact stillness: 0.12s - Body tilt change: 9.4 deg - Event duration: 0.45s - Mean acceleration: 0.95g - Peak gyroscope: 36.5 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SA10_R05.txt_480185: - Free-fall duration: 0.000s - Impact magnitude: 1.13g - Post-impact stillness: 0.28s - Body tilt change: 20.5 deg - Event duration: 0.45s - Mean acceleration: 1.06g - Peak gyroscope: 60.4 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SE04_R04.txt_1262071: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.00s - Body tilt change: 14.8 deg - Event duration: 0.45s - Mean acceleration: 0.97g - Peak gyroscope: 58.4 deg/s - Activity context code: D12 \u2192 ADL",
+        "Case D12_SA01_R03.txt_19230: - Free-fall duration: 0.000s - Impact magnitude: 1.13g - Post-impact stillness: 0.35s - Body tilt change: 6.8 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 34.8 deg/s - Activity context code: D12 \u2192 ADL"
+      ],
+      "latency_ms": 10365.197408013046,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.02g\n- Post-impact stillness: 0.03s\n- Body tilt change: 6.8 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.97g\n- Peak gyroscope: 27.6 deg/s\n- Activity context code: D12\n- Tier-1 fall probability: 0.470",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.873867392539978,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.873867392539978,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.873867392539978,
+      "rationale": "High-confidence Tier-1 fall (p=0.874 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 12.67932599876076,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 2.01g\n- Post-impact stillness: 0.00s\n- Body tilt change: 8.5 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.03g\n- Peak gyroscope: 62.0 deg/s\n- Activity context code: F01\n- Tier-1 fall probability: 0.874",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.7041594386100769,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.7041594386100769,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.7041594386100769,
+      "rationale": "High-confidence Tier-1 fall (p=0.704 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 7.544573047198355,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.62g\n- Post-impact stillness: 0.34s\n- Body tilt change: 22.5 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.00g\n- Peak gyroscope: 60.7 deg/s\n- Activity context code: F01\n- Tier-1 fall probability: 0.704",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.5462919473648071,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.5462919473648071,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8,
+      "rationale": "The event shares similar characteristics with multiple historical falls (Case F07_SA18_R05.txt_908432, Case F02_SA16_R04.txt_798960, Case F02_SA16_R01.txt_798159, Case F02_SA01_R02.txt_31104, Case F02_SA07_R03.txt_338279) in terms of free-fall duration, impact magnitude, body tilt change, event duration, mean acceleration, and activity context code (F02). The peak gyroscope value is higher than some historical falls but still within a range that suggests a fall. Therefore, the event is classified as a fall with moderate severity.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F07_SA18_R05.txt_908432: - Free-fall duration: 0.000s - Impact magnitude: 1.52g - Post-impact stillness: 0.20s - Body tilt change: 11.2 deg - Event duration: 0.45s - Mean acceleration: 1.07g - Peak gyroscope: 80.6 deg/s - Activity context code: F07 \u2192 FALL",
+        "Case F02_SA16_R04.txt_798960: - Free-fall duration: 0.000s - Impact magnitude: 1.55g - Post-impact stillness: 0.02s - Body tilt change: 16.2 deg - Event duration: 0.45s - Mean acceleration: 1.11g - Peak gyroscope: 44.4 deg/s - Activity context code: F02 \u2192 FALL",
+        "Case F02_SA16_R01.txt_798159: - Free-fall duration: 0.000s - Impact magnitude: 1.35g - Post-impact stillness: 0.03s - Body tilt change: 44.2 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 54.6 deg/s - Activity context code: F02 \u2192 FALL",
+        "Case F02_SA01_R02.txt_31104: - Free-fall duration: 0.000s - Impact magnitude: 1.67g - Post-impact stillness: 0.29s - Body tilt change: 20.8 deg - Event duration: 0.45s - Mean acceleration: 1.03g - Peak gyroscope: 71.5 deg/s - Activity context code: F02 \u2192 FALL",
+        "Case F02_SA07_R03.txt_338279: - Free-fall duration: 0.000s - Impact magnitude: 1.51g - Post-impact stillness: 0.07s - Body tilt change: 11.8 deg - Event duration: 0.45s - Mean acceleration: 1.10g - Peak gyroscope: 55.5 deg/s - Activity context code: F02 \u2192 FALL"
+      ],
+      "latency_ms": 15721.204109955579,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.92g\n- Post-impact stillness: 0.00s\n- Body tilt change: 10.6 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.07g\n- Peak gyroscope: 70.1 deg/s\n- Activity context code: F02\n- Tier-1 fall probability: 0.546",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.9039995670318604,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.9039995670318604,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9039995670318604,
+      "rationale": "High-confidence Tier-1 fall (p=0.904 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 11.79769600275904,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.005s\n- Impact magnitude: 1.56g\n- Post-impact stillness: 0.28s\n- Body tilt change: 26.9 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.04g\n- Peak gyroscope: 112.5 deg/s\n- Activity context code: F04\n- Tier-1 fall probability: 0.904",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.9438759684562683,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.9438759684562683,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9438759684562683,
+      "rationale": "High-confidence Tier-1 fall (p=0.944 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 4.529366036877036,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 0.86g\n- Post-impact stillness: 0.00s\n- Body tilt change: 1.1 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.84g\n- Peak gyroscope: 2.5 deg/s\n- Activity context code: F14\n- Tier-1 fall probability: 0.944",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.8871541023254395,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.8871541023254395,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8871541023254395,
+      "rationale": "High-confidence Tier-1 fall (p=0.887 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 4.682300961576402,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.30g\n- Post-impact stillness: 0.10s\n- Body tilt change: 13.1 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.04g\n- Peak gyroscope: 67.2 deg/s\n- Activity context code: D14\n- Tier-1 fall probability: 0.887",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.6324256062507629,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.6324256062507629,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.6324256062507629,
+      "rationale": "High-confidence Tier-1 fall (p=0.632 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 8.060727966949344,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.28g\n- Post-impact stillness: 0.28s\n- Body tilt change: 8.0 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.07g\n- Peak gyroscope: 44.5 deg/s\n- Activity context code: D01\n- Tier-1 fall probability: 0.632",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.09110843390226364,
+      "gate": {
+        "route": "adl",
+        "p_fall": 0.09110843390226364,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9088915660977364,
+      "rationale": "High-confidence Tier-1 ADL (p=0.091 <= 0.15526315789473683).",
+      "action": {
+        "action": "monitor",
+        "severity": "none",
+        "reason": "ADL/near-fall \u2014 enhanced monitoring",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 6.567663047462702,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.060s\n- Impact magnitude: 2.99g\n- Post-impact stillness: 0.00s\n- Body tilt change: 43.1 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.15g\n- Peak gyroscope: 114.7 deg/s\n- Activity context code: D06\n- Tier-1 fall probability: 0.091",
+      "source": "tier1"
+    },
+    {
+      "p_fall": 0.32440462708473206,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.32440462708473206,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "Free-fall duration and impact magnitude are similar to previous ADL cases (D17_SE15_R02.txt_1547916, D17_SA21_R03.txt_1046930, D17_SE07_R04.txt_1364276, D17_SA03_R03.txt_127887, D17_SA03_R05.txt_128841). However, the body tilt change and peak gyroscope values are lower than in most of these cases. Tier-1 fall probability is 0.324, which is not high enough to classify this event as a fall.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D17_SE15_R02.txt_1547916: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.06s - Body tilt change: 7.6 deg - Event duration: 0.45s - Mean acceleration: 1.02g - Peak gyroscope: 75.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA21_R03.txt_1046930: - Free-fall duration: 0.000s - Impact magnitude: 1.28g - Post-impact stillness: 0.26s - Body tilt change: 16.1 deg - Event duration: 0.45s - Mean acceleration: 1.15g - Peak gyroscope: 102.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SE07_R04.txt_1364276: - Free-fall duration: 0.000s - Impact magnitude: 1.14g - Post-impact stillness: 0.08s - Body tilt change: 19.2 deg - Event duration: 0.45s - Mean acceleration: 0.93g - Peak gyroscope: 65.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA03_R03.txt_127887: - Free-fall duration: 0.000s - Impact magnitude: 1.35g - Post-impact stillness: 0.07s - Body tilt change: 6.7 deg - Event duration: 0.45s - Mean acceleration: 1.09g - Peak gyroscope: 57.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA03_R05.txt_128841: - Free-fall duration: 0.000s - Impact magnitude: 1.17g - Post-impact stillness: 0.00s - Body tilt change: 3.5 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 40.6 deg/s - Activity context code: D17 \u2192 ADL"
+      ],
+      "latency_ms": 14548.416709993035,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.28g\n- Post-impact stillness: 0.01s\n- Body tilt change: 4.5 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.00g\n- Peak gyroscope: 70.6 deg/s\n- Activity context code: D17\n- Tier-1 fall probability: 0.324",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.45023414492607117,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.45023414492607117,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.8,
+      "rationale": "The event has a high Tier-1 fall probability (0.450), and the impact magnitude, mean acceleration, peak gyroscope, and body tilt change are within the range of similar historical cases that resulted in falls. The free-fall duration is zero as expected in falls, but the post-impact stillness is shorter than in most of the similar cases. However, given the conservative approach to missed falls, we classify this event as a fall.",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case F14_SA13_R01.txt_662241: - Free-fall duration: 0.000s - Impact magnitude: 0.95g - Post-impact stillness: 0.08s - Body tilt change: 1.5 deg - Event duration: 0.45s - Mean acceleration: 0.93g - Peak gyroscope: 5.9 deg/s - Activity context code: F14 \u2192 FALL",
+        "Case F13_SA03_R03.txt_149829: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.09s - Body tilt change: 49.6 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 141.4 deg/s - Activity context code: F13 \u2192 FALL",
+        "Case F14_SE06_R03.txt_1339374: - Free-fall duration: 0.000s - Impact magnitude: 1.05g - Post-impact stillness: 0.02s - Body tilt change: 9.0 deg - Event duration: 0.45s - Mean acceleration: 0.96g - Peak gyroscope: 26.4 deg/s - Activity context code: F14 \u2192 FALL",
+        "Case F15_SA13_R05.txt_664840: - Free-fall duration: 0.000s - Impact magnitude: 1.31g - Post-impact stillness: 0.05s - Body tilt change: 37.9 deg - Event duration: 0.45s - Mean acceleration: 1.05g - Peak gyroscope: 96.5 deg/s - Activity context code: F15 \u2192 FALL",
+        "Case F15_SA13_R03.txt_664207: - Free-fall duration: 0.000s - Impact magnitude: 0.92g - Post-impact stillness: 0.07s - Body tilt change: 1.7 deg - Event duration: 0.45s - Mean acceleration: 0.90g - Peak gyroscope: 6.5 deg/s - Activity context code: F15 \u2192 FALL"
+      ],
+      "latency_ms": 10073.01331392955,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.07g\n- Post-impact stillness: 0.00s\n- Body tilt change: 6.9 deg\n- Event duration: 0.45s\n- Mean acceleration: 0.96g\n- Peak gyroscope: 26.4 deg/s\n- Activity context code: F10\n- Tier-1 fall probability: 0.450",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.31312236189842224,
+      "gate": {
+        "route": "ambiguous",
+        "p_fall": 0.31312236189842224,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "adl",
+      "severity": "none",
+      "confidence": 0.9,
+      "rationale": "The event duration, free-fall duration, impact magnitude, and body tilt change are similar to historical cases labeled as ADL. The peak gyroscope value is higher than some of the historical cases but still within a range that suggests an ADL. Given the conservative approach, the event is classified as an ADL.",
+      "action": {
+        "action": "log",
+        "severity": "none",
+        "reason": "ADL \u2014 log only",
+        "simulated": true
+      },
+      "retrieved": [
+        "Case D17_SE15_R02.txt_1547916: - Free-fall duration: 0.000s - Impact magnitude: 1.19g - Post-impact stillness: 0.06s - Body tilt change: 7.6 deg - Event duration: 0.45s - Mean acceleration: 1.02g - Peak gyroscope: 75.5 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SE02_R02.txt_1220655: - Free-fall duration: 0.000s - Impact magnitude: 1.40g - Post-impact stillness: 0.01s - Body tilt change: 15.1 deg - Event duration: 0.45s - Mean acceleration: 1.09g - Peak gyroscope: 95.2 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA21_R05.txt_1047790: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.06s - Body tilt change: 8.3 deg - Event duration: 0.45s - Mean acceleration: 0.96g - Peak gyroscope: 21.2 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA01_R05.txt_26648: - Free-fall duration: 0.000s - Impact magnitude: 1.08g - Post-impact stillness: 0.33s - Body tilt change: 17.9 deg - Event duration: 0.45s - Mean acceleration: 0.98g - Peak gyroscope: 129.3 deg/s - Activity context code: D17 \u2192 ADL",
+        "Case D17_SA14_R05.txt_691754: - Free-fall duration: 0.000s - Impact magnitude: 1.06g - Post-impact stillness: 0.16s - Body tilt change: 0.5 deg - Event duration: 0.45s - Mean acceleration: 1.04g - Peak gyroscope: 4.5 deg/s - Activity context code: D17 \u2192 ADL"
+      ],
+      "latency_ms": 8812.807756010443,
+      "escalated": true,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.03g\n- Post-impact stillness: 0.00s\n- Body tilt change: 0.4 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.01g\n- Peak gyroscope: 4.8 deg/s\n- Activity context code: D17\n- Tier-1 fall probability: 0.313",
+      "source": "ollama"
+    },
+    {
+      "p_fall": 0.9222217202186584,
+      "gate": {
+        "route": "fall",
+        "p_fall": 0.9222217202186584,
+        "tau_low": 0.15526315789473683,
+        "tau_high": 0.55
+      },
+      "prediction": "fall",
+      "severity": "mild",
+      "confidence": 0.9222217202186584,
+      "rationale": "High-confidence Tier-1 fall (p=0.922 >= 0.55).",
+      "action": {
+        "action": "notify_caregiver",
+        "severity": "mild",
+        "reason": "Escalated via LLM suggestion to notify_caregiver",
+        "simulated": true
+      },
+      "retrieved": [],
+      "latency_ms": 11.700261035002768,
+      "escalated": false,
+      "evidence_text": "- Free-fall duration: 0.000s\n- Impact magnitude: 1.31g\n- Post-impact stillness: 0.12s\n- Body tilt change: 40.2 deg\n- Event duration: 0.45s\n- Mean acceleration: 1.13g\n- Peak gyroscope: 128.1 deg/s\n- Activity context code: F08\n- Tier-1 fall probability: 0.922",
+      "source": "tier1"
+    }
+  ],
+  "notes": "Primary paper ablation ladder is in ablation_fold*.json. This end-to-end run uses agentic_max_samples and the selected LLM backend; ollama \u2248 gate_knn_llm, heuristic \u2248 gate_knn."
+}

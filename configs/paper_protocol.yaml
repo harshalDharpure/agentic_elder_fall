@@ -1,0 +1,68 @@
+# Locked Q1 paper evaluation protocol (single source of truth)
+
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+agentic_config: configs/agentic.yaml
+backbones_config: configs/backbones.yaml
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15  # subject-held-out within train fold
+
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+  patience: 10
+  mixup_alpha: 0.1
+  amp: true
+  # Caps keep wall-clock feasible on one A100; document in paper.
+  # Set to null for full-data appendix runs.
+  max_train: 40000
+  max_val: 5000
+  use_pos_weight: true
+  decision_threshold_mode: cost  # cost | youden | f1
+
+eval:
+  max_test: 4000
+  agentic_max_samples: 1000
+  llm_max_cases: 150
+  min_near_fall_per_code: 80  # force D18/D19 into capped test slices
+  calibrate_gate: true
+  max_cal: 2000
+  required_activities: [D18, D19]
+
+agentic:
+  top_n: 3
+  primary_backbone: cnn_lstm_attn
+  # End-to-end agentic_eval should match ablation gate_knn_llm (ollama).
+  # Paired LLM backend comparison remains in run_llm_compare.py.
+  backend: ollama
+  llm_backends: [heuristic, "mistral:latest", "qwen2.5-coder:7b-instruct"]
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results
+  checkpoint_dir: checkpoints/backbones
+  memory_dir: data/memory
+
+models:
+  - cnn1d
+  - lstm
+  - cnn_lstm
+  - cnn_lstm_attn
+  - tcn
+  - modern_tcn
+  - tsmixer
+  - patchtst
+  - transformer
+
+latency:
+  warmup: 10
+  repeats: 50

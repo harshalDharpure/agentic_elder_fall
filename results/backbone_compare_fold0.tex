@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Backbone zoo (detector-only, SisFall)}
+\begin{tabular}{lcccccccccccccc}
+\toprule
+Method & accuracy & f1 & fn & fp & latency_ms & mode & n & params & precision & recall & sensitivity & specificity & tn & tp \\
+\midrule
+cnn1d & 0.826 & 0.836 & 220 & 477 & 0.358 & detector & 4000 & 43330 & 0.789 & 0.890 & 0.890 & 0.761 & 1523 & 1780 \\
+lstm & 0.795 & 0.809 & 268 & 550 & 1.654 & detector & 4000 & 201986 & 0.759 & 0.866 & 0.866 & 0.725 & 1450 & 1732 \\
+cnn_lstm & 0.808 & 0.829 & 131 & 638 & 0.920 & detector & 4000 & 86914 & 0.746 & 0.934 & 0.934 & 0.681 & 1362 & 1869 \\
+cnn_lstm_attn & 0.829 & 0.842 & 180 & 503 & 3.731 & detector & 4000 & 564930 & 0.783 & 0.910 & 0.910 & 0.748 & 1497 & 1820 \\
+tcn & 0.829 & 0.842 & 175 & 511 & 4.484 & detector & 4000 & 89282 & 0.781 & 0.912 & 0.912 & 0.744 & 1489 & 1825 \\
+modern_tcn & 0.821 & 0.830 & 255 & 460 & 2.522 & detector & 4000 & 30314 & 0.791 & 0.873 & 0.872 & 0.770 & 1540 & 1745 \\
+tsmixer & 0.818 & 0.828 & 242 & 487 & 1.343 & detector & 4000 & 224562 & 0.783 & 0.879 & 0.879 & 0.756 & 1513 & 1758 \\
+patchtst & 0.781 & 0.795 & 303 & 571 & 0.946 & detector & 4000 & 150786 & 0.748 & 0.849 & 0.848 & 0.714 & 1429 & 1697 \\
+transformer & 0.796 & 0.806 & 301 & 516 & 1.330 & detector & 4000 & 158722 & 0.767 & 0.850 & 0.849 & 0.742 & 1484 & 1699 \\
+\bottomrule
+\end{tabular}
+\end{table}

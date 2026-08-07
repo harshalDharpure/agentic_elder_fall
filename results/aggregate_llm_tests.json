@@ -1,0 +1,65 @@
+[
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.9385742832279508,
+    "std_delta": 0.043282613417667176,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.8998742942660801,
+      0.9687267229719033
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -956.8,
+    "std_delta": 42.891724143475514,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -988.8399999999999,
+      -924.8
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -6378.666666666666,
+    "std_delta": 285.94482762316983,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -6592.266666666666,
+      -6165.333333333334
+    ]
+  }
+]

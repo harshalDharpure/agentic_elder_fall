@@ -1,0 +1,54 @@
+# Experiment suite for Q1 evaluation
+
+baselines:
+  - threshold
+  - cnn1d
+  - lstm
+  - cnn_lstm
+  - cnn_lstm_attn
+  - tcn
+  - modern_tcn
+  - tsmixer
+  - patchtst
+  - transformer
+  - agentic
+
+ablations:
+  - tier1_only
+  - gate_only
+  - gate_knn
+  - gate_llm
+  - gate_knn_llm
+  - full_with_alignment
+
+backbone_benchmark:
+  config: configs/backbones.yaml
+  tables:
+    - backbone_compare_fold0.csv
+    - backbone_agentic_fold0.tex
+
+llm_compare:
+  backends: [heuristic, "mistral:latest", "qwen2.5-coder:7b-instruct"]
+  tables:
+    - llm_compare_fold0.csv
+
+metrics:
+  standard: [accuracy, precision, recall, f1, specificity, sensitivity]
+  agentic:
+    - false_alarm_rate_ambiguous
+    - missed_fall_rate
+    - escalation_rate
+    - ambiguous_f1
+    - expected_response_cost
+    - latency_tier1_ms
+    - latency_escalated_ms
+    - ece
+  backbone:
+    - params
+    - latency_ms
+    - f1
+    - specificity
+    - recall
+
+results_dir: results
+seed: 42

@@ -1,0 +1,82 @@
+# Fair backbone zoo comparison (same data / seed / optimizer family)
+
+tier1_config: configs/tier1_sisfall.yaml
+agentic_config: configs/agentic.yaml
+
+models:
+  - cnn1d
+  - lstm
+  - cnn_lstm
+  - cnn_lstm_attn
+  - tcn
+  - modern_tcn
+  - tsmixer
+  - patchtst
+  - transformer
+
+model_kwargs:
+  tcn:
+    channels: 64
+    levels: 4
+    kernel: 3
+    dropout: 0.1
+  modern_tcn:
+    channels: 64
+    levels: 5
+    kernel: 5
+    dropout: 0.1
+  tsmixer:
+    seq_len: 90
+    d_model: 64
+    n_blocks: 4
+    dropout: 0.1
+  patchtst:
+    seq_len: 90
+    patch_len: 10
+    d_model: 64
+    n_heads: 4
+    n_layers: 3
+    dropout: 0.1
+  transformer:
+    d_model: 64
+    n_heads: 4
+    n_layers: 3
+    dropout: 0.1
+    max_len: 128
+  cnn_lstm_attn:
+    conv_channels: 32
+    branch_channels: 16
+    lstm_hidden: [256, 128]
+    attn_heads: 4
+    dropout_attn: 0.1
+    dropout_fc: 0.5
+    use_se: false
+
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+  patience: 10
+  mixup_alpha: 0.1
+  amp: true
+  max_train: 20000
+  max_val: 3000
+  max_test: 4000
+  seed: 42
+
+agentic:
+  # Wrap top-N detectors by detector-only F1
+  top_n: 3
+  max_samples: 1000
+  backend: heuristic
+  calibrate: true
+
+latency:
+  warmup: 10
+  repeats: 50
+
+results_dir: results
+checkpoint_dir: checkpoints/backbones
+fold: 0

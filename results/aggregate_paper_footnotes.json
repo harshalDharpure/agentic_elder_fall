@@ -1,0 +1,61 @@
+{
+  "guide_meeting_protocol": {
+    "primary_claim_row": "gate_knn_llm vs tier1_only",
+    "cost_metric": "cost_per_1000 (normalized; folds 0-1 n=4000, folds 2-4 n=1000 until homogenized)",
+    "folds_0_1_ablation": "full_4000 (gate_llm available for appendix)",
+    "folds_2_4_ablation": "fast_1000_no_gate_llm",
+    "agentic_eval": "use ollama for full stack; heuristic is NOT gate_knn_llm",
+    "do_not_claim": [
+      "detector F1 >= 0.90",
+      "near-fall FAR as primary win",
+      "monotonic gain from gate/kNN alone",
+      "KFall external validity"
+    ]
+  },
+  "protocol_n": {
+    "0": 1000,
+    "1": 1000,
+    "2": 1000,
+    "3": 1000,
+    "4": 1000
+  },
+  "protocol_notes": [
+    {
+      "fold": 0,
+      "protocol_tag": "fast_1000_no_gate_llm",
+      "max_test": 1000,
+      "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm",
+      "backbone": "zoo",
+      "note": "homogenized for Q1 main table; full4000 archived"
+    },
+    {
+      "fold": 1,
+      "protocol_tag": "fast_1000_no_gate_llm",
+      "max_test": 1000,
+      "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm",
+      "backbone": "zoo",
+      "note": "homogenized for Q1 main table; full4000 archived"
+    },
+    {
+      "fold": 2,
+      "protocol_tag": "fast_1000_no_gate_llm",
+      "max_test": 1000,
+      "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm",
+      "backbone": "primary_only"
+    },
+    {
+      "fold": 3,
+      "protocol_tag": "fast_1000_no_gate_llm",
+      "max_test": 1000,
+      "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm",
+      "backbone": "primary_only"
+    },
+    {
+      "fold": 4,
+      "protocol_tag": "fast_1000_no_gate_llm",
+      "max_test": 1000,
+      "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm",
+      "backbone": "primary_only"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+\begin{table*}[!t]
+\centering
+\caption{Positioning relative to Bhatti \textit{et al.} (base detector paper).}
+\label{tab:positioning}
+\begin{tabular}{lll}
+\toprule
+Aspect & Bhatti \textit{et al.}~2025~\cite{bhatti2025beyond} & This work \\
+\midrule
+Primary task & Multi-phase fall/ADL classification & Detection + uncertainty + explanation + response \\
+Backbone & CNN--LSTM--Attention & Same primary backbone + modern zoo \\
+Uncertainty & Softmax confidence only & Dual-threshold confidence gate ($\tau_{\mathrm{low}},\tau_{\mathrm{high}}$) \\
+Explainability & Attention weights & Structured biomechanical evidence + CoT JSON \\
+Case memory & None & Retrieval-augmented $k$-NN memory \\
+Response policy & None & Cost-sensitive Action Agent \\
+Primary dataset in original paper & KFall (multi-class) & SisFall binary + near-fall ADLs (D18/D19) \\
+Fair baseline in our tables & --- & \texttt{tier1\_only} (same checkpoint/folds) \\
+\bottomrule
+\end{tabular}
+\end{table*}

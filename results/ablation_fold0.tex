@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Baselines and agentic ablations (SisFall)}
+\begin{tabular}{lcccccccccccccccccccc}
+\toprule
+Method & accuracy & ambiguous_f1 & ece & escalation_rate & expected_response_cost & f1 & false_alarm_rate_ambiguous & fn & fp & latency_escalated_ms & latency_mean_ms & latency_tier1_ms & missed_fall_rate & n & precision & recall & sensitivity & specificity & tn & tp \\
+\midrule
+threshold & 0.347 &  &  &  &  & 0.067 &  & 953 & 353 &  &  &  &  &  & 0.117 & 0.047 & 0.047 & 0.647 & 647 & 47 \\
+cnn1d & 0.832 &  &  &  &  & 0.806 &  & 303 & 33 &  &  &  &  & 2000 & 0.955 & 0.697 & 0.697 & 0.967 & 967 & 697 \\
+lstm & 0.809 &  &  &  &  & 0.776 &  & 339 & 43 &  &  &  &  & 2000 & 0.939 & 0.661 & 0.661 & 0.957 & 957 & 661 \\
+cnn_lstm & 0.871 &  &  &  &  & 0.858 &  & 215 & 44 &  &  &  &  & 2000 & 0.947 & 0.785 & 0.785 & 0.956 & 956 & 785 \\
+cnn_lstm_attn & 0.702 &  &  &  &  & 0.576 &  & 595 & 2 &  &  &  &  & 2000 & 0.995 & 0.405 & 0.405 & 0.998 & 998 & 405 \\
+tier1_only & 0.702 & nan & 0.215 & 0.000 & 5952.000 & 0.576 & nan & 595 & 2 & nan & 9.862 & 9.862 & 0.595 &  & 0.995 & 0.405 & 0.405 & 0.998 & 998 & 405 \\
+gate_only & 0.702 & nan & 0.215 & 0.018 & 5952.000 & 0.576 & nan & 595 & 2 & 10.421 & 11.032 & 11.043 & 0.595 &  & 0.995 & 0.405 & 0.405 & 0.998 & 998 & 405 \\
+gate_knn & 0.697 & nan & 0.215 & 0.018 & 6051.000 & 0.566 & nan & 605 & 1 & 66.020 & 11.841 & 10.876 & 0.605 &  & 0.997 & 0.395 & 0.395 & 0.999 & 999 & 395 \\
+gate_llm & 0.712 & nan & 0.215 & 0.018 & 5733.000 & 0.597 & nan & 573 & 3 & 13178.644 & 240.905 & 10.462 & 0.573 &  & 0.993 & 0.427 & 0.427 & 0.997 & 997 & 427 \\
+gate_knn_llm & 0.713 & nan & 0.215 & 0.018 & 5731.000 & 0.598 & nan & 573 & 1 & 17377.232 & 314.429 & 10.511 & 0.573 &  & 0.998 & 0.427 & 0.427 & 0.999 & 999 & 427 \\
+\bottomrule
+\end{tabular}
+\end{table}

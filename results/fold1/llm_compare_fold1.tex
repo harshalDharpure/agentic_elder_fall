@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{LLM backend comparison on ambiguous cases}
+\begin{tabular}{lcccccccccccccc}
+\toprule
+Method & f1 & recall & specificity & precision & accuracy & missed_fall_rate & false_alarm_rate_near_fall & escalated_f1 & escalation_rate & expected_response_cost & ece & n_near_fall & n_escalated & n \\
+\midrule
+heuristic & 0.105 & 0.056 & 1.000 & 1.000 & 0.320 & 0.944 & 0.000 & 0.105 & 1.000 & 1020.000 & 0.072 & 0 & 150 & 150 \\
+mistral:latest & 0.977 & 1.000 & 0.881 & 0.956 & 0.967 & 0.000 & 0.000 & 0.977 & 1.000 & 5.000 & 0.072 & 0 & 150 & 150 \\
+qwen2.5-coder:7b-instruct & 0.874 & 1.000 & 0.262 & 0.777 & 0.793 & 0.000 & 0.000 & 0.874 & 1.000 & 31.000 & 0.072 & 0 & 150 & 150 \\
+\bottomrule
+\end{tabular}
+\end{table}

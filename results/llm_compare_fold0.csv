@@ -1,0 +1,4 @@
+accuracy,agreement_with_heuristic,ambiguous_f1,backend,ece,escalation_rate,expected_response_cost,f1,false_alarm_rate_ambiguous,fn,fp,latency_escalated_ms,latency_mean_ms,latency_tier1_ms,missed_fall_rate,model_name,n,name,precision,recall,sensitivity,specificity,tn,tp
+0.5466666666666666,,nan,heuristic,0.11066741029421484,1.0,680.0,0.0,nan,68,0,63.45736229792237,63.45736229792237,nan,1.0,heuristic,150,heuristic,0.0,0.0,0.0,0.9999999999999879,82,0
+0.9733333333333334,0.52,nan,ollama,0.11066741029421484,1.0,4.0,0.9714285714285714,nan,0,4,16915.76914904096,16915.76914904096,nan,0.0,mistral:latest,150,mistral:latest,0.9444444444444444,1.0,0.9999999999999853,0.9512195121951104,78,68
+0.64,0.18666666666666668,nan,ollama,0.11066741029421484,1.0,54.0,0.7157894736842105,nan,0,54,9508.683738044152,9508.683738044152,nan,0.0,qwen2.5-coder:7b-instruct,150,qwen2.5-coder:7b-instruct,0.5573770491803278,1.0,0.9999999999999853,0.3414634146341422,28,68

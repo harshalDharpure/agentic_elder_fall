@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{Top backbones + agentic wrapper}
+\begin{tabular}{lccccccccccccccccccccccc}
+\toprule
+Method & accuracy & ambiguous_f1 & backbone & delta_f1 & detector_f1 & ece & escalation_rate & expected_response_cost & f1 & false_alarm_rate_ambiguous & fn & fp & latency_escalated_ms & latency_mean_ms & latency_tier1_ms & missed_fall_rate & mode & precision & recall & sensitivity & specificity & tn & tp \\
+\midrule
+cnn_lstm_attn+agentic & 0.826 & nan & cnn_lstm_attn & -0.009 & 0.842 & 0.057 & 0.200 & 777.000 & 0.833 & nan & 67 & 107 & 51.132 & 17.428 & 9.002 & 0.134 & agentic & 0.802 & 0.866 & 0.866 & 0.786 & 393 & 433 \\
+tcn+agentic & 0.831 & nan & tcn & -0.012 & 0.842 & 0.079 & 0.234 & 961.000 & 0.830 & nan & 88 & 81 & 54.636 & 21.908 & 11.911 & 0.176 & agentic & 0.836 & 0.824 & 0.824 & 0.838 & 419 & 412 \\
+cnn1d+agentic & 0.831 & nan & cnn1d & -0.003 & 0.836 & 0.064 & 0.222 & 871.000 & 0.833 & nan & 78 & 91 & 51.318 & 17.243 & 7.519 & 0.156 & agentic & 0.823 & 0.844 & 0.844 & 0.818 & 409 & 422 \\
+\bottomrule
+\end{tabular}
+\end{table}

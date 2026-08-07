@@ -1,0 +1,90 @@
+\relax 
+\citation{iglesias2019wearable,nurek2020fallsurvey,sisfall2017}
+\citation{bhatti2025beyond}
+\citation{sisfall2017}
+\citation{sisfall2017}
+\citation{kfall2021}
+\citation{iglesias2019wearable}
+\citation{bhatti2025beyond}
+\citation{guo2017calibration}
+\citation{minilm2020}
+\citation{ollama,mistral2023,qwen2024}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {I-}0a}Contributions.}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}\protected@file@percent }
+\newlabel{sec:related}{{II}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Wearable Fall Detection}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Uncertainty and Selective Prediction}{1}\protected@file@percent }
+\citation{bhatti2025beyond}
+\citation{iglesias2023modern}
+\citation{tsmixer2023}
+\citation{patchtst2023}
+\citation{vaswani2017attention}
+\citation{minilm2020}
+\citation{mistral2023}
+\citation{qwen2024}
+\citation{ollama}
+\citation{sisfall2017}
+\citation{bhatti2025beyond}
+\citation{bhatti2025beyond,kfall2021}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Retrieval and LLM Agents for Sensing}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Method}{2}\protected@file@percent }
+\newlabel{sec:method}{{III}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Tier-1 Detector}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Confidence Gate}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Evidence Serializer}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Retrieval Memory}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}LLM Reasoner}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Action Agent and Cost}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-G}}System Modes}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental Setup}{2}\protected@file@percent }
+\newlabel{sec:setup}{{IV}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Dataset and Splits}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Protocol}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Metrics}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{2}\protected@file@percent }
+\newlabel{sec:results}{{V}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Main Comparison vs.\ Tier-1}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Ablations}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}LLM Backends on Ambiguous Cases}{2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Confidence-gated multi-agent fall detection. High/low confidence windows are decided by the Tier-1 detector; ambiguous windows escalate to evidence serialization, $k$-NN retrieval, LLM reasoning, and a cost-sensitive Action Agent.}}{3}\protected@file@percent }
+\newlabel{fig:arch}{{1}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Positioning relative to Bhatti \textit  {et al.} (base detector paper).}}{3}\protected@file@percent }
+\newlabel{tab:positioning}{{I}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Per-fold comparison of Tier-1 (\texttt  {tier1\_only}) vs.\ full agentic stack (\texttt  {gate\_knn\_llm}) under the homogeneous protocol ($n{=}1000$ stratified windows/fold with forced D18/D19). Cost is normalized per 1000 windows.}}{3}\protected@file@percent }
+\newlabel{tab:perfold}{{II}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Five-fold mean$\pm $std on SisFall (homogeneous $n{=}1000$). Paired deltas are \texttt  {gate\_knn\_llm}$-$\texttt  {tier1\_only}. With five folds, Wilcoxon $p{=}0.0625$ is at the discrete minimum for a complete sign agreement; we therefore emphasize bootstrap 95\% CIs.}}{3}\protected@file@percent }
+\newlabel{tab:meanstd}{{III}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Ablation ladder on Fold\nobreakspace  {}0 under the full evaluation budget ($n{=}4000$). Gate or $k$-NN alone does not yield the headline gain; the full stack (\texttt  {gate\_knn\_llm}) is required.}}{3}\protected@file@percent }
+\newlabel{tab:ablation}{{IV}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Paired LLM backend comparison on shared ambiguous case IDs (up to 150 cases/fold).}}{3}\protected@file@percent }
+\newlabel{tab:llm}{{V}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Tier-1 backbone zoo on Fold\nobreakspace  {}0 (detector-only metrics). Primary paper backbone is \texttt  {cnn\_lstm\_attn} (Bhatti-style).}}{3}\protected@file@percent }
+\newlabel{tab:backbone}{{VI}{3}}
+\bibstyle{IEEEtran}
+\bibdata{refs}
+\bibcite{iglesias2019wearable}{1}
+\bibcite{nurek2020fallsurvey}{2}
+\bibcite{sisfall2017}{3}
+\bibcite{bhatti2025beyond}{4}
+\bibcite{kfall2021}{5}
+\bibcite{guo2017calibration}{6}
+\bibcite{minilm2020}{7}
+\bibcite{ollama}{8}
+\bibcite{mistral2023}{9}
+\bibcite{qwen2024}{10}
+\bibcite{iglesias2023modern}{11}
+\bibcite{tsmixer2023}{12}
+\bibcite{patchtst2023}{13}
+\bibcite{vaswani2017attention}{14}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Backbone Context}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{4}\protected@file@percent }
+\newlabel{sec:discussion}{{VI}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}How We Differ from the Base Paper}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}How We Outperform the Fair Baseline}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Limitations}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{4}\protected@file@percent }
+\newlabel{sec:concl}{{VII}{4}}
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  A: Reproducibility Notes}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{4}\protected@file@percent }

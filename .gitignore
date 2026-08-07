@@ -1,0 +1,37 @@
+# Large / regenerable data
+data/raw/
+data/processed/**/*.npz
+# Keep processed meta JSON tracked if present
+
+# Nested accidental copies (do not push)
+results/harshal/
+
+# Python / tooling
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+*.pyc
+.DS_Store
+.cursor/
+*.swp
+
+# Editor / OS
+.idea/
+.vscode/
+
+# Huge runtime logs (keep JSON/CSV/MD/TeX results)
+results/**/*.out
+results/nohup_*.out
+results/**/nohup*.out
+**/FULL_RUN.pid
+**/OVERNIGHT.pid
+**/Q1_WAITER.pid
+**/WAIT_FOLD1.pid
+
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out

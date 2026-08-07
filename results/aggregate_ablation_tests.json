@@ -1,0 +1,107 @@
+[
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -951.0,
+    "std_delta": 162.5192296314501,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1084.0,
+      -824.8
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -951.0,
+    "std_delta": 162.5192296314501,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1084.0,
+      -824.8
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "false_alarm_rate_near_fall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -0.036250000000000004,
+    "std_delta": 0.04225110945288892,
+    "wilcoxon_stat": 1.0,
+    "wilcoxon_pvalue": 0.125,
+    "bootstrap_ci95": [
+      -0.07374999999999998,
+      -0.007500000000000012
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.1283694727425703,
+    "std_delta": 0.020422713261937838,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.11679407001942303,
+      0.14742453815156034
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "recall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.21794482854391517,
+    "std_delta": 0.038679460898312736,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.1873456878565707,
+      0.2477575871700719
+    ]
+  }
+]

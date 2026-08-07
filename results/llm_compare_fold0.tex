@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{LLM backend comparison on ambiguous cases}
+\begin{tabular}{lccccccccccccccccccccccc}
+\toprule
+Method & accuracy & agreement_with_heuristic & ambiguous_f1 & backend & ece & escalation_rate & expected_response_cost & f1 & false_alarm_rate_ambiguous & fn & fp & latency_escalated_ms & latency_mean_ms & latency_tier1_ms & missed_fall_rate & model_name & n & precision & recall & sensitivity & specificity & tn & tp \\
+\midrule
+heuristic & 0.547 &  & nan & heuristic & 0.111 & 1.000 & 680.000 & 0.000 & nan & 68 & 0 & 63.457 & 63.457 & nan & 1.000 & heuristic & 150 & 0.000 & 0.000 & 0.000 & 1.000 & 82 & 0 \\
+mistral:latest & 0.973 & 0.520 & nan & ollama & 0.111 & 1.000 & 4.000 & 0.971 & nan & 0 & 4 & 16915.769 & 16915.769 & nan & 0.000 & mistral:latest & 150 & 0.944 & 1.000 & 1.000 & 0.951 & 78 & 68 \\
+qwen2.5-coder:7b-instruct & 0.640 & 0.187 & nan & ollama & 0.111 & 1.000 & 54.000 & 0.716 & nan & 0 & 54 & 9508.684 & 9508.684 & nan & 0.000 & qwen2.5-coder:7b-instruct & 150 & 0.557 & 1.000 & 1.000 & 0.341 & 28 & 68 \\
+\bottomrule
+\end{tabular}
+\end{table}

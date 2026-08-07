@@ -1,0 +1,1 @@
+{"fold": 3, "protocol_tag": "fast_1000_no_gate_llm", "max_test": 1000, "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm", "backbone": "primary_only"}

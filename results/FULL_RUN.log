@@ -1,0 +1,76 @@
+=== FULL EXPERIMENTS START Monday 03 August 2026 08:05:45 PM IST ===
+FOLDS=0,1,2,3,4 DEVICE=cuda PAPER=configs/paper_protocol.yaml PRIMARY=cnn_lstm_attn
+===== FOLD 0 =====
+[1/5] Backbone zoo + top-N agentic (fold 0)
+[1/5] DONE Monday 03 August 2026 11:52:18 PM IST
+[2/5] Build memory (fold 0)
+[2/5] DONE Monday 03 August 2026 11:55:38 PM IST
+[3/5] Ablations (fold 0)
+[3/5] DONE Wednesday 05 August 2026 12:55:29 PM IST
+[4/5] Agentic eval + LLM compare (fold 0)
+=== RESUME FROM STEP 4 START Wednesday 05 August 2026 05:40:30 PM IST ===
+DEVICE=cuda PAPER=configs/paper_protocol.yaml PRIMARY=cnn_lstm_attn
+===== FOLD 0 (resume step 4 only) =====
+[4/5] Agentic eval + LLM compare (fold 0)
+[4/5] DONE Wednesday 05 August 2026 07:05:39 PM IST
+===== FOLD 1 =====
+[1/5] Backbone zoo + top-N agentic (fold 1)
+[1/5] DONE Wednesday 05 August 2026 10:33:33 PM IST
+[2/5] Build memory (fold 1)
+[2/5] DONE Wednesday 05 August 2026 10:36:41 PM IST
+[3/5] Ablations (fold 1)
+=== WAIT FOLD1 THEN FAST Wednesday 05 August 2026 11:19:05 PM IST ===
+Waiting for fold1 artifacts: ablation_fold1.json + llm_compare_fold1.json ...
+[3/5] DONE Thursday 06 August 2026 11:22:35 AM IST
+[4/5] Agentic eval + LLM compare (fold 1)
+[4/5] DONE Thursday 06 August 2026 12:36:53 PM IST
+===== FOLD 2 =====
+[1/5] Backbone zoo + top-N agentic (fold 2)
+Fold1 artifacts present Thursday 06 August 2026 12:37:19 PM IST
+Stopping old orchestrator PID 2013776 (and children)
+=== RESUME FOLDS 2–4 FAST START Thursday 06 August 2026 06:26:15 PM IST ===
+DEVICE=cuda PAPER=configs/paper_protocol.yaml PRIMARY=cnn_lstm_attn MAX_TEST=1000 MODES=tier1_only,gate_only,gate_knn,gate_knn_llm TAG=fast_1000_no_gate_llm
+===== FOLD 2 (fast protocol) =====
+[1/5] Primary backbone only (cnn_lstm_attn, fold 2)
+[1/5] DONE Thursday 06 August 2026 09:37:00 PM IST
+[2/5] Build memory (fold 2)
+[2/5] DONE Thursday 06 August 2026 09:39:13 PM IST
+[3/5] Ablations fast (fold 2)
+[3/5] DONE Friday 07 August 2026 01:11:46 AM IST
+[4/5] Agentic eval (ollama) + LLM compare (fold 2)
+[4/5] DONE Friday 07 August 2026 05:20:09 AM IST
+===== FOLD 3 (fast protocol) =====
+[1/5] Primary backbone only (cnn_lstm_attn, fold 3)
+[1/5] DONE Friday 07 August 2026 06:44:09 AM IST
+[2/5] Build memory (fold 3)
+[2/5] DONE Friday 07 August 2026 06:45:56 AM IST
+[3/5] Ablations fast (fold 3)
+[3/5] DONE Friday 07 August 2026 08:27:16 AM IST
+[4/5] Agentic eval (ollama) + LLM compare (fold 3)
+[4/5] DONE Friday 07 August 2026 10:51:45 AM IST
+===== FOLD 4 (fast protocol) =====
+[1/5] Primary backbone only (cnn_lstm_attn, fold 4)
+[1/5] DONE Friday 07 August 2026 12:17:05 PM IST
+[2/5] Build memory (fold 4)
+[2/5] DONE Friday 07 August 2026 12:19:04 PM IST
+[3/5] Ablations fast (fold 4)
+[3/5] DONE Friday 07 August 2026 01:58:31 PM IST
+[4/5] Agentic eval (ollama) + LLM compare (fold 4)
+[4/5] DONE Friday 07 August 2026 04:28:49 PM IST
+[5/5] Aggregate + export
+[5/5] DONE Friday 07 August 2026 04:28:52 PM IST
+=== FOLDS 2–4 FAST COMPLETE Friday 07 August 2026 04:28:53 PM IST ===
+=== OVERNIGHT GUIDE STRENGTHEN START Friday 07 August 2026 05:22:16 PM IST ===
+Archived fold0 full4000 ablation
+[fold 0] agentic eval ollama Friday 07 August 2026 05:22:16 PM IST
+[fold 0] ablations max_test=1000 Friday 07 August 2026 06:57:43 PM IST
+=== Q1 WAITER START Friday 07 August 2026 07:18:04 PM IST ===
+Archived fold1 full4000 ablation
+[fold 1] agentic eval ollama Friday 07 August 2026 08:24:08 PM IST
+[fold 1] ablations max_test=1000 Friday 07 August 2026 09:26:45 PM IST
+[aggregate] Friday 07 August 2026 10:30:11 PM IST
+=== OVERNIGHT GUIDE STRENGTHEN DONE Friday 07 August 2026 10:30:12 PM IST ===
+Q1 evidence pack READY Friday 07 August 2026 10:32:09 PM IST
+Open: results/GUIDE_BRIEF.md
+Open: results/Q1_SUBMISSION_PACK.md
+=== Q1 WAITER DONE Friday 07 August 2026 10:32:09 PM IST ===

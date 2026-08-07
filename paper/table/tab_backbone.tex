@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\centering
+\caption{Tier-1 backbone zoo on Fold~0 (detector-only metrics). Primary paper backbone is \texttt{cnn\_lstm\_attn} (Bhatti-style).}
+\label{tab:backbone}
+\begin{tabular}{lcccc}
+\toprule
+Model & F1 & Recall & Spec. & Params \\
+\midrule
+cnn1d & 0.721 & 0.985 & 0.277 & 43,330 \\
+lstm & 0.700 & 0.986 & 0.197 & 201,986 \\
+cnn\_lstm & 0.694 & 0.995 & 0.155 & 86,914 \\
+\textbf{cnn\_lstm\_attn} & 0.710 & 0.996 & 0.216 & 564,930 \\
+tcn & 0.727 & 0.988 & 0.295 & 89,282 \\
+modern\_tcn & 0.737 & 0.990 & 0.326 & 30,314 \\
+tsmixer & 0.695 & 0.984 & 0.181 & 224,562 \\
+patchtst & 0.669 & 0.996 & 0.051 & 150,786 \\
+transformer & 0.678 & 0.994 & 0.092 & 158,722 \\
+\bottomrule
+\end{tabular}
+\end{table}
