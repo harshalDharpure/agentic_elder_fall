@@ -1,0 +1,116 @@
+{
+  "sign_consistency": {
+    "f1": "5/5",
+    "recall": "5/5",
+    "cost_per_1000": "5/5"
+  },
+  "per_fold": [
+    {
+      "fold": 0,
+      "df1": 0.11873300786388752,
+      "drec": 0.20512820512820518,
+      "dcost": -886.0
+    },
+    {
+      "fold": 1,
+      "df1": 0.11402010019955511,
+      "drec": 0.16247139588100679,
+      "dcost": -733.0
+    },
+    {
+      "fold": 2,
+      "df1": 0.11859857091705872,
+      "drec": 0.21478060046189384,
+      "dcost": -932.0
+    },
+    {
+      "fold": 3,
+      "df1": 0.16401421755419643,
+      "drec": 0.26315789473684215,
+      "dcost": -1165.0
+    },
+    {
+      "fold": 4,
+      "df1": 0.12648146717815367,
+      "drec": 0.2441860465116279,
+      "dcost": -1039.0
+    }
+  ],
+  "tests": {
+    "expected_response_cost": {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "expected_response_cost",
+      "n": 5,
+      "mean_delta": -936.0,
+      "std_delta": 151.7300233968215,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_pvalue": 0.0625,
+      "bootstrap_ci95": [
+        -1064.0,
+        -829.4465721789703
+      ],
+      "bootstrap_method": "bca"
+    },
+    "cost_per_1000": {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "cost_per_1000",
+      "n": 5,
+      "mean_delta": -936.0,
+      "std_delta": 151.7300233968215,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_pvalue": 0.0625,
+      "bootstrap_ci95": [
+        -1064.0,
+        -829.4465721789703
+      ],
+      "bootstrap_method": "bca"
+    },
+    "false_alarm_rate_near_fall": {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "false_alarm_rate_near_fall",
+      "n": 5,
+      "mean_delta": -0.04,
+      "std_delta": 0.04476501144867495,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_pvalue": 0.06788915486182899,
+      "bootstrap_ci95": [
+        -0.08125,
+        -0.010000000000000009
+      ],
+      "bootstrap_method": "bca"
+    },
+    "f1": {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "f1",
+      "n": 5,
+      "mean_delta": 0.1321174457390705,
+      "std_delta": 0.015756702451621744,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_pvalue": 0.0625,
+      "bootstrap_ci95": [
+        0.11943735771008261,
+        0.1436684223135877
+      ],
+      "bootstrap_method": "bca"
+    },
+    "recall": {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "recall",
+      "n": 5,
+      "mean_delta": 0.21285211242250526,
+      "std_delta": 0.03668923892884753,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_pvalue": 0.0625,
+      "bootstrap_ci95": [
+        0.1821510297482837,
+        0.23839672292655106
+      ],
+      "bootstrap_method": "bca"
+    }
+  }
+}

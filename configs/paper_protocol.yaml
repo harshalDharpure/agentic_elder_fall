@@ -37,7 +37,7 @@ eval:
 
 agentic:
   top_n: 3
-  primary_backbone: cnn_lstm_attn
+  primary_backbone: harmamba
   # End-to-end agentic_eval should match ablation gate_knn_llm (ollama).
   # Paired LLM backend comparison remains in run_llm_compare.py.
   backend: ollama
@@ -62,6 +62,7 @@ models:
   - tsmixer
   - patchtst
   - transformer
+  - harmamba
 
 latency:
   warmup: 10

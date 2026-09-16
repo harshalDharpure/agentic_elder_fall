@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\centering
+\caption{Asymmetric clinical cost sensitivity across penalty ratio $\beta=c_{\mathrm{FN}}/c_{\mathrm{FP}}\in\{5,10,20\}$ (cost $=\beta\cdot\mathrm{FN}+\mathrm{FP}$, per 1000 windows). Bayes optimal threshold $\tau^*=1/(\beta+1)$ motivates asymmetric escalation.}
+\label{tab:betacost}
+\begin{tabular}{lcccc}
+\toprule
+$\beta$ & $\tau^*$ & Mode & Mean cost/1000 & $\Delta$ vs Tier-1 \\
+\midrule
+5 & 0.167 & tier1\_only & 628 & --- \\
+5 & 0.167 & \textbf{gate\_knn\_llm} & \textbf{149} & \textbf{-479} \\
+\addlinespace
+10 & 0.091 & tier1\_only & 1151 & --- \\
+10 & 0.091 & \textbf{gate\_knn\_llm} & \textbf{200} & \textbf{-951} \\
+\addlinespace
+20 & 0.048 & tier1\_only & 2197 & --- \\
+20 & 0.048 & \textbf{gate\_knn\_llm} & \textbf{302} & \textbf{-1895} \\
+\bottomrule
+\end{tabular}
+\end{table}

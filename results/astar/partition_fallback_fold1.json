@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.516,
+  "precision": 0.4738598442714127,
+  "recall": 0.9748283752860412,
+  "sensitivity": 0.9748283752860389,
+  "specificity": 0.15985790408525727,
+  "f1": 0.6377245508982036,
+  "tp": 426,
+  "tn": 90,
+  "fp": 473,
+  "fn": 11,
+  "escalation_rate": 0.0,
+  "expected_response_cost": 583.0,
+  "n": 1000,
+  "tau_star": 0.09090909090909091,
+  "beta": 10.0,
+  "mode": "offline_bayes_no_escalation"
+}

@@ -1,1 +1,9 @@
-{"fold": 0, "protocol_tag": "fast_1000_no_gate_llm", "max_test": 1000, "modes": "tier1_only,gate_only,gate_knn,gate_knn_llm", "backbone": "zoo", "note": "homogenized for Q1 main table; full4000 archived"}
+{
+  "fold": 0,
+  "protocol_tag": "fold0_contrastive_action_critique",
+  "max_test": 1000,
+  "modes": [
+    "gate_knn_llm",
+    "gate_knn_llm_contrastive_action_critique"
+  ]
+}

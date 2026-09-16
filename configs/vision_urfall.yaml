@@ -1,0 +1,22 @@
+vision_pilot:
+  dataset: urfall
+  camera: cam0-rgb
+  frames_per_strip: 4
+  strips_per_seq: 3
+  test_frac: 0.3
+  seed: 42
+  cnn:
+    model: resnet18
+    epochs: 15
+    batch_size: 16
+    lr: 1.0e-4
+  vlm:
+    model_id: Qwen/Qwen2-VL-2B-Instruct
+    lora_epochs: 3
+    lora_r: 16
+    lr: 1.0e-4
+  go_nogo:
+    f1_margin: 0.02
+    recall_margin: 0.05
+    spec_slack: 0.05
+    zs_f1_gain: 0.05

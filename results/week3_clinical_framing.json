@@ -1,0 +1,19 @@
+{
+  "beta_cost": {
+    "betas": [
+      5,
+      10,
+      20
+    ]
+  },
+  "grounding": {
+    "g_faith_base_mean": 0.4364,
+    "g_faith_contrastive_mean": 0.8426,
+    "graded_cost_reduction_pct": 45.059422750424446
+  },
+  "escalation": {
+    "main_mean": 0.46840000000000004,
+    "ambiguous_mean": 0.594,
+    "kfall_mean": 0.011200000000000002
+  }
+}

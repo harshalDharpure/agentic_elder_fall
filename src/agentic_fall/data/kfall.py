@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Any
 
@@ -82,14 +83,39 @@ def _load_kfall_csv(path: Path) -> np.ndarray:
     return acc.astype(np.float32)
 
 
+def parse_kfall_stem(stem: str) -> tuple[str, int | None, int | None]:
+    """Parse Kaggle/official stems like ``S06T20R01`` → (activity, task_id, trial_id).
+
+    KFall task IDs: 1–19 ADL, 20–34 falls (F01–F15). Older layouts may use ``F01_…``.
+    """
+    m = re.match(r"^S?\d*T(\d+)R(\d+)$", stem, flags=re.IGNORECASE)
+    if m:
+        task_id = int(m.group(1))
+        trial_id = int(m.group(2))
+        # Official KFall: task IDs 20–34 = F01–F15; 1–19 and 35–36 = ADL
+        if 20 <= task_id <= 34:
+            activity = f"F{task_id - 19:02d}"
+        elif task_id >= 35:
+            activity = f"D{task_id - 15:02d}"  # 35→D20, 36→D21
+        else:
+            activity = f"D{task_id:02d}"
+        return activity, task_id, trial_id
+    if "_" in stem:
+        activity = stem.split("_")[0]
+    else:
+        activity = stem[:3]
+    return activity, None, None
+
+
 def _lookup_label_onset_impact(
     label_map: dict[str, pd.DataFrame],
     subject: str,
     activity: str,
     n_samples: int,
+    task_id: int | None = None,
+    trial_id: int | None = None,
 ) -> tuple[int | None, int | None]:
     """Best-effort onset/impact from KFall label workbooks."""
-    # Try exact stem matches and subject-keyed workbooks
     candidates = []
     for key, df in label_map.items():
         if subject.lower() in key.lower() or key.lower() in subject.lower():
@@ -98,19 +124,31 @@ def _lookup_label_onset_impact(
         candidates = list(label_map.values())
 
     for df in candidates:
-        cols = {c.lower(): c for c in df.columns}
-        act_col = None
-        for cand in ("task", "activity", "code", "trial", "description"):
-            if cand in cols:
-                act_col = cols[cand]
-                break
+        # Forward-fill task codes (KFall label sheets leave blanks within a block)
+        work = df.copy()
+        cols = {str(c).lower(): c for c in work.columns}
+        task_col = next((cols[c] for c in cols if "task" in c), None)
+        trial_col = next((cols[c] for c in cols if "trial" in c), None)
         onset_col = next((cols[c] for c in cols if "onset" in c), None)
-        impact_col = next((cols[c] for c in cols if "impact" in c or "fall" in c), None)
-        if act_col is None:
-            continue
-        for _, row in df.iterrows():
-            val = str(row[act_col])
-            if activity.upper() not in val.upper() and val.upper() not in activity.upper():
+        impact_col = next((cols[c] for c in cols if "impact" in c), None)
+        if task_col is not None:
+            work[task_col] = work[task_col].ffill()
+        for _, row in work.iterrows():
+            if trial_id is not None and trial_col is not None and pd.notna(row[trial_col]):
+                try:
+                    if int(row[trial_col]) != int(trial_id):
+                        continue
+                except Exception:
+                    continue
+            task_val = str(row[task_col]) if task_col is not None else ""
+            ok = False
+            if activity and activity.upper() in task_val.upper():
+                ok = True
+            if task_id is not None and f"({task_id})" in task_val.replace(" ", ""):
+                ok = True
+            if task_id is not None and re.search(rf"\({task_id}\)", task_val):
+                ok = True
+            if not ok and activity.upper() not in task_val.upper():
                 continue
             onset = int(row[onset_col]) if onset_col is not None and pd.notna(row[onset_col]) else None
             impact = int(row[impact_col]) if impact_col is not None and pd.notna(row[impact_col]) else None
@@ -176,8 +214,10 @@ def prepare_kfall(
     for path in tqdm(csv_files, desc="prepare_kfall"):
         subject = path.parent.name
         stem = path.stem
-        activity = stem.split("_")[0] if "_" in stem else stem[:3]
-        is_fall = activity.upper().startswith("F")
+        activity, task_id, trial_id = parse_kfall_stem(stem)
+        is_fall = activity.upper().startswith("F") or (
+            task_id is not None and 20 <= task_id <= 34
+        )
         try:
             sig = _load_kfall_csv(path)
         except Exception:
@@ -188,7 +228,12 @@ def prepare_kfall(
 
         if is_fall:
             onset_lbl, impact_lbl = _lookup_label_onset_impact(
-                label_map, subject, activity, acc.shape[0]
+                label_map,
+                subject,
+                activity,
+                acc.shape[0],
+                task_id=task_id,
+                trial_id=trial_id,
             )
             acc_ms2 = acc * (9.81 if use_g else 1.0)
             t_peak, t_stable = segment_postfall(

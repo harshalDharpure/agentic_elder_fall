@@ -52,6 +52,14 @@ def expected_calibration_error(
     return float(ece)
 
 
+GRADED_ACTION_COST = {
+    "emergency": 10.0,
+    "notify_caregiver": 4.0,
+    "monitor": 1.0,
+    "log": 0.0,
+}
+
+
 def agentic_metrics(
     y_true: list[int],
     y_pred: list[int],
@@ -62,6 +70,8 @@ def agentic_metrics(
     p_falls: list[float] | None = None,
     cost_fn: float = 10.0,
     cost_fp: float = 1.0,
+    actions: list[str] | None = None,
+    rationales: list[str] | None = None,
 ) -> dict[str, float]:
     """Safety / agentic metrics with explicit near-fall and escalated counts.
 
@@ -118,6 +128,7 @@ def agentic_metrics(
 
     out["missed_fall_rate"] = float(base["fn"] / max(1, base["fn"] + base["tp"]))
     out["expected_response_cost"] = float(cost_fn * base["fn"] + cost_fp * base["fp"])
+    out["false_alarms_per_1000"] = float(1000.0 * base["fp"] / max(1, len(yt)))
 
     if latencies_ms is not None and escalated is not None:
         lat = np.asarray(latencies_ms, dtype=float)
@@ -127,7 +138,76 @@ def agentic_metrics(
 
     if p_falls is not None:
         out["ece"] = expected_calibration_error(y_true, p_falls)
+
+    n = max(1, len(yt))
+    acts_list = [str(a) for a in (actions or [])]
+    out["emergency_rate"] = 0.0
+    out["emergency_rate_adl"] = 0.0
+    out["emergency_rate_near_fall"] = 0.0
+    out["graded_action_cost"] = 0.0
+    out["rationale_grounding_rate"] = 0.0
+    if acts_list and len(acts_list) == len(yt):
+        emerg = [a == "emergency" for a in acts_list]
+        out["emergency_rate"] = float(sum(emerg) / n)
+        n_adl = int((yt == 0).sum())
+        out["emergency_rate_adl"] = float(
+            sum(1 for i, e in enumerate(emerg) if e and yt[i] == 0) / max(1, n_adl)
+        )
+        if acts is not None and codes:
+            amb_set = set(codes)
+            nf_idx = [i for i, a in enumerate(acts) if a in amb_set]
+            out["emergency_rate_near_fall"] = float(
+                sum(1 for i in nf_idx if acts_list[i] == "emergency") / max(1, len(nf_idx))
+            )
+        graded = 0.0
+        for i, act in enumerate(acts_list):
+            if yt[i] == 1 and yp[i] == 0:
+                graded += cost_fn
+            elif yt[i] == 0:
+                graded += GRADED_ACTION_COST.get(act, 0.0)
+        out["graded_action_cost"] = float(graded)
+    if rationales:
+        from ..agents.constraints import rationale_cites_sigma
+
+        out["rationale_grounding_rate"] = float(
+            sum(1 for r in rationales if rationale_cites_sigma(str(r))) / max(1, len(rationales))
+        )
     return out
+
+
+def crc_veto_metrics(
+    y_true: list[int],
+    pred_before: list[int],
+    pred_after: list[int],
+    *,
+    vetoed: list[bool] | None = None,
+    certified_alpha: float | None = None,
+    lambda_star: float | None = None,
+    feasible: bool | None = None,
+    aurc: float | None = None,
+) -> dict[str, float]:
+    """Metrics for one-directional fall→ADL vetoes."""
+    yt = np.asarray(y_true, dtype=int)
+    before = np.asarray(pred_before, dtype=int)
+    after = np.asarray(pred_after, dtype=int)
+    if vetoed is None:
+        mask = (before == 1) & (after == 0)
+    else:
+        mask = np.asarray(vetoed, dtype=bool)
+    n = max(1, len(yt))
+    n_veto = int(mask.sum())
+    induced_fn = int((mask & (yt == 1)).sum())
+    veto_tp_adl = int((mask & (yt == 0)).sum())
+    return {
+        "veto_rate": float(n_veto / n),
+        "veto_n": float(n_veto),
+        "induced_fn": float(induced_fn),
+        "veto_precision": float(veto_tp_adl / max(1, n_veto)),
+        "certified_alpha": float(certified_alpha) if certified_alpha is not None else float("nan"),
+        "lambda_star": float(lambda_star) if lambda_star is not None else float("nan"),
+        "crc_feasible": 1.0 if feasible else 0.0,
+        "aurc": float(aurc) if aurc is not None else float("nan"),
+    }
 
 
 def metrics_to_latex(rows: list[dict], caption: str = "Results") -> str:
@@ -145,11 +225,22 @@ def metrics_to_latex(rows: list[dict], caption: str = "Results") -> str:
         "escalated_f1",
         "escalation_rate",
         "expected_response_cost",
+        "graded_action_cost",
+        "emergency_rate_adl",
+        "emergency_rate_near_fall",
+        "rationale_grounding_rate",
         "ece",
         "params",
         "latency_ms",
         "n_near_fall",
         "n_escalated",
+        "false_alarms_per_1000",
+        "veto_rate",
+        "veto_precision",
+        "induced_fn",
+        "certified_alpha",
+        "lambda_star",
+        "aurc",
     ]
     keys = [k for k in prefer if any(k in r for r in rows)]
     extras = sorted({k for r in rows for k in r if k not in keys and k != "name"})

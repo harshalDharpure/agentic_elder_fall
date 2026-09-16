@@ -1,0 +1,79 @@
+{
+  "folds": [
+    {
+      "fold": 0,
+      "backend": "test",
+      "n": 0,
+      "acc": 0.9,
+      "f1": 0.85,
+      "prec": 0.8,
+      "rec": 0.9,
+      "far": 0.1,
+      "esc": 0.5,
+      "cost": 100.0,
+      "amb_acc": 0.95,
+      "fall_acc": null,
+      "adl_acc": null
+    },
+    {
+      "fold": 1,
+      "backend": "test",
+      "n": 0,
+      "acc": 0.9,
+      "f1": 0.85,
+      "prec": 0.8,
+      "rec": 0.9,
+      "far": 0.1,
+      "esc": 0.5,
+      "cost": 100.0,
+      "amb_acc": 0.95,
+      "fall_acc": null,
+      "adl_acc": null
+    },
+    {
+      "fold": 2,
+      "backend": "test",
+      "n": 0,
+      "acc": 0.9,
+      "f1": 0.85,
+      "prec": 0.8,
+      "rec": 0.9,
+      "far": 0.1,
+      "esc": 0.5,
+      "cost": 100.0,
+      "amb_acc": 0.95,
+      "fall_acc": null,
+      "adl_acc": null
+    },
+    {
+      "fold": 3,
+      "backend": "test",
+      "n": 0,
+      "acc": 0.9,
+      "f1": 0.85,
+      "prec": 0.8,
+      "rec": 0.9,
+      "far": 0.1,
+      "esc": 0.5,
+      "cost": 100.0,
+      "amb_acc": 0.95,
+      "fall_acc": null,
+      "adl_acc": null
+    },
+    {
+      "fold": 4,
+      "backend": "test",
+      "n": 0,
+      "acc": 0.9,
+      "f1": 0.85,
+      "prec": 0.8,
+      "rec": 0.9,
+      "far": 0.1,
+      "esc": 0.5,
+      "cost": 100.0,
+      "amb_acc": 0.95,
+      "fall_acc": null,
+      "adl_acc": null
+    }
+  ]
+}

@@ -39,6 +39,7 @@ class ActionAgent:
         severity: str | None = None,
         feats: BiomechanicalFeatures | None = None,
         suggested_action: str | None = None,
+        allow_downgrade: bool = False,
     ) -> ActionDecision:
         pred = prediction.lower()
         if pred == "adl":
@@ -85,8 +86,13 @@ class ActionAgent:
         # Prefer LLM suggestion when it is more conservative (higher severity action)
         order = ["log", "monitor", "notify_caregiver", "emergency"]
         if suggested_action and suggested_action in order:
-            if order.index(suggested_action) > order.index(action):
+            sug_i = order.index(suggested_action)
+            cur_i = order.index(action)
+            if sug_i > cur_i:
                 action = suggested_action  # type: ignore
                 reason = f"Escalated via LLM suggestion to {action}"
+            elif allow_downgrade and sug_i < cur_i:
+                action = suggested_action  # type: ignore
+                reason = f"Downgraded via Critic/Judge suggestion to {action}"
 
         return ActionDecision(action=action, severity=sev, reason=reason, simulated=self.simulate)  # type: ignore

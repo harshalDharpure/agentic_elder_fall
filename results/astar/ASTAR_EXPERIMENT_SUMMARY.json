@@ -1,0 +1,491 @@
+{
+  "experiments": [
+    {
+      "file": "conformal_gate_audit.json",
+      "data": {
+        "rows": [
+          {
+            "fold": 0,
+            "alpha": 0.05,
+            "q_hat": 0.830179750919342,
+            "conformal_f1": 0.7736720554272517,
+            "conformal_recall": 0.7808857808857809,
+            "conformal_cost": 1042.0,
+            "conformal_escalation_rate": 0.579,
+            "edge_fn_rate": 0.0166270783847981,
+            "edge_n": 421,
+            "set_size_hist": {
+              "0": 0,
+              "1": 421,
+              "2": 579
+            },
+            "cost_gate_f1": 0.7736720554272517,
+            "cost_gate_escalation_rate": 0.383
+          },
+          {
+            "fold": 0,
+            "alpha": 0.01,
+            "q_hat": 0.9014959931373596,
+            "conformal_f1": 0.7736720554272517,
+            "conformal_recall": 0.7808857808857809,
+            "conformal_cost": 1042.0,
+            "conformal_escalation_rate": 0.767,
+            "edge_fn_rate": 0.008583690987124463,
+            "edge_n": 233,
+            "set_size_hist": {
+              "0": 0,
+              "1": 233,
+              "2": 767
+            },
+            "cost_gate_f1": 0.7736720554272517,
+            "cost_gate_escalation_rate": 0.383
+          },
+          {
+            "fold": 0,
+            "alpha": 0.005,
+            "q_hat": 0.9105221033096313,
+            "conformal_f1": 0.7736720554272517,
+            "conformal_recall": 0.7808857808857809,
+            "conformal_cost": 1042.0,
+            "conformal_escalation_rate": 0.798,
+            "edge_fn_rate": 0.0049504950495049506,
+            "edge_n": 202,
+            "set_size_hist": {
+              "0": 0,
+              "1": 202,
+              "2": 798
+            },
+            "cost_gate_f1": 0.7736720554272517,
+            "cost_gate_escalation_rate": 0.383
+          },
+          {
+            "fold": 1,
+            "alpha": 0.05,
+            "q_hat": 0.926355242729187,
+            "conformal_f1": 0.7373167981961668,
+            "conformal_recall": 0.7482837528604119,
+            "conformal_cost": 1223.0,
+            "conformal_escalation_rate": 0.834,
+            "edge_fn_rate": 0.030120481927710843,
+            "edge_n": 166,
+            "set_size_hist": {
+              "0": 0,
+              "1": 166,
+              "2": 834
+            },
+            "cost_gate_f1": 0.7373167981961668,
+            "cost_gate_escalation_rate": 0.466
+          },
+          {
+            "fold": 1,
+            "alpha": 0.01,
+            "q_hat": 0.9437866806983948,
+            "conformal_f1": 0.7373167981961668,
+            "conformal_recall": 0.7482837528604119,
+            "conformal_cost": 1223.0,
+            "conformal_escalation_rate": 0.906,
+            "edge_fn_rate": 0.02127659574468085,
+            "edge_n": 94,
+            "set_size_hist": {
+              "0": 0,
+              "1": 94,
+              "2": 906
+            },
+            "cost_gate_f1": 0.7373167981961668,
+            "cost_gate_escalation_rate": 0.466
+          },
+          {
+            "fold": 1,
+            "alpha": 0.005,
+            "q_hat": 0.9455568790435791,
+            "conformal_f1": 0.7373167981961668,
+            "conformal_recall": 0.7482837528604119,
+            "conformal_cost": 1223.0,
+            "conformal_escalation_rate": 0.913,
+            "edge_fn_rate": 0.022988505747126436,
+            "edge_n": 87,
+            "set_size_hist": {
+              "0": 0,
+              "1": 87,
+              "2": 913
+            },
+            "cost_gate_f1": 0.7373167981961668,
+            "cost_gate_escalation_rate": 0.466
+          },
+          {
+            "fold": 2,
+            "alpha": 0.05,
+            "q_hat": 0.9044566750526428,
+            "conformal_f1": 0.7636363636363637,
+            "conformal_recall": 0.7759815242494227,
+            "conformal_cost": 1081.0,
+            "conformal_escalation_rate": 0.699,
+            "edge_fn_rate": 0.016611295681063124,
+            "edge_n": 301,
+            "set_size_hist": {
+              "0": 0,
+              "1": 301,
+              "2": 699
+            },
+            "cost_gate_f1": 0.7636363636363637,
+            "cost_gate_escalation_rate": 0.399
+          },
+          {
+            "fold": 2,
+            "alpha": 0.01,
+            "q_hat": 0.930884838104248,
+            "conformal_f1": 0.7636363636363637,
+            "conformal_recall": 0.7759815242494227,
+            "conformal_cost": 1081.0,
+            "conformal_escalation_rate": 0.808,
+            "edge_fn_rate": 0.005208333333333333,
+            "edge_n": 192,
+            "set_size_hist": {
+              "0": 0,
+              "1": 192,
+              "2": 808
+            },
+            "cost_gate_f1": 0.7636363636363637,
+            "cost_gate_escalation_rate": 0.399
+          },
+          {
+            "fold": 2,
+            "alpha": 0.005,
+            "q_hat": 0.9382612109184265,
+            "conformal_f1": 0.7636363636363637,
+            "conformal_recall": 0.7759815242494227,
+            "conformal_cost": 1081.0,
+            "conformal_escalation_rate": 0.828,
+            "edge_fn_rate": 0.005813953488372093,
+            "edge_n": 172,
+            "set_size_hist": {
+              "0": 0,
+              "1": 172,
+              "2": 828
+            },
+            "cost_gate_f1": 0.7636363636363637,
+            "cost_gate_escalation_rate": 0.399
+          },
+          {
+            "fold": 3,
+            "alpha": 0.05,
+            "q_hat": 0.8558330535888672,
+            "conformal_f1": 0.7867730900798175,
+            "conformal_recall": 0.7894736842105263,
+            "conformal_cost": 1015.0,
+            "conformal_escalation_rate": 0.615,
+            "edge_fn_rate": 0.01038961038961039,
+            "edge_n": 385,
+            "set_size_hist": {
+              "0": 0,
+              "1": 385,
+              "2": 615
+            },
+            "cost_gate_f1": 0.7867730900798175,
+            "cost_gate_escalation_rate": 0.384
+          },
+          {
+            "fold": 3,
+            "alpha": 0.01,
+            "q_hat": 0.9144590497016907,
+            "conformal_f1": 0.7867730900798175,
+            "conformal_recall": 0.7894736842105263,
+            "conformal_cost": 1015.0,
+            "conformal_escalation_rate": 0.741,
+            "edge_fn_rate": 0.003861003861003861,
+            "edge_n": 259,
+            "set_size_hist": {
+              "0": 0,
+              "1": 259,
+              "2": 741
+            },
+            "cost_gate_f1": 0.7867730900798175,
+            "cost_gate_escalation_rate": 0.384
+          },
+          {
+            "fold": 3,
+            "alpha": 0.005,
+            "q_hat": 0.9222995638847351,
+            "conformal_f1": 0.7867730900798175,
+            "conformal_recall": 0.7894736842105263,
+            "conformal_cost": 1015.0,
+            "conformal_escalation_rate": 0.767,
+            "edge_fn_rate": 0.004291845493562232,
+            "edge_n": 233,
+            "set_size_hist": {
+              "0": 0,
+              "1": 233,
+              "2": 767
+            },
+            "cost_gate_f1": 0.7867730900798175,
+            "cost_gate_escalation_rate": 0.384
+          },
+          {
+            "fold": 4,
+            "alpha": 0.05,
+            "q_hat": 0.6300330758094788,
+            "conformal_f1": 0.7775175644028103,
+            "conformal_recall": 0.772093023255814,
+            "conformal_cost": 1072.0,
+            "conformal_escalation_rate": 0.165,
+            "edge_fn_rate": 0.08742514970059881,
+            "edge_n": 835,
+            "set_size_hist": {
+              "0": 0,
+              "1": 835,
+              "2": 165
+            },
+            "cost_gate_f1": 0.7775175644028103,
+            "cost_gate_escalation_rate": 0.217
+          },
+          {
+            "fold": 4,
+            "alpha": 0.01,
+            "q_hat": 0.8002740740776062,
+            "conformal_f1": 0.7775175644028103,
+            "conformal_recall": 0.772093023255814,
+            "conformal_cost": 1072.0,
+            "conformal_escalation_rate": 0.498,
+            "edge_fn_rate": 0.03187250996015936,
+            "edge_n": 502,
+            "set_size_hist": {
+              "0": 0,
+              "1": 502,
+              "2": 498
+            },
+            "cost_gate_f1": 0.7775175644028103,
+            "cost_gate_escalation_rate": 0.217
+          },
+          {
+            "fold": 4,
+            "alpha": 0.005,
+            "q_hat": 0.8259194493293762,
+            "conformal_f1": 0.7775175644028103,
+            "conformal_recall": 0.772093023255814,
+            "conformal_cost": 1072.0,
+            "conformal_escalation_rate": 0.537,
+            "edge_fn_rate": 0.03023758099352052,
+            "edge_n": 463,
+            "set_size_hist": {
+              "0": 0,
+              "1": 463,
+              "2": 537
+            },
+            "cost_gate_f1": 0.7775175644028103,
+            "cost_gate_escalation_rate": 0.217
+          }
+        ]
+      }
+    },
+    {
+      "file": "knn_k_ablation_fold0.json",
+      "data": {
+        "fold": 0,
+        "rows": [
+          {
+            "accuracy": 0.67,
+            "precision": 0.9626168224299065,
+            "recall": 0.2400932400932401,
+            "sensitivity": 0.2400932400932395,
+            "specificity": 0.9929947460595429,
+            "f1": 0.3843283582089552,
+            "tp": 103,
+            "tn": 567,
+            "fp": 4,
+            "fn": 326,
+            "escalation_rate": 0.383,
+            "n_escalated": 383,
+            "n_d18": 0,
+            "n_d19": 0,
+            "n_near_fall": 0,
+            "false_alarm_rate_near_fall": 0.0,
+            "escalated_f1": 0.06642066420664207,
+            "false_alarm_rate_ambiguous": 0.0,
+            "ambiguous_f1": 0.06642066420664207,
+            "missed_fall_rate": 0.7599067599067599,
+            "expected_response_cost": 3264.0,
+            "false_alarms_per_1000": 4.0,
+            "emergency_rate": 0.0,
+            "emergency_rate_adl": 0.0,
+            "emergency_rate_near_fall": 0.0,
+            "graded_action_cost": 0.0,
+            "rationale_grounding_rate": 0.0,
+            "k": 1,
+            "backend": "heuristic"
+          },
+          {
+            "accuracy": 0.67,
+            "precision": 0.9626168224299065,
+            "recall": 0.2400932400932401,
+            "sensitivity": 0.2400932400932395,
+            "specificity": 0.9929947460595429,
+            "f1": 0.3843283582089552,
+            "tp": 103,
+            "tn": 567,
+            "fp": 4,
+            "fn": 326,
+            "escalation_rate": 0.383,
+            "n_escalated": 383,
+            "n_d18": 0,
+            "n_d19": 0,
+            "n_near_fall": 0,
+            "false_alarm_rate_near_fall": 0.0,
+            "escalated_f1": 0.06642066420664207,
+            "false_alarm_rate_ambiguous": 0.0,
+            "ambiguous_f1": 0.06642066420664207,
+            "missed_fall_rate": 0.7599067599067599,
+            "expected_response_cost": 3264.0,
+            "false_alarms_per_1000": 4.0,
+            "emergency_rate": 0.0,
+            "emergency_rate_adl": 0.0,
+            "emergency_rate_near_fall": 0.0,
+            "graded_action_cost": 0.0,
+            "rationale_grounding_rate": 0.0,
+            "k": 5,
+            "backend": "heuristic"
+          },
+          {
+            "accuracy": 0.67,
+            "precision": 0.9626168224299065,
+            "recall": 0.2400932400932401,
+            "sensitivity": 0.2400932400932395,
+            "specificity": 0.9929947460595429,
+            "f1": 0.3843283582089552,
+            "tp": 103,
+            "tn": 567,
+            "fp": 4,
+            "fn": 326,
+            "escalation_rate": 0.383,
+            "n_escalated": 383,
+            "n_d18": 0,
+            "n_d19": 0,
+            "n_near_fall": 0,
+            "false_alarm_rate_near_fall": 0.0,
+            "escalated_f1": 0.06642066420664207,
+            "false_alarm_rate_ambiguous": 0.0,
+            "ambiguous_f1": 0.06642066420664207,
+            "missed_fall_rate": 0.7599067599067599,
+            "expected_response_cost": 3264.0,
+            "false_alarms_per_1000": 4.0,
+            "emergency_rate": 0.0,
+            "emergency_rate_adl": 0.0,
+            "emergency_rate_near_fall": 0.0,
+            "graded_action_cost": 0.0,
+            "rationale_grounding_rate": 0.0,
+            "k": 10,
+            "backend": "heuristic"
+          }
+        ]
+      }
+    },
+    {
+      "file": "robustness_fold0.json",
+      "data": {
+        "fold": 0,
+        "rows": [
+          {
+            "accuracy": 0.804,
+            "precision": 0.7665903890160183,
+            "recall": 0.7808857808857809,
+            "sensitivity": 0.780885780885779,
+            "specificity": 0.8213660245183874,
+            "f1": 0.7736720554272517,
+            "tp": 335,
+            "tn": 469,
+            "fp": 102,
+            "fn": 94,
+            "escalation_rate": 0.383,
+            "expected_response_cost": 1042.0,
+            "n": 1000,
+            "condition": "clean"
+          },
+          {
+            "accuracy": 0.785,
+            "precision": 0.7306034482758621,
+            "recall": 0.7902097902097902,
+            "sensitivity": 0.7902097902097883,
+            "specificity": 0.7810858143607692,
+            "f1": 0.7592385218365062,
+            "tp": 339,
+            "tn": 446,
+            "fp": 125,
+            "fn": 90,
+            "escalation_rate": 0.405,
+            "expected_response_cost": 1025.0,
+            "n": 1000,
+            "condition": "rotate_10deg"
+          },
+          {
+            "accuracy": 0.768,
+            "precision": 0.7030927835051546,
+            "recall": 0.7948717948717948,
+            "sensitivity": 0.7948717948717929,
+            "specificity": 0.7478108581436064,
+            "f1": 0.7461706783369803,
+            "tp": 341,
+            "tn": 427,
+            "fp": 144,
+            "fn": 88,
+            "escalation_rate": 0.434,
+            "expected_response_cost": 1024.0,
+            "n": 1000,
+            "condition": "rotate_15deg"
+          },
+          {
+            "accuracy": 0.802,
+            "precision": 0.7549668874172185,
+            "recall": 0.7972027972027972,
+            "sensitivity": 0.7972027972027953,
+            "specificity": 0.8056042031523628,
+            "f1": 0.7755102040816326,
+            "tp": 342,
+            "tn": 460,
+            "fp": 111,
+            "fn": 87,
+            "escalation_rate": 0.401,
+            "expected_response_cost": 981.0,
+            "n": 1000,
+            "condition": "resample_50hz"
+          },
+          {
+            "accuracy": 0.799,
+            "precision": 0.7567567567567568,
+            "recall": 0.7832167832167832,
+            "sensitivity": 0.7832167832167813,
+            "specificity": 0.8108581436077044,
+            "f1": 0.7697594501718213,
+            "tp": 336,
+            "tn": 463,
+            "fp": 108,
+            "fn": 93,
+            "escalation_rate": 0.397,
+            "expected_response_cost": 1038.0,
+            "n": 1000,
+            "condition": "resample_100hz"
+          }
+        ]
+      }
+    },
+    {
+      "file": "partition_fallback_fold0.json",
+      "data": {
+        "accuracy": 0.499,
+        "precision": 0.46120689655172414,
+        "recall": 0.9976689976689976,
+        "sensitivity": 0.9976689976689953,
+        "specificity": 0.12434325744308208,
+        "f1": 0.6308032424465734,
+        "tp": 428,
+        "tn": 71,
+        "fp": 500,
+        "fn": 1,
+        "escalation_rate": 0.0,
+        "expected_response_cost": 510.0,
+        "n": 1000,
+        "tau_star": 0.09090909090909091,
+        "beta": 10.0,
+        "mode": "offline_bayes_no_escalation"
+      }
+    }
+  ]
+}

@@ -73,6 +73,74 @@ class KNNMemory:
         _, idx = self._index.kneighbors(q, n_neighbors=kk)
         return [self.cases[i] for i in idx[0]]
 
+    def contrastive_retrieve(
+        self,
+        embedding: np.ndarray,
+        *,
+        k_pos: int = 3,
+        k_neg: int = 3,
+        pool_k: int | None = None,
+        hard_neg_activities: tuple[str, ...] = ("D18", "D19"),
+    ) -> tuple[list[MemoryCase], list[MemoryCase]]:
+        """Retrieve similar falls (positives) and similar ADLs (hard negatives).
+
+        Hard negatives prefer near-fall ADL codes (D18/D19) when available,
+        otherwise the nearest ADLs in the pool. Used by the Critic so it sees
+        counter-evidence instead of only confirming fall neighbours.
+        """
+        need = max(k_pos + k_neg, self.k) * 4
+        pool = self.retrieve(embedding, k=pool_k or min(max(need, 20), len(self.cases)))
+        positives = [c for c in pool if int(c.label) == 1][:k_pos]
+        hard = [
+            c
+            for c in pool
+            if int(c.label) == 0 and str(c.activity) in hard_neg_activities
+        ]
+        other_adl = [
+            c
+            for c in pool
+            if int(c.label) == 0 and str(c.activity) not in hard_neg_activities
+        ]
+        negatives = (hard + other_adl)[:k_neg]
+        # Backfill if the local pool is class-imbalanced.
+        if len(positives) < k_pos or len(negatives) < k_neg:
+            if self._index is None:
+                self._rebuild()
+            if self._index is not None and self._emb is not None:
+                q = np.asarray(embedding, dtype=np.float32).reshape(1, -1)
+                kk = min(len(self.cases), max(50, need))
+                dists, idxs = self._index.kneighbors(q, n_neighbors=kk)
+                order = list(idxs[0])
+                if len(positives) < k_pos:
+                    seen = {c.case_id for c in positives}
+                    for i in order:
+                        c = self.cases[int(i)]
+                        if int(c.label) == 1 and c.case_id not in seen:
+                            positives.append(c)
+                            seen.add(c.case_id)
+                        if len(positives) >= k_pos:
+                            break
+                if len(negatives) < k_neg:
+                    seen = {c.case_id for c in negatives}
+                    # Prefer hard activities first, then any ADL.
+                    for prefer_hard in (True, False):
+                        for i in order:
+                            c = self.cases[int(i)]
+                            if int(c.label) != 0 or c.case_id in seen:
+                                continue
+                            is_hard = str(c.activity) in hard_neg_activities
+                            if prefer_hard and not is_hard:
+                                continue
+                            if (not prefer_hard) and is_hard:
+                                continue
+                            negatives.append(c)
+                            seen.add(c.case_id)
+                            if len(negatives) >= k_neg:
+                                break
+                        if len(negatives) >= k_neg:
+                            break
+        return positives, negatives
+
     def save(self, path: str | Path) -> None:
         path = Path(path)
         ensure_dir(path.parent)

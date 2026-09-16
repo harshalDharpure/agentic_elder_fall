@@ -13,6 +13,7 @@ models:
   - tsmixer
   - patchtst
   - transformer
+  - harmamba
 
 model_kwargs:
   tcn:
@@ -51,6 +52,15 @@ model_kwargs:
     dropout_attn: 0.1
     dropout_fc: 0.5
     use_se: false
+  harmamba:
+    d_model: 64
+    n_layers: 3
+    d_state: 16
+    expand: 2
+    dropout: 0.1
+    seq_len: 90
+    patch_len: 10
+    use_patch: true
 
 train:
   epochs: 40

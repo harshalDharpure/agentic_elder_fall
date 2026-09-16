@@ -1,0 +1,18 @@
+{
+  "gate_knn_llm": {
+    "f1": 0.890484592137536,
+    "recall": 0.9714885364202474,
+    "expected_response_cost": 215.0,
+    "graded_action_cost": 588.4,
+    "emergency_rate_adl": 0.0007017543859649123,
+    "rationale_grounding_rate": 0.4356
+  },
+  "action_critique": {
+    "f1": 0.8908535645089865,
+    "recall": 0.9714885364202474,
+    "expected_response_cost": 214.6,
+    "graded_action_cost": 586.0,
+    "emergency_rate_adl": 0.00035087719298245617,
+    "rationale_grounding_rate": 0.4478
+  }
+}

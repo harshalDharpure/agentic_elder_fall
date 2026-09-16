@@ -1,0 +1,27 @@
+% RCDP dual-process deployment workflow
+\begin{tikzpicture}[
+  font=\footnotesize\sffamily,
+  edgebox/.style={draw, rounded corners=3pt, fill=blue!10, align=center, minimum width=2.2cm, minimum height=0.8cm},
+  cloudbox/.style={draw, rounded corners=3pt, fill=purple!10, align=center, minimum width=2.0cm, minimum height=0.8cm},
+  actionbox/.style={draw, rounded corners=3pt, fill=gray!12, align=center, minimum width=1.8cm, minimum height=0.7cm},
+  arr/.style={-{Latex}, thick},
+  darr/.style={-{Latex}, thick, dashed}
+]
+\node[anchor=west, font=\scriptsize\bfseries] at (0,2.3) {System 1 (edge, $\approx$7\,ms)};
+\node[edgebox] (imu) at (1.2,1.3) {IMU\\window};
+\node[edgebox] (tier1) at (3.6,1.3) {Tier-1\\$f_\theta$};
+\node[edgebox] (gate) at (6.0,1.3) {Cost\\gate};
+\node[actionbox] (adl) at (8.2,1.7) {Log ADL};
+\node[actionbox] (fall) at (8.2,0.9) {Alarm};
+\node[cloudbox] (esc) at (10.0,1.3) {Escalate};
+\draw[arr] (imu)--(tier1); \draw[arr] (tier1)--(gate);
+\draw[arr] (gate.north east)--(adl.west); \draw[arr] (gate.south east)--(fall.west); \draw[arr] (gate)--(esc);
+\node[anchor=west, font=\scriptsize\bfseries] at (0,-0.6) {System 2 (deliberative, $\approx$10\,s)};
+\node[cloudbox] (ev) at (2.0,-1.5) {Evidence\\$\Sigma(w)$};
+\node[cloudbox] (knn) at (4.4,-1.5) {k-NN};
+\node[cloudbox] (llm) at (6.8,-1.5) {LLM CoT};
+\node[cloudbox] (crit) at (9.2,-1.5) {Critique};
+\node[actionbox] (pol) at (11.2,-1.5) {Graded\\action};
+\draw[darr] (esc.south)--++(0,-0.3)-|(ev.north);
+\draw[arr] (ev)--(knn); \draw[arr] (knn)--(llm); \draw[arr] (llm)--(crit); \draw[arr] (crit)--(pol);
+\end{tikzpicture}

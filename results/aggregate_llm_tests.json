@@ -16,9 +16,10 @@
     "wilcoxon_stat": 0.0,
     "wilcoxon_pvalue": 0.0625,
     "bootstrap_ci95": [
-      0.8998742942660801,
-      0.9687267229719033
-    ]
+      0.8926648005447575,
+      0.9663219262765047
+    ],
+    "bootstrap_method": "bca"
   },
   {
     "left": "mistral:latest",
@@ -37,9 +38,10 @@
     "wilcoxon_stat": 0.0,
     "wilcoxon_pvalue": 0.0625,
     "bootstrap_ci95": [
-      -988.8399999999999,
-      -924.8
-    ]
+      -995.4,
+      -925.8
+    ],
+    "bootstrap_method": "bca"
   },
   {
     "left": "mistral:latest",
@@ -58,8 +60,9 @@
     "wilcoxon_stat": 0.0,
     "wilcoxon_pvalue": 0.0625,
     "bootstrap_ci95": [
-      -6592.266666666666,
+      -6602.666666666666,
       -6165.333333333334
-    ]
+    ],
+    "bootstrap_method": "bca"
   }
 ]

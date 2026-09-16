@@ -35,3 +35,14 @@ paper/*.bbl
 paper/*.blg
 paper/*.log
 paper/*.out
+
+# Local push helper
+*.bundle
+
+# Copyrighted third-party PDFs / notes (not project artifacts)
+mtp_papers/
+papers.txt
+
+# Huge runtime logs
+results/**/ollama_serve.log
+**/*.log

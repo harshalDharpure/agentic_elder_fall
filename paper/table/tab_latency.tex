@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{End-to-end latency from Ollama agentic runs ($n{=}1000$/fold). Escalated-path latency is dominated by local LLM inference.}
+\label{tab:latency}
+\begin{tabular}{crrr}
+\toprule
+Fold & Tier-1 (ms) & Escalated (s) & Mean stack (s) \\
+\midrule
+0 & 8.96 & 12.81 & 5.68 \\
+1 & 8.09 & 10.66 & 3.73 \\
+2 & 8.52 & 22.85 & 10.52 \\
+3 & 8.36 & 11.00 & 5.99 \\
+4 & 8.89 & 10.86 & 5.93 \\
+\midrule
+Mean & 8.56 & 13.63 & 6.37 \\
+\bottomrule
+\end{tabular}
+\end{table}

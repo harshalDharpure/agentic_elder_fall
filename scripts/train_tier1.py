@@ -128,6 +128,8 @@ def main():
     )
 
     use_se = bool(model_kwargs.pop("use_se", False))
+    bcfg = load_config(ROOT / "configs/backbones.yaml") if (ROOT / "configs/backbones.yaml").exists() else {}
+    zoo_kw = dict(bcfg.get("model_kwargs", {}).get(args.model, {}))
     if args.model == "cnn_lstm_attn":
         model = build_model(
             args.model,
@@ -141,6 +143,8 @@ def main():
             dropout_attn=float(model_kwargs.get("dropout_attn", 0.1)),
             dropout_fc=float(model_kwargs.get("dropout_fc", 0.5)),
         )
+    elif zoo_kw:
+        model = build_model(args.model, in_channels=in_ch, num_classes=num_classes, **zoo_kw)
     else:
         model = build_model(args.model, in_channels=in_ch, num_classes=num_classes)
 

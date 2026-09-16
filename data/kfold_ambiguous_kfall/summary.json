@@ -1,0 +1,48 @@
+{
+  "folds": [
+    {
+      "fold": 0,
+      "n": 300,
+      "n_ambiguous": 100,
+      "n_d18": 50,
+      "n_d19": 50,
+      "npz": "data/kfold_ambiguous_kfall/fold0_ambiguous_eval.npz"
+    },
+    {
+      "fold": 1,
+      "n": 300,
+      "n_ambiguous": 100,
+      "n_d18": 50,
+      "n_d19": 50,
+      "npz": "data/kfold_ambiguous_kfall/fold1_ambiguous_eval.npz"
+    },
+    {
+      "fold": 2,
+      "n": 300,
+      "n_ambiguous": 100,
+      "n_d18": 50,
+      "n_d19": 50,
+      "npz": "data/kfold_ambiguous_kfall/fold2_ambiguous_eval.npz"
+    },
+    {
+      "fold": 3,
+      "n": 300,
+      "n_ambiguous": 100,
+      "n_d18": 50,
+      "n_d19": 50,
+      "npz": "data/kfold_ambiguous_kfall/fold3_ambiguous_eval.npz"
+    },
+    {
+      "fold": 4,
+      "n": 300,
+      "n_ambiguous": 100,
+      "n_d18": 50,
+      "n_d19": 50,
+      "npz": "data/kfold_ambiguous_kfall/fold4_ambiguous_eval.npz"
+    }
+  ],
+  "ambiguous_codes": [
+    "D18",
+    "D19"
+  ]
+}

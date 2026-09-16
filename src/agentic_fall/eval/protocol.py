@@ -229,6 +229,23 @@ def build_gate(
     return gate
 
 
+def build_conformal_gate(
+    model: torch.nn.Module,
+    ds,
+    cal_idx: Sequence[int],
+    device: torch.device,
+    *,
+    alpha: float = 0.05,
+    max_cal: int = 2000,
+) -> "ConformalGate":
+    from .conformal_gate import ConformalGate
+
+    idx = list(cal_idx)[:max_cal]
+    loader = DataLoader(Subset(ds, idx), batch_size=64, shuffle=False)
+    ps, ys = collect_probs(model, loader, device)
+    return ConformalGate.calibrate(ps, ys, alpha=alpha)
+
+
 def load_paper_protocol(root: Path, path: str | Path = "configs/paper_protocol.yaml") -> dict:
     from ..utils.config import load_config
 

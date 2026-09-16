@@ -1,0 +1,14 @@
+\begin{algorithm}[!t]
+\caption{Cost-calibrated dual-threshold gate and split-conformal audit}
+\label{alg:gate}
+\begin{algorithmic}[1]
+\REQUIRE Calibration set $\{(p_i,y_i)\}_{i=1}^{n}$; costs $(\beta_{\mathrm{FN}},\beta_{\mathrm{FP}})$; conformal level $\alpha$
+\STATE \textbf{Cost gate:} grid-search $(\tau_{\mathrm{low}},\tau_{\mathrm{high}})$ minimizing $\beta_{\mathrm{FN}}\!\cdot\!\mathrm{FN}_{\mathrm{edge}}+\beta_{\mathrm{FP}}\!\cdot\!\mathrm{FP}_{\mathrm{edge}}+\lambda\cdot\mathrm{deferral}$ on confident decisions only
+\STATE \textbf{Conformal:} scores $s_i\leftarrow 1-p_i$ if $y_i{=}1$ else $1-(1-p_i)$
+\STATE $\hat{q}\leftarrow$ $(1-\alpha)$-quantile of $\{s_i\}$ with finite-sample correction $\lceil(n{+}1)(1{-}\alpha)\rceil/n$
+\STATE For test $p$: prediction set $C(p)=\{c:\,1{-}\hat{p}(c)\le\hat{q}\}$
+\STATE If $|C|{=}1$ route at the edge; if $|C|{=}2$ escalate (ambiguous)
+\STATE Audit edge FN rate on held-out confident decisions; report escalation rate
+\STATE \textbf{return} $(\tau_{\mathrm{low}},\tau_{\mathrm{high}},\hat{q})$
+\end{algorithmic}
+\end{algorithm}

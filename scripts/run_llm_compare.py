@@ -26,7 +26,7 @@ from agentic_fall.eval.protocol import (
     text_embedder,
     verify_dataset_near_falls,
 )
-from agentic_fall.models import build_model
+from agentic_fall.models import build_model, kwargs_for_model
 from agentic_fall.utils.config import load_config
 from agentic_fall.utils.io import ensure_dir, save_json
 from agentic_fall.utils.seed import set_seed
@@ -139,7 +139,9 @@ def main():
             attn_heads=int(tcfg["model"]["attn_heads"]),
         )
     else:
-        model = build_model(model_name, in_channels=int(tcfg["channels"]), num_classes=2)
+        bcfg = load_config(ROOT / pcfg.get("backbones_config", "configs/backbones.yaml"))
+        zoo_kw = kwargs_for_model(model_name, bcfg)
+        model = build_model(model_name, in_channels=int(tcfg["channels"]), num_classes=2, **zoo_kw)
     state = torch.load(args.checkpoint, map_location=device, weights_only=False)
     model.load_state_dict(state["model"])
     model.to(device)

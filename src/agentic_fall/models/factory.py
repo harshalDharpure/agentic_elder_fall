@@ -4,8 +4,9 @@ import torch.nn as nn
 
 from .backbones import ModernTCN, PatchTST, TCN, TSMixer, TransformerEncoder1D
 from .cnn_lstm_attn import CNN1D, CNNLSTM, CNNLSTMAttention, LSTMOnly
+from .harmamba import HARMamba
 
-MODERN_BACKBONES = ("tcn", "modern_tcn", "tsmixer", "patchtst", "transformer")
+MODERN_BACKBONES = ("tcn", "modern_tcn", "tsmixer", "patchtst", "transformer", "harmamba")
 CLASSICAL_BACKBONES = ("cnn1d", "lstm", "cnn_lstm", "cnn_lstm_attn")
 ALL_BACKBONES = CLASSICAL_BACKBONES + MODERN_BACKBONES
 
@@ -52,4 +53,27 @@ def build_model(name: str, in_channels: int, num_classes: int, **kwargs) -> nn.M
         allowed = {"d_model", "n_heads", "n_layers", "dropout", "max_len"}
         kw = {k: v for k, v in kwargs.items() if k in allowed}
         return TransformerEncoder1D(in_channels=in_channels, num_classes=num_classes, **kw)
+    if name in ("harmamba", "mamba", "bi_mamba"):
+        allowed = {
+            "d_model",
+            "n_layers",
+            "d_state",
+            "expand",
+            "dropout",
+            "seq_len",
+            "patch_len",
+            "use_patch",
+        }
+        kw = {k: v for k, v in kwargs.items() if k in allowed}
+        return HARMamba(in_channels=in_channels, num_classes=num_classes, **kw)
     raise ValueError(f"Unknown model: {name}. Choose from {ALL_BACKBONES}")
+
+
+def kwargs_for_model(name: str, backbones_cfg: dict | None = None) -> dict:
+    """Pull model_kwargs for ``name`` from configs/backbones.yaml-style dict."""
+    if not backbones_cfg:
+        return {}
+    name = name.lower().replace("-", "_")
+    if name in ("mamba", "bi_mamba"):
+        name = "harmamba"
+    return dict(backbones_cfg.get("model_kwargs", {}).get(name, {}))

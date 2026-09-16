@@ -1,0 +1,8 @@
+Complete architecture (gate_knn_llm) — fold 0  backend=ollama
+N=300  Acc=0.900  F1=0.868  Prec=0.773  Rec=0.990  FAR=nan  Esc=0.587  Cost=39  ambiguous=100
+
+Per bucket:
+  strict_fall: n=100 acc=0.990 esc_or_adj=0.000
+  clear_adl: n=100 acc=0.760 esc_or_adj=0.000
+  ambiguous: n=100 acc=0.950 esc_or_adj=0.000
+  ambiguous escalate_rate=1.000

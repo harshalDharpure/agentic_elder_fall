@@ -1,0 +1,58 @@
+{
+  "fold": 0,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "n_seeds": 3,
+  "tier1_f1_mean": 0.7446009512459453,
+  "tier1_f1_std": 0.00359155757072854,
+  "stack_f1_mean": 0.9046637183214618,
+  "stack_f1_std": 0.005246734041333641,
+  "rows": [
+    {
+      "seed": 42,
+      "fold": 0,
+      "tier1_f1": 0.7469586374695864,
+      "tier1_recall": 0.7156177156177156,
+      "stack_backend": "ollama",
+      "stack_f1": 0.9087048832271762,
+      "stack_recall": 0.9976689976689976,
+      "stack_cost": 95.0,
+      "stack_cost_per_1000": 95.0,
+      "n": 1000,
+      "tau_low": 0.07105263157894737,
+      "tau_high": 0.55
+    },
+    {
+      "seed": 43,
+      "fold": 0,
+      "tier1_f1": 0.7404674046740467,
+      "tier1_recall": 0.7099056603773585,
+      "stack_backend": "ollama",
+      "stack_f1": 0.9065520945220193,
+      "stack_recall": 0.9952830188679245,
+      "stack_cost": 105.0,
+      "stack_cost_per_1000": 105.0,
+      "n": 1000,
+      "tau_low": 0.11315789473684211,
+      "tau_high": 0.55
+    },
+    {
+      "seed": 44,
+      "fold": 0,
+      "tier1_f1": 0.7463768115942029,
+      "tier1_recall": 0.7253521126760564,
+      "stack_backend": "ollama",
+      "stack_f1": 0.8987341772151899,
+      "stack_recall": 1.0,
+      "stack_cost": 96.0,
+      "stack_cost_per_1000": 96.0,
+      "n": 1000,
+      "tau_low": 0.07105263157894737,
+      "tau_high": 0.55
+    }
+  ],
+  "note": "Ollama/Mistral stack; seeds 42,43,44."
+}

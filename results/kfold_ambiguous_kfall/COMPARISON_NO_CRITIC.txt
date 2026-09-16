@@ -1,0 +1,26 @@
+KFall ambiguous bench — gate_knn_llm vs tier1_only (NO CRITIC)
+Dataset: data/kfold_ambiguous_kfall (100 D18/D19 + 100 fall + 100 ADL per fold)
+
+fold mode               F1    Rec   FN   FP   Cost  AmbAcc
+------------------------------------------------------------
+   0 tier1_only      0.966  0.990    1    6     16   0.940
+   0 gate_knn_llm    0.990  1.000    0    2      2   1.000
+     Δ              +0.024          -1   -4    -14
+
+   1 tier1_only      0.985  1.000    0    3      3   0.970
+   1 gate_knn_llm    1.000  1.000    0    0      0   1.000
+     Δ              +0.015          +0   -3     -3
+
+   2 tier1_only      0.947  0.990    1   10     20   0.910
+   2 gate_knn_llm    0.976  1.000    0    5      5   0.960
+     Δ              +0.028          -1   -5    -15
+
+   3 tier1_only      0.985  1.000    0    3      3   0.970
+   3 gate_knn_llm    0.966  1.000    0    7      7   0.940
+     Δ              -0.019          +0   +4     +4
+
+   4 tier1_only      0.957  0.990    1    8     18   0.920
+   4 gate_knn_llm    0.985  0.990    1    2     12   0.980
+     Δ              +0.029          +0   -6     -6
+
+mean tier1 Cost=12  stack Cost=5

@@ -1,0 +1,452 @@
+{
+  "dataset": "kfall_binary",
+  "n_folds": 5,
+  "folds": [
+    {
+      "fold": 0,
+      "tier1_only": {
+        "f1": 0.9918032786885246,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 17.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.417832330102101,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.417832330102101
+      },
+      "gate_only": {
+        "f1": 0.9918032786885246,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 17.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.75,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.412627252105337,
+        "latency_escalated_ms": 6.225219555199146,
+        "latency_mean_ms": 6.407942059682682
+      },
+      "gate_knn": {
+        "f1": 0.9907502569373073,
+        "recall": 0.9938144329896907,
+        "cost_per_1000": 36.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.4,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.939498353749514,
+        "latency_escalated_ms": 41.653316114097834,
+        "latency_mean_ms": 7.807343797758222
+      },
+      "gate_llm": {
+        "f1": 0.9758064516129032,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 33.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.25,
+        "false_alarm_rate_near_fall": 0.225,
+        "false_alarm_rate_ambiguous": 0.225,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.731256100181968,
+        "latency_escalated_ms": 8147.603715993464,
+        "latency_mean_ms": 210.25306759751402
+      },
+      "gate_knn_llm": {
+        "f1": 0.9928352098259979,
+        "recall": 1.0,
+        "cost_per_1000": 7.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.8888888888888888,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.508277387429889,
+        "latency_escalated_ms": 10103.229657793418,
+        "latency_mean_ms": 258.9263118975796
+      }
+    },
+    {
+      "fold": 1,
+      "tier1_only": {
+        "f1": 0.9865841073271414,
+        "recall": 0.9958333333333333,
+        "cost_per_1000": 31.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.05,
+        "false_alarm_rate_ambiguous": 0.05,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.348479005508125,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.348479005508125
+      },
+      "gate_knn_llm": {
+        "f1": 0.9855670103092784,
+        "recall": 0.9958333333333333,
+        "cost_per_1000": 32.0,
+        "escalation_rate": 0.002,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.05,
+        "false_alarm_rate_ambiguous": 0.05,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.384387323754151,
+        "latency_escalated_ms": 11388.723780051805,
+        "latency_mean_ms": 29.149066109210253
+      }
+    },
+    {
+      "fold": 2,
+      "tier1_only": {
+        "f1": 0.9865005192107996,
+        "recall": 0.9937238493723849,
+        "cost_per_1000": 40.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.389506580075249,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.389506580075249
+      },
+      "gate_knn_llm": {
+        "f1": 0.9885773624091381,
+        "recall": 0.99581589958159,
+        "cost_per_1000": 29.0,
+        "escalation_rate": 0.01,
+        "escalated_f1": 0.8,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.471228169164423,
+        "latency_escalated_ms": 10437.146962247789,
+        "latency_mean_ms": 110.77798550995067
+      }
+    },
+    {
+      "fold": 3,
+      "tier1_only": {
+        "f1": 0.9916666666666667,
+        "recall": 0.9896049896049897,
+        "cost_per_1000": 53.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.025,
+        "false_alarm_rate_ambiguous": 0.025,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.421177508542314,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.421177508542314
+      },
+      "gate_knn_llm": {
+        "f1": 0.9948078920041536,
+        "recall": 0.9958419958419958,
+        "cost_per_1000": 23.0,
+        "escalation_rate": 0.008,
+        "escalated_f1": 1.0,
+        "false_alarm_rate_near_fall": 0.025,
+        "false_alarm_rate_ambiguous": 0.025,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.423959693723103,
+        "latency_escalated_ms": 10673.200632707449,
+        "latency_mean_ms": 91.75817307783291
+      }
+    },
+    {
+      "fold": 4,
+      "tier1_only": {
+        "f1": 0.9803108808290155,
+        "recall": 0.979296066252588,
+        "cost_per_1000": 109.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.3255904209800065,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.3255904209800065
+      },
+      "gate_knn_llm": {
+        "f1": 0.9886714727085479,
+        "recall": 0.9937888198757764,
+        "cost_per_1000": 38.0,
+        "escalation_rate": 0.011,
+        "escalated_f1": 1.0,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.441125342541414,
+        "latency_escalated_ms": 10491.025248330763,
+        "latency_mean_ms": 121.77155069541186
+      }
+    }
+  ],
+  "modes": {
+    "tier1_only": {
+      "n_folds": 5,
+      "f1_mean": 0.9873730905444296,
+      "f1_std": 0.004725464110102005,
+      "recall_mean": 0.9912792765786385,
+      "recall_std": 0.007373202414591454,
+      "cost_per_1000_mean": 50.0,
+      "cost_per_1000_std": 35.4964786985977,
+      "escalation_rate_mean": 0.0,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.0,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.0675,
+      "far_d18d19_std": 0.02877716108305334
+    },
+    "gate_only": {
+      "n_folds": 1,
+      "f1_mean": 0.9918032786885246,
+      "f1_std": 0.0,
+      "recall_mean": 0.9979381443298969,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 17.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.75,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.0875,
+      "far_d18d19_std": 0.0
+    },
+    "gate_knn": {
+      "n_folds": 1,
+      "f1_mean": 0.9907502569373073,
+      "f1_std": 0.0,
+      "recall_mean": 0.9938144329896907,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 36.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.4,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.075,
+      "far_d18d19_std": 0.0
+    },
+    "gate_llm": {
+      "n_folds": 1,
+      "f1_mean": 0.9758064516129032,
+      "f1_std": 0.0,
+      "recall_mean": 0.9979381443298969,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 33.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.25,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.225,
+      "far_d18d19_std": 0.0
+    },
+    "gate_knn_llm": {
+      "n_folds": 5,
+      "f1_mean": 0.9900917894514232,
+      "f1_std": 0.003692979618180532,
+      "recall_mean": 0.9962560097265392,
+      "recall_std": 0.00227201720378233,
+      "cost_per_1000_mean": 25.8,
+      "cost_per_1000_std": 11.819475453673908,
+      "escalation_rate_mean": 0.011200000000000002,
+      "escalation_rate_std": 0.00846758525200662,
+      "escalated_f1_mean": 0.7377777777777779,
+      "escalated_f1_std": 0.4208750437708748,
+      "far_d18d19_mean": 0.0625,
+      "far_d18d19_std": 0.024999999999999998
+    }
+  },
+  "paired_tests": [
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "f1",
+      "mean_delta": 0.002718698906993633,
+      "bootstrap_ci95": [
+        0.00022437308427425418,
+        0.0058470924070548325
+      ],
+      "wilcoxon_pvalue": 0.125,
+      "deltas": [
+        0.001031931137473352,
+        -0.0010170970178630112,
+        0.0020768431983384517,
+        0.0031412253374869525,
+        0.00836059187953242
+      ]
+    },
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "recall",
+      "mean_delta": 0.004976733147900547,
+      "bootstrap_ci95": [
+        0.0012431523098822561,
+        0.009943053421314251
+      ],
+      "wilcoxon_pvalue": 0.06788915486182899,
+      "deltas": [
+        0.0020618556701030855,
+        0.0,
+        0.0020920502092051096,
+        0.006237006237006182,
+        0.01449275362318836
+      ]
+    },
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "cost_per_1000",
+      "mean_delta": -24.2,
+      "bootstrap_ci95": [
+        -48.4,
+        -5.8
+      ],
+      "wilcoxon_pvalue": 0.125,
+      "deltas": [
+        -10.0,
+        1.0,
+        -11.0,
+        -30.0,
+        -71.0
+      ]
+    }
+  ],
+  "d18_d19_by_mode": {
+    "tier1_only": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 1,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.05,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 2,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 3,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.025,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 4,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      }
+    ],
+    "gate_only": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.75,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_knn": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 0.4,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_llm": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.225,
+        "esc_f1": 0.25,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_knn_llm": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.8888888888888888,
+        "esc_rate": 0.025
+      },
+      {
+        "fold": 1,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.05,
+        "esc_f1": 0.0,
+        "esc_rate": 0.002
+      },
+      {
+        "fold": 2,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 0.8,
+        "esc_rate": 0.01
+      },
+      {
+        "fold": 3,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.025,
+        "esc_f1": 1.0,
+        "esc_rate": 0.008
+      },
+      {
+        "fold": 4,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 1.0,
+        "esc_rate": 0.011
+      }
+    ]
+  }
+}

@@ -76,12 +76,17 @@ def test_knn_memory():
                 label=i % 2,
                 evidence_text=f"case {i}",
                 features={},
+                activity="D18" if i % 2 == 0 else "F01",
             )
         )
     q = np.zeros(8, dtype=np.float32)
     q[0] = 1.0
     hits = mem.retrieve(q, k=2)
     assert len(hits) == 2
+    pos, neg = mem.contrastive_retrieve(q, k_pos=2, k_neg=2)
+    assert all(c.label == 1 for c in pos)
+    assert all(c.label == 0 for c in neg)
+    assert len(pos) <= 2 and len(neg) <= 2
 
 
 def test_heuristic_reasoner_and_action():
@@ -227,3 +232,265 @@ def test_make_fold_split_toy():
 
     split = make_fold_split(Toy(), fold=0, n_folds=5, seed=42, val_fraction=0.2)
     assert split.train_idx and split.val_idx and split.test_idx
+
+
+def test_constraint_pack_and_actor_critic():
+    from agentic_fall.agents.constraints import ConstraintPack, build_constraint_pack, rationale_cites_sigma
+    from agentic_fall.agents.adjudicator import Adjudicator
+    from agentic_fall.agents.critic_agent import ActorHypothesis, CriticAgent, _heuristic_critic
+
+    assert rationale_cites_sigma("Free-fall 0.2s and impact 4g support a fall")
+    assert not rationale_cites_sigma("looks bad")
+
+    win = np.zeros((90, 6), dtype=np.float32)
+    win[:, 2] = 1.0
+    win[10:14, :3] = 0.2
+    win[20, :3] = 2.5
+    feats = extract_biomechanics(win, sample_rate_hz=200.0)
+    pack = build_constraint_pack(feats, p_fall=0.45, cases=[])
+    assert pack.freefall_band in ("short", "moderate", "long")
+    assert "Free-fall" in pack.checklist_text()
+
+    reasoner = LLMReasoner(backend="heuristic")
+    critic = CriticAgent(backend="heuristic")
+    adj = Adjudicator(
+        reasoner=reasoner, critic=critic, enabled=True, mode="action_critique", freeze_label=True
+    )
+    res, trace = adj.reason(serialize_evidence(feats, p_fall=0.45), feats, 0.45, [])
+    assert res.prediction in ("fall", "adl")
+    assert trace.actor is not None
+    assert trace.critic is not None
+    assert trace.actor.prediction == res.prediction
+
+    actor_fall = ActorHypothesis(
+        hypothesis="fall",
+        prediction="fall",
+        severity="severe",
+        confidence=0.9,
+        rationale="I just know",
+        suggested_action="emergency",
+        source="heuristic",
+    )
+    v = _heuristic_critic(actor_fall, pack)
+    assert v.revised_prediction == "fall"
+    assert v.verdict == "revise"
+    assert any("rationale" in x.lower() for x in v.violations)
+
+    weak_pack = ConstraintPack(
+        freefall_duration_s=0.04,
+        impact_magnitude_g=2.5,
+        post_impact_stillness_s=0.05,
+        body_tilt_deg=10.0,
+        p_fall=0.45,
+        knn_fall_votes=0,
+        knn_adl_votes=0,
+        knn_fall_ratio=0.5,
+        freefall_band="short",
+        impact_band="high",
+        stillness_band="brief",
+        tilt_band="upright",
+        fall_support_score=0.05,
+        near_fall_likely=True,
+    )
+    v_down = _heuristic_critic(actor_fall, weak_pack)
+    assert v_down.revised_prediction == "fall"
+    assert v_down.revised_action != "emergency"
+    # Stronger Critic: weak Σ + notify should become monitor
+    actor_notify = ActorHypothesis(
+        hypothesis="fall",
+        prediction="fall",
+        severity="moderate",
+        confidence=0.9,
+        rationale="Free-fall short; impact moderate; tilt upright; kNN mostly ADL",
+        suggested_action="notify_caregiver",
+        source="heuristic",
+    )
+    weak_pack_hard = ConstraintPack(
+        freefall_duration_s=0.04,
+        impact_magnitude_g=2.5,
+        post_impact_stillness_s=0.05,
+        body_tilt_deg=10.0,
+        p_fall=0.45,
+        knn_fall_votes=1,
+        knn_adl_votes=4,
+        knn_fall_ratio=0.2,
+        freefall_band="short",
+        impact_band="moderate",
+        stillness_band="brief",
+        tilt_band="upright",
+        fall_support_score=0.05,
+        near_fall_likely=True,
+    )
+    v_mon = _heuristic_critic(actor_notify, weak_pack_hard)
+    assert v_mon.revised_prediction == "fall"
+    assert v_mon.revised_action == "monitor"
+    assert v_mon.verdict == "revise"
+
+    actor_adl = ActorHypothesis(
+        hypothesis="adl",
+        prediction="adl",
+        severity="severe",
+        confidence=0.8,
+        rationale="I just know",
+        suggested_action="emergency",
+        source="heuristic",
+    )
+    v_adl = _heuristic_critic(actor_adl, weak_pack)
+    assert v_adl.revised_prediction == "adl"
+    assert v_adl.revised_action in ("monitor", "log")
+
+    win2 = np.zeros((90, 6), dtype=np.float32)
+    win2[:, 2] = 1.0
+    win2[10:40, :3] = 0.1
+    win2[45, :3] = 6.0
+    win2[50:85, :3] = 0.02
+    win2[-10:, 0] = 1.0
+    feats2 = extract_biomechanics(win2, sample_rate_hz=200.0)
+    res2, trace2 = adj.reason(serialize_evidence(feats2, p_fall=0.8), feats2, 0.8, [])
+    assert res2.prediction == trace2.actor.prediction
+    assert trace2.mode == "action_critique"
+
+    from agentic_fall.agents.constraints import veto_score
+    from agentic_fall.eval.conformal import (
+        alpha_break_even,
+        apply_veto,
+        empirical_bernstein_upper,
+        hoeffding_upper,
+        select_lambda_star,
+    )
+
+    assert 0.0 <= veto_score(weak_pack) <= 1.0
+    strong = ConstraintPack(
+        freefall_duration_s=0.20,
+        impact_magnitude_g=6.0,
+        post_impact_stillness_s=0.30,
+        body_tilt_deg=70.0,
+        p_fall=0.9,
+        knn_fall_votes=5,
+        knn_adl_votes=0,
+        knn_fall_ratio=1.0,
+        freefall_band="long",
+        impact_band="severe",
+        stillness_band="prolonged",
+        tilt_band="horizontal",
+        fall_support_score=0.9,
+        near_fall_likely=False,
+    )
+    assert veto_score(weak_pack) > veto_score(strong)
+
+    rng = np.random.default_rng(0)
+    # High scores on ADL (y=0), low scores on falls (y=1) → vetoing high scores is safe.
+    scores = list(rng.uniform(0.7, 1.0, 200)) + list(rng.uniform(0.0, 0.3, 50))
+    labels = [0] * 200 + [1] * 50
+    sel = select_lambda_star(scores, labels, alpha=0.05, delta=0.1, min_n=20)
+    assert sel["feasible"] is True
+    assert sel["lambda_star"] is not None
+    assert hoeffding_upper(0.01, 800, 0.1) < 0.05
+    assert empirical_bernstein_upper([0.0] * 200, 0.1) < 0.1
+    assert abs(alpha_break_even(10.0, 1.0) - 1.0 / 11.0) < 1e-9
+    assert apply_veto(["fall", "fall", "adl"], [0.9, 0.1, 0.9], 0.5) == ["adl", "fall", "adl"]
+
+    adj_crc = Adjudicator(
+        reasoner=reasoner,
+        critic=critic,
+        enabled=True,
+        mode="crc_veto",
+        freeze_label=False,
+        veto_threshold=0.0,
+        crc_feasible=True,
+        crc_alpha=0.05,
+        actor_backend="heuristic",
+        critic_backend="heuristic",
+    )
+    res_v, tr_v = adj_crc.reason(serialize_evidence(feats, p_fall=0.45), feats, 0.45, [])
+    if tr_v.actor and tr_v.actor.prediction == "fall":
+        assert res_v.prediction == "adl"
+        assert tr_v.vetoed is True
+    adj_infeas = Adjudicator(
+        reasoner=reasoner,
+        critic=critic,
+        enabled=True,
+        mode="crc_veto",
+        freeze_label=False,
+        veto_threshold=0.0,
+        crc_feasible=False,
+        actor_backend="heuristic",
+        critic_backend="heuristic",
+    )
+    res_i, tr_i = adj_infeas.reason(serialize_evidence(feats, p_fall=0.45), feats, 0.45, [])
+    assert tr_i.vetoed is False
+    assert res_i.prediction == tr_i.actor.prediction
+
+
+def test_action_downgrade():
+    feats = extract_biomechanics(np.zeros((90, 6), dtype=np.float32), sample_rate_hz=200.0)
+    agent = ActionAgent()
+    up = agent.decide("fall", "mild", feats, suggested_action="emergency", allow_downgrade=False)
+    assert up.action == "emergency"
+    down = agent.decide("fall", "severe", feats, suggested_action="monitor", allow_downgrade=True)
+    assert down.action == "monitor"
+
+
+def test_kfold_ambiguous_aggregate():
+    import importlib.util
+
+    root = Path(__file__).resolve().parents[1]
+    npz = root / "data/processed/sisfall/windows_w90_h10.npz"
+    if not npz.exists():
+        import pytest
+
+        pytest.skip("SisFall NPZ not available")
+
+    spec = importlib.util.spec_from_file_location(
+        "build_kfold_ambiguous_bench",
+        root / "scripts" / "build_kfold_ambiguous_bench.py",
+    )
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+
+    from agentic_fall.data.sisfall import SisFallDataset
+
+    ds = SisFallDataset(npz, channels=6)
+    payload, meta = mod.build_fold_subset(
+        ds, fold=0, n_ambiguous=50, n_fall=25, n_adl=25, seed=0
+    )
+    assert payload["X"].ndim == 3 and payload["X"].shape[1:] == (90, 6)
+    assert meta["n_ambiguous"] == 50
+    assert meta["n_d18"] + meta["n_d19"] == 50
+    assert meta["n_strict_fall"] == 25
+    assert meta["n_clear_adl"] == 25
+    assert "source_indices" in payload
+    assert all(m["source"] == "sisfall_kfold" for m in meta["cases"])
+
+    agg_spec = importlib.util.spec_from_file_location(
+        "aggregate_kfold_ambiguous",
+        root / "scripts" / "aggregate_kfold_ambiguous.py",
+    )
+    agg = importlib.util.module_from_spec(agg_spec)
+    assert agg_spec.loader is not None
+    agg_spec.loader.exec_module(agg)
+    tmp = root / "results" / "_test_kfold_agg"
+    tmp.mkdir(parents=True, exist_ok=True)
+    import json
+
+    fake = {
+        "metrics": {
+            "accuracy": 0.9,
+            "f1": 0.85,
+            "precision": 0.8,
+            "recall": 0.9,
+            "fp": 10,
+            "tn": 90,
+            "escalate_rate": 0.5,
+            "expected_response_cost": 100.0,
+            "per_bucket": {"ambiguous": {"accuracy": 0.95}},
+        },
+        "backend": "test",
+    }
+    for f in range(5):
+        (tmp / f"fold{f}_eval.json").write_text(json.dumps(fake))
+    summary = agg.aggregate(tmp, backend="test")
+    assert len(summary["folds"]) == 5
+    assert (tmp / "ALL_FOLDS_REPORT.txt").exists()
+

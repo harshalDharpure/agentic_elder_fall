@@ -1,0 +1,10 @@
+LABEL: tab:knnk
+CAPTION: $k$-NN retrieval ablation ($k  1,5,10$, fold 0, heuristic LLM).
+
+{tabular}{cccc}
+
+k | F1 | Recall | Escalation
+1 | 0.384 | 0.240 | 0.38
+5 | 0.384 | 0.240 | 0.38
+10 | 0.384 | 0.240 | 0.38
+{tabular}

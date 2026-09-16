@@ -113,6 +113,39 @@ def mean_std_table(by_name: dict[str, list[dict]]) -> list[dict]:
     return out
 
 
+
+
+def bca_bootstrap_ci(deltas: list[float], n_boot: int = 10000, alpha: float = 0.05) -> list[float] | None:
+    """Bias-corrected accelerated bootstrap CI for the mean (n>=3)."""
+    d = np.asarray(deltas, dtype=float)
+    n = int(d.size)
+    if n < 3:
+        return None
+    theta_hat = float(d.mean())
+    rng = np.random.default_rng(42)
+    boots = np.array([d[rng.integers(0, n, size=n)].mean() for _ in range(n_boot)])
+    jack = np.array([(d.sum() - d[i]) / max(1, n - 1) for i in range(n)])
+    jack_mean = float(jack.mean())
+    num = float(np.sum((jack_mean - jack) ** 3))
+    den = 6.0 * float(np.sum((jack_mean - jack) ** 2) ** 1.5)
+    a = num / den if den != 0 else 0.0
+    try:
+        from scipy.stats import norm
+
+        z0 = norm.ppf(float((boots < theta_hat).mean()))
+        za = norm.ppf(alpha / 2)
+        zb = norm.ppf(1 - alpha / 2)
+
+        def adj(z):
+            return norm.cdf(z0 + (z0 + z) / (1 - a * (z0 + z)))
+
+        lo = float(np.percentile(boots, 100 * adj(za)))
+        hi = float(np.percentile(boots, 100 * adj(zb)))
+        return [lo, hi]
+    except Exception:
+        return [float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))]
+
+
 def paired_wilcoxon(a: list[float], b: list[float]) -> dict:
     a = np.asarray(a, dtype=float)
     b = np.asarray(b, dtype=float)
@@ -137,7 +170,9 @@ def paired_wilcoxon(a: list[float], b: list[float]) -> dict:
         for _ in range(2000):
             idx = rng.integers(0, len(d), size=len(d))
             boots.append(float(d[idx].mean()))
-        out["bootstrap_ci95"] = [float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))]
+        bca = bca_bootstrap_ci(list(d))
+        out["bootstrap_ci95"] = bca if bca else [float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))]
+        out["bootstrap_method"] = "bca" if bca else "percentile"
     return out
 
 

@@ -1,0 +1,12 @@
+LABEL: tab:kfallablation
+CAPTION: KFall Fold 0 ablation ladder ($n=1000$). Full stack requires $k$-NN+LLM.
+
+{tabular}{lcccc}
+
+Mode | F1 | Recall | Cost | Esc.\ F1
+tier1_only | 0.992 | 0.998 | 17 | 0.000
+gate_only | 0.992 | 0.998 | 17 | 0.750
+gate_knn | 0.991 | 0.994 | 36 | 0.400
+gate_llm | 0.976 | 0.998 | 33 | 0.250
+gate_knn_llm | 0.993 | 1.000 | 7 | 0.889
+{tabular}

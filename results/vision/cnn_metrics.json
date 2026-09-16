@@ -1,0 +1,16 @@
+{
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "sensitivity": 0.999999999999963,
+  "specificity": 0.9999999999999721,
+  "f1": 1.0,
+  "tp": 27,
+  "tn": 36,
+  "fp": 0,
+  "fn": 0,
+  "expected_cost": 0.0,
+  "cost_per_1000": 0.0,
+  "model": "resnet18",
+  "n_test": 63
+}

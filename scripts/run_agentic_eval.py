@@ -24,7 +24,7 @@ from agentic_fall.eval.protocol import (
     text_embedder,
     verify_dataset_near_falls,
 )
-from agentic_fall.models import build_model
+from agentic_fall.models import build_model, kwargs_for_model
 from agentic_fall.utils.config import load_config
 from agentic_fall.utils.io import ensure_dir, save_json
 from agentic_fall.utils.seed import set_seed
@@ -46,6 +46,7 @@ def main():
     pcfg = load_config(ROOT / args.paper_config)
     tcfg = load_config(ROOT / pcfg["tier1_config"])
     acfg = load_config(ROOT / pcfg["agentic_config"])
+    bcfg = load_config(ROOT / pcfg.get("backbones_config", "configs/backbones.yaml"))
     set_seed(int(pcfg["seed"]))
     device = torch.device(args.device or ("cuda" if torch.cuda.is_available() else "cpu"))
     model_name = args.model or pcfg["agentic"].get("primary_backbone", "cnn_lstm_attn")
@@ -82,7 +83,8 @@ def main():
             attn_heads=int(tcfg["model"]["attn_heads"]),
         )
     else:
-        model = build_model(model_name, in_channels=int(tcfg["channels"]), num_classes=2)
+        zoo_kw = kwargs_for_model(model_name, bcfg)
+        model = build_model(model_name, in_channels=int(tcfg["channels"]), num_classes=2, **zoo_kw)
     state = torch.load(args.checkpoint, map_location=device, weights_only=False)
     model.load_state_dict(state["model"])
     model.to(device).eval()

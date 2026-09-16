@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\caption{Baselines and agentic ablations (SisFall)}
+\begin{tabular}{lcccccccccccccc}
+\toprule
+Method & f1 & recall & specificity & precision & accuracy & missed_fall_rate & false_alarm_rate_near_fall & escalated_f1 & escalation_rate & expected_response_cost & ece & n_near_fall & n_escalated & n \\
+\midrule
+cnn_lstm_attn & 0.774 & 0.781 & 0.821 & 0.767 & 0.804 &  &  &  &  &  &  &  &  & 1000 \\
+gate_knn & 0.771 & 0.755 & 0.846 & 0.786 & 0.807 & 0.245 & 0.169 & 0.038 & 0.443 & 1138.000 & 0.089 & 160 & 443 &  \\
+gate_knn_actor_only & 0.771 & 0.755 & 0.846 & 0.786 & 0.807 & 0.245 & 0.169 & 0.038 & 0.443 & 1138.000 & 0.089 & 160 & 443 &  \\
+gate_knn_actor_critic & 0.771 & 0.755 & 0.846 & 0.786 & 0.807 & 0.245 & 0.169 & 0.038 & 0.443 & 1138.000 & 0.089 & 160 & 443 &  \\
+\bottomrule
+\end{tabular}
+\end{table}

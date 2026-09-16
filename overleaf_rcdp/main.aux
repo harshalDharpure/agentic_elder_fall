@@ -1,0 +1,201 @@
+\relax 
+\citation{iglesias2019wearable,nurek2020fallsurvey,khan2017review,sisfall2017}
+\citation{ren2021survey}
+\citation{aziz2016fall}
+\citation{guo2017calibration,geifman2017selective,el2010foundations}
+\citation{elkan2001foundations}
+\citation{bhatti2025beyond}
+\citation{minilm2020,lewis2020rag}
+\citation{wei2022cot,yao2023react,ollama,mistral2023}
+\citation{sisfall2017}
+\citation{kfall2021}
+\citation{bourke2007threshold}
+\citation{sisfall2017}
+\citation{kfall2021}
+\citation{martinez2019upfall}
+\citation{micucci2017unimib}
+\citation{iglesias2019wearable,khan2017review,ren2021survey}
+\citation{bhatti2025beyond}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}}
+\newlabel{eq:risk}{{1}{1}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {I-}0a}Contributions.}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}\protected@file@percent }
+\newlabel{sec:related}{{II}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Wearable Fall Detection}{1}\protected@file@percent }
+\citation{guo2017calibration,platt1999probabilistic}
+\citation{el2010foundations,geifman2017selective}
+\citation{vovk2005algorithmic,angelopoulos2023gentle}
+\citation{elkan2001foundations}
+\citation{lewis2020rag}
+\citation{minilm2020}
+\citation{wei2022cot}
+\citation{yao2023react}
+\citation{ollama,mistral2023,qwen2024}
+\citation{bhatti2025beyond}
+\citation{iglesias2023modern}
+\citation{tsmixer2023}
+\citation{patchtst2023}
+\citation{vaswani2017attention}
+\citation{minilm2020}
+\citation{lewis2020rag}
+\citation{wei2022cot,mistral2023,qwen2024,ollama}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces RCDP inference for one IMU window\relax }}{2}\protected@file@percent }
+\newlabel{alg:rcdp}{{1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Uncertainty, Selective Prediction, and Conformal Methods}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Retrieval-Augmented and Agentic LLM Reasoning}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Method}{2}\protected@file@percent }
+\newlabel{sec:method}{{III}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Tier-1 Detector}{2}\protected@file@percent }
+\newlabel{eq:pfall}{{2}{2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Cost-calibrated dual-threshold gate and split-conformal audit\relax }}{2}\protected@file@percent }
+\newlabel{alg:gate}{{2}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Confidence Gate}{2}\protected@file@percent }
+\newlabel{eq:gate}{{3}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Evidence Serializer}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Retrieval Memory}{2}\protected@file@percent }
+\newlabel{eq:cosine}{{4}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}LLM Reasoner}{2}\protected@file@percent }
+\citation{sisfall2017}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Confidence-gated multi-agent fall detection. High- and low-confidence windows are resolved by the Tier-1 detector; ambiguous windows escalate to evidence serialization, $k$-NN retrieval, LLM reasoning, and a cost-sensitive Action Agent.\relax }}{3}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:arch}{{1}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces System\nobreakspace  {}2 escalation duty cycle by evaluation protocol (honest reporting). High rates on the ambiguous stress benchmark reflect deliberate near-fall stress; KFall external transfer invokes deliberation on $\approx $1\% of windows.\relax }}{3}\protected@file@percent }
+\newlabel{tab:escalation}{{I}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Action Agent and Clinical Cost}{3}\protected@file@percent }
+\newlabel{eq:tau_star}{{5}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-G}}System Modes}{3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-H}}Deployment Workflow}{3}\protected@file@percent }
+\newlabel{sec:deployment}{{\mbox  {III-H}}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-I}}Clinical Cost Framing and Grounding}{3}\protected@file@percent }
+\newlabel{sec:clinical}{{\mbox  {III-I}}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Asymmetric clinical cost sensitivity across penalty ratio $\beta =c_{\mathrm  {FN}}/c_{\mathrm  {FP}}\in \{5,10,20\}$ (cost $=\beta \cdot \mathrm  {FN}+\mathrm  {FP}$, per 1000 windows). Bayes optimal threshold $\tau ^*=1/(\beta +1)$ motivates asymmetric escalation.\relax }}{3}\protected@file@percent }
+\newlabel{tab:betacost}{{II}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Kinematic faithfulness $\mathcal  {G}_{\mathrm  {faith}}$ (rationale grounding rate): fraction of LLM rationales citing biomechanical evidence $\Sigma (w)$ (impact $g$, stillness, tilt). Contrastive critique nearly doubles grounding with $\approx $45\% graded action cost reduction.\relax }}{3}\protected@file@percent }
+\newlabel{tab:grounding}{{III}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental Setup}{3}\protected@file@percent }
+\newlabel{sec:setup}{{IV}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Dataset and Splits}{3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Training and Agentic Protocol}{3}\protected@file@percent }
+\citation{kfall2021}
+\citation{bhatti2025beyond}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces RCDP deployment workflow: System\nobreakspace  {}1 edge reflex (milliseconds) versus System\nobreakspace  {}2 deliberative triage (seconds) on escalated ambiguous windows.\relax }}{4}\protected@file@percent }
+\newlabel{fig:deployment}{{2}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Metrics and Statistics}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}External Validation (KFall)}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{4}\protected@file@percent }
+\newlabel{sec:results}{{V}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Ambiguous Stress Benchmark (Lead Result)}{4}\protected@file@percent }
+\newlabel{sec:ambiguous}{{\mbox  {V-A}}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Per-fold F1 and normalized response cost for \texttt  {tier1\_only} versus \texttt  {gate\_knn\_llm} under the homogeneous $n{=}1000$ protocol.\relax }}{4}\protected@file@percent }
+\newlabel{fig:costf1}{{3}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Main Comparison versus Tier-1}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Ablations}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}LLM Backends on Ambiguous Cases}{4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Positioning relative to Bhatti \textit  {et al.} (base detector paper).\relax }}{5}\protected@file@percent }
+\newlabel{tab:positioning}{{IV}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces SisFall \emph  {ambiguous stress benchmark} ($n{=}300$/fold: 100 D18/D19 near-fall + 100 fall + 100 clear ADL). Tier-1 F1 collapses on near-fall activities; the full stack recovers performance. Cost is clinical safety cost ($10\cdot \mathrm  {FN}+\mathrm  {FP}$) per window; Esc.\ is System\nobreakspace  {}2 escalation rate.\relax }}{5}\protected@file@percent }
+\newlabel{tab:ambiguoussisfall}{{V}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Per-fold comparison of Tier-1 (\texttt  {tier1\_only}) vs.\ full agentic stack (\texttt  {gate\_knn\_llm}) under the homogeneous protocol ($n{=}1000$ stratified windows/fold with forced D18/D19). Cost is normalized per 1000 windows.\relax }}{5}\protected@file@percent }
+\newlabel{tab:perfold}{{VI}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Five-fold mean$\pm $std on SisFall (homogeneous $n{=}1000$). Paired deltas are \texttt  {gate\_knn\_llm}$-$\texttt  {tier1\_only}. With five folds, Wilcoxon $p{=}0.0625$ is at the discrete minimum for a complete sign agreement; we therefore emphasize bootstrap 95\% CIs.\relax }}{5}\protected@file@percent }
+\newlabel{tab:meanstd}{{VII}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Negative Studies: Label-Flip Actor--Critic}{5}\protected@file@percent }
+\newlabel{sec:negative}{{\mbox  {V-E}}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Paired statistics for \texttt  {gate\_knn\_llm}$-$\texttt  {tier1\_only} across five subject-independent folds ($n{=}5$). Sign column reports folds with improvement (F1/recall$\uparrow $, cost$\downarrow $). With unanimous signs, Wilcoxon $p$ floors at $0.0625$; bootstrap 95\% CIs (BCa when $n{\ge }3$) are primary.\relax }}{5}\protected@file@percent }
+\newlabel{tab:stats}{{VIII}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces Ablation ladder on Fold\nobreakspace  {}0 under the full evaluation budget ($n{=}4000$). Gate or $k$-NN alone does not yield the headline gain; the full stack (\texttt  {gate\_knn\_llm}) is required.\relax }}{5}\protected@file@percent }
+\newlabel{tab:ablation}{{IX}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-F}}Backbone Context}{5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Ablation ladder on Fold\nobreakspace  {}0 ($n{=}4000$ archive): F1 (left axis) and expected response cost (right axis).\relax }}{6}\protected@file@percent }
+\newlabel{fig:ablation}{{4}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces Five-fold mean$\pm $std ablation under the homogeneous $n{=}1000$ protocol.\relax }}{6}\protected@file@percent }
+\newlabel{tab:ablationmean}{{X}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Mean$\pm $std ambiguous-case F1 across five folds for heuristic, Mistral, and Qwen2.5 backends.\relax }}{6}\protected@file@percent }
+\newlabel{fig:llm}{{5}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {XI}{\ignorespaces Paired LLM backend comparison on shared ambiguous case IDs (up to 150 cases/fold).\relax }}{6}\protected@file@percent }
+\newlabel{tab:llm}{{XI}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-G}}Latency and Budget Sensitivity}{6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {XII}{\ignorespaces Negative ablation: naive label-flip Actor--Critic (\texttt  {gate\_knn\_llm\_actor\_critic}) vs.\ primary stack. The Critic may veto fall predictions, inducing catastrophic FN spikes. Contrastive action critique (labels frozen) is the safe alternative (Table\nobreakspace  {}III\hbox {}).\relax }}{6}\protected@file@percent }
+\newlabel{tab:negative}{{XII}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {XIII}{\ignorespaces Tier-1 backbone zoo on Fold\nobreakspace  {}0 (detector-only metrics). Primary paper backbone is \texttt  {cnn\_lstm\_attn} (Bhatti-style).\relax }}{6}\protected@file@percent }
+\newlabel{tab:backbone}{{XIII}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Latency by fold: Tier-1 (ms, left axis) versus escalated LLM path and mean stack latency (seconds, right axis).\relax }}{6}\protected@file@percent }
+\newlabel{fig:latency}{{6}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Budget sensitivity: metrics at $n{=}1000$ versus $n{=}4000$ for Tier-1 and full stack on archived folds.\relax }}{6}\protected@file@percent }
+\newlabel{fig:budget}{{7}{6}}
+\citation{vovk2005algorithmic,angelopoulos2023gentle}
+\bibstyle{IEEEtran}
+\bibdata{refs}
+\bibcite{iglesias2019wearable}{1}
+\@writefile{lot}{\contentsline {table}{\numberline {XIV}{\ignorespaces End-to-end latency from Ollama agentic runs ($n{=}1000$/fold). Escalated-path latency is dominated by local LLM inference.\relax }}{7}\protected@file@percent }
+\newlabel{tab:latency}{{XIV}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-H}}External Validation on KFall}{7}\protected@file@percent }
+\newlabel{sec:kfall}{{\mbox  {V-H}}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{7}\protected@file@percent }
+\newlabel{sec:discussion}{{VI}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}What Changes Relative to Detection-Only Work}{7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Where the Gains Come From}{7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Statistics, Seeds, and Robustness}{7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Split-Conformal Gating and Duty-Cycle Trade-offs}{7}\protected@file@percent }
+\newlabel{sec:conformal}{{\mbox  {VI-D}}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Limitations}{7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{7}\protected@file@percent }
+\newlabel{sec:concl}{{VII}{7}}
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  A: Reproducibility Notes}{7}\protected@file@percent }
+\newlabel{app:repro}{{A}{7}}
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  B: Homogeneous Protocol Details}{7}\protected@file@percent }
+\newlabel{app:protocol}{{B}{7}}
+\bibcite{nurek2020fallsurvey}{2}
+\bibcite{khan2017review}{3}
+\bibcite{sisfall2017}{4}
+\@writefile{lot}{\contentsline {table}{\numberline {XV}{\ignorespaces Bhatti \textit  {et al.}\nobreakspace  {}2025 limitations versus our multi-agent answers (complementary Q1 claim).\relax }}{8}\protected@file@percent }
+\newlabel{tab:bhattigaps}{{XV}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XVI}{\ignorespaces KFall binary external validation: Tier-1 vs.\ full agentic stack ($n{=}1000$/fold, subject-independent). Cost normalized per 1000 windows.\relax }}{8}\protected@file@percent }
+\newlabel{tab:kfallperfold}{{XVI}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XVII}{\ignorespaces KFall five-fold mean$\pm $std (binary Fall/ADL). Paired deltas are stack$-$Tier-1.\relax }}{8}\protected@file@percent }
+\newlabel{tab:kfallmean}{{XVII}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XVIII}{\ignorespaces KFall Fold\nobreakspace  {}0 ablation ladder ($n{=}1000$). Full stack requires $k$-NN+LLM.\relax }}{8}\protected@file@percent }
+\newlabel{tab:kfallablation}{{XVIII}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XIX}{\ignorespaces KFall paired LLM backends on shared ambiguous IDs.\relax }}{8}\protected@file@percent }
+\newlabel{tab:kfallllm}{{XIX}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XX}{\ignorespaces Context-only 36-class Tier-1 on KFall transition (Fold\nobreakspace  {}0). Not a claim against Bhatti's published multi-class table.\relax }}{8}\protected@file@percent }
+\newlabel{tab:kfallmc}{{XX}{8}}
+\@writefile{toc}{\contentsline {section}{References}{8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {XXI}{\ignorespaces Split conformal gate audit ($\alpha {=}0.05$): edge-decision FN rate vs.\ cost-calibrated gate escalation.\relax }}{8}\protected@file@percent }
+\newlabel{tab:conformalgate}{{XXI}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XXII}{\ignorespaces Duty-cycle Pareto operating points (tier-1 routing, pooled folds): clinical cost vs.\ escalation.\relax }}{8}\protected@file@percent }
+\newlabel{tab:pareto}{{XXII}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XXIII}{\ignorespaces Offline partition fallback: single Bayes threshold $\tau ^\ast {=}1/(\beta {+}1)$, no escalation ($\beta {=}10$).\relax }}{8}\protected@file@percent }
+\newlabel{tab:partitionfallback}{{XXIII}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {XXIV}{\ignorespaces Tier-1 routing robustness (cost gate): mean F1 across folds under IMU perturbations.\relax }}{8}\protected@file@percent }
+\newlabel{tab:robustness}{{XXIV}{8}}
+\bibcite{ren2021survey}{5}
+\bibcite{aziz2016fall}{6}
+\bibcite{guo2017calibration}{7}
+\bibcite{geifman2017selective}{8}
+\bibcite{el2010foundations}{9}
+\bibcite{elkan2001foundations}{10}
+\bibcite{bhatti2025beyond}{11}
+\bibcite{minilm2020}{12}
+\bibcite{lewis2020rag}{13}
+\bibcite{wei2022cot}{14}
+\bibcite{yao2023react}{15}
+\bibcite{ollama}{16}
+\bibcite{mistral2023}{17}
+\bibcite{kfall2021}{18}
+\bibcite{bourke2007threshold}{19}
+\bibcite{martinez2019upfall}{20}
+\bibcite{micucci2017unimib}{21}
+\bibcite{platt1999probabilistic}{22}
+\bibcite{vovk2005algorithmic}{23}
+\bibcite{angelopoulos2023gentle}{24}
+\bibcite{qwen2024}{25}
+\bibcite{iglesias2023modern}{26}
+\bibcite{tsmixer2023}{27}
+\bibcite{patchtst2023}{28}
+\bibcite{vaswani2017attention}{29}
+\@writefile{lot}{\contentsline {table}{\numberline {XXV}{\ignorespaces $k$-NN retrieval ablation ($k \in \{1,5,10\}$, fold\nobreakspace  {}0, heuristic LLM).\relax }}{9}\protected@file@percent }
+\newlabel{tab:knnk}{{XXV}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {XXVI}{\ignorespaces Multi-seed robustness on Fold\nobreakspace  {}0 ($n{=}1000$). Stack backend: Ollama/Mistral.\relax }}{9}\protected@file@percent }
+\newlabel{tab:seeds}{{XXVI}{9}}

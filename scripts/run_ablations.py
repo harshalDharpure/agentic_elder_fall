@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import sys
 from pathlib import Path
 
@@ -20,9 +21,10 @@ from agentic_fall.agents import (
     ConfidenceGate,
     KNNMemory,
     LLMReasoner,
+    build_adjudicator_from_config,
 )
 from agentic_fall.data.sisfall import SisFallDataset
-from agentic_fall.eval.metrics import agentic_metrics, binary_metrics, metrics_to_latex
+from agentic_fall.eval.metrics import agentic_metrics, binary_metrics, crc_veto_metrics, metrics_to_latex
 from agentic_fall.eval.protocol import (
     build_gate,
     make_fold_split,
@@ -72,13 +74,117 @@ def train_and_eval_model(name, ds, train_idx, val_idx, test_idx, in_ch, device, 
     return m, model
 
 
+ADJUDICATION_MODES = {
+    "gate_knn_actor_only": {
+        "use_knn": True,
+        "use_llm": False,
+        "adj_mode": "actor_only",
+        "role_swap": False,
+        "actor_backend": "heuristic",
+        "critic_backend": "heuristic",
+    },
+    "gate_knn_actor_critic": {
+        "use_knn": True,
+        "use_llm": False,
+        "adj_mode": "actor_critic",
+        "role_swap": False,
+        "actor_backend": "heuristic",
+        "critic_backend": "heuristic",
+    },
+    "gate_knn_actor_critic_roleswap": {
+        "use_knn": True,
+        "use_llm": False,
+        "adj_mode": "actor_critic_roleswap",
+        "role_swap": True,
+        "actor_backend": "heuristic",
+        "critic_backend": "heuristic",
+    },
+    "gate_knn_llm_actor_only": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "actor_only",
+        "role_swap": False,
+        "actor_backend": "ollama",
+        "critic_backend": "heuristic",
+    },
+    # Primary: LLM Actor + constraint Critic (1 LLM call; AutoSCAR-style grounding)
+    "gate_knn_llm_actor_critic": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "actor_critic",
+        "role_swap": False,
+        "actor_backend": "ollama",
+        "critic_backend": "heuristic",
+    },
+    # Full LLM Actor+Critic (2 LLM calls)
+    "gate_knn_llm_actor_critic_full": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "actor_critic",
+        "role_swap": False,
+        "actor_backend": "ollama",
+        "critic_backend": "ollama",
+    },
+    "gate_knn_llm_actor_critic_roleswap": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "actor_critic_roleswap",
+        "role_swap": True,
+        "actor_backend": "ollama",
+        "critic_backend": "heuristic",
+    },
+    # Q1-safe: same LLM Actor as gate_knn_llm; Critic only action + rationale
+    "gate_knn_llm_action_critique": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "action_critique",
+        "role_swap": False,
+        "actor_backend": "ollama",
+        "critic_backend": "heuristic",
+        "freeze_label": True,
+        "screen_confident_fall": True,
+    },
+    # Contrastive Critic: hard-negative ADLs + action critique on confident falls too
+    "gate_knn_llm_contrastive_action_critique": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "contrastive_action_critique",
+        "role_swap": False,
+        "actor_backend": "ollama",
+        "critic_backend": "heuristic",
+        "freeze_label": True,
+        "use_contrastive": True,
+        "screen_confident_fall": True,
+        "k_pos": 3,
+        "k_neg": 3,
+    },
+    # CRC-calibrated one-directional veto (fall→ADL only when certified)
+    "gate_knn_llm_crc_veto": {
+        "use_knn": True,
+        "use_llm": True,
+        "adj_mode": "crc_veto",
+        "role_swap": False,
+        "actor_backend": "ollama",
+        "critic_backend": "heuristic",
+        "freeze_label": False,
+        "crc": True,
+    },
+}
+
+
 def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, gate):
+    adj_spec = ADJUDICATION_MODES.get(mode)
     memory = KNNMemory(k=int(acfg["retrieval"]["k"]))
-    if Path(memory_path).exists() and mode in ("gate_knn", "gate_knn_llm", "gate_llm"):
+    knn_modes = ("gate_knn", "gate_knn_llm", "gate_llm") + tuple(ADJUDICATION_MODES)
+    if Path(memory_path).exists() and mode in knn_modes:
         memory.load(memory_path)
 
-    use_llm = mode in ("gate_llm", "gate_knn_llm")
-    use_knn = mode in ("gate_knn", "gate_knn_llm")
+    if adj_spec is not None:
+        use_llm = bool(adj_spec["use_llm"])
+        use_knn = bool(adj_spec["use_knn"])
+    else:
+        use_llm = mode in ("gate_llm", "gate_knn_llm")
+        use_knn = mode in ("gate_knn", "gate_knn_llm")
     backend = "ollama" if use_llm else "heuristic"
     if mode == "gate_knn":
         backend = "heuristic"
@@ -96,6 +202,31 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
     if mode == "tier1_only":
         local_gate = ConfidenceGate(0.5, 0.5 + 1e-6)
 
+    adjudicator = None
+    allow_down = bool((acfg.get("adjudication") or {}).get("allow_action_downgrade", True))
+    if adj_spec is not None:
+        cfg = dict(acfg)
+        cfg["adjudication"] = {
+            **(acfg.get("adjudication") or {}),
+            "enabled": True,
+            "mode": adj_spec["adj_mode"],
+            "role_swap": adj_spec["role_swap"],
+            "actor_backend": adj_spec.get("actor_backend", backend),
+            "critic_backend": adj_spec.get("critic_backend", backend),
+            "freeze_label": adj_spec.get("freeze_label", True),
+            "veto_threshold": (acfg.get("adjudication") or {}).get("veto_threshold"),
+            "crc_feasible": (acfg.get("adjudication") or {}).get("crc_feasible", False),
+            "crc_alpha": (acfg.get("adjudication") or {}).get("crc_alpha"),
+            "screen_confident_fall": adj_spec.get(
+                "screen_confident_fall",
+                (acfg.get("adjudication") or {}).get("screen_confident_fall", True),
+            ),
+            "use_contrastive": adj_spec.get("use_contrastive", False),
+            "k_pos": adj_spec.get("k_pos", 3),
+            "k_neg": adj_spec.get("k_neg", 3),
+        }
+        adjudicator = build_adjudicator_from_config(cfg, reasoner)
+
     pipe = AgenticPipeline(
         model=model,
         gate=local_gate,
@@ -105,9 +236,14 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
         device=device,
         sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
         text_embed_fn=embed,
+        adjudicator=adjudicator,
+        allow_action_downgrade=allow_down,
     )
 
     y_true, y_pred, esc, acts, lats, ps = [], [], [], [], [], []
+    resp_actions, rationales = [], []
+    pred_before, vetoed_flags, windows = [], [], []
+    n_adj, n_reject, n_confirm, n_revise, llm_calls = 0, 0, 0, 0, 0
     loader = DataLoader(Subset(ds, test_idx), batch_size=1, shuffle=False)
     for batch in tqdm(loader, desc=mode):
         x = batch["x"][0]
@@ -116,14 +252,40 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
             yp = 1 if res.p_fall >= 0.5 else 0
         else:
             yp = 1 if res.prediction == "fall" else 0
+        actor = res.actor_prediction or res.prediction
         y_true.append(int(batch["y"][0]))
         y_pred.append(yp)
+        pred_before.append(1 if actor == "fall" else 0)
+        vetoed_flags.append(bool(res.vetoed))
         esc.append(res.escalated)
         acts.append(str(batch["activity"][0]))
         lats.append(res.latency_ms)
         ps.append(res.p_fall)
-
-    return agentic_metrics(
+        resp_actions.append(str(res.action.action))
+        rationales.append(str(res.rationale))
+        windows.append(
+            {
+                "y": int(batch["y"][0]),
+                "activity": str(batch["activity"][0]),
+                "p_fall": float(res.p_fall),
+                "route": res.gate.route,
+                "escalated": bool(res.escalated),
+                "actor_pred": actor,
+                "final_pred": res.prediction,
+                "veto_score": float(res.veto_score) if res.veto_score is not None else None,
+                "vetoed": bool(res.vetoed),
+            }
+        )
+        if res.adjudicated:
+            n_adj += 1
+            if res.critic_verdict == "reject":
+                n_reject += 1
+            elif res.critic_verdict == "confirm":
+                n_confirm += 1
+            elif res.critic_verdict == "revise":
+                n_revise += 1
+        llm_calls += int(res.num_llm_calls)
+    metrics = agentic_metrics(
         y_true,
         y_pred,
         esc,
@@ -133,7 +295,28 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
         p_falls=ps,
         cost_fn=float(acfg["gate"]["cost_fn"]),
         cost_fp=float(acfg["gate"]["cost_fp"]),
+        actions=resp_actions,
+        rationales=rationales,
     )
+    adj_cfg = acfg.get("adjudication") or {}
+    crc = crc_veto_metrics(
+        y_true,
+        pred_before,
+        y_pred,
+        vetoed=vetoed_flags,
+        certified_alpha=adj_cfg.get("crc_alpha"),
+        lambda_star=adj_cfg.get("veto_threshold"),
+        feasible=bool(adj_cfg.get("crc_feasible")),
+        aurc=adj_cfg.get("aurc"),
+    )
+    metrics.update(crc)
+    metrics["n_adjudicated"] = n_adj
+    metrics["critic_reject"] = n_reject
+    metrics["critic_confirm"] = n_confirm
+    metrics["critic_revise"] = n_revise
+    metrics["total_llm_calls"] = llm_calls
+    metrics["mean_llm_calls_escalated"] = float(llm_calls / max(1, n_adj))
+    return metrics, windows
 
 
 def main():
@@ -158,6 +341,24 @@ def main():
         help="Optional protocol label written into ablation JSON (e.g. full_4000, fast_1000_no_gate_llm).",
     )
     ap.add_argument("--out-dir", default=None)
+    ap.add_argument(
+        "--out-suffix",
+        default="",
+        help="Optional suffix for ablation outputs, e.g. '_gate_llm' or '_full4000'. "
+        "When empty, writes ablation_fold{N}.json as usual.",
+    )
+    ap.add_argument(
+        "--crc-cal",
+        default=None,
+        help="Path to veto_calibration_foldN.json (required for gate_knn_llm_crc_veto).",
+    )
+    ap.add_argument("--crc-alpha", type=float, default=None)
+    ap.add_argument(
+        "--merge-existing",
+        action="store_true",
+        help="Merge new mode rows into existing ablation_fold{N}.json (by name) before saving. "
+        "Use with --modes gate_llm to add the missing ladder step without wiping other modes.",
+    )
     args = ap.parse_args()
 
     pcfg = load_config(ROOT / args.paper_config)
@@ -223,6 +424,13 @@ def main():
             lstm_hidden=tcfg["model"]["lstm_hidden"],
             attn_heads=int(tcfg["model"]["attn_heads"]),
         )
+    else:
+        bcfg = load_config(ROOT / pcfg.get("backbones_config", "configs/backbones.yaml"))
+        from agentic_fall.models import kwargs_for_model
+
+        zoo_kw = kwargs_for_model(primary, bcfg)
+        if zoo_kw:
+            model = build_model(primary, in_channels=int(tcfg["channels"]), num_classes=2, **zoo_kw)
     state = torch.load(ckpt, map_location=device, weights_only=False)
     model.load_state_dict(state["model"])
     model.to(device)
@@ -245,22 +453,53 @@ def main():
     print(f"Calibrated gate: tau_low={gate.tau_low:.3f}, tau_high={gate.tau_high:.3f}")
 
     default_modes = ("tier1_only", "gate_only", "gate_knn", "gate_llm", "gate_knn_llm")
+    allowed_modes = default_modes + tuple(ADJUDICATION_MODES.keys())
     if args.modes:
         modes = tuple(m.strip() for m in args.modes.split(",") if m.strip())
-        unknown = [m for m in modes if m not in default_modes]
+        unknown = [m for m in modes if m not in allowed_modes]
         if unknown:
-            raise SystemExit(f"Unknown ablation modes: {unknown}. Allowed: {default_modes}")
+            raise SystemExit(f"Unknown ablation modes: {unknown}. Allowed: {allowed_modes}")
     else:
         modes = default_modes
 
     protocol_tag = args.protocol_tag or (
         f"max_test_{max_test or 'all'}_modes_" + "_".join(modes)
     )
+
+    if "gate_knn_llm_crc_veto" in modes:
+        cal_path = Path(
+            args.crc_cal
+            or (out_dir / f"veto_calibration_fold{args.fold}.json")
+        )
+        if not cal_path.exists():
+            raise SystemExit(
+                f"CRC veto needs {cal_path}. Run scripts/calibrate_crc_veto.py --fold {args.fold} first."
+            )
+        cal = json.loads(cal_path.read_text())
+        alpha = args.crc_alpha if args.crc_alpha is not None else float(
+            (acfg.get("adjudication") or {}).get("crc_alpha", 0.05)
+        )
+        sel = (cal.get("by_alpha") or {}).get(f"{alpha:.2f}") or cal.get("selection") or {}
+        acfg.setdefault("adjudication", {})
+        acfg["adjudication"]["crc_alpha"] = alpha
+        acfg["adjudication"]["crc_feasible"] = bool(sel.get("feasible"))
+        acfg["adjudication"]["veto_threshold"] = sel.get("lambda_star")
+        acfg["adjudication"]["aurc"] = cal.get("aurc")
+        print(
+            f"CRC fold={args.fold} alpha={alpha} feasible={sel.get('feasible')} "
+            f"lambda_star={sel.get('lambda_star')} U={sel.get('U')}"
+        )
+
     for mode in modes:
-        am = run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, gate)
+        am, windows = run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, gate)
         am["protocol_tag"] = protocol_tag
         am["max_test"] = int(len(test_idx))
         rows.append({"name": mode, **am})
+        if mode == "gate_knn_llm_crc_veto":
+            save_json(
+                {"fold": args.fold, "windows": windows, "metrics": am},
+                out_dir / f"crc_veto_windows_fold{args.fold}.json",
+            )
         print(
             mode,
             {
@@ -271,13 +510,77 @@ def main():
                     "escalation_rate",
                     "expected_response_cost",
                     "false_alarm_rate_near_fall",
+                    "false_alarms_per_1000",
                     "n_near_fall",
+                    "n_adjudicated",
+                    "critic_reject",
+                    "critic_confirm",
+                    "critic_revise",
+                    "total_llm_calls",
+                    "graded_action_cost",
+                    "emergency_rate_adl",
+                    "emergency_rate_near_fall",
+                    "rationale_grounding_rate",
+                    "veto_rate",
+                    "veto_precision",
+                    "induced_fn",
+                    "lambda_star",
+                    "certified_alpha",
+                    "crc_feasible",
                 )
                 if k in am
             },
         )
 
-    csv_path = out_dir / f"ablation_fold{args.fold}.csv"
+    suffix = args.out_suffix or ""
+    main_json = out_dir / f"ablation_fold{args.fold}{suffix}.json"
+    if args.merge_existing:
+        # Prefer merging into the canonical (unsuffixed) ablation file when present.
+        merge_path = out_dir / f"ablation_fold{args.fold}.json"
+        if merge_path.exists():
+            existing = json.loads(merge_path.read_text())
+            old_rows = existing.get("rows", existing) if isinstance(existing, dict) else existing
+            by_name = {r["name"]: r for r in old_rows if isinstance(r, dict) and "name" in r}
+            for r in rows:
+                by_name[r["name"]] = r
+            # Preserve a stable ladder order when possible.
+            order = [
+                "threshold",
+                "cnn1d",
+                "lstm",
+                "cnn_lstm",
+                primary,
+                "tier1_only",
+                "gate_only",
+                "gate_knn",
+                "gate_llm",
+                "gate_knn_llm",
+                "gate_knn_actor_only",
+                "gate_knn_actor_critic",
+                "gate_knn_actor_critic_roleswap",
+                "gate_knn_llm_actor_only",
+                "gate_knn_llm_actor_critic",
+                "gate_knn_llm_actor_critic_roleswap",
+                "gate_knn_llm_action_critique",
+                "gate_knn_llm_contrastive_action_critique",
+                "gate_knn_llm_crc_veto",
+            ]
+            merged = [by_name[n] for n in order if n in by_name]
+            for n, r in by_name.items():
+                if n not in {x["name"] for x in merged}:
+                    merged.append(r)
+            rows = merged
+            # Update protocol tag to reflect newly included modes.
+            protocol_tag = args.protocol_tag or (
+                (existing.get("protocol_tag") if isinstance(existing, dict) else None)
+                or protocol_tag
+            )
+            if "gate_llm" in {r["name"] for r in rows} and "no_gate_llm" in str(protocol_tag):
+                protocol_tag = str(protocol_tag).replace("no_gate_llm", "with_gate_llm")
+            main_json = merge_path
+            suffix = ""
+
+    csv_path = out_dir / f"ablation_fold{args.fold}{suffix}.csv"
     keys = sorted({k for r in rows for k in r.keys()})
     with csv_path.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=keys)
@@ -285,23 +588,36 @@ def main():
         for r in rows:
             w.writerow(r)
     latex = metrics_to_latex(rows, caption="Baselines and agentic ablations (SisFall)")
-    (out_dir / f"ablation_fold{args.fold}.tex").write_text(latex)
+    (out_dir / f"ablation_fold{args.fold}{suffix}.tex").write_text(latex)
+    mode_names = [r["name"] for r in rows if r.get("name") in allowed_modes]
     payload = {
         "protocol_tag": protocol_tag,
         "fold": args.fold,
         "max_test": int(len(test_idx)),
-        "modes": list(modes),
+        "modes": mode_names or list(modes),
         "rows": rows,
     }
-    save_json(payload, out_dir / f"ablation_fold{args.fold}.json")
-    save_json(payload, ROOT / pcfg["paths"]["results_dir"] / f"ablation_fold{args.fold}.json")
+    save_json(payload, main_json)
+    save_json(payload, ROOT / pcfg["paths"]["results_dir"] / main_json.name)
+    # Always keep a sidecar copy of newly computed modes (useful before merge).
+    if suffix or args.merge_existing:
+        save_json(
+            {
+                "protocol_tag": protocol_tag,
+                "fold": args.fold,
+                "max_test": int(len(test_idx)),
+                "modes": list(modes),
+                "rows": [r for r in rows if r.get("name") in modes],
+            },
+            out_dir / f"ablation_fold{args.fold}_modes_{'_'.join(modes)}.json",
+        )
     # sidecar for aggregators / paper footnotes
     save_json(
         {
             "fold": args.fold,
             "protocol_tag": protocol_tag,
             "max_test": int(len(test_idx)),
-            "modes": list(modes),
+            "modes": payload["modes"],
         },
         out_dir / f"protocol_fold{args.fold}.json",
     )

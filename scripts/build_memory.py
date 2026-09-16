@@ -18,7 +18,7 @@ from agentic_fall.agents.evidence import serialize_evidence
 from agentic_fall.agents.knn_memory import KNNMemory, MemoryCase
 from agentic_fall.data.sisfall import SisFallDataset
 from agentic_fall.features.biomechanics import extract_biomechanics
-from agentic_fall.models import build_model
+from agentic_fall.models import build_model, kwargs_for_model
 from agentic_fall.utils.config import load_config
 from agentic_fall.utils.io import ensure_dir
 from agentic_fall.utils.seed import set_seed
@@ -61,6 +61,7 @@ def main():
 
     tcfg = load_config(ROOT / args.tier1_config)
     acfg = load_config(ROOT / args.agentic_config)
+    bcfg = load_config(ROOT / "configs/backbones.yaml") if (ROOT / "configs/backbones.yaml").exists() else {}
     set_seed(int(tcfg["train"]["seed"]))
     device = torch.device(
         args.device or ("cuda" if torch.cuda.is_available() else "cpu")
@@ -88,7 +89,8 @@ def main():
             use_se=bool(tcfg["model"].get("use_se", False)),
         )
     else:
-        model = build_model(args.model, in_channels=int(tcfg["channels"]), num_classes=2)
+        zoo_kw = kwargs_for_model(args.model, bcfg)
+        model = build_model(args.model, in_channels=int(tcfg["channels"]), num_classes=2, **zoo_kw)
     state = torch.load(args.checkpoint, map_location=device, weights_only=False)
     model.load_state_dict(state["model"])
     model.to(device).eval()

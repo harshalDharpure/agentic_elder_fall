@@ -1,0 +1,13 @@
+LABEL: tab:llm
+CAPTION: Paired LLM backend comparison on shared ambiguous case IDs (up to 150 cases/fold).
+
+{tabular}{cccc}
+
+Fold | Heuristic F1 | Mistral F1 | Qwen2.5 F1
+0 | 0.042 | 0.959 | 0.807
+1 | 0.105 | 0.977 | 0.874
+2 | 0.000 | 0.975 | 0.819
+3 | 0.021 | 0.984 | 0.802
+4 | 0.000 | 0.966 | 0.813
+Mean | 0.034 | 0.972 | 0.823
+{tabular}

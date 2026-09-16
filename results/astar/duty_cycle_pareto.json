@@ -1,0 +1,2884 @@
+{
+  "rows": [
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.6,
+      "escalation_rate": 0.599,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.65,
+      "escalation_rate": 0.627,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.7,
+      "escalation_rate": 0.656,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.75,
+      "escalation_rate": 0.681,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.708,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.85,
+      "escalation_rate": 0.742,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.833,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.05,
+      "tau_high": 0.95,
+      "escalation_rate": 0.934,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.6,
+      "escalation_rate": 0.528,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.65,
+      "escalation_rate": 0.556,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.7,
+      "escalation_rate": 0.585,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.75,
+      "escalation_rate": 0.61,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.637,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.85,
+      "escalation_rate": 0.671,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.762,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.1,
+      "tau_high": 0.95,
+      "escalation_rate": 0.863,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.6,
+      "escalation_rate": 0.473,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.65,
+      "escalation_rate": 0.501,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7,
+      "escalation_rate": 0.53,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.75,
+      "escalation_rate": 0.555,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.582,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.85,
+      "escalation_rate": 0.616,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.707,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.95,
+      "escalation_rate": 0.808,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.6,
+      "escalation_rate": 0.411,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.65,
+      "escalation_rate": 0.439,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.7,
+      "escalation_rate": 0.468,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.75,
+      "escalation_rate": 0.493,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.52,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.85,
+      "escalation_rate": 0.554,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.645,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.2,
+      "tau_high": 0.95,
+      "escalation_rate": 0.746,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.6,
+      "escalation_rate": 0.364,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.65,
+      "escalation_rate": 0.392,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.7,
+      "escalation_rate": 0.421,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "escalation_rate": 0.446,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.473,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.85,
+      "escalation_rate": 0.507,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.598,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.25,
+      "tau_high": 0.95,
+      "escalation_rate": 0.699,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.6,
+      "escalation_rate": 0.287,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.65,
+      "escalation_rate": 0.315,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.7,
+      "escalation_rate": 0.344,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.75,
+      "escalation_rate": 0.369,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.396,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.85,
+      "escalation_rate": 0.43,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.521,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.3,
+      "tau_high": 0.95,
+      "escalation_rate": 0.622,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.6,
+      "escalation_rate": 0.208,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.65,
+      "escalation_rate": 0.236,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7,
+      "escalation_rate": 0.265,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.75,
+      "escalation_rate": 0.29,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.317,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.85,
+      "escalation_rate": 0.351,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.442,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.95,
+      "escalation_rate": 0.543,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.6,
+      "escalation_rate": 0.149,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.65,
+      "escalation_rate": 0.177,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.7,
+      "escalation_rate": 0.206,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.75,
+      "escalation_rate": 0.231,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.258,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.85,
+      "escalation_rate": 0.292,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.383,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 0,
+      "tau_low": 0.4,
+      "tau_high": 0.95,
+      "escalation_rate": 0.484,
+      "expected_response_cost": 1042.0,
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.6,
+      "escalation_rate": 0.605,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.65,
+      "escalation_rate": 0.637,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.7,
+      "escalation_rate": 0.667,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.75,
+      "escalation_rate": 0.697,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.726,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.85,
+      "escalation_rate": 0.771,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.838,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.05,
+      "tau_high": 0.95,
+      "escalation_rate": 0.94,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.6,
+      "escalation_rate": 0.523,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.65,
+      "escalation_rate": 0.555,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.7,
+      "escalation_rate": 0.585,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.75,
+      "escalation_rate": 0.615,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.644,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.85,
+      "escalation_rate": 0.689,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.756,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.1,
+      "tau_high": 0.95,
+      "escalation_rate": 0.858,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.6,
+      "escalation_rate": 0.445,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.65,
+      "escalation_rate": 0.477,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7,
+      "escalation_rate": 0.507,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.75,
+      "escalation_rate": 0.537,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.566,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.85,
+      "escalation_rate": 0.611,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.678,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.95,
+      "escalation_rate": 0.78,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.6,
+      "escalation_rate": 0.382,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.65,
+      "escalation_rate": 0.414,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.7,
+      "escalation_rate": 0.444,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.75,
+      "escalation_rate": 0.474,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.503,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.85,
+      "escalation_rate": 0.548,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.615,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.2,
+      "tau_high": 0.95,
+      "escalation_rate": 0.717,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.6,
+      "escalation_rate": 0.323,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.65,
+      "escalation_rate": 0.355,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.7,
+      "escalation_rate": 0.385,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "escalation_rate": 0.415,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.444,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.85,
+      "escalation_rate": 0.489,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.556,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.25,
+      "tau_high": 0.95,
+      "escalation_rate": 0.658,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.6,
+      "escalation_rate": 0.274,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.65,
+      "escalation_rate": 0.306,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.7,
+      "escalation_rate": 0.336,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.75,
+      "escalation_rate": 0.366,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.395,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.85,
+      "escalation_rate": 0.44,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.507,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.3,
+      "tau_high": 0.95,
+      "escalation_rate": 0.609,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.6,
+      "escalation_rate": 0.235,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.65,
+      "escalation_rate": 0.267,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7,
+      "escalation_rate": 0.297,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.75,
+      "escalation_rate": 0.327,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.356,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.85,
+      "escalation_rate": 0.401,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.468,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.95,
+      "escalation_rate": 0.57,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.6,
+      "escalation_rate": 0.183,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.65,
+      "escalation_rate": 0.215,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.7,
+      "escalation_rate": 0.245,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.75,
+      "escalation_rate": 0.275,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.304,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.85,
+      "escalation_rate": 0.349,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.416,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 1,
+      "tau_low": 0.4,
+      "tau_high": 0.95,
+      "escalation_rate": 0.518,
+      "expected_response_cost": 1223.0,
+      "f1": 0.7373167981961668,
+      "recall": 0.7482837528604119
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.6,
+      "escalation_rate": 0.565,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.65,
+      "escalation_rate": 0.589,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.7,
+      "escalation_rate": 0.622,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.75,
+      "escalation_rate": 0.645,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.67,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.85,
+      "escalation_rate": 0.701,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.757,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.05,
+      "tau_high": 0.95,
+      "escalation_rate": 0.876,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.6,
+      "escalation_rate": 0.494,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.65,
+      "escalation_rate": 0.518,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.7,
+      "escalation_rate": 0.551,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.75,
+      "escalation_rate": 0.574,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.599,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.85,
+      "escalation_rate": 0.63,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.686,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.1,
+      "tau_high": 0.95,
+      "escalation_rate": 0.805,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.6,
+      "escalation_rate": 0.435,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.65,
+      "escalation_rate": 0.459,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7,
+      "escalation_rate": 0.492,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.75,
+      "escalation_rate": 0.515,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.54,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.85,
+      "escalation_rate": 0.571,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.627,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.95,
+      "escalation_rate": 0.746,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.6,
+      "escalation_rate": 0.38,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.65,
+      "escalation_rate": 0.404,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.7,
+      "escalation_rate": 0.437,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.75,
+      "escalation_rate": 0.46,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.485,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.85,
+      "escalation_rate": 0.516,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.572,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.2,
+      "tau_high": 0.95,
+      "escalation_rate": 0.691,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.6,
+      "escalation_rate": 0.292,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.65,
+      "escalation_rate": 0.316,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.7,
+      "escalation_rate": 0.349,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "escalation_rate": 0.372,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.397,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.85,
+      "escalation_rate": 0.428,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.484,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.25,
+      "tau_high": 0.95,
+      "escalation_rate": 0.603,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.6,
+      "escalation_rate": 0.193,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.65,
+      "escalation_rate": 0.217,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.7,
+      "escalation_rate": 0.25,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.75,
+      "escalation_rate": 0.273,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.298,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.85,
+      "escalation_rate": 0.329,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.385,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.3,
+      "tau_high": 0.95,
+      "escalation_rate": 0.504,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.6,
+      "escalation_rate": 0.144,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.65,
+      "escalation_rate": 0.168,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7,
+      "escalation_rate": 0.201,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.75,
+      "escalation_rate": 0.224,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.249,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.85,
+      "escalation_rate": 0.28,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.336,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.95,
+      "escalation_rate": 0.455,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.6,
+      "escalation_rate": 0.121,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.65,
+      "escalation_rate": 0.145,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.7,
+      "escalation_rate": 0.178,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.75,
+      "escalation_rate": 0.201,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.226,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.85,
+      "escalation_rate": 0.257,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.313,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 2,
+      "tau_low": 0.4,
+      "tau_high": 0.95,
+      "escalation_rate": 0.432,
+      "expected_response_cost": 1081.0,
+      "f1": 0.7636363636363637,
+      "recall": 0.7759815242494227
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.6,
+      "escalation_rate": 0.568,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.65,
+      "escalation_rate": 0.591,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.7,
+      "escalation_rate": 0.618,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.75,
+      "escalation_rate": 0.642,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.662,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.85,
+      "escalation_rate": 0.697,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.759,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.05,
+      "tau_high": 0.95,
+      "escalation_rate": 0.875,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.6,
+      "escalation_rate": 0.506,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.65,
+      "escalation_rate": 0.529,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.7,
+      "escalation_rate": 0.556,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.75,
+      "escalation_rate": 0.58,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.6,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.85,
+      "escalation_rate": 0.635,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.697,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.1,
+      "tau_high": 0.95,
+      "escalation_rate": 0.813,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.6,
+      "escalation_rate": 0.471,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.65,
+      "escalation_rate": 0.494,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7,
+      "escalation_rate": 0.521,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.75,
+      "escalation_rate": 0.545,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.565,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.85,
+      "escalation_rate": 0.6,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.662,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.95,
+      "escalation_rate": 0.778,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.6,
+      "escalation_rate": 0.418,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.65,
+      "escalation_rate": 0.441,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.7,
+      "escalation_rate": 0.468,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.75,
+      "escalation_rate": 0.492,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.512,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.85,
+      "escalation_rate": 0.547,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.609,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.2,
+      "tau_high": 0.95,
+      "escalation_rate": 0.725,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.6,
+      "escalation_rate": 0.369,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.65,
+      "escalation_rate": 0.392,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.7,
+      "escalation_rate": 0.419,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "escalation_rate": 0.443,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.463,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.85,
+      "escalation_rate": 0.498,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.56,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.25,
+      "tau_high": 0.95,
+      "escalation_rate": 0.676,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.6,
+      "escalation_rate": 0.289,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.65,
+      "escalation_rate": 0.312,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.7,
+      "escalation_rate": 0.339,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.75,
+      "escalation_rate": 0.363,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.383,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.85,
+      "escalation_rate": 0.418,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.48,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.3,
+      "tau_high": 0.95,
+      "escalation_rate": 0.596,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.6,
+      "escalation_rate": 0.183,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.65,
+      "escalation_rate": 0.206,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7,
+      "escalation_rate": 0.233,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.75,
+      "escalation_rate": 0.257,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.277,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.85,
+      "escalation_rate": 0.312,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.374,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.95,
+      "escalation_rate": 0.49,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.6,
+      "escalation_rate": 0.123,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.65,
+      "escalation_rate": 0.146,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.7,
+      "escalation_rate": 0.173,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.75,
+      "escalation_rate": 0.197,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.217,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.85,
+      "escalation_rate": 0.252,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.314,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 3,
+      "tau_low": 0.4,
+      "tau_high": 0.95,
+      "escalation_rate": 0.43,
+      "expected_response_cost": 1015.0,
+      "f1": 0.7867730900798175,
+      "recall": 0.7894736842105263
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.6,
+      "escalation_rate": 0.613,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.65,
+      "escalation_rate": 0.635,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.7,
+      "escalation_rate": 0.656,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.75,
+      "escalation_rate": 0.678,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.704,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.85,
+      "escalation_rate": 0.74,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.825,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.05,
+      "tau_high": 0.95,
+      "escalation_rate": 0.965,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.6,
+      "escalation_rate": 0.513,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.65,
+      "escalation_rate": 0.535,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.7,
+      "escalation_rate": 0.556,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.75,
+      "escalation_rate": 0.578,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.604,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.85,
+      "escalation_rate": 0.64,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.725,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.1,
+      "tau_high": 0.95,
+      "escalation_rate": 0.865,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.6,
+      "escalation_rate": 0.451,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.65,
+      "escalation_rate": 0.473,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7,
+      "escalation_rate": 0.494,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.75,
+      "escalation_rate": 0.516,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.542,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.85,
+      "escalation_rate": 0.578,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.663,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.15000000000000002,
+      "tau_high": 0.95,
+      "escalation_rate": 0.803,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.6,
+      "escalation_rate": 0.407,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.65,
+      "escalation_rate": 0.429,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.7,
+      "escalation_rate": 0.45,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.75,
+      "escalation_rate": 0.472,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.498,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.85,
+      "escalation_rate": 0.534,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.619,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.2,
+      "tau_high": 0.95,
+      "escalation_rate": 0.759,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.6,
+      "escalation_rate": 0.35,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.65,
+      "escalation_rate": 0.372,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.7,
+      "escalation_rate": 0.393,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "escalation_rate": 0.415,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.441,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.85,
+      "escalation_rate": 0.477,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.562,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.25,
+      "tau_high": 0.95,
+      "escalation_rate": 0.702,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.6,
+      "escalation_rate": 0.265,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.65,
+      "escalation_rate": 0.287,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.7,
+      "escalation_rate": 0.308,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.75,
+      "escalation_rate": 0.33,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.356,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.85,
+      "escalation_rate": 0.392,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.477,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.3,
+      "tau_high": 0.95,
+      "escalation_rate": 0.617,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.6,
+      "escalation_rate": 0.178,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.65,
+      "escalation_rate": 0.2,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7,
+      "escalation_rate": 0.221,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.75,
+      "escalation_rate": 0.243,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.269,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.85,
+      "escalation_rate": 0.305,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.39,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.35000000000000003,
+      "tau_high": 0.95,
+      "escalation_rate": 0.53,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.6,
+      "escalation_rate": 0.11,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.65,
+      "escalation_rate": 0.132,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.7,
+      "escalation_rate": 0.153,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.75,
+      "escalation_rate": 0.175,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.7999999999999999,
+      "escalation_rate": 0.201,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.85,
+      "escalation_rate": 0.237,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.8999999999999999,
+      "escalation_rate": 0.322,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    },
+    {
+      "fold": 4,
+      "tau_low": 0.4,
+      "tau_high": 0.95,
+      "escalation_rate": 0.462,
+      "expected_response_cost": 1072.0,
+      "f1": 0.7775175644028103,
+      "recall": 0.772093023255814
+    }
+  ]
+}

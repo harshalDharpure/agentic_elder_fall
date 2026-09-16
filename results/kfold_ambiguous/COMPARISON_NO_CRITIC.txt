@@ -1,0 +1,33 @@
+K-fold ambiguous bench — NO CRITIC comparison
+Dataset: 300/fold (100 D18/D19 ambiguous + 100 fall + 100 clear ADL)
+Cost = 10×FN + 1×FP (clinical safety cost, NOT compute cost)
+
+fold mode                Acc     F1    Rec   FN   FP    FAR   Cost  $/win  AmbAcc
+----------------------------------------------------------------------------------------
+   0 tier1_only        0.770  0.696  0.790   21   48  0.240    258   0.86   0.780
+   0 gate_knn_llm      0.900  0.868  0.990    1   29  0.145     39   0.13   0.950
+     Δ stack−tier1           +0.172         -20  -19          -219
+
+   1 tier1_only        0.813  0.738  0.790   21   35  0.175    245   0.82   0.820
+   1 gate_knn_llm      0.927  0.894  0.930    7   15  0.075     85   0.28   0.980
+     Δ stack−tier1           +0.156         -14  -20          -160
+
+   2 tier1_only        0.767  0.682  0.750   25   45  0.225    295   0.98   0.790
+   2 gate_knn_llm      0.920  0.892  0.990    1   23  0.115     33   0.11   0.970
+     Δ stack−tier1           +0.210         -24  -22          -262
+
+   3 tier1_only        0.797  0.714  0.760   24   37  0.185    277   0.92   0.840
+   3 gate_knn_llm      0.930  0.902  0.970    3   18  0.090     48   0.16   0.990
+     Δ stack−tier1           +0.189         -21  -19          -229
+
+   4 tier1_only        0.820  0.735  0.750   25   29  0.145    279   0.93   0.830
+   4 gate_knn_llm      0.943  0.922  1.000    0   17  0.085     17   0.06   0.940
+     Δ stack−tier1           +0.186         -25  -12          -262
+
+----------------------------------------------------------------------------------------
+MEAN across folds:
+  tier1_only       F1=0.713 Rec=0.768 FN=23.2 FP=38.8 Cost=271 Cost/win=0.90 AmbAcc=0.812
+  gate_knn_llm     F1=0.896 Rec=0.976 FN=2.4 FP=20.4 Cost=44 Cost/win=0.15 AmbAcc=0.966
+  Cost reduction (stack vs tier1): 83.6%
+  ΔF1 (stack vs tier1): +0.183
+  ΔRec (stack vs tier1): +0.208

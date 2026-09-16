@@ -1,0 +1,16 @@
+\begin{table}[!t]
+\centering
+\caption{Five-fold mean$\pm$std ablation under the homogeneous $n{=}1000$ protocol.}
+\label{tab:ablationmean}
+\begin{tabular}{lccc}
+\toprule
+Mode & F1 & Recall & Cost/1000 \\
+\midrule
+tier1\_only & 0.759$\pm$0.014 & 0.759$\pm$0.022 & 1151$\pm$93 \\
+gate\_only & 0.759$\pm$0.014 & 0.759$\pm$0.022 & 1151$\pm$93 \\
+gate\_knn & 0.753$\pm$0.012 & 0.723$\pm$0.032 & 1286$\pm$133 \\
+gate\_llm & 0.702$\pm$0.021 & 0.895$\pm$0.027 & 740$\pm$105 \\
+\textbf{gate\_knn\_llm} & \textbf{0.887$\pm$0.029} & \textbf{0.977$\pm$0.037} & \textbf{200$\pm$164} \\
+\bottomrule
+\end{tabular}
+\end{table}

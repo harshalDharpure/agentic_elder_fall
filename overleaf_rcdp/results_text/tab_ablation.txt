@@ -1,0 +1,12 @@
+LABEL: tab:ablation
+CAPTION: Ablation ladder on Fold 0 under the full evaluation budget ($n=4000$). Gate or $k$-NN alone does not yield the headline gain; the full stack (gate_knn_llm) is required.
+
+{tabular}{lccccc}
+
+Mode | F1 | Recall | Cost | Near-fall FAR | Esc.\ F1
+tier1_only | 0.788 | 0.787 | 4596 | 0.219 | 0.000
+gate_only | 0.788 | 0.787 | 4596 | 0.219 | 0.175
+gate_knn | 0.789 | 0.764 | 4972 | 0.188 | 0.026
+gate_llm | 0.760 | 0.924 | 2491 | 0.625 | 0.445
+gate_knn_llm | 0.907 | 0.993 | 516 | 0.212 | 0.952
+{tabular}

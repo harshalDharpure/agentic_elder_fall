@@ -1,0 +1,16 @@
+\begin{table*}[!t]
+\centering
+\caption{Bhatti \textit{et al.}~2025 limitations versus our multi-agent answers (complementary Q1 claim).}
+\label{tab:bhattigaps}
+\begin{tabular}{p{0.42\linewidth}p{0.48\linewidth}}
+\toprule
+Bhatti \textit{et al.} gap & Our multi-agent response \\
+\midrule
+Softmax force-labels every window; D18/D19 sit/stand confusion & Dual-threshold \textbf{Confidence Gate} escalates ambiguous band \\
+Explainability limited to attention weights & Biomechanical \textbf{evidence} + LLM chain-of-thought JSON \\
+No retrieval / case memory & MiniLM $k$-NN \textbf{Memory} agent \\
+Detection only; no clinical response policy & Cost-sensitive \textbf{Action Agent} ($10\cdot\mathrm{FN}+1\cdot\mathrm{FP}$) \\
+Published focus: 36-class multi-phase F1~$\approx$98\%, $\sim$20\,ms & Fair claim: same Tier-1 + agents improve recall/cost under uncertainty (SisFall+KFall) \\
+\bottomrule
+\end{tabular}
+\end{table*}

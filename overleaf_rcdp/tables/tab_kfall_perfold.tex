@@ -1,0 +1,18 @@
+\begin{table*}[!t]
+\centering
+\caption{KFall binary external validation: Tier-1 vs.\ full agentic stack ($n{=}1000$/fold, subject-independent). Cost normalized per 1000 windows.}
+\label{tab:kfallperfold}
+\begin{tabular}{c ccc ccc c}
+\toprule
+Fold & \multicolumn{3}{c}{Tier-1} & \multicolumn{3}{c}{gate\_knn\_llm} & $\Delta$F1 \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+ & F1 & Rec. & Cost/1k & F1 & Rec. & Cost/1k & \\
+\midrule
+0 & 0.992 & 0.998 & 17 & 0.993 & 1.000 & 7 & +0.001 \\
+1 & 0.987 & 0.996 & 31 & 0.986 & 0.996 & 32 & -0.001 \\
+2 & 0.987 & 0.994 & 40 & 0.989 & 0.996 & 29 & +0.002 \\
+3 & 0.992 & 0.990 & 53 & 0.995 & 0.996 & 23 & +0.003 \\
+4 & 0.980 & 0.979 & 109 & 0.989 & 0.994 & 38 & +0.008 \\
+\bottomrule
+\end{tabular}
+\end{table*}

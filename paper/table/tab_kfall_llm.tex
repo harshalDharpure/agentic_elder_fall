@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{KFall paired LLM backends on shared ambiguous IDs.}
+\label{tab:kfallllm}
+\begin{tabular}{cccc}
+\toprule
+Fold & Heuristic F1 & Mistral F1 & Qwen F1 \\
+\midrule
+0 & 0.167 & 0.880 & 0.500 \\
+1 & 0.000 & 1.000 & 0.364 \\
+2 & 0.000 & 1.000 & 0.600 \\
+3 & 0.000 & 0.571 & 0.250 \\
+4 & 0.273 & 0.974 & 0.809 \\
+\midrule
+Mean & 0.088 & \textbf{0.885} & 0.504 \\
+\bottomrule
+\end{tabular}
+\end{table}

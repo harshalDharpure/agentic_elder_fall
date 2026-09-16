@@ -129,6 +129,9 @@ agentic_fall/
 │   │   ├── evidence.py         # feature → text
 │   │   ├── knn_memory.py       # growing case store
 │   │   ├── llm_reasoner.py     # Ollama CoT + heuristic fallback
+│   │   ├── constraints.py      # biomechanical Σ(w) checklist
+│   │   ├── critic_agent.py     # Actor propose + Critic validate
+│   │   ├── adjudicator.py      # Judge + role-swap / vote
 │   │   ├── action_agent.py     # graded response policy
 │   │   └── pipeline.py         # end-to-end AgenticPipeline
 │   ├── alignment/
@@ -252,6 +255,16 @@ Extracts and serializes:
 - Backend: Ollama (`mistral:latest`, `qwen2.5-coder:7b-instruct`) or `heuristic`.
 - Output JSON: `{prediction, severity, confidence, rationale, action}`.
 - Heuristic fallback always available for offline / busy GPU.
+
+### Actor–Critic Adjudication (optional; ambiguous windows)
+
+Q1-safe path: **freeze the fall/ADL label**. The LLM Actor is the same as `gate_knn_llm`; the Critic only (i) grounds the rationale in Σ(w) and (ii) may downgrade `emergency`/`notify`.
+
+- `constraints.py`: window-scale Σ(w) + `rationale_cites_sigma`.
+- `critic_agent.py`: action/rationale skeptic (does not flip labels).
+- `adjudicator.py`: `mode=action_critique`, `freeze_label=true`.
+- Ablation: `gate_knn_llm` vs `gate_knn_llm_action_critique`.
+- Default in `configs/agentic.yaml` is `enabled: false` so the main paper table stays `gate_knn_llm`.
 
 ### Action Agent (`agents/action_agent.py`)
 

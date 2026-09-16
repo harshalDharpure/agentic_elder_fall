@@ -110,7 +110,20 @@ def evaluate(
             pred = p.argmax(dim=-1).cpu()
         ys.extend(y.tolist())
         preds.extend(pred.tolist())
-    m = binary_metrics(ys, preds)
+    if len(set(ys + preds)) > 2 or max(ys + preds, default=0) > 1:
+        from sklearn.metrics import accuracy_score, f1_score
+
+        yt = np.asarray(ys, dtype=int)
+        yp = np.asarray(preds, dtype=int)
+        m = {
+            "accuracy": float(accuracy_score(yt, yp)),
+            "f1": float(f1_score(yt, yp, average="macro", zero_division=0)),
+            "recall": float(f1_score(yt, yp, average="macro", zero_division=0)),
+            "specificity": float("nan"),
+            "precision": float(f1_score(yt, yp, average="macro", zero_division=0)),
+        }
+    else:
+        m = binary_metrics(ys, preds)
     m["n"] = len(ys)
     if threshold is not None:
         m["decision_threshold"] = float(threshold)

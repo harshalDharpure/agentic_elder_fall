@@ -1,0 +1,399 @@
+{
+  "metrics": {
+    "accuracy": 0.42857142857142855,
+    "precision": 0.42857142857142855,
+    "recall": 1.0,
+    "sensitivity": 0.999999999999963,
+    "specificity": 0.0,
+    "f1": 0.6,
+    "tp": 27,
+    "tn": 0,
+    "fp": 36,
+    "fn": 0,
+    "expected_cost": 36.0,
+    "cost_per_1000": 571.4285714285714,
+    "model": "Qwen/Qwen2-VL-2B-Instruct",
+    "mode": "zeroshot",
+    "n_test": 63
+  },
+  "preds": [
+    {
+      "id": "fall-06_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-06_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-06_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-08_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-08_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-08_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-17_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-17_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-17_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-22_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-22_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-22_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-23_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-23_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-23_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-25_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-25_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-25_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-26_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-26_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-26_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-27_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-27_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-27_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-30_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-30_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "fall-30_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 1
+    },
+    {
+      "id": "adl-07_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-07_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-07_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-08_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-08_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-08_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-09_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-09_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-09_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-13_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-13_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-13_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-14_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-14_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-14_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-18_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-18_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-18_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-19_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-19_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-19_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-22_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-22_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-22_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-23_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-23_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-23_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-30_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-30_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-30_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-33_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-33_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-33_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-39_s0",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-39_s1",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    },
+    {
+      "id": "adl-39_s2",
+      "text": "fall",
+      "pred": 1,
+      "label": 0
+    }
+  ]
+}

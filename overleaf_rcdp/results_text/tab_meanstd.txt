@@ -1,0 +1,13 @@
+LABEL: tab:meanstd
+CAPTION: Five-fold mean$$std on SisFall (homogeneous $n=1000$). Paired deltas are gate_knn_llm$-$tier1_only. With five folds, Wilcoxon $p=0.0625$ is at the discrete minimum for a complete sign agreement; we therefore emphasize bootstrap 95% CIs.
+
+{tabular}{lccc}
+
+Mode | F1 | Recall | Cost / 1000
+tier1_only | 0.759±0.014 | 0.759±0.022 | 1151±93
+gate_knn_llm | 0.887±0.029 | 0.977±0.037 | 200±164
+Metric | Mean | Bootstrap 95% CI | Wilcoxon p
+F1 | +0.132 | [0.119, 0.144] | 0.0625
+Recall | +0.213 | [0.182, 0.238] | 0.0625
+Cost/1000 | -936.000 | [-1064.000, -829.447] | 0.0625
+{tabular}

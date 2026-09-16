@@ -1,0 +1,36 @@
+{
+  "fold": 4,
+  "model": "harmamba",
+  "best_val_f1": 0.798049573344169,
+  "decision_threshold": 0.104,
+  "val_at_threshold": {
+    "accuracy": 0.6312,
+    "precision": 0.5766355140186916,
+    "recall": 0.9872,
+    "sensitivity": 0.9871999999999996,
+    "specificity": 0.2751999999999999,
+    "f1": 0.728023598820059,
+    "tp": 2468,
+    "tn": 688,
+    "fp": 1812,
+    "fn": 32
+  },
+  "test": {
+    "accuracy": 0.61275,
+    "precision": 0.5635083602229393,
+    "recall": 0.9692230070635721,
+    "sensitivity": 0.9692230070635717,
+    "specificity": 0.2626362735381565,
+    "f1": 0.7126692635874606,
+    "tp": 1921,
+    "tn": 530,
+    "fp": 1488,
+    "fn": 61,
+    "n": 4000,
+    "decision_threshold": 0.104
+  },
+  "checkpoint": "/DATA/tauseef_2121cs04/harshal/agentic_fall/checkpoints/backbones/harmamba_fold4.pt",
+  "n_train": 40000,
+  "n_val": 5000,
+  "n_test": 4000
+}
