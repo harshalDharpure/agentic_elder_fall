@@ -5,6 +5,7 @@ data/memory/
 checkpoints/
 overleaf_rcdp/
 overleaf_rcdp.zip
+paper/
 logs/
 src/agentic_fall/vision/
 configs/vision_urfall.yaml

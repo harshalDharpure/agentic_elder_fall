@@ -34,7 +34,6 @@ System 1 is the detector and gate. System 2 runs only on the ambiguous band.
 | `src/agentic_fall/` | Models, gate, retrieval, LLM, action |
 | `configs/` | Locked paper protocol |
 | `scripts/` | Train, evaluate, tables |
-| `paper/` | IEEE manuscript, tables, figures |
 | `results/` | Summary JSON behind the tables |
 
 ## Run
@@ -43,7 +42,6 @@ System 1 is the detector and gate. System 2 runs only on the ambiguous band.
 pip install -r requirements.txt
 python scripts/train_tier1.py --fold 0
 python scripts/run_ablations.py --fold 0
-python scripts/generate_paper_tables.py
 ```
 
 SisFall and KFall raw data are not in this repository. Place processed windows locally before training. Checkpoints and case-memory files are also local only.
