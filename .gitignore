@@ -1,6 +1,18 @@
-# Large / regenerable data
+# Large / regenerable data — keep local, not on GitHub
 data/raw/
 data/processed/**/*.npz
+data/memory/
+checkpoints/
+overleaf_rcdp/
+overleaf_rcdp.zip
+logs/
+src/agentic_fall/vision/
+configs/vision_urfall.yaml
+results/vision/
+results/**/*.log
+results/**/*.flag
+results/**/*.pid
+results/**/*.out
 # Keep processed meta JSON tracked if present
 
 # Nested accidental copies (do not push)

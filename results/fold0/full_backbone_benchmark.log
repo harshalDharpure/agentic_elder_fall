@@ -1,508 +1,0 @@
-
-=== Training cnn1d fold=0 ===
-epoch 001  loss=0.6272  f1=0.7457  acc=0.7654  rec=0.6880  spec=0.8428
-epoch 002  loss=0.5504  f1=0.7438  acc=0.7430  rec=0.7460  spec=0.7400
-epoch 003  loss=0.5350  f1=0.7336  acc=0.7672  rec=0.6412  spec=0.8932
-epoch 004  loss=0.5256  f1=0.7578  acc=0.7754  rec=0.7028  spec=0.8480
-epoch 005  loss=0.5238  f1=0.7517  acc=0.7748  rec=0.6816  spec=0.8680
-epoch 006  loss=0.5134  f1=0.7703  acc=0.7714  rec=0.7668  spec=0.7760
-epoch 007  loss=0.5127  f1=0.7757  acc=0.7836  rec=0.7484  spec=0.8188
-epoch 008  loss=0.5083  f1=0.7656  acc=0.7488  rec=0.8204  spec=0.6772
-epoch 009  loss=0.5016  f1=0.7865  acc=0.7904  rec=0.7720  spec=0.8088
-epoch 010  loss=0.5029  f1=0.7792  acc=0.7814  rec=0.7716  spec=0.7912
-epoch 011  loss=0.5034  f1=0.7781  acc=0.7848  rec=0.7544  spec=0.8152
-epoch 012  loss=0.4881  f1=0.7813  acc=0.7824  rec=0.7772  spec=0.7876
-epoch 013  loss=0.4833  f1=0.7862  acc=0.7878  rec=0.7804  spec=0.7952
-epoch 014  loss=0.4880  f1=0.7976  acc=0.8024  rec=0.7788  spec=0.8260
-epoch 015  loss=0.4892  f1=0.7877  acc=0.7936  rec=0.7660  spec=0.8212
-epoch 016  loss=0.4769  f1=0.7980  acc=0.8026  rec=0.7796  spec=0.8256
-epoch 017  loss=0.4651  f1=0.7906  acc=0.7820  rec=0.8232  spec=0.7408
-epoch 018  loss=0.4745  f1=0.7977  acc=0.7992  rec=0.7920  spec=0.8064
-epoch 019  loss=0.4626  f1=0.7951  acc=0.7960  rec=0.7916  spec=0.8004
-epoch 020  loss=0.4661  f1=0.7974  acc=0.7980  rec=0.7952  spec=0.8008
-epoch 021  loss=0.4641  f1=0.8009  acc=0.8112  rec=0.7596  spec=0.8628
-epoch 022  loss=0.4515  f1=0.7977  acc=0.8030  rec=0.7768  spec=0.8292
-epoch 023  loss=0.4559  f1=0.7964  acc=0.7988  rec=0.7868  spec=0.8108
-epoch 024  loss=0.4500  f1=0.8037  acc=0.8026  rec=0.8084  spec=0.7968
-epoch 025  loss=0.4445  f1=0.7964  acc=0.7980  rec=0.7900  spec=0.8060
-epoch 026  loss=0.4452  f1=0.8012  acc=0.8046  rec=0.7876  spec=0.8216
-epoch 027  loss=0.4454  f1=0.7868  acc=0.7744  rec=0.8324  spec=0.7164
-epoch 028  loss=0.4447  f1=0.8006  acc=0.8008  rec=0.8000  spec=0.8016
-epoch 029  loss=0.4499  f1=0.7991  acc=0.7938  rec=0.8200  spec=0.7676
-epoch 030  loss=0.4462  f1=0.8036  acc=0.7992  rec=0.8216  spec=0.7768
-epoch 031  loss=0.4443  f1=0.8065  acc=0.8064  rec=0.8068  spec=0.8060
-epoch 032  loss=0.4428  f1=0.8010  acc=0.8024  rec=0.7952  spec=0.8096
-epoch 033  loss=0.4595  f1=0.8008  acc=0.8044  rec=0.7864  spec=0.8224
-epoch 034  loss=0.4416  f1=0.8033  acc=0.8064  rec=0.7904  spec=0.8224
-epoch 035  loss=0.4304  f1=0.8030  acc=0.8032  rec=0.8020  spec=0.8044
-epoch 036  loss=0.4309  f1=0.8038  acc=0.8036  rec=0.8048  spec=0.8024
-epoch 037  loss=0.4354  f1=0.8071  acc=0.8090  rec=0.7992  spec=0.8188
-epoch 038  loss=0.4295  f1=0.8047  acc=0.8062  rec=0.7984  spec=0.8140
-epoch 039  loss=0.4321  f1=0.8044  acc=0.8062  rec=0.7972  spec=0.8152
-epoch 040  loss=0.4407  f1=0.8044  acc=0.8054  rec=0.8004  spec=0.8104
-{
-  "name": "cnn1d",
-  "params": 43330,
-  "latency_ms": 0.2583973412401974,
-  "mode": "detector",
-  "decision_threshold": 0.15799999999999997,
-  "accuracy": 0.625,
-  "precision": 0.5682418550044027,
-  "recall": 0.9852417302798983,
-  "sensitivity": 0.9852417302798978,
-  "specificity": 0.27714987714987704,
-  "f1": 0.7207743857036486,
-  "tp": 1936,
-  "tn": 564,
-  "fp": 1471,
-  "fn": 29,
-  "n": 4000
-}
-
-=== Training lstm fold=0 ===
-epoch 001  loss=0.5815  f1=0.7202  acc=0.7358  rec=0.6800  spec=0.7916
-epoch 002  loss=0.5432  f1=0.7406  acc=0.7408  rec=0.7400  spec=0.7416
-epoch 003  loss=0.5379  f1=0.7530  acc=0.7524  rec=0.7548  spec=0.7500
-epoch 004  loss=0.5393  f1=0.7492  acc=0.7588  rec=0.7204  spec=0.7972
-epoch 005  loss=0.5419  f1=0.7492  acc=0.7628  rec=0.7084  spec=0.8172
-epoch 006  loss=0.5331  f1=0.7557  acc=0.7694  rec=0.7132  spec=0.8256
-epoch 007  loss=0.5294  f1=0.7718  acc=0.7714  rec=0.7732  spec=0.7696
-epoch 008  loss=0.5176  f1=0.7647  acc=0.7696  rec=0.7488  spec=0.7904
-epoch 009  loss=0.5085  f1=0.7593  acc=0.7528  rec=0.7796  spec=0.7260
-epoch 010  loss=0.5072  f1=0.7617  acc=0.7688  rec=0.7392  spec=0.7984
-epoch 011  loss=0.4969  f1=0.7602  acc=0.7696  rec=0.7304  spec=0.8088
-epoch 012  loss=0.4996  f1=0.7546  acc=0.7526  rec=0.7608  spec=0.7444
-epoch 013  loss=0.4957  f1=0.7575  acc=0.7586  rec=0.7540  spec=0.7632
-epoch 014  loss=0.5033  f1=0.7592  acc=0.7618  rec=0.7508  spec=0.7728
-epoch 015  loss=0.4921  f1=0.7511  acc=0.7538  rec=0.7428  spec=0.7648
-epoch 016  loss=0.4914  f1=0.7636  acc=0.7656  rec=0.7572  spec=0.7740
-epoch 017  loss=0.4771  f1=0.7635  acc=0.7668  rec=0.7528  spec=0.7808
-Early stopping at epoch 17
-{
-  "name": "lstm",
-  "params": 201986,
-  "latency_ms": 2.407637380529195,
-  "mode": "detector",
-  "decision_threshold": 0.14,
-  "accuracy": 0.5845,
-  "precision": 0.5424250910109213,
-  "recall": 0.9857506361323155,
-  "sensitivity": 0.9857506361323151,
-  "specificity": 0.19705159705159697,
-  "f1": 0.6997832369942196,
-  "tp": 1937,
-  "tn": 401,
-  "fp": 1634,
-  "fn": 28,
-  "n": 4000
-}
-
-=== Training cnn_lstm fold=0 ===
-epoch 001  loss=0.6095  f1=0.7026  acc=0.7460  rec=0.6000  spec=0.8920
-epoch 002  loss=0.5544  f1=0.7377  acc=0.7582  rec=0.6800  spec=0.8364
-epoch 003  loss=0.5383  f1=0.7587  acc=0.7662  rec=0.7352  spec=0.7972
-epoch 004  loss=0.5339  f1=0.7571  acc=0.7642  rec=0.7348  spec=0.7936
-epoch 005  loss=0.5271  f1=0.7747  acc=0.7796  rec=0.7580  spec=0.8012
-epoch 006  loss=0.5210  f1=0.7672  acc=0.7702  rec=0.7572  spec=0.7832
-epoch 007  loss=0.5156  f1=0.7745  acc=0.7732  rec=0.7788  spec=0.7676
-epoch 008  loss=0.5070  f1=0.7630  acc=0.7564  rec=0.7844  spec=0.7284
-epoch 009  loss=0.5060  f1=0.7752  acc=0.7760  rec=0.7724  spec=0.7796
-epoch 010  loss=0.5009  f1=0.7701  acc=0.7758  rec=0.7512  spec=0.8004
-epoch 011  loss=0.4988  f1=0.7778  acc=0.7746  rec=0.7888  spec=0.7604
-epoch 012  loss=0.4904  f1=0.7748  acc=0.7704  rec=0.7900  spec=0.7508
-epoch 013  loss=0.4888  f1=0.7753  acc=0.7888  rec=0.7288  spec=0.8488
-epoch 014  loss=0.4938  f1=0.7780  acc=0.7750  rec=0.7884  spec=0.7616
-epoch 015  loss=0.4906  f1=0.7775  acc=0.7782  rec=0.7752  spec=0.7812
-epoch 016  loss=0.4804  f1=0.7866  acc=0.7984  rec=0.7432  spec=0.8536
-epoch 017  loss=0.4731  f1=0.7886  acc=0.7850  rec=0.8020  spec=0.7680
-epoch 018  loss=0.4656  f1=0.7872  acc=0.7872  rec=0.7872  spec=0.7872
-epoch 019  loss=0.4702  f1=0.7870  acc=0.7814  rec=0.8076  spec=0.7552
-epoch 020  loss=0.4675  f1=0.7859  acc=0.7808  rec=0.8044  spec=0.7572
-epoch 021  loss=0.4616  f1=0.7883  acc=0.7914  rec=0.7768  spec=0.8060
-epoch 022  loss=0.4552  f1=0.7922  acc=0.7900  rec=0.8008  spec=0.7792
-epoch 023  loss=0.4620  f1=0.7897  acc=0.7838  rec=0.8120  spec=0.7556
-epoch 024  loss=0.4590  f1=0.7862  acc=0.7856  rec=0.7884  spec=0.7828
-epoch 025  loss=0.4524  f1=0.7905  acc=0.7890  rec=0.7960  spec=0.7820
-epoch 026  loss=0.4463  f1=0.7883  acc=0.7860  rec=0.7968  spec=0.7752
-epoch 027  loss=0.4409  f1=0.7909  acc=0.7906  rec=0.7920  spec=0.7892
-epoch 028  loss=0.4450  f1=0.7918  acc=0.7894  rec=0.8008  spec=0.7780
-epoch 029  loss=0.4389  f1=0.7874  acc=0.7796  rec=0.8164  spec=0.7428
-epoch 030  loss=0.4377  f1=0.7875  acc=0.7864  rec=0.7916  spec=0.7812
-epoch 031  loss=0.4317  f1=0.7933  acc=0.7914  rec=0.8004  spec=0.7824
-epoch 032  loss=0.4166  f1=0.7941  acc=0.7888  rec=0.8144  spec=0.7632
-epoch 033  loss=0.4287  f1=0.7913  acc=0.7886  rec=0.8016  spec=0.7756
-epoch 034  loss=0.4265  f1=0.7909  acc=0.7902  rec=0.7936  spec=0.7868
-epoch 035  loss=0.4166  f1=0.7900  acc=0.7908  rec=0.7872  spec=0.7944
-epoch 036  loss=0.4290  f1=0.7913  acc=0.7890  rec=0.8000  spec=0.7780
-epoch 037  loss=0.4288  f1=0.7878  acc=0.7828  rec=0.8064  spec=0.7592
-epoch 038  loss=0.4196  f1=0.7913  acc=0.7866  rec=0.8092  spec=0.7640
-epoch 039  loss=0.4208  f1=0.7897  acc=0.7872  rec=0.7992  spec=0.7752
-epoch 040  loss=0.4114  f1=0.7900  acc=0.7872  rec=0.8004  spec=0.7740
-{
-  "name": "cnn_lstm",
-  "params": 86914,
-  "latency_ms": 1.010159458965063,
-  "mode": "detector",
-  "decision_threshold": 0.068,
-  "accuracy": 0.568,
-  "precision": 0.5322448979591837,
-  "recall": 0.9954198473282443,
-  "sensitivity": 0.9954198473282438,
-  "specificity": 0.15528255528255522,
-  "f1": 0.6936170212765957,
-  "tp": 1956,
-  "tn": 316,
-  "fp": 1719,
-  "fn": 9,
-  "n": 4000
-}
-
-=== Training cnn_lstm_attn fold=0 ===
-epoch 001  loss=0.6252  f1=0.7173  acc=0.7500  rec=0.6344  spec=0.8656
-epoch 002  loss=0.5573  f1=0.7127  acc=0.7520  rec=0.6152  spec=0.8888
-epoch 003  loss=0.5405  f1=0.7574  acc=0.7736  rec=0.7068  spec=0.8404
-epoch 004  loss=0.5339  f1=0.7327  acc=0.7638  rec=0.6476  spec=0.8800
-epoch 005  loss=0.5334  f1=0.7522  acc=0.7514  rec=0.7548  spec=0.7480
-epoch 006  loss=0.5293  f1=0.7499  acc=0.7698  rec=0.6904  spec=0.8492
-epoch 007  loss=0.5313  f1=0.7517  acc=0.7694  rec=0.6980  spec=0.8408
-epoch 008  loss=0.5221  f1=0.7549  acc=0.7672  rec=0.7172  spec=0.8172
-epoch 009  loss=0.5192  f1=0.7608  acc=0.7558  rec=0.7768  spec=0.7348
-epoch 010  loss=0.5196  f1=0.7579  acc=0.7684  rec=0.7252  spec=0.8116
-epoch 011  loss=0.5179  f1=0.7616  acc=0.7776  rec=0.7104  spec=0.8448
-epoch 012  loss=0.5206  f1=0.7568  acc=0.7734  rec=0.7052  spec=0.8416
-epoch 013  loss=0.5172  f1=0.7703  acc=0.7644  rec=0.7900  spec=0.7388
-epoch 014  loss=0.5111  f1=0.7783  acc=0.7766  rec=0.7844  spec=0.7688
-epoch 015  loss=0.5014  f1=0.7678  acc=0.7730  rec=0.7504  spec=0.7956
-epoch 016  loss=0.5006  f1=0.7719  acc=0.7804  rec=0.7432  spec=0.8176
-epoch 017  loss=0.5056  f1=0.7938  acc=0.7910  rec=0.8048  spec=0.7772
-epoch 018  loss=0.4907  f1=0.7960  acc=0.8012  rec=0.7756  spec=0.8268
-epoch 019  loss=0.4866  f1=0.7834  acc=0.7698  rec=0.8324  spec=0.7072
-epoch 020  loss=0.4914  f1=0.7890  acc=0.7970  rec=0.7592  spec=0.8348
-epoch 021  loss=0.4937  f1=0.7894  acc=0.7950  rec=0.7684  spec=0.8216
-epoch 022  loss=0.4886  f1=0.7910  acc=0.7974  rec=0.7668  spec=0.8280
-epoch 023  loss=0.4804  f1=0.7951  acc=0.7974  rec=0.7860  spec=0.8088
-epoch 024  loss=0.4746  f1=0.7966  acc=0.7964  rec=0.7976  spec=0.7952
-epoch 025  loss=0.4773  f1=0.7905  acc=0.7968  rec=0.7668  spec=0.8268
-epoch 026  loss=0.4679  f1=0.8011  acc=0.8012  rec=0.8008  spec=0.8016
-epoch 027  loss=0.4650  f1=0.7947  acc=0.7940  rec=0.7976  spec=0.7904
-epoch 028  loss=0.4643  f1=0.7955  acc=0.8000  rec=0.7780  spec=0.8220
-epoch 029  loss=0.4537  f1=0.7953  acc=0.7928  rec=0.8048  spec=0.7808
-epoch 030  loss=0.4557  f1=0.7973  acc=0.8054  rec=0.7656  spec=0.8452
-epoch 031  loss=0.4569  f1=0.7974  acc=0.7980  rec=0.7948  spec=0.8012
-epoch 032  loss=0.4541  f1=0.7979  acc=0.7990  rec=0.7936  spec=0.8044
-epoch 033  loss=0.4722  f1=0.8009  acc=0.7984  rec=0.8108  spec=0.7860
-epoch 034  loss=0.4644  f1=0.7980  acc=0.7982  rec=0.7972  spec=0.7992
-epoch 035  loss=0.4523  f1=0.7971  acc=0.7960  rec=0.8012  spec=0.7908
-epoch 036  loss=0.4574  f1=0.8000  acc=0.7992  rec=0.8032  spec=0.7952
-Early stopping at epoch 36
-{
-  "name": "cnn_lstm_attn",
-  "params": 564930,
-  "latency_ms": 5.812136540189385,
-  "mode": "detector",
-  "decision_threshold": 0.131,
-  "accuracy": 0.5995,
-  "precision": 0.5510835913312694,
-  "recall": 0.9964376590330789,
-  "sensitivity": 0.9964376590330785,
-  "specificity": 0.21621621621621612,
-  "f1": 0.7096774193548387,
-  "tp": 1958,
-  "tn": 440,
-  "fp": 1595,
-  "fn": 7,
-  "n": 4000
-}
-
-=== Training tcn fold=0 ===
-epoch 001  loss=0.6316  f1=0.7161  acc=0.7540  rec=0.6204  spec=0.8876
-epoch 002  loss=0.5429  f1=0.7563  acc=0.7724  rec=0.7064  spec=0.8384
-epoch 003  loss=0.5412  f1=0.7597  acc=0.7676  rec=0.7348  spec=0.8004
-epoch 004  loss=0.5219  f1=0.7594  acc=0.7724  rec=0.7184  spec=0.8264
-epoch 005  loss=0.5220  f1=0.7671  acc=0.7732  rec=0.7468  spec=0.7996
-epoch 006  loss=0.5201  f1=0.7661  acc=0.7786  rec=0.7252  spec=0.8320
-epoch 007  loss=0.5152  f1=0.7721  acc=0.7814  rec=0.7404  spec=0.8224
-epoch 008  loss=0.5095  f1=0.7688  acc=0.7638  rec=0.7856  spec=0.7420
-epoch 009  loss=0.5149  f1=0.7747  acc=0.7764  rec=0.7688  spec=0.7840
-epoch 010  loss=0.5040  f1=0.7600  acc=0.7660  rec=0.7408  spec=0.7912
-epoch 011  loss=0.5123  f1=0.7763  acc=0.7730  rec=0.7876  spec=0.7584
-epoch 012  loss=0.5015  f1=0.7716  acc=0.7826  rec=0.7344  spec=0.8308
-epoch 013  loss=0.4997  f1=0.7700  acc=0.7638  rec=0.7908  spec=0.7368
-epoch 014  loss=0.4978  f1=0.7726  acc=0.7810  rec=0.7440  spec=0.8180
-epoch 015  loss=0.4995  f1=0.7705  acc=0.7550  rec=0.8224  spec=0.6876
-epoch 016  loss=0.4925  f1=0.7835  acc=0.7912  rec=0.7556  spec=0.8268
-epoch 017  loss=0.4882  f1=0.7834  acc=0.7928  rec=0.7492  spec=0.8364
-epoch 018  loss=0.4870  f1=0.7910  acc=0.7922  rec=0.7864  spec=0.7980
-epoch 019  loss=0.4793  f1=0.7822  acc=0.7940  rec=0.7400  spec=0.8480
-epoch 020  loss=0.4737  f1=0.7900  acc=0.7996  rec=0.7540  spec=0.8452
-epoch 021  loss=0.4791  f1=0.7899  acc=0.8040  rec=0.7368  spec=0.8712
-epoch 022  loss=0.4814  f1=0.7892  acc=0.7818  rec=0.8168  spec=0.7468
-epoch 023  loss=0.4683  f1=0.7899  acc=0.7978  rec=0.7604  spec=0.8352
-epoch 024  loss=0.4699  f1=0.7959  acc=0.7974  rec=0.7900  spec=0.8048
-epoch 025  loss=0.4640  f1=0.8029  acc=0.8046  rec=0.7960  spec=0.8132
-epoch 026  loss=0.4695  f1=0.8006  acc=0.7986  rec=0.8088  spec=0.7884
-epoch 027  loss=0.4649  f1=0.7959  acc=0.8064  rec=0.7548  spec=0.8580
-epoch 028  loss=0.4611  f1=0.8071  acc=0.8110  rec=0.7908  spec=0.8312
-epoch 029  loss=0.4572  f1=0.8045  acc=0.8052  rec=0.8016  spec=0.8088
-epoch 030  loss=0.4568  f1=0.8084  acc=0.8108  rec=0.7984  spec=0.8232
-epoch 031  loss=0.4487  f1=0.8042  acc=0.8014  rec=0.8156  spec=0.7872
-epoch 032  loss=0.4513  f1=0.8046  acc=0.8090  rec=0.7864  spec=0.8316
-epoch 033  loss=0.4588  f1=0.8144  acc=0.8148  rec=0.8124  spec=0.8172
-epoch 034  loss=0.4509  f1=0.8064  acc=0.8124  rec=0.7816  spec=0.8432
-epoch 035  loss=0.4390  f1=0.8087  acc=0.8118  rec=0.7956  spec=0.8280
-epoch 036  loss=0.4417  f1=0.8070  acc=0.8118  rec=0.7868  spec=0.8368
-epoch 037  loss=0.4393  f1=0.8080  acc=0.8098  rec=0.8004  spec=0.8192
-epoch 038  loss=0.4490  f1=0.8085  acc=0.8112  rec=0.7972  spec=0.8252
-epoch 039  loss=0.4482  f1=0.8078  acc=0.8118  rec=0.7912  spec=0.8324
-epoch 040  loss=0.4388  f1=0.8114  acc=0.8124  rec=0.8072  spec=0.8176
-{
-  "name": "tcn",
-  "params": 89282,
-  "latency_ms": 5.326743240002543,
-  "mode": "detector",
-  "decision_threshold": 0.16699999999999998,
-  "accuracy": 0.63525,
-  "precision": 0.5749407582938388,
-  "recall": 0.9877862595419847,
-  "sensitivity": 0.9877862595419843,
-  "specificity": 0.2948402948402947,
-  "f1": 0.72683018161393,
-  "tp": 1941,
-  "tn": 600,
-  "fp": 1435,
-  "fn": 24,
-  "n": 4000
-}
-
-=== Training modern_tcn fold=0 ===
-epoch 001  loss=0.6069  f1=0.7562  acc=0.7720  rec=0.7072  spec=0.8368
-epoch 002  loss=0.5362  f1=0.7664  acc=0.7824  rec=0.7140  spec=0.8508
-epoch 003  loss=0.5249  f1=0.7616  acc=0.7736  rec=0.7232  spec=0.8240
-epoch 004  loss=0.5178  f1=0.7738  acc=0.7746  rec=0.7712  spec=0.7780
-epoch 005  loss=0.5105  f1=0.7700  acc=0.7816  rec=0.7312  spec=0.8320
-epoch 006  loss=0.5081  f1=0.7601  acc=0.7682  rec=0.7344  spec=0.8020
-epoch 007  loss=0.5019  f1=0.7580  acc=0.7444  rec=0.8008  spec=0.6880
-epoch 008  loss=0.4972  f1=0.7733  acc=0.7820  rec=0.7436  spec=0.8204
-epoch 009  loss=0.4933  f1=0.7819  acc=0.7824  rec=0.7800  spec=0.7848
-epoch 010  loss=0.4813  f1=0.7745  acc=0.7690  rec=0.7936  spec=0.7444
-epoch 011  loss=0.4829  f1=0.7813  acc=0.7902  rec=0.7496  spec=0.8308
-epoch 012  loss=0.4842  f1=0.7900  acc=0.8028  rec=0.7420  spec=0.8636
-epoch 013  loss=0.4732  f1=0.7930  acc=0.8036  rec=0.7524  spec=0.8548
-epoch 014  loss=0.4673  f1=0.7969  acc=0.8050  rec=0.7652  spec=0.8448
-epoch 015  loss=0.4725  f1=0.7940  acc=0.7970  rec=0.7824  spec=0.8116
-epoch 016  loss=0.4614  f1=0.7904  acc=0.8080  rec=0.7240  spec=0.8920
-epoch 017  loss=0.4540  f1=0.8020  acc=0.8124  rec=0.7600  spec=0.8648
-epoch 018  loss=0.4555  f1=0.8015  acc=0.8080  rec=0.7752  spec=0.8408
-epoch 019  loss=0.4508  f1=0.8000  acc=0.8112  rec=0.7552  spec=0.8672
-epoch 020  loss=0.4607  f1=0.8132  acc=0.8218  rec=0.7760  spec=0.8676
-epoch 021  loss=0.4563  f1=0.8079  acc=0.8158  rec=0.7748  spec=0.8568
-epoch 022  loss=0.4454  f1=0.8069  acc=0.8120  rec=0.7856  spec=0.8384
-epoch 023  loss=0.4441  f1=0.8029  acc=0.8164  rec=0.7480  spec=0.8848
-epoch 024  loss=0.4569  f1=0.8113  acc=0.8138  rec=0.8004  spec=0.8272
-epoch 025  loss=0.4411  f1=0.8150  acc=0.8244  rec=0.7736  spec=0.8752
-epoch 026  loss=0.4385  f1=0.8154  acc=0.8226  rec=0.7836  spec=0.8616
-epoch 027  loss=0.4403  f1=0.8103  acc=0.8196  rec=0.7708  spec=0.8684
-epoch 028  loss=0.4337  f1=0.8067  acc=0.8130  rec=0.7804  spec=0.8456
-epoch 029  loss=0.4297  f1=0.8113  acc=0.8164  rec=0.7892  spec=0.8436
-epoch 030  loss=0.4315  f1=0.8148  acc=0.8212  rec=0.7864  spec=0.8560
-epoch 031  loss=0.4281  f1=0.8183  acc=0.8240  rec=0.7928  spec=0.8552
-epoch 032  loss=0.4194  f1=0.8141  acc=0.8230  rec=0.7752  spec=0.8708
-epoch 033  loss=0.4348  f1=0.8195  acc=0.8236  rec=0.8008  spec=0.8464
-epoch 034  loss=0.4233  f1=0.8193  acc=0.8258  rec=0.7896  spec=0.8620
-epoch 035  loss=0.4223  f1=0.8157  acc=0.8230  rec=0.7832  spec=0.8628
-epoch 036  loss=0.4278  f1=0.8167  acc=0.8240  rec=0.7840  spec=0.8640
-epoch 037  loss=0.4270  f1=0.8169  acc=0.8238  rec=0.7860  spec=0.8616
-epoch 038  loss=0.4253  f1=0.8166  acc=0.8238  rec=0.7848  spec=0.8628
-epoch 039  loss=0.4374  f1=0.8176  acc=0.8246  rec=0.7860  spec=0.8632
-epoch 040  loss=0.4267  f1=0.8170  acc=0.8238  rec=0.7864  spec=0.8612
-{
-  "name": "modern_tcn",
-  "params": 30314,
-  "latency_ms": 1.856506960466504,
-  "mode": "detector",
-  "decision_threshold": 0.149,
-  "accuracy": 0.6525,
-  "precision": 0.5866747060596925,
-  "recall": 0.9903307888040712,
-  "sensitivity": 0.9903307888040708,
-  "specificity": 0.32628992628992615,
-  "f1": 0.7368421052631579,
-  "tp": 1946,
-  "tn": 664,
-  "fp": 1371,
-  "fn": 19,
-  "n": 4000
-}
-
-=== Training tsmixer fold=0 ===
-epoch 001  loss=0.6427  f1=0.7184  acc=0.7278  rec=0.6944  spec=0.7612
-epoch 002  loss=0.5506  f1=0.7491  acc=0.7588  rec=0.7200  spec=0.7976
-epoch 003  loss=0.5468  f1=0.7483  acc=0.7682  rec=0.6892  spec=0.8472
-epoch 004  loss=0.5341  f1=0.7233  acc=0.7498  rec=0.6540  spec=0.8456
-epoch 005  loss=0.5357  f1=0.7415  acc=0.7544  rec=0.7044  spec=0.8044
-epoch 006  loss=0.5388  f1=0.7388  acc=0.7558  rec=0.6908  spec=0.8208
-epoch 007  loss=0.5302  f1=0.7307  acc=0.7504  rec=0.6772  spec=0.8236
-epoch 008  loss=0.5259  f1=0.7383  acc=0.7588  rec=0.6804  spec=0.8372
-epoch 009  loss=0.5250  f1=0.7297  acc=0.7552  rec=0.6608  spec=0.8496
-epoch 010  loss=0.5260  f1=0.7433  acc=0.7498  rec=0.7244  spec=0.7752
-epoch 011  loss=0.5172  f1=0.7594  acc=0.7644  rec=0.7436  spec=0.7852
-epoch 012  loss=0.5218  f1=0.7404  acc=0.7636  rec=0.6744  spec=0.8528
-epoch 013  loss=0.5223  f1=0.7523  acc=0.7560  rec=0.7412  spec=0.7708
-epoch 014  loss=0.5216  f1=0.7446  acc=0.7560  rec=0.7112  spec=0.8008
-epoch 015  loss=0.5264  f1=0.7560  acc=0.7696  rec=0.7140  spec=0.8252
-epoch 016  loss=0.5168  f1=0.7629  acc=0.7730  rec=0.7304  spec=0.8156
-epoch 017  loss=0.5172  f1=0.7501  acc=0.7536  rec=0.7396  spec=0.7676
-epoch 018  loss=0.5166  f1=0.7617  acc=0.7750  rec=0.7192  spec=0.8308
-epoch 019  loss=0.5151  f1=0.7562  acc=0.7664  rec=0.7244  spec=0.8084
-epoch 020  loss=0.5079  f1=0.7637  acc=0.7756  rec=0.7252  spec=0.8260
-epoch 021  loss=0.5090  f1=0.7579  acc=0.7626  rec=0.7432  spec=0.7820
-epoch 022  loss=0.5078  f1=0.7648  acc=0.7708  rec=0.7452  spec=0.7964
-epoch 023  loss=0.5153  f1=0.7603  acc=0.7548  rec=0.7776  spec=0.7320
-epoch 024  loss=0.5121  f1=0.7676  acc=0.7782  rec=0.7324  spec=0.8240
-epoch 025  loss=0.5084  f1=0.7705  acc=0.7758  rec=0.7528  spec=0.7988
-epoch 026  loss=0.5061  f1=0.7667  acc=0.7752  rec=0.7388  spec=0.8116
-epoch 027  loss=0.5120  f1=0.7627  acc=0.7752  rec=0.7224  spec=0.8280
-epoch 028  loss=0.5075  f1=0.7726  acc=0.7774  rec=0.7564  spec=0.7984
-epoch 029  loss=0.5094  f1=0.7712  acc=0.7758  rec=0.7556  spec=0.7960
-epoch 030  loss=0.5071  f1=0.7666  acc=0.7718  rec=0.7496  spec=0.7940
-epoch 031  loss=0.5050  f1=0.7731  acc=0.7800  rec=0.7496  spec=0.8104
-epoch 032  loss=0.5060  f1=0.7724  acc=0.7774  rec=0.7556  spec=0.7992
-epoch 033  loss=0.5060  f1=0.7702  acc=0.7776  rec=0.7452  spec=0.8100
-epoch 034  loss=0.5031  f1=0.7687  acc=0.7746  rec=0.7492  spec=0.8000
-epoch 035  loss=0.5065  f1=0.7710  acc=0.7768  rec=0.7516  spec=0.8020
-epoch 036  loss=0.5060  f1=0.7737  acc=0.7780  rec=0.7592  spec=0.7968
-epoch 037  loss=0.5072  f1=0.7713  acc=0.7748  rec=0.7596  spec=0.7900
-epoch 038  loss=0.5034  f1=0.7715  acc=0.7762  rec=0.7556  spec=0.7968
-epoch 039  loss=0.5079  f1=0.7712  acc=0.7758  rec=0.7556  spec=0.7960
-epoch 040  loss=0.5007  f1=0.7717  acc=0.7764  rec=0.7556  spec=0.7972
-{
-  "name": "tsmixer",
-  "params": 224562,
-  "latency_ms": 1.6099708992987871,
-  "mode": "detector",
-  "decision_threshold": 0.15799999999999997,
-  "accuracy": 0.57525,
-  "precision": 0.5369444444444444,
-  "recall": 0.9837150127226463,
-  "sensitivity": 0.9837150127226458,
-  "specificity": 0.18083538083538075,
-  "f1": 0.6946990116801438,
-  "tp": 1933,
-  "tn": 368,
-  "fp": 1667,
-  "fn": 32,
-  "n": 4000
-}
-
-=== Training patchtst fold=0 ===
-/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
-  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
-epoch 001  loss=0.6689  f1=0.6730  acc=0.6154  rec=0.7916  spec=0.4392
-epoch 002  loss=0.6492  f1=0.6416  acc=0.6498  rec=0.6268  spec=0.6728
-epoch 003  loss=0.6463  f1=0.7042  acc=0.6570  rec=0.8164  spec=0.4976
-epoch 004  loss=0.6411  f1=0.6398  acc=0.6590  rec=0.6056  spec=0.7124
-epoch 005  loss=0.6429  f1=0.6372  acc=0.6370  rec=0.6376  spec=0.6364
-epoch 006  loss=0.6381  f1=0.6482  acc=0.6614  rec=0.6240  spec=0.6988
-epoch 007  loss=0.6347  f1=0.6343  acc=0.6410  rec=0.6228  spec=0.6592
-epoch 008  loss=0.6343  f1=0.6540  acc=0.6514  rec=0.6588  spec=0.6440
-epoch 009  loss=0.6354  f1=0.6838  acc=0.6556  rec=0.7448  spec=0.5664
-epoch 010  loss=0.6306  f1=0.6767  acc=0.6618  rec=0.7080  spec=0.6156
-epoch 011  loss=0.6339  f1=0.6159  acc=0.6532  rec=0.5560  spec=0.7504
-epoch 012  loss=0.6337  f1=0.6675  acc=0.6664  rec=0.6696  spec=0.6632
-epoch 013  loss=0.6310  f1=0.6122  acc=0.6448  rec=0.5608  spec=0.7288
-Early stopping at epoch 13
-{
-  "name": "patchtst",
-  "params": 150786,
-  "latency_ms": 0.890078719239682,
-  "mode": "detector",
-  "decision_threshold": 0.194,
-  "accuracy": 0.5155,
-  "precision": 0.5034713293905888,
-  "recall": 0.9964376590330789,
-  "sensitivity": 0.9964376590330785,
-  "specificity": 0.05110565110565108,
-  "f1": 0.6689443115818244,
-  "tp": 1958,
-  "tn": 104,
-  "fp": 1931,
-  "fn": 7,
-  "n": 4000
-}
-
-=== Training transformer fold=0 ===
-/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
-  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
-epoch 001  loss=0.6347  f1=0.6897  acc=0.7394  rec=0.5792  spec=0.8996
-epoch 002  loss=0.5544  f1=0.7337  acc=0.7238  rec=0.7608  spec=0.6868
-epoch 003  loss=0.5478  f1=0.7490  acc=0.7584  rec=0.7208  spec=0.7960
-epoch 004  loss=0.5347  f1=0.7515  acc=0.7630  rec=0.7168  spec=0.8092
-epoch 005  loss=0.5363  f1=0.7506  acc=0.7560  rec=0.7344  spec=0.7776
-epoch 006  loss=0.5331  f1=0.7127  acc=0.7372  rec=0.6520  spec=0.8224
-epoch 007  loss=0.5287  f1=0.7616  acc=0.7700  rec=0.7348  spec=0.8052
-epoch 008  loss=0.5282  f1=0.7427  acc=0.7424  rec=0.7436  spec=0.7412
-epoch 009  loss=0.5232  f1=0.7282  acc=0.7254  rec=0.7356  spec=0.7152
-epoch 010  loss=0.5238  f1=0.7495  acc=0.7586  rec=0.7224  spec=0.7948
-epoch 011  loss=0.5183  f1=0.7506  acc=0.7502  rec=0.7520  spec=0.7484
-epoch 012  loss=0.5175  f1=0.7608  acc=0.7672  rec=0.7404  spec=0.7940
-epoch 013  loss=0.5186  f1=0.7581  acc=0.7668  rec=0.7308  spec=0.8028
-epoch 014  loss=0.5072  f1=0.7623  acc=0.7466  rec=0.8128  spec=0.6804
-epoch 015  loss=0.5149  f1=0.7589  acc=0.7582  rec=0.7612  spec=0.7552
-epoch 016  loss=0.5120  f1=0.7558  acc=0.7606  rec=0.7408  spec=0.7804
-epoch 017  loss=0.5060  f1=0.7570  acc=0.7684  rec=0.7216  spec=0.8152
-epoch 018  loss=0.5032  f1=0.7677  acc=0.7780  rec=0.7336  spec=0.8224
-epoch 019  loss=0.5009  f1=0.7704  acc=0.7682  rec=0.7776  spec=0.7588
-epoch 020  loss=0.4943  f1=0.7527  acc=0.7538  rec=0.7492  spec=0.7584
-epoch 021  loss=0.4987  f1=0.7686  acc=0.7730  rec=0.7540  spec=0.7920
-epoch 022  loss=0.5014  f1=0.7724  acc=0.7690  rec=0.7840  spec=0.7540
-epoch 023  loss=0.4912  f1=0.7713  acc=0.7698  rec=0.7764  spec=0.7632
-epoch 024  loss=0.4886  f1=0.7786  acc=0.7770  rec=0.7840  spec=0.7700
-epoch 025  loss=0.4962  f1=0.7702  acc=0.7726  rec=0.7620  spec=0.7832
-epoch 026  loss=0.4942  f1=0.7757  acc=0.7744  rec=0.7804  spec=0.7684
-epoch 027  loss=0.4852  f1=0.7778  acc=0.7824  rec=0.7616  spec=0.8032
-epoch 028  loss=0.4862  f1=0.7780  acc=0.7792  rec=0.7740  spec=0.7844
-epoch 029  loss=0.4796  f1=0.7794  acc=0.7790  rec=0.7808  spec=0.7772
-epoch 030  loss=0.4744  f1=0.7749  acc=0.7802  rec=0.7568  spec=0.8036
-epoch 031  loss=0.4736  f1=0.7807  acc=0.7844  rec=0.7676  spec=0.8012
-epoch 032  loss=0.4766  f1=0.7786  acc=0.7808  rec=0.7708  spec=0.7908
-epoch 033  loss=0.4731  f1=0.7757  acc=0.7810  rec=0.7572  spec=0.8048
-epoch 034  loss=0.4706  f1=0.7773  acc=0.7776  rec=0.7764  spec=0.7788
-epoch 035  loss=0.4701  f1=0.7738  acc=0.7752  rec=0.7688  spec=0.7816
-epoch 036  loss=0.4697  f1=0.7750  acc=0.7774  rec=0.7668  spec=0.7880
-epoch 037  loss=0.4811  f1=0.7781  acc=0.7794  rec=0.7736  spec=0.7852
-epoch 038  loss=0.4798  f1=0.7766  acc=0.7784  rec=0.7704  spec=0.7864
-epoch 039  loss=0.4866  f1=0.7767  acc=0.7788  rec=0.7692  spec=0.7884
-epoch 040  loss=0.4687  f1=0.7770  acc=0.7794  rec=0.7688  spec=0.7900
-{
-  "name": "transformer",
-  "params": 158722,
-  "latency_ms": 1.124172038398683,
-  "mode": "detector",
-  "decision_threshold": 0.077,
-  "accuracy": 0.53525,
-  "precision": 0.5139473684210526,
-  "recall": 0.9938931297709923,
-  "sensitivity": 0.9938931297709919,
-  "specificity": 0.09238329238329235,
-  "f1": 0.6775368603642671,
-  "tp": 1953,
-  "tn": 188,
-  "fp": 1847,
-  "fn": 12,
-  "n": 4000
-}
-
-=== Agentic wrap: modern_tcn ===
-/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
-  warn(f"Failed to load image Python extension: {e}")
-agentic:   0%|          | 0/1000 [00:00<?, ?it/s]agentic:   0%|          | 2/1000 [00:00<01:27, 11.35it/s]agentic:   0%|          | 5/1000 [00:00<00:58, 16.98it/s]agentic:   1%|          | 10/1000 [00:00<00:37, 26.46it/s]agentic:   1%|▏         | 13/1000 [00:00<00:40, 24.19it/s]agentic:   2%|▏         | 19/1000 [00:00<00:28, 34.12it/s]agentic:   2%|▏         | 23/1000 [00:00<00:29, 33.39it/s]agentic:   3%|▎         | 27/1000 [00:00<00:32, 29.65it/s]agentic:   3%|▎         | 34/1000 [00:01<00:24, 38.88it/s]agentic:   4%|▍         | 39/1000 [00:01<00:28, 33.78it/s]agentic:   4%|▍         | 43/1000 [00:01<00:31, 30.67it/s]agentic:   5%|▍         | 47/1000 [00:01<00:35, 26.64it/s]agentic:   5%|▌         | 51/1000 [00:01<00:32, 29.16it/s]agentic:   6%|▌         | 55/1000 [00:01<00:35, 26.63it/s]agentic:   6%|▌         | 58/1000 [00:02<00:35, 26.77it/s]agentic:   6%|▌         | 61/1000 [00:02<00:37, 25.18it/s]agentic:   6%|▋         | 64/1000 [00:02<00:39, 23.45it/s]agentic:   7%|▋         | 67/1000 [00:02<00:40, 23.28it/s]agentic:   7%|▋         | 70/1000 [00:02<00:42, 22.09it/s]agentic:   7%|▋         | 74/1000 [00:02<00:36, 25.59it/s]agentic:   8%|▊         | 81/1000 [00:02<00:29, 31.17it/s]agentic:   9%|▉         | 88/1000 [00:03<00:26, 34.94it/s]agentic:   9%|▉         | 92/1000 [00:03<00:28, 31.58it/s]agentic:  10%|▉         | 96/1000 [00:03<00:28, 31.99it/s]agentic:  10%|█         | 102/1000 [00:03<00:26, 33.80it/s]agentic:  11%|█         | 106/1000 [00:03<00:26, 33.68it/s]agentic:  11%|█         | 110/1000 [00:03<00:35, 25.23it/s]agentic:  11%|█▏        | 114/1000 [00:03<00:31, 27.88it/s]agentic:  12%|█▏        | 118/1000 [00:04<00:32, 26.87it/s]agentic:  12%|█▏        | 122/1000 [00:04<00:30, 28.98it/s]agentic:  13%|█▎        | 126/1000 [00:04<00:34, 25.33it/s]agentic:  13%|█▎        | 129/1000 [00:04<00:40, 21.47it/s]agentic:  13%|█▎        | 133/1000 [00:04<00:38, 22.30it/s]agentic:  14%|█▎        | 137/1000 [00:04<00:33, 25.42it/s]agentic:  14%|█▍        | 140/1000 [00:05<00:32, 26.19it/s]agentic:  14%|█▍        | 144/1000 [00:05<00:33, 25.80it/s]agentic:  15%|█▌        | 151/1000 [00:05<00:23, 35.42it/s]agentic:  16%|█▌        | 155/1000 [00:05<00:26, 32.00it/s]agentic:  16%|█▌        | 160/1000 [00:05<00:26, 32.28it/s]agentic:  16%|█▋        | 164/1000 [00:05<00:26, 31.74it/s]agentic:  17%|█▋        | 168/1000 [00:05<00:29, 28.58it/s]agentic:  17%|█▋        | 172/1000 [00:06<00:27, 30.24it/s]agentic:  18%|█▊        | 177/1000 [00:06<00:25, 32.50it/s]agentic:  18%|█▊        | 181/1000 [00:06<00:24, 33.60it/s]agentic:  19%|█▊        | 187/1000 [00:06<00:22, 35.62it/s]agentic:  19%|█▉        | 192/1000 [00:06<00:22, 36.29it/s]agentic:  20%|█▉        | 198/1000 [00:06<00:21, 37.65it/s]agentic:  20%|██        | 203/1000 [00:06<00:21, 37.72it/s]agentic:  21%|██        | 208/1000 [00:07<00:21, 36.47it/s]agentic:  21%|██        | 212/1000 [00:07<00:21, 37.25it/s]agentic:  22%|██▏       | 216/1000 [00:07<00:21, 36.85it/s]agentic:  22%|██▏       | 221/1000 [00:07<00:19, 40.22it/s]agentic:  23%|██▎       | 226/1000 [00:07<00:21, 35.79it/s]agentic:  23%|██▎       | 230/1000 [00:07<00:24, 31.64it/s]agentic:  23%|██▎       | 234/1000 [00:07<00:26, 28.63it/s]agentic:  24%|██▍       | 238/1000 [00:07<00:27, 27.94it/s]agentic:  24%|██▍       | 241/1000 [00:08<00:26, 28.31it/s]agentic:  24%|██▍       | 244/1000 [00:08<00:28, 26.29it/s]agentic:  25%|██▍       | 247/1000 [00:08<00:28, 26.82it/s]agentic:  25%|██▌       | 251/1000 [00:08<00:29, 25.60it/s]agentic:  25%|██▌       | 254/1000 [00:08<00:34, 21.59it/s]agentic:  26%|██▌       | 259/1000 [00:08<00:30, 24.51it/s]agentic:  26%|██▌       | 262/1000 [00:09<00:34, 21.48it/s]agentic:  27%|██▋       | 268/1000 [00:09<00:27, 26.49it/s]agentic:  27%|██▋       | 271/1000 [00:09<00:28, 25.98it/s]agentic:  27%|██▋       | 274/1000 [00:09<00:28, 25.46it/s]agentic:  28%|██▊       | 277/1000 [00:09<00:27, 26.24it/s]agentic:  28%|██▊       | 283/1000 [00:09<00:21, 32.93it/s]agentic:  29%|██▊       | 287/1000 [00:09<00:22, 32.22it/s]agentic:  29%|██▉       | 291/1000 [00:10<00:26, 27.08it/s]agentic:  29%|██▉       | 294/1000 [00:10<00:29, 23.91it/s]agentic:  30%|██▉       | 297/1000 [00:10<00:29, 24.21it/s]agentic:  30%|███       | 300/1000 [00:10<00:29, 24.12it/s]agentic:  30%|███       | 304/1000 [00:10<00:26, 26.19it/s]agentic:  31%|███       | 307/1000 [00:10<00:27, 25.17it/s]agentic:  31%|███       | 310/1000 [00:10<00:29, 23.40it/s]agentic:  31%|███▏      | 313/1000 [00:11<00:31, 21.87it/s]agentic:  32%|███▏      | 316/1000 [00:11<00:31, 21.74it/s]agentic:  32%|███▏      | 319/1000 [00:11<00:31, 21.47it/s]agentic:  32%|███▏      | 323/1000 [00:11<00:26, 25.17it/s]agentic:  33%|███▎      | 327/1000 [00:11<00:23, 28.05it/s]agentic:  33%|███▎      | 330/1000 [00:11<00:23, 27.98it/s]agentic:  33%|███▎      | 334/1000 [00:11<00:23, 28.18it/s]agentic:  34%|███▎      | 337/1000 [00:11<00:25, 25.98it/s]agentic:  34%|███▍      | 341/1000 [00:12<00:25, 26.12it/s]agentic:  34%|███▍      | 344/1000 [00:12<00:26, 24.69it/s]agentic:  35%|███▍      | 348/1000 [00:12<00:25, 25.21it/s]agentic:  35%|███▌      | 351/1000 [00:12<00:26, 24.30it/s]agentic:  35%|███▌      | 354/1000 [00:12<00:25, 25.44it/s]agentic:  36%|███▌      | 357/1000 [00:12<00:26, 24.60it/s]agentic:  36%|███▌      | 360/1000 [00:12<00:27, 23.15it/s]agentic:  36%|███▋      | 363/1000 [00:13<00:28, 22.09it/s]agentic:  37%|███▋      | 367/1000 [00:13<00:24, 25.61it/s]agentic:  37%|███▋      | 372/1000 [00:13<00:21, 29.18it/s]agentic:  38%|███▊      | 375/1000 [00:13<00:21, 29.18it/s]agentic:  38%|███▊      | 378/1000 [00:13<00:24, 25.39it/s]agentic:  38%|███▊      | 381/1000 [00:13<00:24, 24.86it/s]agentic:  38%|███▊      | 384/1000 [00:13<00:25, 24.51it/s]agentic:  39%|███▉      | 389/1000 [00:13<00:19, 30.66it/s]agentic:  39%|███▉      | 393/1000 [00:14<00:21, 27.63it/s]agentic:  40%|███▉      | 396/1000 [00:14<00:22, 26.64it/s]agentic:  40%|████      | 401/1000 [00:14<00:18, 31.57it/s]agentic:  40%|████      | 405/1000 [00:14<00:21, 27.69it/s]agentic:  41%|████      | 409/1000 [00:14<00:22, 26.40it/s]agentic:  41%|████▏     | 413/1000 [00:14<00:21, 26.80it/s]agentic:  42%|████▏     | 419/1000 [00:14<00:17, 33.05it/s]agentic:  42%|████▏     | 423/1000 [00:15<00:21, 27.43it/s]agentic:  43%|████▎     | 427/1000 [00:15<00:19, 29.34it/s]agentic:  43%|████▎     | 431/1000 [00:15<00:18, 31.18it/s]agentic:  44%|████▎     | 435/1000 [00:15<00:17, 32.68it/s]agentic:  44%|████▍     | 439/1000 [00:15<00:20, 28.02it/s]agentic:  44%|████▍     | 444/1000 [00:15<00:17, 31.02it/s]agentic:  45%|████▍     | 448/1000 [00:15<00:18, 29.61it/s]agentic:  45%|████▌     | 452/1000 [00:16<00:19, 28.06it/s]agentic:  46%|████▌     | 457/1000 [00:16<00:17, 31.28it/s]agentic:  46%|████▌     | 461/1000 [00:16<00:17, 29.96it/s]agentic:  46%|████▋     | 465/1000 [00:16<00:17, 30.24it/s]agentic:  47%|████▋     | 469/1000 [00:16<00:18, 28.12it/s]agentic:  47%|████▋     | 474/1000 [00:16<00:17, 29.58it/s]agentic:  48%|████▊     | 478/1000 [00:16<00:16, 30.98it/s]agentic:  48%|████▊     | 482/1000 [00:17<00:18, 27.70it/s]agentic:  49%|████▊     | 486/1000 [00:17<00:18, 28.41it/s]agentic:  49%|████▉     | 491/1000 [00:17<00:16, 30.29it/s]agentic:  50%|████▉     | 495/1000 [00:17<00:16, 30.04it/s]agentic:  50%|████▉     | 499/1000 [00:17<00:16, 30.11it/s]agentic:  50%|█████     | 503/1000 [00:17<00:17, 28.13it/s]agentic:  51%|█████     | 507/1000 [00:17<00:16, 30.33it/s]agentic:  51%|█████     | 511/1000 [00:18<00:18, 25.92it/s]agentic:  51%|█████▏    | 514/1000 [00:18<00:21, 22.38it/s]agentic:  52%|█████▏    | 517/1000 [00:18<00:22, 21.23it/s]agentic:  52%|█████▏    | 521/1000 [00:18<00:19, 24.40it/s]agentic:  52%|█████▏    | 524/1000 [00:18<00:20, 22.81it/s]agentic:  53%|█████▎    | 527/1000 [00:18<00:22, 21.38it/s]agentic:  53%|█████▎    | 531/1000 [00:19<00:19, 24.55it/s]agentic:  54%|█████▎    | 535/1000 [00:19<00:17, 27.35it/s]agentic:  54%|█████▍    | 539/1000 [00:19<00:17, 27.01it/s]agentic:  54%|█████▍    | 542/1000 [00:19<00:20, 22.61it/s]agentic:  55%|█████▍    | 546/1000 [00:19<00:17, 26.30it/s]agentic:  55%|█████▌    | 551/1000 [00:19<00:15, 28.21it/s]agentic:  56%|█████▌    | 555/1000 [00:19<00:16, 27.62it/s]agentic:  56%|█████▌    | 559/1000 [00:19<00:14, 29.88it/s]agentic:  56%|█████▋    | 563/1000 [00:20<00:14, 29.35it/s]agentic:  57%|█████▋    | 569/1000 [00:20<00:12, 34.11it/s]agentic:  57%|█████▋    | 573/1000 [00:20<00:13, 30.56it/s]agentic:  58%|█████▊    | 577/1000 [00:20<00:14, 30.03it/s]agentic:  58%|█████▊    | 581/1000 [00:20<00:17, 23.78it/s]agentic:  58%|█████▊    | 585/1000 [00:20<00:16, 25.00it/s]agentic:  59%|█████▉    | 589/1000 [00:21<00:15, 27.40it/s]agentic:  59%|█████▉    | 594/1000 [00:21<00:12, 32.11it/s]agentic:  60%|█████▉    | 599/1000 [00:21<00:12, 32.96it/s]agentic:  60%|██████    | 603/1000 [00:21<00:12, 31.91it/s]agentic:  61%|██████    | 607/1000 [00:21<00:13, 29.61it/s]agentic:  61%|██████    | 611/1000 [00:21<00:12, 31.29it/s]agentic:  62%|██████▏   | 615/1000 [00:21<00:11, 33.08it/s]agentic:  62%|██████▏   | 619/1000 [00:21<00:10, 34.64it/s]agentic:  62%|██████▏   | 623/1000 [00:22<00:11, 31.99it/s]agentic:  63%|██████▎   | 627/1000 [00:22<00:11, 33.06it/s]agentic:  63%|██████▎   | 631/1000 [00:22<00:12, 30.12it/s]agentic:  64%|██████▎   | 635/1000 [00:22<00:16, 22.33it/s]agentic:  64%|██████▍   | 638/1000 [00:22<00:17, 20.36it/s]agentic:  64%|██████▍   | 642/1000 [00:22<00:15, 23.58it/s]agentic:  64%|██████▍   | 645/1000 [00:23<00:15, 22.80it/s]agentic:  65%|██████▌   | 650/1000 [00:23<00:13, 26.38it/s]agentic:  65%|██████▌   | 654/1000 [00:23<00:11, 28.91it/s]agentic:  66%|██████▌   | 658/1000 [00:23<00:11, 30.10it/s]agentic:  66%|██████▌   | 662/1000 [00:23<00:12, 26.75it/s]agentic:  66%|██████▋   | 665/1000 [00:23<00:12, 26.65it/s]agentic:  67%|██████▋   | 669/1000 [00:23<00:11, 28.32it/s]agentic:  67%|██████▋   | 673/1000 [00:24<00:11, 29.71it/s]agentic:  68%|██████▊   | 677/1000 [00:24<00:10, 31.88it/s]agentic:  68%|██████▊   | 681/1000 [00:24<00:12, 26.38it/s]agentic:  68%|██████▊   | 685/1000 [00:24<00:11, 26.57it/s]agentic:  69%|██████▉   | 689/1000 [00:24<00:10, 29.26it/s]agentic:  69%|██████▉   | 693/1000 [00:24<00:10, 29.89it/s]agentic:  70%|██████▉   | 697/1000 [00:24<00:10, 28.05it/s]agentic:  70%|███████   | 700/1000 [00:24<00:10, 28.25it/s]agentic:  70%|███████   | 703/1000 [00:25<00:12, 22.94it/s]agentic:  71%|███████   | 706/1000 [00:25<00:12, 24.07it/s]agentic:  71%|███████   | 709/1000 [00:25<00:11, 24.33it/s]agentic:  71%|███████▏  | 713/1000 [00:25<00:11, 24.98it/s]agentic:  72%|███████▏  | 716/1000 [00:25<00:12, 23.11it/s]agentic:  72%|███████▏  | 719/1000 [00:25<00:12, 22.69it/s]agentic:  72%|███████▏  | 723/1000 [00:25<00:10, 25.94it/s]agentic:  73%|███████▎  | 727/1000 [00:26<00:10, 26.01it/s]agentic:  73%|███████▎  | 732/1000 [00:26<00:09, 27.74it/s]agentic:  74%|███████▎  | 735/1000 [00:26<00:10, 26.32it/s]agentic:  74%|███████▍  | 738/1000 [00:26<00:10, 25.65it/s]agentic:  74%|███████▍  | 741/1000 [00:26<00:10, 24.90it/s]agentic:  74%|███████▍  | 745/1000 [00:26<00:10, 25.14it/s]agentic:  75%|███████▍  | 748/1000 [00:26<00:10, 24.04it/s]agentic:  75%|███████▌  | 752/1000 [00:27<00:09, 27.37it/s]agentic:  76%|███████▌  | 756/1000 [00:27<00:08, 29.77it/s]agentic:  76%|███████▌  | 760/1000 [00:27<00:07, 32.06it/s]agentic:  76%|███████▋  | 764/1000 [00:27<00:07, 30.31it/s]agentic:  77%|███████▋  | 768/1000 [00:27<00:08, 26.80it/s]agentic:  77%|███████▋  | 771/1000 [00:27<00:09, 25.23it/s]agentic:  78%|███████▊  | 775/1000 [00:27<00:07, 28.55it/s]agentic:  78%|███████▊  | 779/1000 [00:28<00:07, 27.88it/s]agentic:  78%|███████▊  | 782/1000 [00:28<00:08, 26.61it/s]agentic:  78%|███████▊  | 785/1000 [00:28<00:08, 23.95it/s]agentic:  79%|███████▉  | 791/1000 [00:28<00:06, 31.72it/s]agentic:  80%|███████▉  | 795/1000 [00:28<00:06, 33.32it/s]agentic:  80%|███████▉  | 799/1000 [00:28<00:07, 28.41it/s]agentic:  80%|████████  | 803/1000 [00:28<00:07, 27.09it/s]agentic:  81%|████████  | 806/1000 [00:28<00:07, 26.79it/s]agentic:  81%|████████  | 811/1000 [00:29<00:06, 28.73it/s]agentic:  82%|████████▏ | 817/1000 [00:29<00:05, 35.11it/s]agentic:  82%|████████▏ | 821/1000 [00:29<00:05, 34.15it/s]agentic:  83%|████████▎ | 827/1000 [00:29<00:04, 36.55it/s]agentic:  83%|████████▎ | 831/1000 [00:29<00:04, 37.26it/s]agentic:  84%|████████▎ | 835/1000 [00:29<00:05, 32.73it/s]agentic:  84%|████████▍ | 839/1000 [00:29<00:05, 27.37it/s]agentic:  84%|████████▍ | 843/1000 [00:30<00:05, 26.27it/s]agentic:  85%|████████▍ | 847/1000 [00:30<00:05, 28.96it/s]agentic:  85%|████████▌ | 851/1000 [00:30<00:05, 28.56it/s]agentic:  86%|████████▌ | 855/1000 [00:30<00:05, 27.69it/s]agentic:  86%|████████▌ | 858/1000 [00:30<00:05, 23.68it/s]agentic:  86%|████████▌ | 861/1000 [00:30<00:05, 23.24it/s]agentic:  86%|████████▋ | 865/1000 [00:30<00:05, 26.70it/s]agentic:  87%|████████▋ | 868/1000 [00:31<00:05, 25.56it/s]agentic:  88%|████████▊ | 875/1000 [00:31<00:03, 35.84it/s]agentic:  88%|████████▊ | 879/1000 [00:31<00:04, 29.44it/s]agentic:  88%|████████▊ | 884/1000 [00:31<00:03, 32.32it/s]agentic:  89%|████████▉ | 888/1000 [00:31<00:03, 30.42it/s]agentic:  89%|████████▉ | 893/1000 [00:31<00:03, 34.49it/s]agentic:  90%|█████████ | 902/1000 [00:31<00:02, 45.10it/s]agentic:  91%|█████████ | 907/1000 [00:32<00:02, 39.00it/s]agentic:  91%|█████████ | 912/1000 [00:32<00:02, 29.34it/s]agentic:  92%|█████████▏| 916/1000 [00:32<00:02, 29.64it/s]agentic:  92%|█████████▏| 920/1000 [00:32<00:02, 27.50it/s]agentic:  93%|█████████▎| 926/1000 [00:32<00:02, 33.91it/s]agentic:  93%|█████████▎| 932/1000 [00:32<00:01, 38.80it/s]agentic:  94%|█████████▍| 940/1000 [00:33<00:01, 45.94it/s]agentic:  95%|█████████▍| 946/1000 [00:33<00:01, 48.87it/s]agentic:  95%|█████████▌| 952/1000 [00:33<00:01, 43.00it/s]agentic:  96%|█████████▌| 957/1000 [00:33<00:01, 33.40it/s]agentic:  96%|█████████▌| 961/1000 [00:33<00:01, 33.86it/s]agentic:  97%|█████████▋| 968/1000 [00:33<00:00, 40.76it/s]agentic:  97%|█████████▋| 973/1000 [00:33<00:00, 33.72it/s]agentic:  98%|█████████▊| 977/1000 [00:34<00:00, 30.77it/s]agentic:  98%|█████████▊| 981/1000 [00:34<00:00, 29.03it/s]agentic:  98%|█████████▊| 985/1000 [00:34<00:00, 31.14it/s]agentic:  99%|█████████▉| 989/1000 [00:34<00:00, 29.09it/s]agentic:  99%|█████████▉| 993/1000 [00:34<00:00, 31.23it/s]agentic: 100%|█████████▉| 997/1000 [00:34<00:00, 33.01it/s]agentic: 100%|██████████| 1000/1000 [00:34<00:00, 28.64it/s]
-{'f1': 0.7873831775700935, 'delta_f1': 0.05054107230693561, 'expected_response_cost': 1154.0, 'escalation_rate': 0.448, 'false_alarm_rate_near_fall': 0.13125, 'n_near_fall': 160}
-
-=== Agentic wrap: tcn ===
-agentic:   0%|          | 0/1000 [00:00<?, ?it/s]agentic:   0%|          | 2/1000 [00:00<00:51, 19.32it/s]agentic:   0%|          | 5/1000 [00:00<00:47, 21.12it/s]agentic:   1%|          | 9/1000 [00:00<00:35, 28.29it/s]agentic:   1%|▏         | 13/1000 [00:00<00:32, 30.81it/s]agentic:   2%|▏         | 17/1000 [00:00<00:35, 27.78it/s]agentic:   2%|▏         | 21/1000 [00:00<00:32, 30.02it/s]agentic:   2%|▎         | 25/1000 [00:00<00:38, 25.45it/s]agentic:   3%|▎         | 29/1000 [00:01<00:38, 25.10it/s]agentic:   3%|▎         | 33/1000 [00:01<00:37, 25.47it/s]agentic:   4%|▍         | 38/1000 [00:01<00:31, 30.14it/s]agentic:   4%|▍         | 42/1000 [00:01<00:33, 28.30it/s]agentic:   5%|▍         | 46/1000 [00:01<00:31, 30.51it/s]agentic:   5%|▌         | 50/1000 [00:01<00:31, 30.52it/s]agentic:   5%|▌         | 54/1000 [00:01<00:32, 29.10it/s]agentic:   6%|▌         | 59/1000 [00:02<00:28, 33.35it/s]agentic:   6%|▋         | 63/1000 [00:02<00:37, 24.75it/s]agentic:   7%|▋         | 67/1000 [00:02<00:35, 26.33it/s]agentic:   7%|▋         | 70/1000 [00:02<00:35, 26.01it/s]agentic:   7%|▋         | 73/1000 [00:02<00:35, 26.43it/s]agentic:   8%|▊         | 79/1000 [00:02<00:27, 33.60it/s]agentic:   9%|▊         | 87/1000 [00:02<00:22, 41.44it/s]agentic:   9%|▉         | 92/1000 [00:03<00:25, 35.77it/s]agentic:  10%|▉         | 96/1000 [00:03<00:24, 36.27it/s]agentic:  10%|█         | 101/1000 [00:03<00:24, 36.22it/s]agentic:  10%|█         | 105/1000 [00:03<00:24, 36.26it/s]agentic:  11%|█         | 109/1000 [00:03<00:31, 28.71it/s]agentic:  11%|█▏        | 113/1000 [00:03<00:29, 30.53it/s]agentic:  12%|█▏        | 117/1000 [00:03<00:32, 26.79it/s]agentic:  12%|█▏        | 120/1000 [00:04<00:34, 25.16it/s]agentic:  12%|█▏        | 123/1000 [00:04<00:36, 24.05it/s]agentic:  13%|█▎        | 126/1000 [00:04<00:37, 23.36it/s]agentic:  13%|█▎        | 130/1000 [00:04<00:32, 26.98it/s]agentic:  13%|█▎        | 133/1000 [00:04<00:34, 24.95it/s]agentic:  14%|█▎        | 137/1000 [00:04<00:31, 27.74it/s]agentic:  14%|█▍        | 142/1000 [00:04<00:27, 31.11it/s]agentic:  15%|█▍        | 146/1000 [00:04<00:26, 32.73it/s]agentic:  15%|█▌        | 152/1000 [00:05<00:23, 35.67it/s]agentic:  16%|█▌        | 156/1000 [00:05<00:26, 32.19it/s]agentic:  16%|█▌        | 160/1000 [00:05<00:28, 29.36it/s]agentic:  16%|█▋        | 164/1000 [00:05<00:32, 25.44it/s]agentic:  17%|█▋        | 167/1000 [00:05<00:34, 24.09it/s]agentic:  17%|█▋        | 170/1000 [00:05<00:34, 23.96it/s]agentic:  18%|█▊        | 175/1000 [00:06<00:27, 29.70it/s]agentic:  18%|█▊        | 179/1000 [00:06<00:29, 27.43it/s]agentic:  18%|█▊        | 182/1000 [00:06<00:30, 26.49it/s]agentic:  19%|█▊        | 186/1000 [00:06<00:27, 29.36it/s]agentic:  19%|█▉        | 190/1000 [00:06<00:35, 22.80it/s]agentic:  19%|█▉        | 193/1000 [00:06<00:36, 22.11it/s]agentic:  20%|█▉        | 198/1000 [00:06<00:30, 25.97it/s]agentic:  20%|██        | 202/1000 [00:07<00:28, 28.13it/s]agentic:  21%|██        | 206/1000 [00:07<00:28, 27.89it/s]agentic:  21%|██        | 212/1000 [00:07<00:22, 35.12it/s]agentic:  22%|██▏       | 216/1000 [00:07<00:22, 34.82it/s]agentic:  22%|██▏       | 223/1000 [00:07<00:20, 38.21it/s]agentic:  23%|██▎       | 228/1000 [00:07<00:19, 40.11it/s]agentic:  23%|██▎       | 233/1000 [00:07<00:21, 35.97it/s]agentic:  24%|██▎       | 237/1000 [00:08<00:21, 35.58it/s]agentic:  24%|██▍       | 241/1000 [00:08<00:26, 28.83it/s]agentic:  24%|██▍       | 245/1000 [00:08<00:26, 29.00it/s]agentic:  25%|██▍       | 249/1000 [00:08<00:25, 29.34it/s]agentic:  25%|██▌       | 253/1000 [00:08<00:27, 27.08it/s]agentic:  26%|██▌       | 256/1000 [00:08<00:28, 26.32it/s]agentic:  26%|██▌       | 260/1000 [00:08<00:28, 25.71it/s]agentic:  26%|██▋       | 263/1000 [00:09<00:28, 25.66it/s]agentic:  27%|██▋       | 269/1000 [00:09<00:22, 32.28it/s]agentic:  27%|██▋       | 273/1000 [00:09<00:25, 28.42it/s]agentic:  28%|██▊       | 276/1000 [00:09<00:25, 27.99it/s]agentic:  28%|██▊       | 282/1000 [00:09<00:20, 34.88it/s]agentic:  29%|██▊       | 286/1000 [00:09<00:25, 27.84it/s]agentic:  29%|██▉       | 290/1000 [00:09<00:26, 27.28it/s]agentic:  29%|██▉       | 293/1000 [00:10<00:28, 25.16it/s]agentic:  30%|██▉       | 296/1000 [00:10<00:32, 22.00it/s]agentic:  30%|██▉       | 299/1000 [00:10<00:31, 22.19it/s]agentic:  30%|███       | 303/1000 [00:10<00:26, 25.99it/s]agentic:  31%|███       | 306/1000 [00:10<00:29, 23.51it/s]agentic:  31%|███       | 309/1000 [00:10<00:33, 20.46it/s]agentic:  31%|███       | 312/1000 [00:11<00:33, 20.57it/s]agentic:  32%|███▏      | 315/1000 [00:11<00:30, 22.59it/s]agentic:  32%|███▏      | 318/1000 [00:11<00:31, 21.51it/s]agentic:  32%|███▏      | 321/1000 [00:11<00:32, 21.13it/s]agentic:  32%|███▎      | 325/1000 [00:11<00:26, 25.17it/s]agentic:  33%|███▎      | 328/1000 [00:11<00:25, 26.28it/s]agentic:  33%|███▎      | 332/1000 [00:11<00:23, 28.74it/s]agentic:  34%|███▎      | 335/1000 [00:11<00:25, 26.07it/s]agentic:  34%|███▍      | 339/1000 [00:12<00:24, 27.12it/s]agentic:  34%|███▍      | 342/1000 [00:12<00:24, 26.52it/s]agentic:  34%|███▍      | 345/1000 [00:12<00:27, 24.01it/s]agentic:  35%|███▍      | 348/1000 [00:12<00:28, 23.22it/s]agentic:  35%|███▌      | 351/1000 [00:12<00:27, 23.28it/s]agentic:  36%|███▌      | 355/1000 [00:12<00:25, 25.36it/s]agentic:  36%|███▌      | 358/1000 [00:12<00:24, 26.03it/s]agentic:  36%|███▌      | 361/1000 [00:12<00:24, 26.18it/s]agentic:  36%|███▋      | 365/1000 [00:13<00:22, 27.73it/s]agentic:  37%|███▋      | 369/1000 [00:13<00:21, 29.70it/s]agentic:  37%|███▋      | 373/1000 [00:13<00:22, 28.26it/s]agentic:  38%|███▊      | 376/1000 [00:13<00:23, 26.12it/s]agentic:  38%|███▊      | 379/1000 [00:13<00:27, 22.86it/s]agentic:  38%|███▊      | 382/1000 [00:13<00:29, 21.21it/s]agentic:  38%|███▊      | 385/1000 [00:13<00:29, 20.77it/s]agentic:  39%|███▉      | 389/1000 [00:14<00:24, 24.54it/s]agentic:  39%|███▉      | 392/1000 [00:14<00:25, 23.44it/s]agentic:  40%|███▉      | 395/1000 [00:14<00:30, 20.07it/s]agentic:  40%|███▉      | 398/1000 [00:14<00:27, 21.98it/s]agentic:  40%|████      | 401/1000 [00:14<00:25, 23.62it/s]agentic:  40%|████      | 404/1000 [00:14<00:23, 25.16it/s]agentic:  41%|████      | 408/1000 [00:14<00:23, 24.68it/s]agentic:  41%|████      | 412/1000 [00:15<00:21, 27.10it/s]agentic:  42%|████▏     | 415/1000 [00:15<00:21, 27.81it/s]agentic:  42%|████▏     | 418/1000 [00:15<00:21, 26.67it/s]agentic:  42%|████▏     | 421/1000 [00:15<00:22, 26.18it/s]agentic:  43%|████▎     | 430/1000 [00:15<00:13, 41.73it/s]agentic:  44%|████▎     | 435/1000 [00:15<00:15, 35.73it/s]agentic:  44%|████▍     | 439/1000 [00:15<00:18, 30.66it/s]agentic:  44%|████▍     | 444/1000 [00:15<00:16, 34.40it/s]agentic:  45%|████▍     | 448/1000 [00:16<00:16, 32.72it/s]agentic:  45%|████▌     | 454/1000 [00:16<00:14, 38.22it/s]agentic:  46%|████▌     | 459/1000 [00:16<00:15, 35.07it/s]agentic:  46%|████▋     | 463/1000 [00:16<00:18, 28.84it/s]agentic:  47%|████▋     | 467/1000 [00:16<00:19, 27.92it/s]agentic:  47%|████▋     | 471/1000 [00:16<00:19, 26.84it/s]agentic:  48%|████▊     | 475/1000 [00:17<00:17, 29.50it/s]agentic:  48%|████▊     | 479/1000 [00:17<00:19, 27.25it/s]agentic:  48%|████▊     | 482/1000 [00:17<00:20, 25.21it/s]agentic:  49%|████▊     | 487/1000 [00:17<00:17, 28.89it/s]agentic:  49%|████▉     | 491/1000 [00:17<00:16, 30.06it/s]agentic:  50%|████▉     | 495/1000 [00:17<00:17, 29.35it/s]agentic:  50%|████▉     | 499/1000 [00:17<00:17, 28.38it/s]agentic:  50%|█████     | 502/1000 [00:18<00:19, 25.89it/s]agentic:  51%|█████     | 506/1000 [00:18<00:17, 28.52it/s]agentic:  51%|█████     | 509/1000 [00:18<00:19, 25.75it/s]agentic:  51%|█████     | 512/1000 [00:18<00:19, 24.41it/s]agentic:  52%|█████▏    | 515/1000 [00:18<00:21, 22.18it/s]agentic:  52%|█████▏    | 519/1000 [00:18<00:20, 23.83it/s]agentic:  52%|█████▏    | 522/1000 [00:18<00:20, 23.72it/s]agentic:  52%|█████▎    | 525/1000 [00:19<00:20, 23.23it/s]agentic:  53%|█████▎    | 529/1000 [00:19<00:17, 27.07it/s]agentic:  53%|█████▎    | 534/1000 [00:19<00:14, 32.46it/s]agentic:  54%|█████▍    | 538/1000 [00:19<00:14, 32.76it/s]agentic:  54%|█████▍    | 542/1000 [00:19<00:14, 30.61it/s]agentic:  55%|█████▍    | 548/1000 [00:19<00:13, 32.99it/s]agentic:  55%|█████▌    | 552/1000 [00:19<00:14, 31.33it/s]agentic:  56%|█████▌    | 557/1000 [00:19<00:12, 35.41it/s]agentic:  56%|█████▋    | 563/1000 [00:20<00:10, 41.38it/s]agentic:  57%|█████▋    | 568/1000 [00:20<00:12, 34.78it/s]agentic:  57%|█████▋    | 572/1000 [00:20<00:15, 28.16it/s]agentic:  58%|█████▊    | 578/1000 [00:20<00:13, 31.33it/s]agentic:  58%|█████▊    | 582/1000 [00:20<00:14, 28.96it/s]agentic:  59%|█████▊    | 586/1000 [00:20<00:15, 26.08it/s]agentic:  59%|█████▉    | 590/1000 [00:21<00:15, 25.82it/s]agentic:  59%|█████▉    | 593/1000 [00:21<00:16, 24.31it/s]agentic:  60%|█████▉    | 597/1000 [00:21<00:15, 26.69it/s]agentic:  60%|██████    | 601/1000 [00:21<00:13, 29.08it/s]agentic:  60%|██████    | 605/1000 [00:21<00:17, 22.20it/s]agentic:  61%|██████    | 608/1000 [00:21<00:17, 21.85it/s]agentic:  61%|██████    | 611/1000 [00:21<00:16, 23.43it/s]agentic:  61%|██████▏   | 614/1000 [00:22<00:17, 22.37it/s]agentic:  62%|██████▏   | 618/1000 [00:22<00:16, 22.84it/s]agentic:  62%|██████▏   | 622/1000 [00:22<00:14, 26.05it/s]agentic:  62%|██████▎   | 625/1000 [00:22<00:13, 26.93it/s]agentic:  63%|██████▎   | 630/1000 [00:22<00:12, 30.39it/s]agentic:  63%|██████▎   | 634/1000 [00:22<00:12, 29.03it/s]agentic:  64%|██████▍   | 638/1000 [00:22<00:12, 29.93it/s]agentic:  64%|██████▍   | 642/1000 [00:23<00:11, 31.31it/s]agentic:  65%|██████▍   | 648/1000 [00:23<00:10, 33.35it/s]agentic:  65%|██████▌   | 652/1000 [00:23<00:11, 30.57it/s]agentic:  66%|██████▌   | 657/1000 [00:23<00:10, 32.63it/s]agentic:  66%|██████▌   | 662/1000 [00:23<00:10, 32.71it/s]agentic:  67%|██████▋   | 666/1000 [00:23<00:10, 31.99it/s]agentic:  67%|██████▋   | 670/1000 [00:23<00:11, 28.57it/s]agentic:  68%|██████▊   | 675/1000 [00:24<00:09, 32.54it/s]agentic:  68%|██████▊   | 679/1000 [00:24<00:11, 27.06it/s]agentic:  68%|██████▊   | 683/1000 [00:24<00:10, 29.28it/s]agentic:  69%|██████▊   | 687/1000 [00:24<00:13, 22.80it/s]agentic:  69%|██████▉   | 691/1000 [00:24<00:13, 23.40it/s]agentic:  69%|██████▉   | 694/1000 [00:24<00:13, 23.07it/s]agentic:  70%|██████▉   | 698/1000 [00:25<00:12, 24.17it/s]agentic:  70%|███████   | 702/1000 [00:25<00:11, 24.98it/s]agentic:  70%|███████   | 705/1000 [00:25<00:12, 24.38it/s]agentic:  71%|███████   | 708/1000 [00:25<00:12, 22.97it/s]agentic:  71%|███████   | 711/1000 [00:25<00:12, 22.67it/s]agentic:  71%|███████▏  | 714/1000 [00:25<00:11, 23.93it/s]agentic:  72%|███████▏  | 717/1000 [00:25<00:13, 20.63it/s]agentic:  72%|███████▏  | 720/1000 [00:26<00:13, 20.85it/s]agentic:  72%|███████▏  | 724/1000 [00:26<00:11, 24.46it/s]agentic:  73%|███████▎  | 728/1000 [00:26<00:11, 24.65it/s]agentic:  73%|███████▎  | 731/1000 [00:26<00:10, 25.82it/s]agentic:  73%|███████▎  | 734/1000 [00:26<00:11, 23.65it/s]agentic:  74%|███████▎  | 737/1000 [00:26<00:10, 24.23it/s]agentic:  74%|███████▍  | 740/1000 [00:26<00:11, 22.74it/s]agentic:  74%|███████▍  | 743/1000 [00:27<00:12, 20.73it/s]agentic:  75%|███████▍  | 747/1000 [00:27<00:10, 24.74it/s]agentic:  75%|███████▌  | 750/1000 [00:27<00:10, 24.35it/s]agentic:  76%|███████▌  | 756/1000 [00:27<00:08, 29.15it/s]agentic:  76%|███████▌  | 762/1000 [00:27<00:07, 32.70it/s]agentic:  77%|███████▋  | 766/1000 [00:27<00:07, 32.57it/s]agentic:  77%|███████▋  | 770/1000 [00:27<00:08, 27.53it/s]agentic:  77%|███████▋  | 773/1000 [00:28<00:08, 25.58it/s]agentic:  78%|███████▊  | 776/1000 [00:28<00:09, 24.27it/s]agentic:  78%|███████▊  | 780/1000 [00:28<00:08, 24.50it/s]agentic:  78%|███████▊  | 783/1000 [00:28<00:08, 25.70it/s]agentic:  79%|███████▊  | 786/1000 [00:28<00:08, 23.92it/s]agentic:  79%|███████▉  | 791/1000 [00:28<00:07, 27.52it/s]agentic:  79%|███████▉  | 794/1000 [00:29<00:10, 20.58it/s]agentic:  80%|███████▉  | 797/1000 [00:29<00:11, 17.92it/s]agentic:  80%|████████  | 800/1000 [00:29<00:10, 19.73it/s]agentic:  80%|████████  | 803/1000 [00:29<00:10, 18.61it/s]agentic:  81%|████████  | 806/1000 [00:29<00:10, 19.19it/s]agentic:  81%|████████  | 809/1000 [00:29<00:09, 19.95it/s]agentic:  81%|████████  | 812/1000 [00:30<00:09, 18.86it/s]agentic:  82%|████████▏ | 819/1000 [00:30<00:06, 29.07it/s]agentic:  82%|████████▏ | 823/1000 [00:30<00:06, 28.45it/s]agentic:  83%|████████▎ | 827/1000 [00:30<00:05, 29.42it/s]agentic:  83%|████████▎ | 832/1000 [00:30<00:05, 31.27it/s]agentic:  84%|████████▎ | 836/1000 [00:30<00:06, 25.66it/s]agentic:  84%|████████▍ | 840/1000 [00:30<00:05, 27.76it/s]agentic:  84%|████████▍ | 844/1000 [00:31<00:05, 26.92it/s]agentic:  85%|████████▍ | 849/1000 [00:31<00:05, 29.30it/s]agentic:  85%|████████▌ | 853/1000 [00:31<00:05, 28.85it/s]agentic:  86%|████████▌ | 858/1000 [00:31<00:04, 30.09it/s]agentic:  86%|████████▋ | 863/1000 [00:31<00:04, 34.22it/s]agentic:  87%|████████▋ | 867/1000 [00:31<00:04, 29.40it/s]agentic:  87%|████████▋ | 871/1000 [00:31<00:04, 28.73it/s]agentic:  88%|████████▊ | 875/1000 [00:32<00:04, 30.20it/s]agentic:  88%|████████▊ | 879/1000 [00:32<00:05, 23.74it/s]agentic:  88%|████████▊ | 884/1000 [00:32<00:04, 28.03it/s]agentic:  89%|████████▉ | 888/1000 [00:32<00:04, 27.53it/s]agentic:  89%|████████▉ | 892/1000 [00:32<00:03, 28.73it/s]agentic:  90%|████████▉ | 896/1000 [00:32<00:03, 30.88it/s]agentic:  90%|█████████ | 900/1000 [00:32<00:03, 32.09it/s]agentic:  90%|█████████ | 904/1000 [00:33<00:03, 29.50it/s]agentic:  91%|█████████ | 908/1000 [00:33<00:03, 27.59it/s]agentic:  91%|█████████ | 912/1000 [00:33<00:02, 29.34it/s]agentic:  92%|█████████▏| 916/1000 [00:33<00:02, 30.68it/s]agentic:  92%|█████████▏| 920/1000 [00:33<00:03, 25.59it/s]agentic:  92%|█████████▏| 923/1000 [00:33<00:03, 23.21it/s]agentic:  93%|█████████▎| 926/1000 [00:34<00:03, 22.48it/s]agentic:  93%|█████████▎| 930/1000 [00:34<00:03, 22.97it/s]agentic:  93%|█████████▎| 934/1000 [00:34<00:02, 25.93it/s]agentic:  94%|█████████▍| 940/1000 [00:34<00:01, 30.63it/s]agentic:  94%|█████████▍| 945/1000 [00:34<00:01, 33.47it/s]agentic:  95%|█████████▍| 949/1000 [00:34<00:01, 29.33it/s]agentic:  95%|█████████▌| 953/1000 [00:34<00:01, 26.45it/s]agentic:  96%|█████████▌| 957/1000 [00:35<00:01, 25.64it/s]agentic:  96%|█████████▌| 961/1000 [00:35<00:01, 26.83it/s]agentic:  97%|█████████▋| 966/1000 [00:35<00:01, 28.41it/s]agentic:  97%|█████████▋| 969/1000 [00:35<00:01, 28.27it/s]agentic:  97%|█████████▋| 972/1000 [00:35<00:01, 25.57it/s]agentic:  98%|█████████▊| 977/1000 [00:35<00:00, 28.31it/s]agentic:  98%|█████████▊| 981/1000 [00:35<00:00, 27.92it/s]agentic:  98%|█████████▊| 985/1000 [00:36<00:00, 27.20it/s]agentic:  99%|█████████▉| 989/1000 [00:36<00:00, 29.88it/s]agentic:  99%|█████████▉| 993/1000 [00:36<00:00, 31.04it/s]agentic: 100%|█████████▉| 997/1000 [00:36<00:00, 32.30it/s]agentic: 100%|██████████| 1000/1000 [00:36<00:00, 27.39it/s]
-{'f1': 0.7534883720930232, 'delta_f1': 0.026658190479093236, 'expected_response_cost': 1301.0, 'escalation_rate': 0.472, 'false_alarm_rate_near_fall': 0.18125, 'n_near_fall': 160}
-
-=== Agentic wrap: cnn1d ===
-agentic:   0%|          | 0/1000 [00:00<?, ?it/s]agentic:   0%|          | 3/1000 [00:00<00:36, 27.43it/s]agentic:   1%|          | 6/1000 [00:00<00:38, 25.68it/s]agentic:   1%|          | 12/1000 [00:00<00:27, 35.31it/s]agentic:   2%|▏         | 17/1000 [00:00<00:29, 33.45it/s]agentic:   2%|▏         | 24/1000 [00:00<00:22, 43.68it/s]agentic:   3%|▎         | 29/1000 [00:00<00:30, 31.74it/s]agentic:   3%|▎         | 33/1000 [00:00<00:28, 33.39it/s]agentic:   4%|▎         | 37/1000 [00:01<00:31, 31.00it/s]agentic:   4%|▍         | 41/1000 [00:01<00:34, 27.64it/s]agentic:   4%|▍         | 45/1000 [00:01<00:34, 27.48it/s]agentic:   5%|▌         | 50/1000 [00:01<00:33, 28.43it/s]agentic:   5%|▌         | 54/1000 [00:01<00:30, 30.79it/s]agentic:   6%|▌         | 58/1000 [00:01<00:28, 32.51it/s]agentic:   6%|▌         | 62/1000 [00:02<00:34, 27.53it/s]agentic:   7%|▋         | 66/1000 [00:02<00:31, 29.89it/s]agentic:   7%|▋         | 70/1000 [00:02<00:36, 25.22it/s]agentic:   7%|▋         | 73/1000 [00:02<00:40, 22.61it/s]agentic:   8%|▊         | 76/1000 [00:02<00:41, 22.47it/s]agentic:   8%|▊         | 81/1000 [00:02<00:33, 27.21it/s]agentic:   9%|▊         | 86/1000 [00:02<00:32, 28.28it/s]agentic:   9%|▉         | 89/1000 [00:03<00:33, 27.58it/s]agentic:   9%|▉         | 94/1000 [00:03<00:31, 29.12it/s]agentic:  10%|▉         | 97/1000 [00:03<00:33, 26.87it/s]agentic:  10%|█         | 100/1000 [00:03<00:36, 24.64it/s]agentic:  10%|█         | 103/1000 [00:03<00:37, 23.75it/s]agentic:  11%|█         | 106/1000 [00:03<00:36, 24.25it/s]agentic:  11%|█         | 109/1000 [00:03<00:36, 24.45it/s]agentic:  11%|█         | 112/1000 [00:04<00:36, 24.38it/s]agentic:  12%|█▏        | 115/1000 [00:04<00:36, 24.56it/s]agentic:  12%|█▏        | 118/1000 [00:04<00:34, 25.42it/s]agentic:  12%|█▏        | 121/1000 [00:04<00:34, 25.55it/s]agentic:  12%|█▎        | 125/1000 [00:04<00:34, 25.58it/s]agentic:  13%|█▎        | 128/1000 [00:04<00:36, 24.06it/s]agentic:  13%|█▎        | 132/1000 [00:04<00:34, 25.01it/s]agentic:  14%|█▎        | 136/1000 [00:04<00:30, 28.25it/s]agentic:  14%|█▍        | 140/1000 [00:05<00:27, 30.92it/s]agentic:  14%|█▍        | 144/1000 [00:05<00:28, 29.58it/s]agentic:  15%|█▌        | 151/1000 [00:05<00:21, 39.64it/s]agentic:  16%|█▌        | 156/1000 [00:05<00:25, 32.77it/s]agentic:  16%|█▌        | 160/1000 [00:05<00:27, 30.53it/s]agentic:  16%|█▋        | 164/1000 [00:05<00:31, 26.26it/s]agentic:  17%|█▋        | 167/1000 [00:05<00:34, 24.50it/s]agentic:  17%|█▋        | 170/1000 [00:06<00:34, 24.20it/s]agentic:  17%|█▋        | 174/1000 [00:06<00:30, 27.22it/s]agentic:  18%|█▊        | 177/1000 [00:06<00:32, 25.48it/s]agentic:  18%|█▊        | 180/1000 [00:06<00:37, 21.99it/s]agentic:  18%|█▊        | 185/1000 [00:06<00:32, 24.84it/s]agentic:  19%|█▉        | 188/1000 [00:06<00:33, 24.28it/s]agentic:  19%|█▉        | 192/1000 [00:06<00:31, 25.51it/s]agentic:  20%|█▉        | 198/1000 [00:07<00:24, 33.04it/s]agentic:  20%|██        | 203/1000 [00:07<00:23, 34.48it/s]agentic:  21%|██        | 208/1000 [00:07<00:22, 34.86it/s]agentic:  22%|██▏       | 215/1000 [00:07<00:21, 37.23it/s]agentic:  22%|██▏       | 219/1000 [00:07<00:21, 36.45it/s]agentic:  22%|██▏       | 223/1000 [00:07<00:21, 36.34it/s]agentic:  23%|██▎       | 227/1000 [00:07<00:26, 28.67it/s]agentic:  23%|██▎       | 231/1000 [00:08<00:28, 27.33it/s]agentic:  23%|██▎       | 234/1000 [00:08<00:28, 26.99it/s]agentic:  24%|██▍       | 238/1000 [00:08<00:26, 28.65it/s]agentic:  24%|██▍       | 243/1000 [00:08<00:24, 31.33it/s]agentic:  25%|██▍       | 249/1000 [00:08<00:21, 34.26it/s]agentic:  25%|██▌       | 253/1000 [00:08<00:24, 30.13it/s]agentic:  26%|██▌       | 258/1000 [00:08<00:22, 33.13it/s]agentic:  26%|██▌       | 262/1000 [00:09<00:28, 26.22it/s]agentic:  27%|██▋       | 268/1000 [00:09<00:23, 30.77it/s]agentic:  27%|██▋       | 272/1000 [00:09<00:27, 26.83it/s]agentic:  28%|██▊       | 275/1000 [00:09<00:28, 25.82it/s]agentic:  28%|██▊       | 279/1000 [00:09<00:25, 28.22it/s]agentic:  28%|██▊       | 283/1000 [00:09<00:25, 27.74it/s]agentic:  29%|██▉       | 288/1000 [00:10<00:24, 28.85it/s]agentic:  29%|██▉       | 292/1000 [00:10<00:25, 27.87it/s]agentic:  30%|██▉       | 295/1000 [00:10<00:26, 26.69it/s]agentic:  30%|██▉       | 299/1000 [00:10<00:23, 29.70it/s]agentic:  30%|███       | 303/1000 [00:10<00:22, 31.43it/s]agentic:  31%|███       | 307/1000 [00:10<00:26, 26.62it/s]agentic:  31%|███       | 310/1000 [00:10<00:30, 22.95it/s]agentic:  31%|███▏      | 314/1000 [00:11<00:28, 23.75it/s]agentic:  32%|███▏      | 317/1000 [00:11<00:29, 22.93it/s]agentic:  32%|███▏      | 320/1000 [00:11<00:30, 22.37it/s]agentic:  32%|███▏      | 323/1000 [00:11<00:28, 23.96it/s]agentic:  33%|███▎      | 327/1000 [00:11<00:27, 24.57it/s]agentic:  33%|███▎      | 334/1000 [00:11<00:21, 31.33it/s]agentic:  34%|███▍      | 338/1000 [00:11<00:22, 30.02it/s]agentic:  34%|███▍      | 343/1000 [00:12<00:20, 32.77it/s]agentic:  35%|███▍      | 347/1000 [00:12<00:20, 32.49it/s]agentic:  35%|███▌      | 351/1000 [00:12<00:19, 33.18it/s]agentic:  36%|███▌      | 355/1000 [00:12<00:19, 33.86it/s]agentic:  36%|███▌      | 359/1000 [00:12<00:18, 34.01it/s]agentic:  36%|███▋      | 365/1000 [00:12<00:17, 35.30it/s]agentic:  37%|███▋      | 369/1000 [00:12<00:18, 34.75it/s]agentic:  37%|███▋      | 373/1000 [00:13<00:19, 31.37it/s]agentic:  38%|███▊      | 377/1000 [00:13<00:24, 24.92it/s]agentic:  38%|███▊      | 380/1000 [00:13<00:28, 21.74it/s]agentic:  38%|███▊      | 383/1000 [00:13<00:28, 21.51it/s]agentic:  39%|███▊      | 386/1000 [00:13<00:28, 21.65it/s]agentic:  39%|███▉      | 390/1000 [00:13<00:24, 24.52it/s]agentic:  39%|███▉      | 393/1000 [00:13<00:25, 23.82it/s]agentic:  40%|███▉      | 396/1000 [00:14<00:27, 22.20it/s]agentic:  40%|████      | 400/1000 [00:14<00:26, 22.88it/s]agentic:  40%|████      | 404/1000 [00:14<00:22, 26.52it/s]agentic:  41%|████      | 408/1000 [00:14<00:22, 25.90it/s]agentic:  41%|████      | 411/1000 [00:14<00:22, 26.75it/s]agentic:  42%|████▏     | 416/1000 [00:14<00:19, 29.64it/s]agentic:  42%|████▏     | 420/1000 [00:14<00:20, 28.80it/s]agentic:  42%|████▏     | 424/1000 [00:15<00:19, 30.30it/s]agentic:  43%|████▎     | 428/1000 [00:15<00:17, 32.68it/s]agentic:  43%|████▎     | 434/1000 [00:15<00:14, 38.90it/s]agentic:  44%|████▍     | 439/1000 [00:15<00:15, 35.50it/s]agentic:  44%|████▍     | 444/1000 [00:15<00:15, 35.57it/s]agentic:  45%|████▍     | 448/1000 [00:15<00:15, 34.57it/s]agentic:  45%|████▌     | 452/1000 [00:15<00:16, 32.46it/s]agentic:  46%|████▌     | 456/1000 [00:15<00:15, 34.27it/s]agentic:  46%|████▌     | 461/1000 [00:16<00:16, 33.20it/s]agentic:  46%|████▋     | 465/1000 [00:16<00:15, 34.41it/s]agentic:  47%|████▋     | 469/1000 [00:16<00:16, 31.63it/s]agentic:  47%|████▋     | 474/1000 [00:16<00:16, 31.34it/s]agentic:  48%|████▊     | 478/1000 [00:16<00:15, 32.88it/s]agentic:  48%|████▊     | 482/1000 [00:16<00:17, 30.31it/s]agentic:  49%|████▊     | 486/1000 [00:16<00:19, 27.01it/s]agentic:  49%|████▉     | 490/1000 [00:17<00:17, 29.22it/s]agentic:  49%|████▉     | 494/1000 [00:17<00:16, 31.02it/s]agentic:  50%|████▉     | 498/1000 [00:17<00:17, 29.31it/s]agentic:  50%|█████     | 502/1000 [00:17<00:20, 24.53it/s]agentic:  51%|█████     | 506/1000 [00:17<00:17, 27.57it/s]agentic:  51%|█████     | 510/1000 [00:17<00:19, 24.89it/s]agentic:  51%|█████▏    | 513/1000 [00:18<00:22, 21.31it/s]agentic:  52%|█████▏    | 516/1000 [00:18<00:21, 22.15it/s]agentic:  52%|█████▏    | 521/1000 [00:18<00:18, 25.49it/s]agentic:  52%|█████▏    | 524/1000 [00:18<00:18, 26.01it/s]agentic:  53%|█████▎    | 527/1000 [00:18<00:18, 25.74it/s]agentic:  53%|█████▎    | 532/1000 [00:18<00:15, 30.97it/s]agentic:  54%|█████▎    | 536/1000 [00:18<00:14, 31.99it/s]agentic:  54%|█████▍    | 541/1000 [00:18<00:12, 35.48it/s]agentic:  55%|█████▍    | 545/1000 [00:19<00:13, 32.76it/s]agentic:  55%|█████▍    | 549/1000 [00:19<00:14, 31.86it/s]agentic:  55%|█████▌    | 553/1000 [00:19<00:13, 32.59it/s]agentic:  56%|█████▌    | 560/1000 [00:19<00:10, 41.46it/s]agentic:  56%|█████▋    | 565/1000 [00:19<00:10, 40.92it/s]agentic:  57%|█████▋    | 570/1000 [00:19<00:11, 36.45it/s]agentic:  57%|█████▋    | 574/1000 [00:19<00:13, 32.62it/s]agentic:  58%|█████▊    | 578/1000 [00:20<00:15, 27.91it/s]agentic:  58%|█████▊    | 581/1000 [00:20<00:16, 25.74it/s]agentic:  58%|█████▊    | 584/1000 [00:20<00:17, 24.22it/s]agentic:  59%|█████▉    | 590/1000 [00:20<00:13, 29.86it/s]agentic:  59%|█████▉    | 594/1000 [00:20<00:14, 28.51it/s]agentic:  60%|█████▉    | 598/1000 [00:20<00:13, 30.34it/s]agentic:  60%|██████    | 602/1000 [00:20<00:13, 29.01it/s]agentic:  60%|██████    | 605/1000 [00:21<00:16, 23.75it/s]agentic:  61%|██████    | 608/1000 [00:21<00:16, 24.06it/s]agentic:  61%|██████    | 612/1000 [00:21<00:14, 27.31it/s]agentic:  62%|██████▏   | 616/1000 [00:21<00:13, 29.50it/s]agentic:  62%|██████▏   | 620/1000 [00:21<00:13, 28.52it/s]agentic:  62%|██████▏   | 624/1000 [00:21<00:13, 27.34it/s]agentic:  63%|██████▎   | 630/1000 [00:21<00:11, 32.21it/s]agentic:  63%|██████▎   | 634/1000 [00:22<00:12, 30.34it/s]agentic:  64%|██████▍   | 638/1000 [00:22<00:12, 28.39it/s]agentic:  64%|██████▍   | 642/1000 [00:22<00:11, 30.79it/s]agentic:  65%|██████▍   | 646/1000 [00:22<00:12, 28.74it/s]agentic:  65%|██████▌   | 652/1000 [00:22<00:10, 31.86it/s]agentic:  66%|██████▌   | 657/1000 [00:22<00:09, 35.63it/s]agentic:  66%|██████▌   | 662/1000 [00:22<00:09, 36.29it/s]agentic:  67%|██████▋   | 666/1000 [00:23<00:11, 28.16it/s]agentic:  67%|██████▋   | 670/1000 [00:23<00:13, 25.18it/s]agentic:  67%|██████▋   | 674/1000 [00:23<00:11, 27.65it/s]agentic:  68%|██████▊   | 678/1000 [00:23<00:11, 28.59it/s]agentic:  68%|██████▊   | 683/1000 [00:23<00:10, 31.17it/s]agentic:  69%|██████▊   | 687/1000 [00:23<00:10, 30.93it/s]agentic:  69%|██████▉   | 691/1000 [00:23<00:09, 31.86it/s]agentic:  70%|██████▉   | 695/1000 [00:24<00:10, 28.78it/s]agentic:  70%|██████▉   | 699/1000 [00:24<00:09, 31.04it/s]agentic:  70%|███████   | 703/1000 [00:24<00:11, 26.10it/s]agentic:  71%|███████   | 706/1000 [00:24<00:12, 24.42it/s]agentic:  71%|███████   | 709/1000 [00:24<00:12, 23.39it/s]agentic:  71%|███████▏  | 713/1000 [00:24<00:11, 24.27it/s]agentic:  72%|███████▏  | 716/1000 [00:25<00:12, 23.28it/s]agentic:  72%|███████▏  | 721/1000 [00:25<00:09, 29.03it/s]agentic:  72%|███████▎  | 725/1000 [00:25<00:08, 31.04it/s]agentic:  73%|███████▎  | 729/1000 [00:25<00:11, 23.89it/s]agentic:  73%|███████▎  | 733/1000 [00:25<00:10, 24.58it/s]agentic:  74%|███████▎  | 736/1000 [00:25<00:11, 23.54it/s]agentic:  74%|███████▍  | 739/1000 [00:25<00:12, 21.43it/s]agentic:  74%|███████▍  | 742/1000 [00:26<00:11, 21.72it/s]agentic:  74%|███████▍  | 745/1000 [00:26<00:12, 21.01it/s]agentic:  75%|███████▍  | 748/1000 [00:26<00:11, 21.30it/s]agentic:  75%|███████▌  | 752/1000 [00:26<00:09, 25.04it/s]agentic:  76%|███████▌  | 756/1000 [00:26<00:08, 27.31it/s]agentic:  76%|███████▌  | 761/1000 [00:26<00:08, 29.41it/s]agentic:  76%|███████▋  | 765/1000 [00:26<00:09, 25.78it/s]agentic:  77%|███████▋  | 768/1000 [00:27<00:09, 24.38it/s]agentic:  77%|███████▋  | 772/1000 [00:27<00:08, 25.36it/s]agentic:  78%|███████▊  | 775/1000 [00:27<00:09, 24.64it/s]agentic:  78%|███████▊  | 779/1000 [00:27<00:08, 25.58it/s]agentic:  78%|███████▊  | 782/1000 [00:27<00:08, 24.89it/s]agentic:  78%|███████▊  | 785/1000 [00:27<00:10, 21.37it/s]agentic:  79%|███████▉  | 789/1000 [00:27<00:08, 25.06it/s]agentic:  79%|███████▉  | 793/1000 [00:28<00:08, 24.93it/s]agentic:  80%|███████▉  | 797/1000 [00:28<00:08, 24.38it/s]agentic:  80%|████████  | 800/1000 [00:28<00:08, 23.89it/s]agentic:  80%|████████  | 803/1000 [00:28<00:08, 22.85it/s]agentic:  81%|████████  | 806/1000 [00:28<00:08, 22.07it/s]agentic:  81%|████████  | 809/1000 [00:28<00:08, 21.89it/s]agentic:  81%|████████  | 812/1000 [00:29<00:09, 19.63it/s]agentic:  82%|████████▏ | 820/1000 [00:29<00:06, 28.12it/s]agentic:  82%|████████▏ | 824/1000 [00:29<00:05, 30.49it/s]agentic:  83%|████████▎ | 828/1000 [00:29<00:05, 31.94it/s]agentic:  83%|████████▎ | 832/1000 [00:29<00:05, 30.07it/s]agentic:  84%|████████▎ | 836/1000 [00:29<00:06, 24.22it/s]agentic:  84%|████████▍ | 843/1000 [00:29<00:04, 32.35it/s]agentic:  85%|████████▍ | 847/1000 [00:30<00:04, 32.28it/s]agentic:  85%|████████▌ | 851/1000 [00:30<00:05, 29.06it/s]agentic:  86%|████████▌ | 855/1000 [00:30<00:04, 30.90it/s]agentic:  86%|████████▌ | 859/1000 [00:30<00:05, 24.89it/s]agentic:  86%|████████▌ | 862/1000 [00:30<00:05, 24.94it/s]agentic:  87%|████████▋ | 866/1000 [00:30<00:04, 27.00it/s]agentic:  87%|████████▋ | 869/1000 [00:30<00:04, 26.71it/s]agentic:  88%|████████▊ | 876/1000 [00:31<00:03, 32.97it/s]agentic:  88%|████████▊ | 880/1000 [00:31<00:03, 30.52it/s]agentic:  88%|████████▊ | 884/1000 [00:31<00:03, 31.91it/s]agentic:  89%|████████▉ | 888/1000 [00:31<00:04, 26.87it/s]agentic:  89%|████████▉ | 892/1000 [00:31<00:04, 26.50it/s]agentic:  90%|████████▉ | 896/1000 [00:31<00:03, 29.29it/s]agentic:  90%|█████████ | 900/1000 [00:31<00:03, 31.05it/s]agentic:  90%|█████████ | 904/1000 [00:32<00:03, 29.51it/s]agentic:  91%|█████████ | 908/1000 [00:32<00:03, 23.17it/s]agentic:  91%|█████████ | 911/1000 [00:32<00:03, 22.42it/s]agentic:  92%|█████████▏| 916/1000 [00:32<00:03, 25.72it/s]agentic:  92%|█████████▏| 919/1000 [00:32<00:03, 22.13it/s]agentic:  92%|█████████▏| 922/1000 [00:32<00:03, 21.67it/s]agentic:  92%|█████████▎| 925/1000 [00:33<00:03, 19.08it/s]agentic:  93%|█████████▎| 928/1000 [00:33<00:03, 19.53it/s]agentic:  93%|█████████▎| 931/1000 [00:33<00:03, 19.60it/s]agentic:  94%|█████████▍| 940/1000 [00:33<00:01, 31.63it/s]agentic:  94%|█████████▍| 944/1000 [00:33<00:01, 33.15it/s]agentic:  95%|█████████▍| 948/1000 [00:33<00:01, 33.21it/s]agentic:  95%|█████████▌| 952/1000 [00:33<00:01, 32.99it/s]agentic:  96%|█████████▌| 956/1000 [00:34<00:01, 29.68it/s]agentic:  96%|█████████▌| 961/1000 [00:34<00:01, 32.86it/s]agentic:  96%|█████████▋| 965/1000 [00:34<00:01, 33.93it/s]agentic:  97%|█████████▋| 970/1000 [00:34<00:00, 36.74it/s]agentic:  97%|█████████▋| 974/1000 [00:34<00:00, 32.40it/s]agentic:  98%|█████████▊| 978/1000 [00:34<00:00, 28.04it/s]agentic:  98%|█████████▊| 981/1000 [00:34<00:00, 26.98it/s]agentic:  98%|█████████▊| 985/1000 [00:35<00:00, 28.40it/s]agentic:  99%|█████████▉| 988/1000 [00:35<00:00, 27.48it/s]agentic: 100%|█████████▉| 997/1000 [00:35<00:00, 39.65it/s]agentic: 100%|██████████| 1000/1000 [00:35<00:00, 28.20it/s]
-{'f1': 0.7508690614136733, 'delta_f1': 0.030094675710024665, 'expected_response_cost': 1304.0, 'escalation_rate': 0.487, 'false_alarm_rate_near_fall': 0.175, 'n_near_fall': 160}
-Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/fold0/backbone_compare_fold0.csv

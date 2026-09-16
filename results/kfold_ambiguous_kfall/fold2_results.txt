@@ -1,2 +1,0 @@
-KFall gate_knn_llm (NO CRITIC) fold 2 backend=ollama
-N=300 Acc=0.983 F1=0.976 Rec=1.000 FN=0 FP=5 Cost=5 Cost/win=0.02 AmbAcc=0.960

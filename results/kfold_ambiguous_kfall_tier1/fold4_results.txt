@@ -1,2 +1,0 @@
-KFall tier1_only (NO CRITIC) fold 4 backend=heuristic
-N=300 Acc=0.970 F1=0.957 Rec=0.990 FN=1 FP=8 Cost=18 Cost/win=0.06 AmbAcc=0.920

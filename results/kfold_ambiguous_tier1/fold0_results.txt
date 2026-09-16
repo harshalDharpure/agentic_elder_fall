@@ -1,8 +1,0 @@
-tier1_only (NO CRITIC) — fold 0  backend=heuristic
-N=300  Acc=0.770  F1=0.696  Prec=0.622  Rec=0.790  FN=21  FP=48  FAR=0.240  Esc=0.000  Cost=258  Cost/win=0.86  GrCost=436  ambiguous=100
-
-Per bucket:
-  strict_fall: n=100 acc=0.790 esc_or_adj=0.000
-  clear_adl: n=100 acc=0.740 esc_or_adj=0.000
-  ambiguous: n=100 acc=0.780 esc_or_adj=0.000
-  ambiguous escalate_rate=0.000

@@ -1,9 +1,0 @@
-{
-  "fold": 3,
-  "protocol_tag": "fold3_contrastive_action_critique",
-  "max_test": 1000,
-  "modes": [
-    "gate_knn_llm",
-    "gate_knn_llm_contrastive_action_critique"
-  ]
-}

@@ -1,8 +1,0 @@
-Complete architecture (gate_knn_llm) — fold 4  backend=heuristic
-N=300  Acc=0.873  F1=0.793  Prec=0.869  Rec=0.730  FAR=0.055  Esc=0.620  Cost=281  ambiguous=100
-
-Per bucket:
-  strict_fall: n=100 acc=0.730 esc_or_adj=0.000
-  clear_adl: n=100 acc=0.900 esc_or_adj=0.000
-  ambiguous: n=100 acc=0.990 esc_or_adj=0.000
-  ambiguous escalate_rate=1.000

@@ -1,8 +1,0 @@
-Background jobs Friday 07 August 2026 07:18:06 PM IST
-- Overnight homogenize: PID 3267944 (fold0 ablations@1000 in progress)
-- Q1 waiter: PID 3300417 — waits then aggregate + GUIDE_BRIEF + Q1_SUBMISSION_PACK
-
-When done:
-  cat results/Q1_READY.flag
-  # or
-  tail results/Q1_WAITER_STATUS.txt
