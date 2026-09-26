@@ -1,0 +1,58 @@
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda-12.0'
+/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_astar_experiments.py:196: UserWarning: activities/ambiguous_codes missing — near-fall FAR set to 0.0
+  m = agentic_metrics(
+/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_astar_experiments.py:196: UserWarning: activities/ambiguous_codes missing — near-fall FAR set to 0.0
+  m = agentic_metrics(
+/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_astar_experiments.py:196: UserWarning: activities/ambiguous_codes missing — near-fall FAR set to 0.0
+  m = agentic_metrics(
+fold0 alpha=0.05 q=0.830 esc=0.58 edge_FN=0.0166 F1=0.774
+fold0 alpha=0.01 q=0.901 esc=0.77 edge_FN=0.0086 F1=0.774
+fold0 alpha=0.005 q=0.911 esc=0.80 edge_FN=0.0050 F1=0.774
+fold1 alpha=0.05 q=0.926 esc=0.83 edge_FN=0.0301 F1=0.737
+fold1 alpha=0.01 q=0.944 esc=0.91 edge_FN=0.0213 F1=0.737
+fold1 alpha=0.005 q=0.946 esc=0.91 edge_FN=0.0230 F1=0.737
+fold2 alpha=0.05 q=0.904 esc=0.70 edge_FN=0.0166 F1=0.764
+fold2 alpha=0.01 q=0.931 esc=0.81 edge_FN=0.0052 F1=0.764
+fold2 alpha=0.005 q=0.938 esc=0.83 edge_FN=0.0058 F1=0.764
+fold3 alpha=0.05 q=0.856 esc=0.61 edge_FN=0.0104 F1=0.787
+fold3 alpha=0.01 q=0.914 esc=0.74 edge_FN=0.0039 F1=0.787
+fold3 alpha=0.005 q=0.922 esc=0.77 edge_FN=0.0043 F1=0.787
+fold4 alpha=0.05 q=0.630 esc=0.17 edge_FN=0.0874 F1=0.778
+fold4 alpha=0.01 q=0.800 esc=0.50 edge_FN=0.0319 F1=0.778
+fold4 alpha=0.005 q=0.826 esc=0.54 edge_FN=0.0302 F1=0.778
+k=1 backend=heuristic F1=0.384 esc=0.38
+k=5 backend=heuristic F1=0.384 esc=0.38
+k=10 backend=heuristic F1=0.384 esc=0.38
+robustness clean: F1=0.774 recall=0.781
+robustness rotate_10deg: F1=0.759 recall=0.790
+robustness rotate_15deg: F1=0.746 recall=0.795
+robustness resample_50hz: F1=0.776 recall=0.797
+robustness resample_100hz: F1=0.770 recall=0.783
+robustness clean: F1=0.737 recall=0.748
+robustness rotate_10deg: F1=0.733 recall=0.677
+robustness rotate_15deg: F1=0.721 recall=0.664
+robustness resample_50hz: F1=0.740 recall=0.780
+robustness resample_100hz: F1=0.740 recall=0.762
+robustness clean: F1=0.764 recall=0.776
+robustness rotate_10deg: F1=0.757 recall=0.764
+robustness rotate_15deg: F1=0.754 recall=0.771
+robustness resample_50hz: F1=0.759 recall=0.783
+robustness resample_100hz: F1=0.759 recall=0.776
+robustness clean: F1=0.787 recall=0.789
+robustness rotate_10deg: F1=0.796 recall=0.815
+robustness rotate_15deg: F1=0.793 recall=0.815
+robustness resample_50hz: F1=0.784 recall=0.794
+robustness resample_100hz: F1=0.785 recall=0.792
+robustness clean: F1=0.778 recall=0.772
+robustness rotate_10deg: F1=0.771 recall=0.770
+robustness rotate_15deg: F1=0.757 recall=0.760
+robustness resample_50hz: F1=0.769 recall=0.772
+robustness resample_100hz: F1=0.776 recall=0.774
+partition fallback fold0: F1=0.631 recall=0.998 esc=0.00
+partition fallback fold1: F1=0.638 recall=0.975 esc=0.00
+partition fallback fold2: F1=0.646 recall=0.988 esc=0.00
+partition fallback fold3: F1=0.646 recall=0.995 esc=0.00
+partition fallback fold4: F1=0.637 recall=0.986 esc=0.00
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/astar/ASTAR_EXPERIMENT_SUMMARY.json

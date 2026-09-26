@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\centering
+\caption{R1 collapse: nine backbones under standard vs enriched vs near-fall stress (detector-only).}
+\label{tab:collapse}
+\begin{tabular}{lccc}
+\toprule
+Backbone & Standard F1 & Enriched F1 & Near-fall F1 \\
+\midrule
+cnn1d & 0.701$\pm$0.031 & 0.705$\pm$0.015 & --- \\
+lstm & 0.693$\pm$0.016 & 0.704$\pm$0.008 & --- \\
+cnn\_lstm & 0.696$\pm$0.010 & 0.700$\pm$0.006 & --- \\
+cnn\_lstm\_attn & 0.718$\pm$0.022 & 0.715$\pm$0.005 & --- \\
+tcn & 0.702$\pm$0.029 & 0.705$\pm$0.021 & --- \\
+modern\_tcn & 0.742$\pm$0.015 & 0.734$\pm$0.012 & --- \\
+tsmixer & 0.671$\pm$0.022 & 0.688$\pm$0.007 & --- \\
+patchtst & 0.541$\pm$0.009 & 0.672$\pm$0.003 & --- \\
+transformer & 0.690$\pm$0.012 & 0.683$\pm$0.010 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}

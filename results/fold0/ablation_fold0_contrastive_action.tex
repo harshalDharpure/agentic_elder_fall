@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{Baselines and agentic ablations (SisFall)}
+\begin{tabular}{lccccccccccccccccccccccccc}
+\toprule
+Method & f1 & recall & specificity & precision & accuracy & missed_fall_rate & false_alarm_rate_near_fall & escalated_f1 & escalation_rate & expected_response_cost & graded_action_cost & emergency_rate_adl & emergency_rate_near_fall & rationale_grounding_rate & ece & n_near_fall & n_escalated & false_alarms_per_1000 & veto_rate & veto_precision & induced_fn & certified_alpha & lambda_star & aurc & n \\
+\midrule
+cnn_lstm_attn & 0.774 & 0.781 & 0.821 & 0.767 & 0.804 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 1000 \\
+gate_knn_llm & 0.892 & 0.986 & 0.832 & 0.815 & 0.898 & 0.014 & 0.175 & 0.953 & 0.443 & 156.000 & 544.000 & 0.000 & 0.000 & 0.430 & 0.089 & 160 & 443 & 96.000 & 0.000 & 0.000 & 0.000 & 0.050 & nan & nan &  \\
+gate_knn_llm_contrastive_action_critique & 0.878 & 0.986 & 0.804 & 0.791 & 0.882 & 0.014 & 0.181 & 0.886 & 0.443 & 172.000 & 268.000 & 0.000 & 0.000 & 0.851 & 0.089 & 160 & 443 & 112.000 & 0.000 & 0.000 & 0.000 & 0.050 & nan & nan &  \\
+\bottomrule
+\end{tabular}
+\end{table}

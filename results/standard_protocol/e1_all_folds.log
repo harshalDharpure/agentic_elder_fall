@@ -1,0 +1,135 @@
+
+=== Fold 0 full-test prevalence=0.3307 n=330950 ===
+--- cnn1d ---
+  youden F1=0.7239  cost F1=0.5694  prev=0.3294  n=20000
+--- lstm ---
+  youden F1=0.6782  cost F1=0.5434  prev=0.3294  n=20000
+--- cnn_lstm ---
+  youden F1=0.7007  cost F1=0.5368  prev=0.3294  n=20000
+--- cnn_lstm_attn ---
+  youden F1=0.7285  cost F1=0.5557  prev=0.3294  n=20000
+--- tcn ---
+  youden F1=0.7055  cost F1=0.5768  prev=0.3294  n=20000
+--- modern_tcn ---
+  youden F1=0.7398  cost F1=0.5882  prev=0.3294  n=20000
+--- tsmixer ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.6753  cost F1=0.5370  prev=0.3294  n=20000
+--- patchtst ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.5384  cost F1=0.5074  prev=0.3294  n=20000
+--- transformer ---
+  youden F1=0.6894  cost F1=0.5180  prev=0.3294  n=20000
+
+=== Fold 1 full-test prevalence=0.3394 n=322571 ===
+--- cnn1d ---
+  youden F1=0.6634  cost F1=0.5657  prev=0.3424  n=20000
+--- lstm ---
+  youden F1=0.6805  cost F1=0.5287  prev=0.3424  n=20000
+--- cnn_lstm ---
+  youden F1=0.6992  cost F1=0.5720  prev=0.3424  n=20000
+--- cnn_lstm_attn ---
+  youden F1=0.6795  cost F1=0.5955  prev=0.3424  n=20000
+--- tcn ---
+  youden F1=0.6870  cost F1=0.5973  prev=0.3424  n=20000
+--- modern_tcn ---
+  youden F1=0.7193  cost F1=0.6040  prev=0.3424  n=20000
+--- tsmixer ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.6513  cost F1=0.5538  prev=0.3424  n=20000
+--- patchtst ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.5325  cost F1=0.5261  prev=0.3424  n=20000
+--- transformer ---
+  youden F1=0.6814  cost F1=0.5435  prev=0.3424  n=20000
+
+=== Fold 2 full-test prevalence=0.3356 n=326202 ===
+--- cnn1d ---
+  youden F1=0.6864  cost F1=0.5297  prev=0.3325  n=20000
+--- lstm ---
+  youden F1=0.6876  cost F1=0.5451  prev=0.3325  n=20000
+--- cnn_lstm ---
+  youden F1=0.6785  cost F1=0.5286  prev=0.3325  n=20000
+--- cnn_lstm_attn ---
+  youden F1=0.7162  cost F1=0.5579  prev=0.3325  n=20000
+--- tcn ---
+  youden F1=0.6626  cost F1=0.5158  prev=0.3325  n=20000
+--- modern_tcn ---
+  youden F1=0.7458  cost F1=0.5837  prev=0.3325  n=20000
+--- tsmixer ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.6486  cost F1=0.5191  prev=0.3325  n=20000
+--- patchtst ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.5335  cost F1=0.5189  prev=0.3325  n=20000
+--- transformer ---
+  youden F1=0.6762  cost F1=0.5432  prev=0.3325  n=20000
+
+=== Fold 3 full-test prevalence=0.3414 n=318998 ===
+--- cnn1d ---
+  youden F1=0.7398  cost F1=0.5718  prev=0.3377  n=20000
+--- lstm ---
+  youden F1=0.7166  cost F1=0.5580  prev=0.3377  n=20000
+--- cnn_lstm ---
+  youden F1=0.6979  cost F1=0.5472  prev=0.3377  n=20000
+--- cnn_lstm_attn ---
+  youden F1=0.7327  cost F1=0.5735  prev=0.3377  n=20000
+--- tcn ---
+  youden F1=0.7375  cost F1=0.5791  prev=0.3377  n=20000
+--- modern_tcn ---
+  youden F1=0.7587  cost F1=0.6263  prev=0.3377  n=20000
+--- tsmixer ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.6787  cost F1=0.5293  prev=0.3377  n=20000
+--- patchtst ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.5473  cost F1=0.5303  prev=0.3377  n=20000
+--- transformer ---
+  youden F1=0.6951  cost F1=0.5225  prev=0.3377  n=20000
+
+=== Fold 4 full-test prevalence=0.3492 n=250782 ===
+--- cnn1d ---
+  youden F1=0.6895  cost F1=0.5436  prev=0.3448  n=20000
+--- lstm ---
+  youden F1=0.7013  cost F1=0.5440  prev=0.3448  n=20000
+--- cnn_lstm ---
+  youden F1=0.7053  cost F1=0.5675  prev=0.3448  n=20000
+--- cnn_lstm_attn ---
+  youden F1=0.7314  cost F1=0.5833  prev=0.3448  n=20000
+--- tcn ---
+  youden F1=0.7169  cost F1=0.5499  prev=0.3448  n=20000
+--- modern_tcn ---
+  youden F1=0.7485  cost F1=0.5780  prev=0.3448  n=20000
+--- tsmixer ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.7008  cost F1=0.5291  prev=0.3448  n=20000
+--- patchtst ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.5518  cost F1=0.5187  prev=0.3448  n=20000
+--- transformer ---
+  youden F1=0.7077  cost F1=0.5417  prev=0.3448  n=20000
+
+=== G1 SUMMARY (Youden F1) ===
+  modern_tcn        F1=0.7424±0.0147  [FAIL]
+  cnn_lstm_attn     F1=0.7176±0.0223  [FAIL]
+  tcn               F1=0.7019±0.0286  [FAIL]
+  cnn1d             F1=0.7006±0.0308  [FAIL]
+  cnn_lstm          F1=0.6963±0.0103  [FAIL]
+  lstm              F1=0.6928±0.0160  [FAIL]
+  transformer       F1=0.6900±0.0123  [FAIL]
+  tsmixer           F1=0.6709±0.0215  [FAIL]
+  patchtst          F1=0.5407±0.0085  [FAIL]
+
+Primary (cnn_lstm_attn) G1: FAIL (threshold 0.95)
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_protocol/standard_protocol_summary.json
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_protocol/tab_standard_protocol.tex

@@ -1,0 +1,565 @@
+% =====================================================================
+%  refs.bib -- RCDP / Confidence-Gated Multi-Agent Fall Detection
+%  Verified against publisher records where a DOI is given.
+%  Entries marked "VERIFY" need a final metadata check at camera-ready.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% 1. Clinical / epidemiological motivation
+% ---------------------------------------------------------------------
+
+@misc{who2021falls,
+  title        = {Falls},
+  author       = {{World Health Organization}},
+  howpublished = {WHO Fact Sheet},
+  year         = {2021},
+  month        = apr,
+  note         = {\url{https://www.who.int/news-room/fact-sheets/detail/falls}, accessed 2026-09-16}
+}
+
+@article{tinetti1997falls,
+  title   = {Falls, Injuries Due to Falls, and the Risk of Admission to a Nursing Home},
+  author  = {Tinetti, Mary E. and Williams, Christianna S.},
+  journal = {New England Journal of Medicine},
+  volume  = {337},
+  number  = {18},
+  pages   = {1279--1284},
+  year    = {1997},
+  doi     = {10.1056/NEJM199710303371806}
+}
+
+@article{fleming2008longlie,
+  title   = {Inability to Get Up After Falling, Subsequent Time on Floor, and Summoning Help: Prospective Cohort Study in People Over 90},
+  author  = {Fleming, Jane and Brayne, Carol},
+  journal = {BMJ},
+  volume  = {337},
+  pages   = {a2227},
+  year    = {2008},
+  doi     = {10.1136/bmj.a2227}
+}
+
+% ---------------------------------------------------------------------
+% 2. Base detector paper (the work we wrap)
+% ---------------------------------------------------------------------
+
+@article{bhatti2025beyond,
+  title     = {Beyond Falls: A Hybrid {CNN}--{LSTM}--Attention Framework for Pre-, Transition-, and Post-Fall Detection With Wearable Inertial Sensors},
+  author    = {Bhatti, Faraz Ahmad and Riaz, Qaiser and Kr{\"u}ger, Bj{\"o}rn},
+  journal   = {IEEE Access},
+  volume    = {13},
+  pages     = {207960--207969},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/ACCESS.2025.3641198}
+}
+
+% ---------------------------------------------------------------------
+% 3. Datasets
+% ---------------------------------------------------------------------
+
+@article{waheed2021ntfds,
+  title   = {{NT-FDS}---A Noise Tolerant Fall Detection System Using Deep Learning on Wearable Devices},
+  author  = {Waheed, Marvi and Afzal, Hammad and Mehmood, Khawir},
+  journal = {Sensors},
+  volume  = {21},
+  number  = {6},
+  pages   = {2006},
+  year    = {2021},
+  doi     = {10.3390/s21062006}
+}
+
+@article{sisfall2017,
+  title     = {{SisFall}: A Fall and Movement Dataset},
+  author    = {Sucerquia, Angela and L{\'o}pez, Jos{\'e} David and Vargas-Bonilla, Jes{\'u}s Francisco},
+  journal   = {Sensors},
+  volume    = {17},
+  number    = {1},
+  pages     = {198},
+  year      = {2017},
+  publisher = {MDPI},
+  doi       = {10.3390/s17010198}
+}
+
+@article{kfall2021,
+  title   = {A Large-Scale Open Motion Dataset ({KFall}) and Benchmark Algorithms for Detecting Pre-impact Fall of the Elderly Using Wearable Inertial Sensors},
+  author  = {Yu, Xiaoqun and Jang, Jaehyuk and Xiong, Shuping},
+  journal = {Frontiers in Aging Neuroscience},
+  volume  = {13},
+  pages   = {692865},
+  year    = {2021},
+  doi     = {10.3389/fnagi.2021.692865}
+}
+
+@article{martinez2019upfall,
+  title   = {{UP-Fall} Detection Dataset: A Multimodal Approach},
+  author  = {Mart{\'i}nez-Villase{\~n}or, Lourdes and Ponce, Hiram and Brieva, Jorge and Moya-Albor, Ernesto and N{\'u}{\~n}ez-Mart{\'i}nez, Jos{\'e} and Pe{\~n}afort-Asturiano, Carlos},
+  journal = {Sensors},
+  volume  = {19},
+  number  = {9},
+  pages   = {1988},
+  year    = {2019},
+  doi     = {10.3390/s19091988}
+}
+
+@article{micucci2017unimib,
+  title   = {{UniMiB} {SHAR}: A Dataset for Human Activity Recognition Using Acceleration Data from Smartphones},
+  author  = {Micucci, Daniela and Mobilio, Marco and Napoletano, Paolo},
+  journal = {Applied Sciences},
+  volume  = {7},
+  number  = {10},
+  pages   = {1101},
+  year    = {2017},
+  doi     = {10.3390/app7101101}
+}
+
+@article{saleh2021fallalld,
+  title   = {{FallAllD}: An Open Dataset of Human Falls and Activities of Daily Living for Classical and Deep Learning Applications},
+  author  = {Saleh, Majd and Abbas, Mohammed and Le Jeannes, R{\'e}gine Bouquin},
+  journal = {IEEE Sensors Journal},
+  volume  = {21},
+  number  = {2},
+  pages   = {1849--1858},
+  year    = {2021},
+  doi     = {10.1109/JSEN.2020.3018335}
+}
+
+% ---------------------------------------------------------------------
+% 4. Wearable fall detection: surveys, evaluation frameworks, baselines
+% ---------------------------------------------------------------------
+
+@article{iglesias2019wearable,
+  title   = {Challenges, Issues and Trends in Fall Detection Systems},
+  author  = {Igual, Raul and Medrano, Carlos and Plaza, Inmaculada},
+  journal = {BioMedical Engineering OnLine},
+  volume  = {12},
+  number  = {1},
+  pages   = {66},
+  year    = {2013},
+  doi     = {10.1186/1475-925X-12-66}
+}
+
+@inproceedings{nurek2020fallsurvey,
+  title     = {Fall Detection---Principles and Methods},
+  author    = {Noury, Norbert and Fleury, Anthony and Rumeau, Pierre and Bourke, Alan K. and {\'O} Laighin, Gearoid and Rialle, Vincent and Lundy, Jean-Eric},
+  booktitle = {Proc. 29th Annu. Int. Conf. IEEE Engineering in Medicine and Biology Society (EMBC)},
+  pages     = {1663--1666},
+  year      = {2007},
+  doi       = {10.1109/IEMBS.2007.4352627}
+}
+
+@article{noury2008evaluation,
+  title   = {A Proposal for the Classification and Evaluation of Fall Detectors},
+  author  = {Noury, Norbert and Rumeau, Pierre and Bourke, Alan K. and {\'O} Laighin, Gearoid and Lundy, Jean-Eric},
+  journal = {IRBM},
+  volume  = {29},
+  number  = {6},
+  pages   = {340--349},
+  year    = {2008},
+  doi     = {10.1016/j.irbm.2008.08.002}
+}
+
+@article{ren2021survey,
+  title   = {Research of Fall Detection and Fall Prevention Technologies: A Systematic Review},
+  author  = {Ren, Lingmei and Peng, Yanjun},
+  journal = {IEEE Access},
+  volume  = {7},
+  pages   = {77702--77722},
+  year    = {2019},
+  doi     = {10.1109/ACCESS.2019.2922708}
+}
+
+@article{khan2017review,
+  title   = {Review of Fall Detection Techniques: A Data Availability Perspective},
+  author  = {Khan, Shehroz S. and Hoey, Jesse},
+  journal = {Medical Engineering \& Physics},
+  volume  = {39},
+  pages   = {12--22},
+  year    = {2017},
+  doi     = {10.1016/j.medengphy.2016.10.014}
+}
+
+@article{mubashir2013survey,
+  title   = {A Survey on Fall Detection: Principles and Approaches},
+  author  = {Mubashir, Muhammad and Shao, Ling and Seed, Luke},
+  journal = {Neurocomputing},
+  volume  = {100},
+  pages   = {144--152},
+  year    = {2013},
+  doi     = {10.1016/j.neucom.2011.09.037}
+}
+
+@article{bourke2007threshold,
+  title   = {Evaluation of a Threshold-Based Tri-axial Accelerometer Fall Detection Algorithm},
+  author  = {Bourke, Alan K. and O'Brien, John V. and Lyons, Gerard M.},
+  journal = {Gait \& Posture},
+  volume  = {26},
+  number  = {2},
+  pages   = {194--199},
+  year    = {2007},
+  doi     = {10.1016/j.gaitpost.2006.09.012}
+}
+
+% ---------------------------------------------------------------------
+% 5. Near-falls: the ambiguous band this paper targets
+% ---------------------------------------------------------------------
+
+@article{aziz2016fall,
+  title   = {An Analysis of the Accuracy of Wearable Sensors for Classifying the Causes of Falls in Humans},
+  author  = {Aziz, Omar and Robinovitch, Stephen N.},
+  journal = {IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  volume  = {19},
+  number  = {6},
+  pages   = {670--676},
+  year    = {2011},
+  doi     = {10.1109/TNSRE.2011.2162250}
+}
+
+@inproceedings{aziz2012nearfall,
+  title     = {Distinguishing Near-Falls from Daily Activities with Wearable Accelerometers and Gyroscopes Using Support Vector Machines},
+  author    = {Aziz, Omar and Park, Edward J. and Mori, Greg and Robinovitch, Stephen N.},
+  booktitle = {Proc. 34th Annu. Int. Conf. IEEE Engineering in Medicine and Biology Society (EMBC)},
+  pages     = {5837--5840},
+  year      = {2012},
+  doi       = {10.1109/EMBC.2012.6347321}
+}
+
+@article{aziz2014causes,
+  title   = {Distinguishing the Causes of Falls in Humans Using an Array of Wearable Tri-axial Accelerometers},
+  author  = {Aziz, Omar and Park, Edward J. and Mori, Greg and Robinovitch, Stephen N.},
+  journal = {Gait \& Posture},
+  volume  = {39},
+  number  = {1},
+  pages   = {506--512},
+  year    = {2014},
+  doi     = {10.1016/j.gaitpost.2013.08.034}
+}
+
+% ---------------------------------------------------------------------
+% 6. Calibration, selective prediction, abstention, learning to defer
+% ---------------------------------------------------------------------
+
+@article{chow1970reject,
+  title   = {On Optimum Recognition Error and Reject Tradeoff},
+  author  = {Chow, C. K.},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {16},
+  number  = {1},
+  pages   = {41--46},
+  year    = {1970},
+  doi     = {10.1109/TIT.1970.1054406}
+}
+
+@article{el2010foundations,
+  title   = {On the Foundations of Noise-free Selective Classification},
+  author  = {El-Yaniv, Ran and Wiener, Yair},
+  journal = {Journal of Machine Learning Research},
+  volume  = {11},
+  pages   = {1605--1641},
+  year    = {2010}
+}
+
+@inproceedings{geifman2017selective,
+  title     = {Selective Classification for Deep Neural Networks},
+  author    = {Geifman, Yonatan and El-Yaniv, Ran},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {4878--4887},
+  year      = {2017}
+}
+
+@inproceedings{cortes2016rejection,
+  title     = {Learning with Rejection},
+  author    = {Cortes, Corinna and DeSalvo, Giulia and Mohri, Mehryar},
+  booktitle = {Algorithmic Learning Theory (ALT)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9925},
+  pages     = {67--82},
+  publisher = {Springer},
+  year      = {2016},
+  doi       = {10.1007/978-3-319-46379-7_5}
+}
+
+@inproceedings{mozannar2020defer,
+  title     = {Consistent Estimators for Learning to Defer to an Expert},
+  author    = {Mozannar, Hussein and Sontag, David},
+  booktitle = {Proc. Int. Conf. Machine Learning (ICML)},
+  series    = {PMLR},
+  volume    = {119},
+  pages     = {7076--7087},
+  year      = {2020}
+}
+
+@inproceedings{madras2018defer,
+  title     = {Predict Responsibly: Improving Fairness and Accuracy by Learning to Defer},
+  author    = {Madras, David and Pitassi, Toniann and Zemel, Richard},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {6147--6157},
+  year      = {2018}
+}
+
+@inproceedings{guo2017calibration,
+  title     = {On Calibration of Modern Neural Networks},
+  author    = {Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  booktitle = {Proc. Int. Conf. Machine Learning (ICML)},
+  series    = {PMLR},
+  volume    = {70},
+  pages     = {1321--1330},
+  year      = {2017}
+}
+
+@incollection{platt1999probabilistic,
+  title     = {Probabilistic Outputs for Support Vector Machines and Comparisons to Regularized Likelihood Methods},
+  author    = {Platt, John C.},
+  booktitle = {Advances in Large Margin Classifiers},
+  pages     = {61--74},
+  publisher = {MIT Press},
+  year      = {1999}
+}
+
+@inproceedings{lakshminarayanan2017ensembles,
+  title     = {Simple and Scalable Predictive Uncertainty Estimation Using Deep Ensembles},
+  author    = {Lakshminarayanan, Balaji and Pritzel, Alexander and Blundell, Charles},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {6402--6413},
+  year      = {2017}
+}
+
+% ---------------------------------------------------------------------
+% 7. Conformal prediction
+% ---------------------------------------------------------------------
+
+@book{vovk2005algorithmic,
+  title     = {Algorithmic Learning in a Random World},
+  author    = {Vovk, Vladimir and Gammerman, Alexander and Shafer, Glenn},
+  publisher = {Springer},
+  year      = {2005},
+  doi       = {10.1007/b106715}
+}
+
+@article{shafer2008tutorial,
+  title   = {A Tutorial on Conformal Prediction},
+  author  = {Shafer, Glenn and Vovk, Vladimir},
+  journal = {Journal of Machine Learning Research},
+  volume  = {9},
+  pages   = {371--421},
+  year    = {2008}
+}
+
+@article{angelopoulos2023gentle,
+  title   = {A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification},
+  author  = {Angelopoulos, Anastasios N. and Bates, Stephen},
+  journal = {Foundations and Trends in Machine Learning},
+  volume  = {16},
+  number  = {4},
+  pages   = {494--591},
+  year    = {2023},
+  doi     = {10.1561/2200000101}
+}
+
+@inproceedings{romano2019conformalized,
+  title     = {Conformalized Quantile Regression},
+  author    = {Romano, Yaniv and Patterson, Evan and Cand{\`e}s, Emmanuel J.},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {3543--3553},
+  year      = {2019}
+}
+
+% ---------------------------------------------------------------------
+% 8. Cost-sensitive learning and statistics
+% ---------------------------------------------------------------------
+
+@inproceedings{elkan2001foundations,
+  title     = {The Foundations of Cost-Sensitive Learning},
+  author    = {Elkan, Charles},
+  booktitle = {Proc. Int. Joint Conf. Artificial Intelligence (IJCAI)},
+  pages     = {973--978},
+  year      = {2001}
+}
+
+@article{efron1987bca,
+  title   = {Better Bootstrap Confidence Intervals},
+  author  = {Efron, Bradley},
+  journal = {Journal of the American Statistical Association},
+  volume  = {82},
+  number  = {397},
+  pages   = {171--185},
+  year    = {1987},
+  doi     = {10.1080/01621459.1987.10478410}
+}
+
+@article{demsar2006statistical,
+  title   = {Statistical Comparisons of Classifiers over Multiple Data Sets},
+  author  = {Dem{\v{s}}ar, Janez},
+  journal = {Journal of Machine Learning Research},
+  volume  = {7},
+  pages   = {1--30},
+  year    = {2006}
+}
+
+% ---------------------------------------------------------------------
+% 9. Time-series / sequence backbones (detector zoo)
+% ---------------------------------------------------------------------
+
+@inproceedings{iglesias2023modern,
+  title     = {Modern{TCN}: A Modern Pure Convolution Structure for General Time Series Analysis},
+  author    = {Luo, Donghao and Wang, Xue},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2024}
+}
+
+@article{tsmixer2023,
+  title   = {{TSMixer}: An All-{MLP} Architecture for Time Series Forecasting},
+  author  = {Chen, Si-An and Li, Chun-Liang and Sonthalia, Rishi and Yoder, Nate and Arik, Sercan O. and Pfister, Tomas},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2023}
+}
+
+@inproceedings{patchtst2023,
+  title     = {A Time Series is Worth 64 Words: Long-term Forecasting with Transformers},
+  author    = {Nie, Yuqi and Nguyen, Nam H. and Sinthong, Phanwadee and Kalagnanam, Jayant},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2023}
+}
+
+@inproceedings{vaswani2017attention,
+  title     = {Attention Is All You Need},
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {5998--6008},
+  year      = {2017}
+}
+
+@article{bai2018tcn,
+  title   = {An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling},
+  author  = {Bai, Shaojie and Kolter, J. Zico and Koltun, Vladlen},
+  journal = {arXiv preprint arXiv:1803.01271},
+  year    = {2018}
+}
+
+% ---------------------------------------------------------------------
+% 10. Retrieval augmentation, compact encoders, LLM reasoning
+% ---------------------------------------------------------------------
+
+@inproceedings{minilm2020,
+  title     = {{MiniLM}: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers},
+  author    = {Wang, Wenhui and Wei, Furu and Dong, Li and Bao, Hangbo and Yang, Nan and Zhou, Ming},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {5776--5788},
+  year      = {2020}
+}
+
+@inproceedings{reimers2019sbert,
+  title     = {Sentence-{BERT}: Sentence Embeddings Using Siamese {BERT}-Networks},
+  author    = {Reimers, Nils and Gurevych, Iryna},
+  booktitle = {Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {3982--3992},
+  year      = {2019},
+  doi       = {10.18653/v1/D19-1410}
+}
+
+@inproceedings{lewis2020rag,
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {9459--9474},
+  year      = {2020}
+}
+
+@inproceedings{wei2022cot,
+  title     = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
+  author    = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed H. and Le, Quoc V. and Zhou, Denny},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  pages     = {24824--24837},
+  year      = {2022}
+}
+
+@inproceedings{yao2023react,
+  title     = {{ReAct}: Synergizing Reasoning and Acting in Language Models},
+  author    = {Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2023}
+}
+
+@inproceedings{madaan2023selfrefine,
+  title     = {Self-Refine: Iterative Refinement with Self-Feedback},
+  author    = {Madaan, Aman and Tandon, Niket and Gupta, Prakhar and Hallinan, Skyler and Gao, Luyu and Wiegreffe, Sarah and Alon, Uri and Dziri, Nouha and Prabhumoye, Shrimai and Yang, Yiming and Gupta, Shashank and Majumder, Bodhisattwa Prasad and Hermann, Katherine and Welleck, Sean and Yazdanbakhsh, Amir and Clark, Peter},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2023}
+}
+
+@article{huang2025hallucination,
+  title   = {A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions},
+  author  = {Huang, Lei and Yu, Weijiang and Ma, Weitao and Zhong, Weihong and Feng, Zhangyin and Wang, Haotian and Chen, Qianglong and Peng, Weihua and Feng, Xiaocheng and Qin, Bing and Liu, Ting},
+  journal = {ACM Transactions on Information Systems},
+  volume  = {43},
+  number  = {2},
+  pages   = {1--55},
+  year    = {2025},
+  doi     = {10.1145/3703155}
+}
+
+@misc{mistral2023,
+  title         = {Mistral 7{B}},
+  author        = {Jiang, Albert Q. and Sablayrolles, Alexandre and Mensch, Arthur and Bamford, Chris and Chaplot, Devendra Singh and de las Casas, Diego and Bressand, Florian and Lengyel, Gianna and Lample, Guillaume and Saulnier, Lucile and others},
+  year          = {2023},
+  eprint        = {2310.06825},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{qwen2024,
+  title         = {{Qwen2.5} Technical Report},
+  author        = {{Qwen Team}},
+  year          = {2024},
+  eprint        = {2412.15115},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{ollama,
+  title        = {Ollama: Get Up and Running with Large Language Models Locally},
+  author       = {{Ollama Contributors}},
+  howpublished = {\url{https://ollama.com}},
+  year         = {2024},
+  note         = {Accessed 2026-09-16}
+}
+
+% ---------------------------------------------------------------------
+% 11. LLMs / agents applied to wearable and physiological sensing
+% ---------------------------------------------------------------------
+
+@inproceedings{ji2024hargpt,
+  title     = {{HARGPT}: Are {LLM}s Zero-Shot Human Activity Recognizers?},
+  author    = {Ji, Sijie and Zheng, Xinzhe and Wu, Chenshu},
+  booktitle = {Proc. IEEE Int. Workshop on Foundation Models for Cyber-Physical Systems and Internet of Things (FMSys)},
+  year      = {2024},
+  doi       = {10.1109/FMSys62467.2024.00007}
+}
+
+@misc{li2024sensorllm,
+  title         = {{SensorLLM}: Human-Intuitive Alignment of Multivariate Sensor Data with {LLM}s for Activity Recognition},
+  author        = {Li, Zechen and Deldari, Shohreh and Chen, Linyao and Xue, Hao and Salim, Flora D.},
+  year          = {2024},
+  eprint        = {2410.10624},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+@misc{kim2024healthllm,
+  title         = {Health-{LLM}: Large Language Models for Health Prediction via Wearable Sensor Data},
+  author        = {Kim, Yubin and Xu, Xuhai and McDuff, Daniel and Breazeal, Cynthia and Park, Hae Won},
+  year          = {2024},
+  eprint        = {2401.06866},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@article{singhal2023medpalm,
+  title   = {Large Language Models Encode Clinical Knowledge},
+  author  = {Singhal, Karan and Azizi, Shekoofeh and Tu, Tao and Mahdavi, S. Sara and Wei, Jason and Chung, Hyung Won and Scales, Nathan and Tanwani, Ajay and Cole-Lewis, Heather and Pfohl, Stephen and others},
+  journal = {Nature},
+  volume  = {620},
+  number  = {7972},
+  pages   = {172--180},
+  year    = {2023},
+  doi     = {10.1038/s41586-023-06291-8}
+}

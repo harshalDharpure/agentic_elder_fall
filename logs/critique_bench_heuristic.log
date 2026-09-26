@@ -1,0 +1,133 @@
+Gate tau_low=0.155 tau_high=0.550 backend=heuristic
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+with_critic:   0%|          | 0/50 [00:00<?, ?it/s]with_critic:   2%|▏         | 1/50 [00:00<00:40,  1.20it/s]with_critic:   6%|▌         | 3/50 [00:00<00:12,  3.78it/s]with_critic:  10%|█         | 5/50 [00:01<00:07,  5.96it/s]with_critic:  14%|█▍        | 7/50 [00:01<00:05,  7.51it/s]with_critic:  20%|██        | 10/50 [00:01<00:03, 10.11it/s]with_critic:  24%|██▍       | 12/50 [00:01<00:03, 11.20it/s]with_critic:  28%|██▊       | 14/50 [00:01<00:03, 11.74it/s]with_critic:  32%|███▏      | 16/50 [00:01<00:02, 12.14it/s]with_critic:  36%|███▌      | 18/50 [00:02<00:02, 12.33it/s]with_critic:  40%|████      | 20/50 [00:02<00:02, 12.58it/s]with_critic:  44%|████▍     | 22/50 [00:02<00:02, 12.65it/s]with_critic:  48%|████▊     | 24/50 [00:02<00:02, 12.32it/s]with_critic:  52%|█████▏    | 26/50 [00:02<00:01, 12.56it/s]with_critic:  56%|█████▌    | 28/50 [00:02<00:01, 12.79it/s]with_critic:  60%|██████    | 30/50 [00:02<00:01, 13.04it/s]with_critic:  64%|██████▍   | 32/50 [00:03<00:01, 12.68it/s]with_critic:  68%|██████▊   | 34/50 [00:03<00:01, 13.02it/s]with_critic:  72%|███████▏  | 36/50 [00:03<00:01, 13.12it/s]with_critic:  76%|███████▌  | 38/50 [00:03<00:00, 12.97it/s]with_critic:  80%|████████  | 40/50 [00:03<00:00, 12.70it/s]with_critic:  84%|████████▍ | 42/50 [00:03<00:00, 12.72it/s]with_critic:  88%|████████▊ | 44/50 [00:04<00:00, 13.10it/s]with_critic:  92%|█████████▏| 46/50 [00:04<00:00, 12.25it/s]with_critic:  96%|█████████▌| 48/50 [00:04<00:00, 11.89it/s]with_critic: 100%|██████████| 50/50 [00:04<00:00, 11.51it/s]with_critic: 100%|██████████| 50/50 [00:04<00:00, 10.79it/s]
+no_critic:   0%|          | 0/50 [00:00<?, ?it/s]no_critic:  16%|█▌        | 8/50 [00:00<00:00, 72.44it/s]no_critic:  32%|███▏      | 16/50 [00:00<00:01, 27.70it/s]no_critic:  42%|████▏     | 21/50 [00:00<00:01, 23.13it/s]no_critic:  50%|█████     | 25/50 [00:01<00:01, 20.97it/s]no_critic:  56%|█████▌    | 28/50 [00:01<00:01, 19.91it/s]no_critic:  62%|██████▏   | 31/50 [00:01<00:01, 18.52it/s]no_critic:  66%|██████▌   | 33/50 [00:01<00:00, 17.76it/s]no_critic:  70%|███████   | 35/50 [00:01<00:00, 17.52it/s]no_critic:  74%|███████▍  | 37/50 [00:01<00:00, 17.59it/s]no_critic:  80%|████████  | 40/50 [00:01<00:00, 18.87it/s]no_critic:  86%|████████▌ | 43/50 [00:02<00:00, 20.68it/s]no_critic:  92%|█████████▏| 46/50 [00:02<00:00, 19.54it/s]no_critic:  98%|█████████▊| 49/50 [00:02<00:00, 18.13it/s]no_critic: 100%|██████████| 50/50 [00:02<00:00, 20.36it/s]
+{
+  "with_critic": {
+    "accuracy": 0.96,
+    "precision": 0.96,
+    "recall": 0.96,
+    "sensitivity": 0.9599999999999617,
+    "specificity": 0.9599999999999617,
+    "f1": 0.96,
+    "tp": 24,
+    "tn": 24,
+    "fp": 1,
+    "fn": 1,
+    "escalation_rate": 0.78,
+    "n_escalated": 39,
+    "n_d18": 8,
+    "n_d19": 7,
+    "n_near_fall": 15,
+    "false_alarm_rate_near_fall": 0.0,
+    "escalated_f1": 1.0,
+    "false_alarm_rate_ambiguous": 0.0,
+    "ambiguous_f1": 1.0,
+    "missed_fall_rate": 0.04,
+    "expected_response_cost": 11.0,
+    "false_alarms_per_1000": 20.0,
+    "emergency_rate": 0.0,
+    "emergency_rate_adl": 0.0,
+    "emergency_rate_near_fall": 0.0,
+    "graded_action_cost": 26.0,
+    "rationale_grounding_rate": 0.98,
+    "name": "contrastive_action_critique",
+    "n": 50,
+    "critique_usage_rate": 0.98,
+    "critic_revise_rate": 0.2,
+    "action_downgrade_rate": 0.02,
+    "ambiguous_n": 30,
+    "ambiguous_adjudicated_rate": 1.0,
+    "per_bucket": {
+      "strict_fall": {
+        "n": 10,
+        "accuracy": 0.9,
+        "adjudicated_rate": 0.9,
+        "critic_revise_rate": 0.9,
+        "action_downgrade_rate": 0.0,
+        "mean_p_fall": 0.8658740177750588
+      },
+      "clear_adl": {
+        "n": 10,
+        "accuracy": 0.9,
+        "adjudicated_rate": 1.0,
+        "critic_revise_rate": 0.1,
+        "action_downgrade_rate": 0.1,
+        "mean_p_fall": 0.349388287961483
+      },
+      "ambiguous": {
+        "n": 30,
+        "accuracy": 1.0,
+        "adjudicated_rate": 1.0,
+        "critic_revise_rate": 0.0,
+        "action_downgrade_rate": 0.0,
+        "mean_p_fall": 0.8274904330571492
+      }
+    }
+  },
+  "no_critic": {
+    "accuracy": 0.96,
+    "precision": 0.96,
+    "recall": 0.96,
+    "sensitivity": 0.9599999999999617,
+    "specificity": 0.9599999999999617,
+    "f1": 0.96,
+    "tp": 24,
+    "tn": 24,
+    "fp": 1,
+    "fn": 1,
+    "escalation_rate": 0.78,
+    "n_escalated": 39,
+    "n_d18": 8,
+    "n_d19": 7,
+    "n_near_fall": 15,
+    "false_alarm_rate_near_fall": 0.0,
+    "escalated_f1": 1.0,
+    "false_alarm_rate_ambiguous": 0.0,
+    "ambiguous_f1": 1.0,
+    "missed_fall_rate": 0.04,
+    "expected_response_cost": 11.0,
+    "false_alarms_per_1000": 20.0,
+    "emergency_rate": 0.18,
+    "emergency_rate_adl": 0.0,
+    "emergency_rate_near_fall": 0.0,
+    "graded_action_cost": 29.0,
+    "rationale_grounding_rate": 0.78,
+    "name": "gate_knn_llm_no_critic",
+    "n": 50,
+    "critique_usage_rate": 0.0,
+    "critic_revise_rate": 0.0,
+    "action_downgrade_rate": 0.0,
+    "ambiguous_n": 30,
+    "ambiguous_adjudicated_rate": 0.0,
+    "per_bucket": {
+      "strict_fall": {
+        "n": 10,
+        "accuracy": 0.9,
+        "adjudicated_rate": 0.0,
+        "critic_revise_rate": 0.0,
+        "action_downgrade_rate": 0.0,
+        "mean_p_fall": 0.8658740177750588
+      },
+      "clear_adl": {
+        "n": 10,
+        "accuracy": 0.9,
+        "adjudicated_rate": 0.0,
+        "critic_revise_rate": 0.0,
+        "action_downgrade_rate": 0.0,
+        "mean_p_fall": 0.349388287961483
+      },
+      "ambiguous": {
+        "n": 30,
+        "accuracy": 1.0,
+        "adjudicated_rate": 0.0,
+        "critic_revise_rate": 0.0,
+        "action_downgrade_rate": 0.0,
+        "mean_p_fall": 0.8274904330571492
+      }
+    }
+  }
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/critique_bench/critique_bench_eval.json
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/critique_bench/CRITIQUE_BENCH_REPORT.md

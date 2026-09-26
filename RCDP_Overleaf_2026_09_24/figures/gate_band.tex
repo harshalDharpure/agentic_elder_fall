@@ -1,0 +1,55 @@
+% ---------------------------------------------------------------------
+% Fig. 2 -- Decision geometry of the cost-calibrated dual-threshold gate.
+% Pure TikZ. Thresholds shown are the pooled minimum-cost operating
+% point of Table~\ref{tab:pareto} (tau_low = 0.05, tau_high = 0.60).
+% Wrap with \resizebox{\linewidth}{!}{...} in main.tex.
+% ---------------------------------------------------------------------
+\begin{tikzpicture}[
+  font=\footnotesize\sffamily,
+  x=7.60cm, y=1cm,
+  lbl/.style={font=\scriptsize\sffamily, inner sep=1.5pt},
+  tick/.style={line width=0.5pt},
+  arr/.style={-{Latex[length=2.0mm,width=1.4mm]}, line width=0.6pt}
+]
+
+% ---------- routing bands ----------
+\fill[green!55!black, fill opacity=0.18] (0.00,0.00) rectangle (0.05,0.85);
+\fill[orange!85!black, fill opacity=0.22] (0.05,0.00) rectangle (0.60,0.85);
+\fill[red!70!black, fill opacity=0.18]    (0.60,0.00) rectangle (1.00,0.85);
+\draw[line width=0.5pt] (0.00,0.00) rectangle (1.00,0.85);
+\draw[line width=0.8pt] (0.05,0.00) -- (0.05,0.85);
+\draw[line width=0.8pt] (0.60,0.00) -- (0.60,0.85);
+
+% ---------- reference thresholds (inside band) ----------
+\draw[dashed, line width=0.6pt, black!60] (0.091,0.00) -- (0.091,0.85);
+\draw[dashed, line width=0.6pt, black!60] (0.500,0.00) -- (0.500,0.85);
+
+% ---------- region names ----------
+\node[lbl, anchor=south] at (0.325,0.88) {\textbf{Ambiguous band} (escalate)};
+\node[lbl, anchor=south] at (0.800,0.88) {\textbf{Fall}};
+\node[lbl, anchor=east]  at (-0.02,1.18) {\textbf{ADL}};
+\draw[arr] (-0.012,1.15) -- (0.025,0.88);
+
+\node[lbl] at (0.325,0.40) {System 2 decides};
+\node[lbl] at (0.800,0.40) {edge decision};
+
+% ---------- probability axis ----------
+\draw[tick] (0.00,-0.10) -- (1.00,-0.10);
+\foreach \p in {0.0,0.2,0.4,0.6,0.8,1.0}{%
+  \draw[tick] (\p,-0.10) -- (\p,-0.20);
+  \node[lbl, anchor=north] at (\p,-0.22) {\p};
+}
+
+% ---------- calibrated thresholds ----------
+\draw[dotted, line width=0.6pt] (0.05,-0.20) -- (0.05,-0.60);
+\draw[dotted, line width=0.6pt] (0.60,-0.20) -- (0.60,-0.60);
+\node[lbl, anchor=north] at (0.05,-0.62) {$\tau_{\mathrm{low}}{=}0.05$};
+\node[lbl, anchor=north] at (0.60,-0.62) {$\tau_{\mathrm{high}}{=}0.60$};
+
+% ---------- reference threshold labels ----------
+\node[lbl, anchor=north, text=black!60] at (0.091,-1.02) {$\tau^\ast{=}0.091$ (Bayes)};
+\node[lbl, anchor=north, text=black!60] at (0.500,-1.02) {$0.5$ (naive argmax)};
+
+\node[lbl, anchor=north] at (0.50,-1.44) {fall probability $p=\Pr(y{=}1\mid\mathbf{x})$};
+
+\end{tikzpicture}

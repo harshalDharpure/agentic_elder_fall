@@ -1,0 +1,17 @@
+\begin{table}[!t]
+\centering
+\caption{Descriptive paired statistics across five SisFall test folds. Deltas use metrics computed from main-ablation counts before rounding. Fold-bootstrap percentile intervals use $10^4$ resamples, seed $42$; BCa sensitivity intervals are F1 $[0.117,0.154]$, recall $[0.181,0.244]$ and cost $[-1084,-834]$. With only five folds and overlapping training sets, these are not population-level significance guarantees. The two-sided exact Wilcoxon value $0.0625$ does not meet a $0.05$ significance threshold. \emph{Sign} counts folds with the favourable direction.}
+\label{tab:stats}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Mean $\Delta$ & Percentile 95\% CI & Sign & Wilcoxon $p$ \\
+\midrule
+F1         & $+0.128$ & $[0.117,\ 0.147]$ & 5/5 & 0.0625 \\
+Recall     & $+0.218$ & $[0.187,\ 0.248]$ & 5/5 & 0.0625 \\
+Cost/1000  & $-951$   & $[-1079,\ -825]$  & 5/5 & 0.0625 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Regenerate with: python recompute_ci.py
+% Source: main_ablation in results_text/reported_counts.csv, before rounding.

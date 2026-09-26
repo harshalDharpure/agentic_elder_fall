@@ -1,0 +1,354 @@
+backbone: {'cnn1d': 2, 'lstm': 2, 'cnn_lstm': 2, 'cnn_lstm_attn': 5, 'tcn': 2, 'modern_tcn': 2, 'tsmixer': 2, 'patchtst': 2, 'transformer': 2, 'modern_tcn+agentic': 2, 'tcn+agentic': 2, 'cnn1d+agentic': 1, 'cnn_lstm_attn+agentic': 4}
+ablation: {'cnn_lstm_attn': 5, 'tier1_only': 5, 'gate_only': 5, 'gate_knn': 5, 'gate_knn_llm': 5}
+ablation tests: [
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -951.0,
+    "std_delta": 162.5192296314501,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1084.0,
+      -824.8
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -951.0,
+    "std_delta": 162.5192296314501,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1084.0,
+      -824.8
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "false_alarm_rate_near_fall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -0.036250000000000004,
+    "std_delta": 0.04225110945288892,
+    "wilcoxon_stat": 1.0,
+    "wilcoxon_pvalue": 0.125,
+    "bootstrap_ci95": [
+      -0.07374999999999998,
+      -0.007500000000000012
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.1283694727425703,
+    "std_delta": 0.020422713261937838,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.11679407001942303,
+      0.14742453815156034
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "recall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.21794482854391517,
+    "std_delta": 0.038679460898312736,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.1873456878565707,
+      0.2477575871700719
+    ]
+  }
+]
+llm: {'heuristic': 5, 'mistral:latest': 5, 'qwen2.5-coder:7b-instruct': 5}
+llm tests: [
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.9385742832279508,
+    "std_delta": 0.043282613417667176,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.8998742942660801,
+      0.9687267229719033
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -956.8,
+    "std_delta": 42.891724143475514,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -988.8399999999999,
+      -924.8
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -6378.666666666666,
+    "std_delta": 285.94482762316983,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -6592.266666666666,
+      -6165.333333333334
+    ]
+  }
+]
+agentic: {'agentic_ollama': 5}
+Wrote aggregate tables under results
+backbone: {'cnn1d': 2, 'lstm': 2, 'cnn_lstm': 2, 'cnn_lstm_attn': 5, 'tcn': 2, 'modern_tcn': 2, 'tsmixer': 2, 'patchtst': 2, 'transformer': 2, 'modern_tcn+agentic': 2, 'tcn+agentic': 2, 'cnn1d+agentic': 1, 'cnn_lstm_attn+agentic': 4}
+ablation: {'cnn_lstm_attn': 5, 'tier1_only': 5, 'gate_only': 5, 'gate_knn': 5, 'gate_knn_llm': 5}
+ablation tests: [
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -951.0,
+    "std_delta": 162.5192296314501,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1084.0,
+      -824.8
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -951.0,
+    "std_delta": 162.5192296314501,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1084.0,
+      -824.8
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "false_alarm_rate_near_fall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -0.036250000000000004,
+    "std_delta": 0.04225110945288892,
+    "wilcoxon_stat": 1.0,
+    "wilcoxon_pvalue": 0.125,
+    "bootstrap_ci95": [
+      -0.07374999999999998,
+      -0.007500000000000012
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.1283694727425703,
+    "std_delta": 0.020422713261937838,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.11679407001942303,
+      0.14742453815156034
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "recall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.21794482854391517,
+    "std_delta": 0.038679460898312736,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.1873456878565707,
+      0.2477575871700719
+    ]
+  }
+]
+llm: {'heuristic': 5, 'mistral:latest': 5, 'qwen2.5-coder:7b-instruct': 5}
+llm tests: [
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.9385742832279508,
+    "std_delta": 0.043282613417667176,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.8998742942660801,
+      0.9687267229719033
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -956.8,
+    "std_delta": 42.891724143475514,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -988.8399999999999,
+      -924.8
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -6378.666666666666,
+    "std_delta": 285.94482762316983,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -6592.266666666666,
+      -6165.333333333334
+    ]
+  }
+]
+agentic: {'agentic_ollama': 5}
+Wrote aggregate tables under results

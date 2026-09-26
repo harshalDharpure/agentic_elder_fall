@@ -1,0 +1,41 @@
+# Standard SisFall eval pointing at G1-recovery checkpoints
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+backbones_config: configs/backbones.yaml
+paper_protocol: configs/paper_protocol.yaml
+
+protocol_name: standard_natural_retrained
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+
+eval:
+  max_test: 20000
+  stratified: false
+  required_activities: []
+  min_near_fall_per_code: 0
+  decision_threshold_mode: youden
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results/standard_protocol_retrained
+  checkpoint_dir: checkpoints/standard
+
+models:
+  - cnn1d
+  - lstm
+  - cnn_lstm
+  - cnn_lstm_attn
+  - tcn
+  - modern_tcn
+  - tsmixer
+  - patchtst
+  - transformer
+
+primary_backbone: cnn_lstm_attn
+g1_f1_threshold: 0.95

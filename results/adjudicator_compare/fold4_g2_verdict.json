@@ -1,0 +1,5 @@
+{
+  "gbm_f1": 0.8421052631578947,
+  "best_llm_f1": null,
+  "g2": "gbm_only_no_llm"
+}

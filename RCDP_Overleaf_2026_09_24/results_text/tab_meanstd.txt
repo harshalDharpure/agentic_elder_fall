@@ -1,0 +1,16 @@
+LABEL: tab:meanstd
+CAPTION: Main-ablation counts, five-fold mean±sample std on SisFall (n=1000/fold). All metrics use counts before rounding. The separate timing run is not mixed in. Intervals are descriptive percentile fold-bootstrap summaries, not confirmatory significance evidence.
+
+{tabular}{lccccc}
+
+Mode | F1 | Recall | Precision | Specificity | Cost / 1000
+tier1_only | 0.759±0.014 | 0.759±0.022 | 0.760±0.032 | 0.815±0.035 | 1151±93
+gate_knn_llm | 0.887±0.029 | 0.977±0.037 | 0.813±0.036 | 0.828±0.039 | 200±164
+{tabular}
+
+Metric | Paired mean delta | Percentile bootstrap 95% CI | Directional consistency
+F1 | +0.128 | [0.117, 0.147] | 5/5
+Recall | +0.218 | [0.187, 0.248] | 5/5
+Cost/1000 | -951 | [-1079, -825] | 5/5
+
+The separate timing run's precision/specificity stds 0.038/0.040 reflect different false-positive counts. Main-ablation counts now confirm the earlier reconstruction.

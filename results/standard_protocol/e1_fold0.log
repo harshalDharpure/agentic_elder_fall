@@ -1,0 +1,39 @@
+
+=== Fold 0 full-test prevalence=0.3307 n=330950 ===
+--- cnn1d ---
+  youden F1=0.7820  cost F1=0.7263  prev=0.5000  n=8000
+--- lstm ---
+  youden F1=0.7345  cost F1=0.7079  prev=0.5000  n=8000
+--- cnn_lstm ---
+  youden F1=0.7742  cost F1=0.7031  prev=0.5000  n=8000
+--- cnn_lstm_attn ---
+  youden F1=0.7791  cost F1=0.7186  prev=0.5000  n=8000
+--- tcn ---
+  youden F1=0.7762  cost F1=0.7323  prev=0.5000  n=8000
+--- modern_tcn ---
+  youden F1=0.7958  cost F1=0.7387  prev=0.5000  n=8000
+--- tsmixer ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.7422  cost F1=0.7028  prev=0.5000  n=8000
+--- patchtst ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+  youden F1=0.6235  cost F1=0.6767  prev=0.5000  n=8000
+--- transformer ---
+  youden F1=0.7575  cost F1=0.6856  prev=0.5000  n=8000
+
+=== G1 SUMMARY (Youden F1) ===
+  modern_tcn        F1=0.7958±0.0000  [FAIL]
+  cnn1d             F1=0.7820±0.0000  [FAIL]
+  cnn_lstm_attn     F1=0.7791±0.0000  [FAIL]
+  tcn               F1=0.7762±0.0000  [FAIL]
+  cnn_lstm          F1=0.7742±0.0000  [FAIL]
+  transformer       F1=0.7575±0.0000  [FAIL]
+  tsmixer           F1=0.7422±0.0000  [FAIL]
+  lstm              F1=0.7345±0.0000  [FAIL]
+  patchtst          F1=0.6235±0.0000  [FAIL]
+
+Primary (cnn_lstm_attn) G1: FAIL (threshold 0.95)
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_protocol/standard_protocol_summary.json
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_protocol/tab_standard_protocol.tex

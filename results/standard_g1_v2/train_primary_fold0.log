@@ -1,0 +1,45 @@
+split sizes train=1069126 val=20000 test=30000 train_prev=0.3476 train_stratified=False
+
+=== Training cnn_lstm_attn fold=0 ===
+epoch 001  loss=0.4683  f1=0.6788  acc=0.7785  rec=0.8030  spec=0.7684
+epoch 002  loss=0.3903  f1=0.7074  acc=0.8092  rec=0.7915  spec=0.8164
+epoch 003  loss=0.3521  f1=0.7150  acc=0.8106  rec=0.8154  spec=0.8086
+epoch 004  loss=0.3309  f1=0.7132  acc=0.8026  rec=0.8425  spec=0.7862
+epoch 005  loss=0.3148  f1=0.7164  acc=0.8157  rec=0.7989  spec=0.8226
+epoch 006  loss=0.3026  f1=0.6839  acc=0.7742  rec=0.8382  spec=0.7479
+epoch 007  loss=0.2923  f1=0.6984  acc=0.7759  rec=0.8905  spec=0.7288
+epoch 008  loss=0.2827  f1=0.7349  acc=0.8224  rec=0.8449  spec=0.8132
+epoch 009  loss=0.2748  f1=0.7123  acc=0.8030  rec=0.8370  spec=0.7890
+epoch 010  loss=0.2678  f1=0.7520  acc=0.8445  rec=0.8092  spec=0.8589
+epoch 011  loss=0.2603  f1=0.7333  acc=0.8188  rec=0.8547  spec=0.8041
+epoch 012  loss=0.2529  f1=0.7668  acc=0.8515  rec=0.8377  spec=0.8572
+epoch 013  loss=0.2462  f1=0.7460  acc=0.8257  rec=0.8783  spec=0.8041
+epoch 014  loss=0.2404  f1=0.7000  acc=0.7833  rec=0.8675  spec=0.7487
+epoch 015  loss=0.2358  f1=0.7533  acc=0.8472  rec=0.8001  spec=0.8666
+epoch 016  loss=0.2314  f1=0.7366  acc=0.8246  rec=0.8415  spec=0.8177
+epoch 017  loss=0.2271  f1=0.7506  acc=0.8322  rec=0.8667  spec=0.8180
+epoch 018  loss=0.2230  f1=0.7592  acc=0.8415  rec=0.8572  spec=0.8350
+epoch 019  loss=0.2184  f1=0.7467  acc=0.8321  rec=0.8488  spec=0.8253
+epoch 020  loss=0.2153  f1=0.7632  acc=0.8540  rec=0.8075  spec=0.8731
+epoch 021  loss=0.2122  f1=0.7345  acc=0.8234  rec=0.8382  spec=0.8173
+epoch 022  loss=0.2086  f1=0.7493  acc=0.8328  rec=0.8574  spec=0.8227
+Early stopping at epoch 22
+{
+  "name": "cnn_lstm_attn",
+  "params": 564930,
+  "latency_ms": 1.9560223678126931,
+  "mode": "detector",
+  "decision_threshold": 0.49999999999999994,
+  "accuracy": 0.8430666666666666,
+  "precision": 0.7442525994467233,
+  "recall": 0.7937735273171228,
+  "sensitivity": 0.7937735273171227,
+  "specificity": 0.8670864111843736,
+  "f1": 0.7682158330051201,
+  "tp": 7802,
+  "tn": 17490,
+  "fp": 2681,
+  "fn": 2027,
+  "n": 30000
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_g1_v2/fold0/backbone_compare_fold0.csv

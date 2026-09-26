@@ -1,0 +1,27 @@
+
+=== Fold 0 full-test prevalence=0.3307 n=330950 ===
+--- cnn_lstm_attn ---
+  youden F1=0.7601  cost F1=0.6748  prev=0.3276  n=30000
+
+=== Fold 1 full-test prevalence=0.3394 n=322571 ===
+--- cnn_lstm_attn ---
+  youden F1=0.6826  cost F1=0.6155  prev=0.3405  n=30000
+
+=== Fold 2 full-test prevalence=0.3356 n=326202 ===
+--- cnn_lstm_attn ---
+  youden F1=0.7678  cost F1=0.6859  prev=0.3314  n=30000
+
+=== Fold 3 full-test prevalence=0.3414 n=318998 ===
+--- cnn_lstm_attn ---
+  youden F1=0.7832  cost F1=0.6995  prev=0.3356  n=30000
+
+=== Fold 4 full-test prevalence=0.3492 n=250782 ===
+--- cnn_lstm_attn ---
+  youden F1=0.7608  cost F1=0.6442  prev=0.3466  n=30000
+
+=== G1 SUMMARY (Youden F1) ===
+  cnn_lstm_attn     F1=0.7509±0.0393  [FAIL]
+
+Primary (cnn_lstm_attn) G1: FAIL (threshold 0.95)
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_protocol_g1_v2/standard_protocol_summary.json
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_protocol_g1_v2/tab_standard_protocol.tex

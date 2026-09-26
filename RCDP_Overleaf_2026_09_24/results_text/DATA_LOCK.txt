@@ -1,0 +1,127 @@
+RESULT PROVENANCE RECORD (do not fabricate results)
+
+CURRENT RECONCILIATION -- 2026-09-24
+Source: author-supplied "All results (numbers)" per-fold tables.
+Previous lock/addendum below are retained as HISTORICAL records;
+where they disagree, this count-based reconciliation applies.
+
+Primary source: reported_counts.csv, evaluation=main_ablation.
+80 supplied count rows cover main_ablation, agentic_timing, g2_features
+and llm_shared. These are aggregates, not independently verified logs.
+
+Main stack: F1 0.886929±0.029030, recall 0.976581±0.037057,
+precision 0.813165±0.036375, specificity 0.827539±0.038836,
+cost/1000 199.8±164.451209. Print specificity as 0.828±0.039.
+Main Tier-1: F1 0.758560±0.013765, cost 1150.8±92.567273.
+gate_knn: F1 0.752549±0.011713, recall 0.723168±0.032387, cost 1286.
+Paired F1 delta 0.128369; percentile interval [0.117,0.147].
+Paired recall delta 0.217945; percentile interval [0.187,0.248].
+Paired cost delta -951; percentile interval [-1079,-825].
+Intervals are descriptive fold-bootstrap summaries, not significance proof.
+
+Timing run: F1 0.886579±0.029697, cost 200.2±164.879350;
+precision 0.812597±0.037532, specificity 0.826837±0.039929.
+Compared with primary, FP differs by +1/-1/+2 in folds 1/3/4.
+This resolves the mixed-run precision/specificity discrepancy.
+Extended aggregate F1 0.877±0.071 / cost 208 is NOT the aggregate of
+the five primary rows. Repeated folds and distinct runs exist in that
+export; its exact aggregation provenance still needs manifests.
+
+G2 counts: always-fall F1 0.814358, cost 311.25; GBM F1 0.780195,
+cost 1366.25. Costs are per 1000 escalated cases, excluding compute.
+Matched LLM-set always-fall: F1 0.789776, cost 346.666667.
+Mistral: F1 0.972216, cost 37.333333; Qwen-Coder: F1 0.822986,
+cost 280. Both improve on the matched constant prediction.
+Feature and LLM cases remain unmatched to each other.
+
+Detector folds: backbone_f1.csv and g1_v2.csv.
+E1 CNN-LSTM-Attention 0.717±0.022, ModernTCN 0.743±0.015;
+retrained CNN-LSTM-Attention 0.739±0.030, ModernTCN 0.760±0.030.
+v2 Youden 0.751±0.039; cost setting 0.664; max-F1-labelled setting
+0.743 from rounded folds (separately supplied summary was 0.744).
+Standard/enriched results are not uniformly similar: PatchTST 0.541->0.672.
+No universal ceiling or field-wide collapse claim is justified.
+
+See RESULTS_RECONCILIATION.md for missing methods/author requirements.
+
+HISTORICAL LOCK -- retained for traceability, not current instructions
+================================================================
+Source: results/GUIDE_BRIEF.md + results/astar/ + results/seed_sweep/
+
+Ambiguous stress bench (SisFall D18/D19, n=300/fold):
+  Tier-1 F1  0.713  ->  Stack F1  0.896   (dF1 +0.183)
+  Recall     0.768  ->  0.976             (dRec +0.208)
+  Cost/win   0.90   ->  0.15              (-84%)
+  Escalation ~0.59 (by design under high ambiguity)
+
+Main SisFall protocol (n=1000/fold, 5-fold):
+  F1         0.759±0.014 -> 0.887±0.029
+  Recall     0.759±0.022 -> 0.977±0.037
+  Cost/1000  1151±93     -> 200±164       (~83% reduction)
+  BCa CI dF1 [0.119, 0.144]; 5/5 fold sign consistency
+  Escalation ~0.47 (±0.08)
+
+KFall external binary (stability, NOT breakthrough):
+  F1 0.987±0.005 -> 0.990±0.004  (dF1 +0.003)
+  Escalation ~0.011
+
+Seeds Fold-0 Ollama/Mistral {42,43,44}:
+  Stack F1 mean 0.905±0.005
+  Seed42 0.909 | Seed43 0.907 | Seed44 0.899
+
+G_faith (contrastive critique): 0.436 -> 0.843
+
+DO NOT CLAIM:
+  - DTW kNN, conformal guarantees on Track A cost gate
+  - Energy profiling / embedded hardware
+  - KFall F1 0.62->0.81
+  - Sub-5% System-2 duty cycle on SisFall main/ambiguous
+
+FOLLOW-UP SUMMARY ADDENDUM (2026-09-24; separate from original lock)
+================================================================
+Source: author-provided experiment summary retained in the conversation.
+Raw follow-up predictions, manifests and per-fold exports are not present
+in this manuscript workspace. The following are reported summaries, not
+independently reproduced experiments or a replacement primary data lock.
+
+G1 detector follow-up:
+  Best observed SI F1 approximately 0.76; primary retrained v2 Youden
+  F1 0.751±0.039. Cost-oriented F1 0.664; maximum-F1 setting 0.744.
+  Standard and enriched F1 reported as similar, not evidence of a
+  universal ceiling or a field-wide near-fall collapse.
+  Keep original Fold-0 zoo table explicitly labelled as archived.
+  Do not invent per-model or per-fold follow-up rows.
+
+G2 feature-adjudicator follow-up (different cases from LLM comparison):
+  Always-fall F1 0.814; approximate cost/1000 311.
+  Gradient-boosting F1 0.780.
+  Constant baseline identities: F1=2q/(1+q), cost/1000=1000(1-q).
+  At q approximately 0.689 these round to F1 0.816 and cost 311;
+  the reported mean F1 0.814 need not equal F1 at pooled/mean q.
+  GBM cost is not added: exact per-fold counts/derivation are absent.
+
+Shared-ID LLM comparison, additional reported summaries:
+  Mistral accuracy 0.963, cost/1000 escalated windows 37.
+  Qwen recall 1.0, cost/1000 escalated windows 280.
+  No paired GBM-vs-Mistral or LLM-necessity claim across case sets.
+
+Reported logged full-stack operating-point summaries:
+  Precision 0.813±0.038; specificity 0.827±0.040.
+  Reconstructed counts retain means 0.813/0.827 with stds 0.036/0.039.
+  Do not relabel reconstructed per-fold counts as logged ground truth.
+
+Unresolved follow-up vs locked ablation discrepancies:
+  gate_knn: follow-up F1/recall/cost 0.759/0.735/1230.5;
+            locked F1/recall/cost 0.753/0.723/1286.
+  gate_knn_llm: follow-up F1 0.877±0.071, cost 208;
+                locked F1 0.887±0.029, cost 200.
+  Preserve both records separately; reconcile case IDs, checkpoints,
+  training balance, threshold selection, seeds and budgets before submission.
+
+Additional claim restrictions:
+  - Bayes threshold optimality requires calibrated posterior probabilities.
+  - Classification-cost savings exclude the deferral penalty lambda.
+  - Edge-conditional FN is not conformal marginal miscoverage.
+  - Enriched-cohort duty cycles are not guaranteed free-living upper bounds.
+  - Near-fall zoo column, cross-backbone wrapping (R2), and cost-tuned
+    feature baselines on identical LLM case IDs remain outstanding.

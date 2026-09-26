@@ -1,0 +1,65 @@
+{
+  "status": "fold0_partial_n4000_then_restarted_faster",
+  "harmamba_train_fold0": {
+    "best_val_f1": 0.8045795499407817,
+    "test_cost_thr_f1": 0.7227078296447833
+  },
+  "harmamba_ablation_fold0_from_log": {
+    "tier1_only": {
+      "f1": 0.786074672048436,
+      "recall": 0.7928753180661577,
+      "expected_response_cost": 4511.0,
+      "n_note": "partial_or_full from n=4000 ablation log"
+    },
+    "gate_only": {
+      "f1": 0.786074672048436,
+      "recall": 0.7928753180661577,
+      "expected_response_cost": 4511.0,
+      "n_note": "partial_or_full from n=4000 ablation log"
+    },
+    "gate_knn": {
+      "f1": 0.7816571130797291,
+      "recall": 0.7633587786259542,
+      "expected_response_cost": 5023.0,
+      "n_note": "partial_or_full from n=4000 ablation log"
+    },
+    "gate_llm": {
+      "f1": 0.7604675876726886,
+      "recall": 0.9104325699745547,
+      "expected_response_cost": 2711.0,
+      "n_note": "partial_or_full from n=4000 ablation log"
+    }
+  },
+  "cnn_lstm_attn_ablation_fold0_baseline": {
+    "cnn_lstm_attn": {
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809,
+      "expected_response_cost": null
+    },
+    "tier1_only": {
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809,
+      "expected_response_cost": 1042.0
+    },
+    "gate_only": {
+      "f1": 0.7736720554272517,
+      "recall": 0.7808857808857809,
+      "expected_response_cost": 1042.0
+    },
+    "gate_knn": {
+      "f1": 0.7705112960760999,
+      "recall": 0.7552447552447552,
+      "expected_response_cost": 1138.0
+    },
+    "gate_llm": {
+      "f1": 0.7167736021998167,
+      "recall": 0.9114219114219114,
+      "expected_response_cost": 651.0
+    },
+    "gate_knn_llm": {
+      "f1": 0.8924050632911392,
+      "recall": 0.986013986013986,
+      "expected_response_cost": 156.0
+    }
+  }
+}

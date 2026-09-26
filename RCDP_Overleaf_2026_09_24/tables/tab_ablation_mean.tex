@@ -1,0 +1,16 @@
+\begin{table}[!t]
+\centering
+\caption{Main-ablation evaluation, five-fold mean$\pm$sample std recomputed from supplied per-fold confusion counts ($n{=}1000$/fold). Each mode contributes once per fold. \texttt{gate\_only} and \texttt{tier1\_only} have identical counts; cost excludes deferral overhead. These rows reproduce the original main comparison. Extended-mode exports contain repeated folds and distinct runs and are not pooled into this estimate.}
+\label{tab:ablationmean}
+\begin{tabular}{lccc}
+\toprule
+Mode & F1 & Recall & Cost/1000 \\
+\midrule
+\texttt{tier1\_only} & 0.759$\pm$0.014 & 0.759$\pm$0.022 & 1151$\pm$93 \\
+\texttt{gate\_only}  & 0.759$\pm$0.014 & 0.759$\pm$0.022 & 1151$\pm$93 \\
+\texttt{gate\_knn}   & 0.753$\pm$0.012 & 0.723$\pm$0.032 & 1286$\pm$133 \\
+\texttt{gate\_llm}   & 0.702$\pm$0.021 & 0.895$\pm$0.027 & 740$\pm$105 \\
+\texttt{gate\_knn\_llm} & 0.887$\pm$0.029 & 0.977$\pm$0.037 & 200$\pm$164 \\
+\bottomrule
+\end{tabular}
+\end{table}

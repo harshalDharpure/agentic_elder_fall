@@ -1,0 +1,17 @@
+\begin{table}[!t]
+\centering
+\caption{\textbf{Fixed-threshold control.} Threshold $\tau^\ast{=}1/(\beta{+}1){=}0.091$ for $\beta{=}10$, without deferral (SisFall, $n{=}1000$/fold). Bayes optimality requires calibrated posteriors; better empirically tuned thresholds are not ruled out. Values marked $^\dagger$ are approximate plug-in estimates from rounded aggregate F1, recall and main-run prevalence, not fold-wise measurements. All stack classification metrics use main-ablation counts, as in Table~\ref{tab:meanstd}; escalation is from the separate timing run.}
+\label{tab:partitionfallback}
+\begin{tabular}{lcc}
+\toprule
+Metric & $\tau^\ast$ fallback & \texttt{gate\_knn\_llm} \\
+\midrule
+F1              & 0.639 $\pm$ 0.006 & \textbf{0.887 $\pm$ 0.029} \\
+Recall          & \textbf{0.988 $\pm$ 0.008} & 0.977 $\pm$ 0.037 \\
+Precision       & 0.47$^\dagger$ & \textbf{0.813 $\pm$ 0.036} \\
+Specificity     & 0.16$^\dagger$ & \textbf{0.828 $\pm$ 0.039} \\
+Cost/1000       & $\approx$530$^\dagger$ & \textbf{200 $\pm$ 164} \\
+Escalation rate & 0.00 & 0.47 \\
+\bottomrule
+\end{tabular}
+\end{table}

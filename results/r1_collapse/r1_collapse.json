@@ -1,0 +1,94 @@
+{
+  "rows": [
+    {
+      "backbone": "cnn1d",
+      "standard_f1": 0.7006086766018008,
+      "standard_f1_std": 0.030768703146444684,
+      "main_enriched_f1": 0.7052926506341486,
+      "main_enriched_f1_std": 0.015377105539625752,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "lstm",
+      "standard_f1": 0.692838734588947,
+      "standard_f1_std": 0.01604168259892464,
+      "main_enriched_f1": 0.7042434994616869,
+      "main_enriched_f1_std": 0.007873047615756948,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "cnn_lstm",
+      "standard_f1": 0.6963210428380875,
+      "standard_f1_std": 0.010322660076267455,
+      "main_enriched_f1": 0.699643819752803,
+      "main_enriched_f1_std": 0.006406466035186977,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "cnn_lstm_attn",
+      "standard_f1": 0.7176452293211467,
+      "standard_f1_std": 0.02231495696567222,
+      "main_enriched_f1": 0.714802617108838,
+      "main_enriched_f1_std": 0.004928011426419281,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "tcn",
+      "standard_f1": 0.7019141733119963,
+      "standard_f1_std": 0.02860813901583002,
+      "main_enriched_f1": 0.7047650114636965,
+      "main_enriched_f1_std": 0.021355359037942584,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "modern_tcn",
+      "standard_f1": 0.7424389052497762,
+      "standard_f1_std": 0.01465086335980728,
+      "main_enriched_f1": 0.7342889465052427,
+      "main_enriched_f1_std": 0.012232724069011264,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "tsmixer",
+      "standard_f1": 0.6709174260046743,
+      "standard_f1_std": 0.021531026840967613,
+      "main_enriched_f1": 0.6879355554883377,
+      "main_enriched_f1_std": 0.006856824247291663,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "patchtst",
+      "standard_f1": 0.5407278403156583,
+      "standard_f1_std": 0.008542280372069631,
+      "main_enriched_f1": 0.6718269441861151,
+      "main_enriched_f1_std": 0.0031530334561950557,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    },
+    {
+      "backbone": "transformer",
+      "standard_f1": 0.6899809010382053,
+      "standard_f1_std": 0.012285628648040671,
+      "main_enriched_f1": 0.6828691067041766,
+      "main_enriched_f1_std": 0.009594722768650319,
+      "nearfall_f1": null,
+      "nearfall_f1_std": null,
+      "g1_pass": false
+    }
+  ]
+}

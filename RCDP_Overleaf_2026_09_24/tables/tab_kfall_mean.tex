@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{KFall external validation, five-fold mean$\pm$std (binary Fall/ADL, $n{=}1000$ windows/fold). Deltas are \texttt{gate\_knn\_llm}$-$\texttt{tier1\_only} over the same checkpoints and folds; intervals are percentile bootstrap ($10^{4}$ resamples, seed $42$). Tier-1 is already near ceiling, so this is a \emph{stability} check, not an improvement claim: the F1 interval touches zero and one fold regresses. We omit Wilcoxon $p$-values here because one recall delta is exactly zero, leaving four effective pairs---too few for the test to be informative.}
+\label{tab:kfallmean}
+\begin{tabular}{lccc}
+\toprule
+Mode & F1 & Recall & Cost/1000 \\
+\midrule
+\texttt{tier1\_only}   & 0.987$\pm$0.005 & 0.991$\pm$0.007 & 50$\pm$35 \\
+\textbf{\texttt{gate\_knn\_llm}} & \textbf{0.990$\pm$0.004} & \textbf{0.996$\pm$0.002} & \textbf{26$\pm$12} \\
+\midrule
+\multicolumn{4}{l}{\textit{Paired $\Delta$ (stack $-$ Tier-1)}} \\
+\midrule
+Metric & Mean $\Delta$ & Percentile 95\% CI & Sign \\
+\midrule
+F1        & $+0.003$  & $[0.000,\ 0.006]$  & 4/5 \\
+Recall    & $+0.005$  & $[0.001,\ 0.010]$  & 4/5 \\
+Cost/1000 & $-24.2$   & $[-48.4,\ -5.8]$   & 4/5 \\
+\bottomrule
+\end{tabular}
+\end{table}

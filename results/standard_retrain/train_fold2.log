@@ -1,0 +1,71 @@
+
+=== Training cnn_lstm_attn fold=2 ===
+epoch 001  loss=0.5737  f1=0.7535  acc=0.7711  rec=0.6998  spec=0.8424
+epoch 002  loss=0.5288  f1=0.7559  acc=0.7683  rec=0.7174  spec=0.8192
+epoch 003  loss=0.5201  f1=0.7691  acc=0.7703  rec=0.7650  spec=0.7756
+epoch 004  loss=0.5149  f1=0.7755  acc=0.7764  rec=0.7722  spec=0.7806
+epoch 005  loss=0.5092  f1=0.7691  acc=0.7817  rec=0.7272  spec=0.8362
+epoch 006  loss=0.4963  f1=0.7652  acc=0.7739  rec=0.7368  spec=0.8110
+epoch 007  loss=0.4918  f1=0.7724  acc=0.7830  rec=0.7366  spec=0.8294
+epoch 008  loss=0.4869  f1=0.7688  acc=0.7863  rec=0.7106  spec=0.8620
+epoch 009  loss=0.4756  f1=0.7791  acc=0.7900  rec=0.7408  spec=0.8392
+epoch 010  loss=0.4797  f1=0.7803  acc=0.7918  rec=0.7396  spec=0.8440
+epoch 011  loss=0.4792  f1=0.7890  acc=0.7975  rec=0.7574  spec=0.8376
+epoch 012  loss=0.4662  f1=0.7755  acc=0.7882  rec=0.7316  spec=0.8448
+epoch 013  loss=0.4620  f1=0.7806  acc=0.7976  rec=0.7202  spec=0.8750
+epoch 014  loss=0.4584  f1=0.7781  acc=0.7951  rec=0.7184  spec=0.8718
+epoch 015  loss=0.4592  f1=0.7867  acc=0.8008  rec=0.7346  spec=0.8670
+epoch 016  loss=0.4570  f1=0.8014  acc=0.8034  rec=0.7934  spec=0.8134
+epoch 017  loss=0.4495  f1=0.8030  acc=0.8050  rec=0.7950  spec=0.8150
+epoch 018  loss=0.4530  f1=0.8016  acc=0.8027  rec=0.7972  spec=0.8082
+epoch 019  loss=0.4498  f1=0.7930  acc=0.8037  rec=0.7520  spec=0.8554
+epoch 020  loss=0.4491  f1=0.7911  acc=0.8045  rec=0.7402  spec=0.8688
+epoch 021  loss=0.4447  f1=0.7856  acc=0.7990  rec=0.7366  spec=0.8614
+epoch 022  loss=0.4356  f1=0.7986  acc=0.8127  rec=0.7426  spec=0.8828
+epoch 023  loss=0.4395  f1=0.8022  acc=0.8032  rec=0.7980  spec=0.8084
+epoch 024  loss=0.4422  f1=0.8000  acc=0.8113  rec=0.7546  spec=0.8680
+epoch 025  loss=0.4282  f1=0.8032  acc=0.8171  rec=0.7464  spec=0.8878
+epoch 026  loss=0.4313  f1=0.8000  acc=0.8124  rec=0.7506  spec=0.8742
+epoch 027  loss=0.4348  f1=0.8090  acc=0.8158  rec=0.7800  spec=0.8516
+epoch 028  loss=0.4259  f1=0.7932  acc=0.8050  rec=0.7480  spec=0.8620
+epoch 029  loss=0.4279  f1=0.8107  acc=0.8201  rec=0.7704  spec=0.8698
+epoch 030  loss=0.4206  f1=0.7952  acc=0.8099  rec=0.7380  spec=0.8818
+epoch 031  loss=0.4210  f1=0.8064  acc=0.8183  rec=0.7568  spec=0.8798
+epoch 032  loss=0.4220  f1=0.8115  acc=0.8191  rec=0.7788  spec=0.8594
+epoch 033  loss=0.4197  f1=0.8126  acc=0.8169  rec=0.7942  spec=0.8396
+epoch 034  loss=0.4067  f1=0.8077  acc=0.8151  rec=0.7764  spec=0.8538
+epoch 035  loss=0.4183  f1=0.8128  acc=0.8202  rec=0.7806  spec=0.8598
+epoch 036  loss=0.4132  f1=0.8101  acc=0.8146  rec=0.7910  spec=0.8382
+epoch 037  loss=0.4234  f1=0.8152  acc=0.8202  rec=0.7932  spec=0.8472
+epoch 038  loss=0.4141  f1=0.8068  acc=0.8161  rec=0.7682  spec=0.8640
+epoch 039  loss=0.4090  f1=0.8125  acc=0.8227  rec=0.7684  spec=0.8770
+epoch 040  loss=0.4179  f1=0.8054  acc=0.8155  rec=0.7636  spec=0.8674
+epoch 041  loss=0.4101  f1=0.7989  acc=0.8129  rec=0.7432  spec=0.8826
+epoch 042  loss=0.3976  f1=0.8086  acc=0.8164  rec=0.7756  spec=0.8572
+epoch 043  loss=0.3990  f1=0.8136  acc=0.8223  rec=0.7756  spec=0.8690
+epoch 044  loss=0.4097  f1=0.8108  acc=0.8194  rec=0.7740  spec=0.8648
+epoch 045  loss=0.4097  f1=0.8076  acc=0.8158  rec=0.7730  spec=0.8586
+epoch 046  loss=0.4063  f1=0.8104  acc=0.8136  rec=0.7968  spec=0.8304
+epoch 047  loss=0.4062  f1=0.8075  acc=0.8129  rec=0.7846  spec=0.8412
+epoch 048  loss=0.3982  f1=0.8045  acc=0.8134  rec=0.7678  spec=0.8590
+epoch 049  loss=0.3999  f1=0.8115  acc=0.8169  rec=0.7880  spec=0.8458
+Early stopping at epoch 49
+{
+  "name": "cnn_lstm_attn",
+  "params": 564930,
+  "latency_ms": 2.7110626362264156,
+  "mode": "detector",
+  "decision_threshold": 0.49999999999999994,
+  "accuracy": 0.8139,
+  "precision": 0.8363694813544792,
+  "recall": 0.7805,
+  "sensitivity": 0.7804999999999999,
+  "specificity": 0.8472999999999998,
+  "f1": 0.8074694806538382,
+  "tp": 7805,
+  "tn": 8473,
+  "fp": 1527,
+  "fn": 2195,
+  "n": 20000
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_retrain/fold2/backbone_compare_fold2.csv

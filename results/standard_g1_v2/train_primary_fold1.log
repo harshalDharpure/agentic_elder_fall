@@ -1,0 +1,41 @@
+split sizes train=1077980 val=20000 test=30000 train_prev=0.3447 train_stratified=False
+
+=== Training cnn_lstm_attn fold=1 ===
+epoch 001  loss=0.4461  f1=0.6787  acc=0.7678  rec=0.8410  spec=0.7376
+epoch 002  loss=0.3626  f1=0.7506  acc=0.8440  rec=0.8049  spec=0.8602
+epoch 003  loss=0.3304  f1=0.7555  acc=0.8608  rec=0.7378  spec=0.9113
+epoch 004  loss=0.3108  f1=0.7867  acc=0.8723  rec=0.8076  spec=0.8989
+epoch 005  loss=0.2884  f1=0.7654  acc=0.8538  rec=0.8181  spec=0.8685
+epoch 006  loss=0.2726  f1=0.7581  acc=0.8433  rec=0.8421  spec=0.8438
+epoch 007  loss=0.2600  f1=0.7840  acc=0.8639  rec=0.8469  spec=0.8710
+epoch 008  loss=0.2506  f1=0.7970  acc=0.8782  rec=0.8194  spec=0.9025
+epoch 009  loss=0.2414  f1=0.7806  acc=0.8611  rec=0.8472  spec=0.8669
+epoch 010  loss=0.2317  f1=0.7763  acc=0.8538  rec=0.8697  spec=0.8473
+epoch 011  loss=0.2219  f1=0.7721  acc=0.8537  rec=0.8500  spec=0.8552
+epoch 012  loss=0.2133  f1=0.7682  acc=0.8478  rec=0.8652  spec=0.8406
+epoch 013  loss=0.2066  f1=0.7709  acc=0.8619  rec=0.7965  spec=0.8889
+epoch 014  loss=0.1985  f1=0.7884  acc=0.8699  rec=0.8311  spec=0.8859
+epoch 015  loss=0.1936  f1=0.7849  acc=0.8646  rec=0.8471  spec=0.8718
+epoch 016  loss=0.1879  f1=0.7704  acc=0.8544  rec=0.8378  spec=0.8612
+epoch 017  loss=0.1831  f1=0.7894  acc=0.8772  rec=0.7888  spec=0.9137
+epoch 018  loss=0.1782  f1=0.7784  acc=0.8558  rec=0.8680  spec=0.8509
+Early stopping at epoch 18
+{
+  "name": "cnn_lstm_attn",
+  "params": 564930,
+  "latency_ms": 1.9615477416664362,
+  "mode": "detector",
+  "decision_threshold": 0.37399999999999994,
+  "accuracy": 0.7548666666666667,
+  "precision": 0.6096590465787626,
+  "recall": 0.7687161829808166,
+  "sensitivity": 0.7687161829808163,
+  "specificity": 0.7477690950340308,
+  "f1": 0.6800104429553564,
+  "tp": 7814,
+  "tn": 14832,
+  "fp": 5003,
+  "fn": 2351,
+  "n": 30000
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_g1_v2/fold1/backbone_compare_fold1.csv

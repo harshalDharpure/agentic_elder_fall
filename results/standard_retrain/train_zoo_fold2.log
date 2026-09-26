@@ -1,0 +1,489 @@
+
+=== Training cnn1d fold=2 ===
+epoch 001  loss=0.5732  f1=0.7508  acc=0.7748  rec=0.6784  spec=0.8712
+epoch 002  loss=0.5198  f1=0.7632  acc=0.7774  rec=0.7176  spec=0.8372
+epoch 003  loss=0.5076  f1=0.7640  acc=0.7765  rec=0.7234  spec=0.8296
+epoch 004  loss=0.4993  f1=0.7761  acc=0.7808  rec=0.7598  spec=0.8018
+epoch 005  loss=0.4874  f1=0.7633  acc=0.7862  rec=0.6896  spec=0.8828
+epoch 006  loss=0.4744  f1=0.7758  acc=0.7869  rec=0.7372  spec=0.8366
+epoch 007  loss=0.4665  f1=0.7753  acc=0.7930  rec=0.7142  spec=0.8718
+epoch 008  loss=0.4586  f1=0.7916  acc=0.7974  rec=0.7698  spec=0.8250
+epoch 009  loss=0.4462  f1=0.7715  acc=0.7823  rec=0.7352  spec=0.8294
+epoch 010  loss=0.4519  f1=0.7835  acc=0.7951  rec=0.7414  spec=0.8488
+epoch 011  loss=0.4506  f1=0.7904  acc=0.7989  rec=0.7582  spec=0.8396
+epoch 012  loss=0.4383  f1=0.7916  acc=0.8045  rec=0.7426  spec=0.8664
+epoch 013  loss=0.4330  f1=0.7882  acc=0.7931  rec=0.7700  spec=0.8162
+epoch 014  loss=0.4323  f1=0.7738  acc=0.7873  rec=0.7278  spec=0.8468
+epoch 015  loss=0.4308  f1=0.7944  acc=0.8047  rec=0.7544  spec=0.8550
+epoch 016  loss=0.4312  f1=0.7764  acc=0.7863  rec=0.7422  spec=0.8304
+epoch 017  loss=0.4221  f1=0.7873  acc=0.7912  rec=0.7730  spec=0.8094
+epoch 018  loss=0.4259  f1=0.7959  acc=0.8025  rec=0.7700  spec=0.8350
+epoch 019  loss=0.4253  f1=0.7846  acc=0.7939  rec=0.7508  spec=0.8370
+epoch 020  loss=0.4239  f1=0.7916  acc=0.7972  rec=0.7704  spec=0.8240
+epoch 021  loss=0.4199  f1=0.7856  acc=0.8006  rec=0.7308  spec=0.8704
+epoch 022  loss=0.4110  f1=0.7875  acc=0.7887  rec=0.7832  spec=0.7942
+epoch 023  loss=0.4130  f1=0.7917  acc=0.7930  rec=0.7868  spec=0.7992
+epoch 024  loss=0.4192  f1=0.7881  acc=0.7995  rec=0.7458  spec=0.8532
+epoch 025  loss=0.4035  f1=0.7971  acc=0.8006  rec=0.7832  spec=0.8180
+epoch 026  loss=0.4082  f1=0.7969  acc=0.7982  rec=0.7918  spec=0.8046
+epoch 027  loss=0.4108  f1=0.7897  acc=0.7920  rec=0.7812  spec=0.8028
+epoch 028  loss=0.4025  f1=0.7901  acc=0.8001  rec=0.7524  spec=0.8478
+epoch 029  loss=0.4051  f1=0.7966  acc=0.7994  rec=0.7856  spec=0.8132
+epoch 030  loss=0.3975  f1=0.7958  acc=0.7927  rec=0.8078  spec=0.7776
+epoch 031  loss=0.3968  f1=0.7899  acc=0.8018  rec=0.7450  spec=0.8586
+epoch 032  loss=0.4020  f1=0.8008  acc=0.8011  rec=0.7998  spec=0.8024
+epoch 033  loss=0.3974  f1=0.7972  acc=0.7935  rec=0.8118  spec=0.7752
+epoch 034  loss=0.3842  f1=0.7957  acc=0.8051  rec=0.7590  spec=0.8512
+epoch 035  loss=0.3968  f1=0.7936  acc=0.7999  rec=0.7692  spec=0.8306
+epoch 036  loss=0.3917  f1=0.7990  acc=0.8012  rec=0.7904  spec=0.8120
+epoch 037  loss=0.4008  f1=0.7988  acc=0.8040  rec=0.7780  spec=0.8300
+epoch 038  loss=0.3913  f1=0.8032  acc=0.8049  rec=0.7964  spec=0.8134
+epoch 039  loss=0.3868  f1=0.7973  acc=0.8065  rec=0.7612  spec=0.8518
+epoch 040  loss=0.3967  f1=0.8009  acc=0.7952  rec=0.8236  spec=0.7668
+epoch 041  loss=0.3886  f1=0.7989  acc=0.8023  rec=0.7854  spec=0.8192
+epoch 042  loss=0.3758  f1=0.8004  acc=0.8019  rec=0.7944  spec=0.8094
+epoch 043  loss=0.3775  f1=0.7996  acc=0.8056  rec=0.7758  spec=0.8354
+epoch 044  loss=0.3877  f1=0.7965  acc=0.8030  rec=0.7712  spec=0.8348
+epoch 045  loss=0.3894  f1=0.7974  acc=0.8034  rec=0.7736  spec=0.8332
+epoch 046  loss=0.3864  f1=0.7965  acc=0.8034  rec=0.7694  spec=0.8374
+epoch 047  loss=0.3852  f1=0.7969  acc=0.8017  rec=0.7782  spec=0.8252
+epoch 048  loss=0.3781  f1=0.8046  acc=0.8088  rec=0.7874  spec=0.8302
+epoch 049  loss=0.3799  f1=0.7995  acc=0.7997  rec=0.7988  spec=0.8006
+epoch 050  loss=0.3801  f1=0.8003  acc=0.8059  rec=0.7780  spec=0.8338
+epoch 051  loss=0.3714  f1=0.8010  acc=0.8047  rec=0.7860  spec=0.8234
+epoch 052  loss=0.3766  f1=0.8020  acc=0.8056  rec=0.7876  spec=0.8236
+epoch 053  loss=0.3695  f1=0.7991  acc=0.8039  rec=0.7800  spec=0.8278
+epoch 054  loss=0.3801  f1=0.8024  acc=0.8060  rec=0.7880  spec=0.8240
+epoch 055  loss=0.3776  f1=0.7990  acc=0.8033  rec=0.7820  spec=0.8246
+epoch 056  loss=0.3798  f1=0.8002  acc=0.8067  rec=0.7742  spec=0.8392
+epoch 057  loss=0.3685  f1=0.8011  acc=0.8055  rec=0.7834  spec=0.8276
+epoch 058  loss=0.3811  f1=0.8010  acc=0.8053  rec=0.7836  spec=0.8270
+epoch 059  loss=0.3745  f1=0.8013  acc=0.8052  rec=0.7858  spec=0.8246
+epoch 060  loss=0.3690  f1=0.8016  acc=0.8058  rec=0.7848  spec=0.8268
+Early stopping at epoch 60
+{
+  "name": "cnn1d",
+  "params": 43330,
+  "latency_ms": 0.32401793636381626,
+  "mode": "detector",
+  "decision_threshold": 0.5630000000000001,
+  "accuracy": 0.8182,
+  "precision": 0.8808042125418861,
+  "recall": 0.736,
+  "sensitivity": 0.7359999999999999,
+  "specificity": 0.9003999999999999,
+  "f1": 0.8019176291130965,
+  "tp": 7360,
+  "tn": 9004,
+  "fp": 996,
+  "fn": 2640,
+  "n": 20000
+}
+
+=== Training lstm fold=2 ===
+epoch 001  loss=0.5528  f1=0.6918  acc=0.7424  rec=0.5782  spec=0.9066
+epoch 002  loss=0.5271  f1=0.7629  acc=0.7751  rec=0.7236  spec=0.8266
+epoch 003  loss=0.5106  f1=0.7725  acc=0.7750  rec=0.7640  spec=0.7860
+epoch 004  loss=0.4949  f1=0.7787  acc=0.7761  rec=0.7878  spec=0.7644
+epoch 005  loss=0.4918  f1=0.7850  acc=0.7850  rec=0.7850  spec=0.7850
+epoch 006  loss=0.4846  f1=0.7836  acc=0.7819  rec=0.7898  spec=0.7740
+epoch 007  loss=0.4754  f1=0.7783  acc=0.7871  rec=0.7476  spec=0.8266
+epoch 008  loss=0.4636  f1=0.7697  acc=0.7678  rec=0.7760  spec=0.7596
+epoch 009  loss=0.4582  f1=0.7725  acc=0.7847  rec=0.7310  spec=0.8384
+epoch 010  loss=0.4498  f1=0.7837  acc=0.7860  rec=0.7752  spec=0.7968
+epoch 011  loss=0.4469  f1=0.7849  acc=0.7932  rec=0.7548  spec=0.8316
+epoch 012  loss=0.4399  f1=0.7822  acc=0.7952  rec=0.7354  spec=0.8550
+epoch 013  loss=0.4290  f1=0.7933  acc=0.7998  rec=0.7684  spec=0.8312
+epoch 014  loss=0.4293  f1=0.7880  acc=0.8004  rec=0.7418  spec=0.8590
+epoch 015  loss=0.4145  f1=0.7843  acc=0.7852  rec=0.7812  spec=0.7892
+epoch 016  loss=0.4147  f1=0.7903  acc=0.7971  rec=0.7648  spec=0.8294
+epoch 017  loss=0.4122  f1=0.7689  acc=0.7805  rec=0.7302  spec=0.8308
+epoch 018  loss=0.4040  f1=0.7819  acc=0.7797  rec=0.7896  spec=0.7698
+epoch 019  loss=0.3979  f1=0.7859  acc=0.7885  rec=0.7762  spec=0.8008
+epoch 020  loss=0.3960  f1=0.7862  acc=0.7898  rec=0.7730  spec=0.8066
+epoch 021  loss=0.3987  f1=0.7866  acc=0.7874  rec=0.7838  spec=0.7910
+epoch 022  loss=0.3907  f1=0.7803  acc=0.7890  rec=0.7494  spec=0.8286
+epoch 023  loss=0.3894  f1=0.7834  acc=0.7895  rec=0.7614  spec=0.8176
+epoch 024  loss=0.3868  f1=0.7880  acc=0.7957  rec=0.7596  spec=0.8318
+epoch 025  loss=0.3863  f1=0.7805  acc=0.7851  rec=0.7642  spec=0.8060
+Early stopping at epoch 25
+{
+  "name": "lstm",
+  "params": 201986,
+  "latency_ms": 1.948811300098896,
+  "mode": "detector",
+  "decision_threshold": 0.49999999999999994,
+  "accuracy": 0.79515,
+  "precision": 0.8284919309961046,
+  "recall": 0.7444,
+  "sensitivity": 0.7443999999999998,
+  "specificity": 0.8458999999999999,
+  "f1": 0.7841980510929681,
+  "tp": 7444,
+  "tn": 8459,
+  "fp": 1541,
+  "fn": 2556,
+  "n": 20000
+}
+
+=== Training cnn_lstm fold=2 ===
+epoch 001  loss=0.5576  f1=0.7352  acc=0.7595  rec=0.6678  spec=0.8512
+epoch 002  loss=0.5259  f1=0.7716  acc=0.7761  rec=0.7562  spec=0.7960
+epoch 003  loss=0.5116  f1=0.7707  acc=0.7781  rec=0.7460  spec=0.8102
+epoch 004  loss=0.5008  f1=0.7725  acc=0.7841  rec=0.7332  spec=0.8350
+epoch 005  loss=0.4925  f1=0.7716  acc=0.7848  rec=0.7272  spec=0.8424
+epoch 006  loss=0.4787  f1=0.7614  acc=0.7809  rec=0.6990  spec=0.8628
+epoch 007  loss=0.4770  f1=0.7689  acc=0.7790  rec=0.7354  spec=0.8226
+epoch 008  loss=0.4684  f1=0.7785  acc=0.7889  rec=0.7420  spec=0.8358
+epoch 009  loss=0.4585  f1=0.7964  acc=0.8011  rec=0.7778  spec=0.8244
+epoch 010  loss=0.4507  f1=0.7893  acc=0.8014  rec=0.7438  spec=0.8590
+epoch 011  loss=0.4376  f1=0.7953  acc=0.8047  rec=0.7588  spec=0.8506
+epoch 012  loss=0.4344  f1=0.7825  acc=0.7932  rec=0.7442  spec=0.8422
+epoch 013  loss=0.4335  f1=0.8099  acc=0.8061  rec=0.8260  spec=0.7862
+epoch 014  loss=0.4132  f1=0.7897  acc=0.7919  rec=0.7816  spec=0.8022
+epoch 015  loss=0.4096  f1=0.7968  acc=0.7967  rec=0.7972  spec=0.7962
+epoch 016  loss=0.4019  f1=0.7942  acc=0.7978  rec=0.7804  spec=0.8152
+epoch 017  loss=0.4137  f1=0.8032  acc=0.8039  rec=0.8002  spec=0.8076
+epoch 018  loss=0.4061  f1=0.7952  acc=0.8034  rec=0.7632  spec=0.8436
+epoch 019  loss=0.3885  f1=0.7874  acc=0.7765  rec=0.8280  spec=0.7250
+epoch 020  loss=0.3936  f1=0.7892  acc=0.7876  rec=0.7954  spec=0.7798
+epoch 021  loss=0.3971  f1=0.7942  acc=0.7985  rec=0.7778  spec=0.8192
+epoch 022  loss=0.3824  f1=0.7791  acc=0.7965  rec=0.7176  spec=0.8754
+epoch 023  loss=0.3856  f1=0.7715  acc=0.7850  rec=0.7258  spec=0.8442
+epoch 024  loss=0.3877  f1=0.7835  acc=0.7952  rec=0.7412  spec=0.8492
+epoch 025  loss=0.3740  f1=0.7865  acc=0.7939  rec=0.7592  spec=0.8286
+Early stopping at epoch 25
+{
+  "name": "cnn_lstm",
+  "params": 86914,
+  "latency_ms": 1.0406739637255669,
+  "mode": "detector",
+  "decision_threshold": 0.554,
+  "accuracy": 0.80725,
+  "precision": 0.8142579523371177,
+  "recall": 0.7961,
+  "sensitivity": 0.7960999999999998,
+  "specificity": 0.8183999999999999,
+  "f1": 0.8050766041361177,
+  "tp": 7961,
+  "tn": 8184,
+  "fp": 1816,
+  "fn": 2039,
+  "n": 20000
+}
+
+=== Training tcn fold=2 ===
+epoch 001  loss=0.5481  f1=0.7596  acc=0.7657  rec=0.7402  spec=0.7912
+epoch 002  loss=0.5183  f1=0.7477  acc=0.7701  rec=0.6814  spec=0.8588
+epoch 003  loss=0.5123  f1=0.7518  acc=0.7752  rec=0.6810  spec=0.8694
+epoch 004  loss=0.5047  f1=0.7836  acc=0.7838  rec=0.7828  spec=0.7848
+epoch 005  loss=0.4983  f1=0.7846  acc=0.7872  rec=0.7752  spec=0.7992
+epoch 006  loss=0.4916  f1=0.7708  acc=0.7842  rec=0.7256  spec=0.8428
+epoch 007  loss=0.4874  f1=0.7864  acc=0.7880  rec=0.7804  spec=0.7956
+epoch 008  loss=0.4707  f1=0.7919  acc=0.7926  rec=0.7894  spec=0.7958
+epoch 009  loss=0.4644  f1=0.7829  acc=0.7998  rec=0.7220  spec=0.8776
+epoch 010  loss=0.4560  f1=0.8090  acc=0.8076  rec=0.8150  spec=0.8002
+epoch 011  loss=0.4451  f1=0.7943  acc=0.8010  rec=0.7682  spec=0.8338
+epoch 012  loss=0.4364  f1=0.8070  acc=0.8170  rec=0.7650  spec=0.8690
+epoch 013  loss=0.4346  f1=0.7957  acc=0.8096  rec=0.7414  spec=0.8778
+epoch 014  loss=0.4306  f1=0.8061  acc=0.8107  rec=0.7872  spec=0.8342
+epoch 015  loss=0.4237  f1=0.7952  acc=0.8088  rec=0.7424  spec=0.8752
+epoch 016  loss=0.4180  f1=0.8141  acc=0.8071  rec=0.8448  spec=0.7694
+epoch 017  loss=0.4068  f1=0.8049  acc=0.8135  rec=0.7696  spec=0.8574
+epoch 018  loss=0.4106  f1=0.8074  acc=0.8101  rec=0.7960  spec=0.8242
+epoch 019  loss=0.3947  f1=0.7903  acc=0.8012  rec=0.7490  spec=0.8534
+epoch 020  loss=0.3939  f1=0.7905  acc=0.7962  rec=0.7692  spec=0.8232
+epoch 021  loss=0.3933  f1=0.8153  acc=0.8200  rec=0.7946  spec=0.8454
+epoch 022  loss=0.3958  f1=0.7815  acc=0.8067  rec=0.6914  spec=0.9220
+epoch 023  loss=0.3849  f1=0.7911  acc=0.8081  rec=0.7266  spec=0.8896
+epoch 024  loss=0.3799  f1=0.8011  acc=0.8093  rec=0.7680  spec=0.8506
+epoch 025  loss=0.3761  f1=0.7927  acc=0.8047  rec=0.7468  spec=0.8626
+epoch 026  loss=0.3762  f1=0.8091  acc=0.8137  rec=0.7898  spec=0.8376
+epoch 027  loss=0.3741  f1=0.8109  acc=0.8109  rec=0.8108  spec=0.8110
+epoch 028  loss=0.3697  f1=0.7990  acc=0.8128  rec=0.7442  spec=0.8814
+epoch 029  loss=0.3752  f1=0.8118  acc=0.8212  rec=0.7714  spec=0.8710
+epoch 030  loss=0.3600  f1=0.8100  acc=0.8122  rec=0.8004  spec=0.8240
+epoch 031  loss=0.3639  f1=0.7989  acc=0.8117  rec=0.7480  spec=0.8754
+epoch 032  loss=0.3603  f1=0.8190  acc=0.8265  rec=0.7848  spec=0.8682
+epoch 033  loss=0.3597  f1=0.8110  acc=0.8186  rec=0.7782  spec=0.8590
+epoch 034  loss=0.3560  f1=0.7951  acc=0.8157  rec=0.7152  spec=0.9162
+epoch 035  loss=0.3466  f1=0.8026  acc=0.8134  rec=0.7586  spec=0.8682
+epoch 036  loss=0.3527  f1=0.8002  acc=0.8201  rec=0.7206  spec=0.9196
+epoch 037  loss=0.3503  f1=0.8209  acc=0.8300  rec=0.7792  spec=0.8808
+epoch 038  loss=0.3492  f1=0.8189  acc=0.8301  rec=0.7682  spec=0.8920
+epoch 039  loss=0.3475  f1=0.8148  acc=0.8260  rec=0.7654  spec=0.8866
+epoch 040  loss=0.3450  f1=0.8201  acc=0.8303  rec=0.7734  spec=0.8872
+epoch 041  loss=0.3407  f1=0.7986  acc=0.8159  rec=0.7300  spec=0.9018
+epoch 042  loss=0.3386  f1=0.8102  acc=0.8225  rec=0.7576  spec=0.8874
+epoch 043  loss=0.3386  f1=0.7999  acc=0.8157  rec=0.7366  spec=0.8948
+epoch 044  loss=0.3346  f1=0.8034  acc=0.8169  rec=0.7480  spec=0.8858
+epoch 045  loss=0.3352  f1=0.8020  acc=0.8151  rec=0.7488  spec=0.8814
+epoch 046  loss=0.3262  f1=0.7921  acc=0.8096  rec=0.7256  spec=0.8936
+epoch 047  loss=0.3373  f1=0.8109  acc=0.8232  rec=0.7582  spec=0.8882
+epoch 048  loss=0.3318  f1=0.8075  acc=0.8188  rec=0.7602  spec=0.8774
+epoch 049  loss=0.3310  f1=0.8088  acc=0.8217  rec=0.7540  spec=0.8894
+Early stopping at epoch 49
+{
+  "name": "tcn",
+  "params": 89282,
+  "latency_ms": 3.895180942490697,
+  "mode": "detector",
+  "decision_threshold": 0.419,
+  "accuracy": 0.81075,
+  "precision": 0.7998649039853324,
+  "recall": 0.8289,
+  "sensitivity": 0.8288999999999999,
+  "specificity": 0.7925999999999999,
+  "f1": 0.8141236556499534,
+  "tp": 8289,
+  "tn": 7926,
+  "fp": 2074,
+  "fn": 1711,
+  "n": 20000
+}
+
+=== Training modern_tcn fold=2 ===
+epoch 001  loss=0.5572  f1=0.7643  acc=0.7823  rec=0.7060  spec=0.8586
+epoch 002  loss=0.5172  f1=0.7707  acc=0.7809  rec=0.7366  spec=0.8252
+epoch 003  loss=0.5075  f1=0.7735  acc=0.7835  rec=0.7392  spec=0.8278
+epoch 004  loss=0.4926  f1=0.7823  acc=0.7907  rec=0.7522  spec=0.8292
+epoch 005  loss=0.4812  f1=0.7907  acc=0.8006  rec=0.7534  spec=0.8478
+epoch 006  loss=0.4672  f1=0.8039  acc=0.8031  rec=0.8072  spec=0.7990
+epoch 007  loss=0.4576  f1=0.7971  acc=0.8056  rec=0.7636  spec=0.8476
+epoch 008  loss=0.4469  f1=0.8037  acc=0.8148  rec=0.7584  spec=0.8712
+epoch 009  loss=0.4427  f1=0.8087  acc=0.8152  rec=0.7814  spec=0.8490
+epoch 010  loss=0.4316  f1=0.8157  acc=0.8148  rec=0.8198  spec=0.8098
+epoch 011  loss=0.4274  f1=0.8076  acc=0.8188  rec=0.7604  spec=0.8772
+epoch 012  loss=0.4274  f1=0.8158  acc=0.8238  rec=0.7806  spec=0.8670
+epoch 013  loss=0.4182  f1=0.8117  acc=0.8168  rec=0.7896  spec=0.8440
+epoch 014  loss=0.4100  f1=0.8098  acc=0.8179  rec=0.7752  spec=0.8606
+epoch 015  loss=0.4115  f1=0.8247  acc=0.8293  rec=0.8032  spec=0.8554
+epoch 016  loss=0.4099  f1=0.7913  acc=0.7985  rec=0.7640  spec=0.8330
+epoch 017  loss=0.3991  f1=0.8170  acc=0.8259  rec=0.7774  spec=0.8744
+epoch 018  loss=0.3986  f1=0.8254  acc=0.8323  rec=0.7930  spec=0.8716
+epoch 019  loss=0.3983  f1=0.8127  acc=0.8211  rec=0.7764  spec=0.8658
+epoch 020  loss=0.3961  f1=0.8103  acc=0.8203  rec=0.7676  spec=0.8730
+epoch 021  loss=0.3890  f1=0.8045  acc=0.8185  rec=0.7470  spec=0.8900
+epoch 022  loss=0.3905  f1=0.8151  acc=0.8279  rec=0.7588  spec=0.8970
+epoch 023  loss=0.3839  f1=0.8031  acc=0.8177  rec=0.7436  spec=0.8918
+epoch 024  loss=0.3843  f1=0.8140  acc=0.8284  rec=0.7512  spec=0.9056
+epoch 025  loss=0.3741  f1=0.8203  acc=0.8271  rec=0.7894  spec=0.8648
+epoch 026  loss=0.3779  f1=0.8153  acc=0.8272  rec=0.7626  spec=0.8918
+epoch 027  loss=0.3726  f1=0.8060  acc=0.8168  rec=0.7610  spec=0.8726
+epoch 028  loss=0.3707  f1=0.8115  acc=0.8229  rec=0.7626  spec=0.8832
+epoch 029  loss=0.3741  f1=0.8117  acc=0.8222  rec=0.7664  spec=0.8780
+epoch 030  loss=0.3678  f1=0.8109  acc=0.8242  rec=0.7540  spec=0.8944
+Early stopping at epoch 30
+{
+  "name": "modern_tcn",
+  "params": 30314,
+  "latency_ms": 2.575029181316495,
+  "mode": "detector",
+  "decision_threshold": 0.419,
+  "accuracy": 0.80475,
+  "precision": 0.797811003615753,
+  "recall": 0.8164,
+  "sensitivity": 0.8163999999999999,
+  "specificity": 0.7930999999999998,
+  "f1": 0.8069984678495528,
+  "tp": 8164,
+  "tn": 7931,
+  "fp": 2069,
+  "fn": 1836,
+  "n": 20000
+}
+
+=== Training tsmixer fold=2 ===
+epoch 001  loss=0.5623  f1=0.7327  acc=0.7616  rec=0.6534  spec=0.8698
+epoch 002  loss=0.5360  f1=0.7434  acc=0.7622  rec=0.6888  spec=0.8356
+epoch 003  loss=0.5357  f1=0.7535  acc=0.7748  rec=0.6884  spec=0.8612
+epoch 004  loss=0.5380  f1=0.7567  acc=0.7744  rec=0.7016  spec=0.8472
+epoch 005  loss=0.5336  f1=0.7575  acc=0.7785  rec=0.6918  spec=0.8652
+epoch 006  loss=0.5313  f1=0.7414  acc=0.7736  rec=0.6492  spec=0.8980
+epoch 007  loss=0.5301  f1=0.7455  acc=0.7700  rec=0.6736  spec=0.8664
+epoch 008  loss=0.5295  f1=0.7508  acc=0.7698  rec=0.6936  spec=0.8460
+epoch 009  loss=0.5297  f1=0.7492  acc=0.7723  rec=0.6802  spec=0.8644
+epoch 010  loss=0.5255  f1=0.7604  acc=0.7780  rec=0.7046  spec=0.8514
+epoch 011  loss=0.5219  f1=0.7622  acc=0.7758  rec=0.7188  spec=0.8328
+epoch 012  loss=0.5233  f1=0.7608  acc=0.7784  rec=0.7050  spec=0.8518
+epoch 013  loss=0.5219  f1=0.7641  acc=0.7695  rec=0.7468  spec=0.7922
+epoch 014  loss=0.5240  f1=0.7614  acc=0.7734  rec=0.7232  spec=0.8236
+epoch 015  loss=0.5134  f1=0.7672  acc=0.7791  rec=0.7280  spec=0.8302
+epoch 016  loss=0.5160  f1=0.7560  acc=0.7704  rec=0.7114  spec=0.8294
+epoch 017  loss=0.5133  f1=0.7507  acc=0.7781  rec=0.6682  spec=0.8880
+epoch 018  loss=0.5129  f1=0.7585  acc=0.7739  rec=0.7100  spec=0.8378
+epoch 019  loss=0.5081  f1=0.7615  acc=0.7720  rec=0.7280  spec=0.8160
+epoch 020  loss=0.5106  f1=0.7502  acc=0.7659  rec=0.7032  spec=0.8286
+epoch 021  loss=0.5094  f1=0.7366  acc=0.7636  rec=0.6612  spec=0.8660
+epoch 022  loss=0.5114  f1=0.7673  acc=0.7784  rec=0.7306  spec=0.8262
+epoch 023  loss=0.5084  f1=0.7545  acc=0.7742  rec=0.6938  spec=0.8546
+epoch 024  loss=0.5054  f1=0.7576  acc=0.7705  rec=0.7174  spec=0.8236
+epoch 025  loss=0.5070  f1=0.7506  acc=0.7687  rec=0.6960  spec=0.8414
+epoch 026  loss=0.5051  f1=0.7596  acc=0.7731  rec=0.7168  spec=0.8294
+epoch 027  loss=0.5043  f1=0.7634  acc=0.7746  rec=0.7274  spec=0.8218
+epoch 028  loss=0.5007  f1=0.7559  acc=0.7752  rec=0.6960  spec=0.8544
+epoch 029  loss=0.5082  f1=0.7592  acc=0.7788  rec=0.6974  spec=0.8602
+epoch 030  loss=0.5033  f1=0.7628  acc=0.7784  rec=0.7128  spec=0.8440
+epoch 031  loss=0.5031  f1=0.7450  acc=0.7716  rec=0.6674  spec=0.8758
+epoch 032  loss=0.5002  f1=0.7661  acc=0.7802  rec=0.7200  spec=0.8404
+epoch 033  loss=0.4985  f1=0.7707  acc=0.7789  rec=0.7430  spec=0.8148
+epoch 034  loss=0.4939  f1=0.7698  acc=0.7842  rec=0.7218  spec=0.8466
+epoch 035  loss=0.5003  f1=0.7634  acc=0.7813  rec=0.7056  spec=0.8570
+epoch 036  loss=0.4971  f1=0.7637  acc=0.7763  rec=0.7230  spec=0.8296
+epoch 037  loss=0.5009  f1=0.7726  acc=0.7856  rec=0.7286  spec=0.8426
+epoch 038  loss=0.4951  f1=0.7666  acc=0.7750  rec=0.7390  spec=0.8110
+epoch 039  loss=0.4948  f1=0.7699  acc=0.7843  rec=0.7216  spec=0.8470
+epoch 040  loss=0.4949  f1=0.7792  acc=0.7834  rec=0.7644  spec=0.8024
+epoch 041  loss=0.4955  f1=0.7701  acc=0.7806  rec=0.7348  spec=0.8264
+epoch 042  loss=0.4908  f1=0.7659  acc=0.7751  rec=0.7356  spec=0.8146
+epoch 043  loss=0.4942  f1=0.7742  acc=0.7834  rec=0.7426  spec=0.8242
+epoch 044  loss=0.4915  f1=0.7658  acc=0.7773  rec=0.7282  spec=0.8264
+epoch 045  loss=0.4918  f1=0.7688  acc=0.7798  rec=0.7322  spec=0.8274
+epoch 046  loss=0.4914  f1=0.7691  acc=0.7762  rec=0.7454  spec=0.8070
+epoch 047  loss=0.4925  f1=0.7721  acc=0.7829  rec=0.7356  spec=0.8302
+epoch 048  loss=0.4889  f1=0.7727  acc=0.7822  rec=0.7402  spec=0.8242
+epoch 049  loss=0.4924  f1=0.7730  acc=0.7792  rec=0.7520  spec=0.8064
+epoch 050  loss=0.4899  f1=0.7683  acc=0.7812  rec=0.7256  spec=0.8368
+epoch 051  loss=0.4874  f1=0.7623  acc=0.7737  rec=0.7258  spec=0.8216
+epoch 052  loss=0.4921  f1=0.7671  acc=0.7746  rec=0.7422  spec=0.8070
+Early stopping at epoch 52
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+{
+  "name": "tsmixer",
+  "params": 224562,
+  "latency_ms": 1.2550510372966528,
+  "mode": "detector",
+  "decision_threshold": 0.536,
+  "accuracy": 0.77215,
+  "precision": 0.8101424501424501,
+  "recall": 0.7109,
+  "sensitivity": 0.7108999999999999,
+  "specificity": 0.8333999999999998,
+  "f1": 0.7572836218375499,
+  "tp": 7109,
+  "tn": 8334,
+  "fp": 1666,
+  "fn": 2891,
+  "n": 20000
+}
+
+=== Training patchtst fold=2 ===
+epoch 001  loss=0.6553  f1=0.6355  acc=0.6426  rec=0.6230  spec=0.6622
+epoch 002  loss=0.6417  f1=0.6760  acc=0.6451  rec=0.7406  spec=0.5496
+epoch 003  loss=0.6365  f1=0.6768  acc=0.6524  rec=0.7278  spec=0.5770
+epoch 004  loss=0.6340  f1=0.6565  acc=0.6632  rec=0.6436  spec=0.6828
+epoch 005  loss=0.6255  f1=0.6808  acc=0.6656  rec=0.7132  spec=0.6180
+epoch 006  loss=0.6239  f1=0.6697  acc=0.6765  rec=0.6558  spec=0.6972
+epoch 007  loss=0.6244  f1=0.6800  acc=0.6759  rec=0.6886  spec=0.6632
+epoch 008  loss=0.6200  f1=0.6388  acc=0.6692  rec=0.5850  spec=0.7534
+epoch 009  loss=0.6221  f1=0.6734  acc=0.6787  rec=0.6624  spec=0.6950
+epoch 010  loss=0.6199  f1=0.6797  acc=0.6791  rec=0.6810  spec=0.6772
+epoch 011  loss=0.6191  f1=0.6647  acc=0.6785  rec=0.6374  spec=0.7196
+epoch 012  loss=0.6185  f1=0.6616  acc=0.6769  rec=0.6318  spec=0.7220
+epoch 013  loss=0.6184  f1=0.6728  acc=0.6817  rec=0.6544  spec=0.7090
+epoch 014  loss=0.6192  f1=0.6782  acc=0.6751  rec=0.6846  spec=0.6656
+epoch 015  loss=0.6165  f1=0.6781  acc=0.6851  rec=0.6634  spec=0.7068
+epoch 016  loss=0.6160  f1=0.6810  acc=0.6841  rec=0.6744  spec=0.6938
+epoch 017  loss=0.6152  f1=0.6790  acc=0.6849  rec=0.6664  spec=0.7034
+epoch 018  loss=0.6173  f1=0.6567  acc=0.6817  rec=0.6090  spec=0.7544
+epoch 019  loss=0.6160  f1=0.6764  acc=0.6876  rec=0.6530  spec=0.7222
+epoch 020  loss=0.6137  f1=0.6825  acc=0.6888  rec=0.6690  spec=0.7086
+epoch 021  loss=0.6145  f1=0.6985  acc=0.6869  rec=0.7254  spec=0.6484
+epoch 022  loss=0.6159  f1=0.6583  acc=0.6859  rec=0.6052  spec=0.7666
+epoch 023  loss=0.6150  f1=0.6876  acc=0.6816  rec=0.7008  spec=0.6624
+epoch 024  loss=0.6132  f1=0.7005  acc=0.6889  rec=0.7278  spec=0.6500
+epoch 025  loss=0.6133  f1=0.6965  acc=0.6918  rec=0.7072  spec=0.6764
+epoch 026  loss=0.6117  f1=0.6808  acc=0.6927  rec=0.6554  spec=0.7300
+epoch 027  loss=0.6154  f1=0.6932  acc=0.6870  rec=0.7072  spec=0.6668
+epoch 028  loss=0.6123  f1=0.6896  acc=0.6894  rec=0.6900  spec=0.6888
+epoch 029  loss=0.6104  f1=0.6800  acc=0.6900  rec=0.6586  spec=0.7214
+epoch 030  loss=0.6101  f1=0.6764  acc=0.6844  rec=0.6596  spec=0.7092
+epoch 031  loss=0.6119  f1=0.6798  acc=0.6882  rec=0.6620  spec=0.7144
+epoch 032  loss=0.6114  f1=0.6812  acc=0.6891  rec=0.6644  spec=0.7138
+epoch 033  loss=0.6063  f1=0.6598  acc=0.6878  rec=0.6056  spec=0.7700
+epoch 034  loss=0.6105  f1=0.6833  acc=0.6870  rec=0.6754  spec=0.6986
+epoch 035  loss=0.6071  f1=0.6700  acc=0.6876  rec=0.6344  spec=0.7408
+epoch 036  loss=0.6097  f1=0.6664  acc=0.6839  rec=0.6314  spec=0.7364
+Early stopping at epoch 36
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+{
+  "name": "patchtst",
+  "params": 150786,
+  "latency_ms": 0.9140611626207829,
+  "mode": "detector",
+  "decision_threshold": 0.518,
+  "accuracy": 0.66795,
+  "precision": 0.6532250707052276,
+  "recall": 0.716,
+  "sensitivity": 0.7159999999999999,
+  "specificity": 0.6198999999999999,
+  "f1": 0.6831735127140881,
+  "tp": 7160,
+  "tn": 6199,
+  "fp": 3801,
+  "fn": 2840,
+  "n": 20000
+}
+
+=== Training transformer fold=2 ===
+epoch 001  loss=0.5578  f1=0.7374  acc=0.7570  rec=0.6824  spec=0.8316
+epoch 002  loss=0.5363  f1=0.7612  acc=0.7696  rec=0.7344  spec=0.8048
+epoch 003  loss=0.5305  f1=0.7640  acc=0.7773  rec=0.7210  spec=0.8336
+epoch 004  loss=0.5236  f1=0.7652  acc=0.7723  rec=0.7422  spec=0.8024
+epoch 005  loss=0.5204  f1=0.7548  acc=0.7727  rec=0.6996  spec=0.8458
+epoch 006  loss=0.5166  f1=0.7603  acc=0.7739  rec=0.7172  spec=0.8306
+epoch 007  loss=0.5123  f1=0.7554  acc=0.7611  rec=0.7376  spec=0.7846
+epoch 008  loss=0.5062  f1=0.7679  acc=0.7737  rec=0.7488  spec=0.7986
+epoch 009  loss=0.5045  f1=0.7484  acc=0.7700  rec=0.6842  spec=0.8558
+epoch 010  loss=0.5045  f1=0.7662  acc=0.7702  rec=0.7532  spec=0.7872
+epoch 011  loss=0.4989  f1=0.7688  acc=0.7838  rec=0.7190  spec=0.8486
+epoch 012  loss=0.4944  f1=0.7711  acc=0.7769  rec=0.7514  spec=0.8024
+epoch 013  loss=0.4918  f1=0.7756  acc=0.7809  rec=0.7572  spec=0.8046
+epoch 014  loss=0.4832  f1=0.7724  acc=0.7814  rec=0.7420  spec=0.8208
+epoch 015  loss=0.4861  f1=0.7751  acc=0.7831  rec=0.7474  spec=0.8188
+epoch 016  loss=0.4801  f1=0.7829  acc=0.7887  rec=0.7622  spec=0.8152
+epoch 017  loss=0.4826  f1=0.7775  acc=0.7833  rec=0.7572  spec=0.8094
+epoch 018  loss=0.4771  f1=0.7813  acc=0.7816  rec=0.7804  spec=0.7828
+epoch 019  loss=0.4749  f1=0.7836  acc=0.7740  rec=0.8182  spec=0.7298
+epoch 020  loss=0.4787  f1=0.7771  acc=0.7836  rec=0.7544  spec=0.8128
+epoch 021  loss=0.4682  f1=0.7819  acc=0.7810  rec=0.7852  spec=0.7768
+epoch 022  loss=0.4702  f1=0.7778  acc=0.7746  rec=0.7888  spec=0.7604
+epoch 023  loss=0.4731  f1=0.7887  acc=0.7872  rec=0.7944  spec=0.7800
+epoch 024  loss=0.4583  f1=0.7805  acc=0.7905  rec=0.7450  spec=0.8360
+epoch 025  loss=0.4639  f1=0.7826  acc=0.7855  rec=0.7720  spec=0.7990
+epoch 026  loss=0.4625  f1=0.7749  acc=0.7761  rec=0.7708  spec=0.7814
+epoch 027  loss=0.4606  f1=0.7889  acc=0.7855  rec=0.8018  spec=0.7692
+epoch 028  loss=0.4558  f1=0.7780  acc=0.7831  rec=0.7602  spec=0.8060
+epoch 029  loss=0.4590  f1=0.7836  acc=0.7901  rec=0.7602  spec=0.8200
+epoch 030  loss=0.4511  f1=0.7727  acc=0.7861  rec=0.7270  spec=0.8452
+epoch 031  loss=0.4557  f1=0.7815  acc=0.7806  rec=0.7848  spec=0.7764
+epoch 032  loss=0.4524  f1=0.7806  acc=0.7839  rec=0.7690  spec=0.7988
+epoch 033  loss=0.4492  f1=0.7846  acc=0.7848  rec=0.7838  spec=0.7858
+epoch 034  loss=0.4470  f1=0.7796  acc=0.7816  rec=0.7726  spec=0.7906
+epoch 035  loss=0.4501  f1=0.7796  acc=0.7901  rec=0.7424  spec=0.8378
+epoch 036  loss=0.4431  f1=0.7824  acc=0.7900  rec=0.7552  spec=0.8248
+epoch 037  loss=0.4444  f1=0.7831  acc=0.7837  rec=0.7810  spec=0.7864
+epoch 038  loss=0.4417  f1=0.7786  acc=0.7850  rec=0.7562  spec=0.8138
+epoch 039  loss=0.4426  f1=0.7802  acc=0.7788  rec=0.7850  spec=0.7726
+Early stopping at epoch 39
+{
+  "name": "transformer",
+  "params": 158722,
+  "latency_ms": 0.994603056460619,
+  "mode": "detector",
+  "decision_threshold": 0.5449999999999999,
+  "accuracy": 0.7865,
+  "precision": 0.8005665127989928,
+  "recall": 0.7631,
+  "sensitivity": 0.7630999999999999,
+  "specificity": 0.8098999999999998,
+  "f1": 0.7813843948392382,
+  "tp": 7631,
+  "tn": 8099,
+  "fp": 1901,
+  "fn": 2369,
+  "n": 20000
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/standard_retrain/fold2/backbone_compare_fold2.csv

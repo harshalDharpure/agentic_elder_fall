@@ -1,0 +1,38 @@
+dataset: sisfall
+raw_dir: data/raw/sisfall
+processed_dir: data/processed/sisfall
+sample_rate_hz: 200
+window: 90
+hop: 10
+channels: 6  # ADXL345 accel + ITG3200 gyro
+num_classes: 2  # Fall vs ADL
+binary: true
+
+model:
+  in_channels: 6
+  conv_channels: 32
+  branch_channels: 16
+  lstm_hidden: [256, 128]
+  attn_heads: 4
+  dropout_attn: 0.1
+  dropout_fc: 0.5
+  use_se: false  # set true for Tier-1+ ablation
+
+train:
+  batch_size: 256
+  epochs: 80
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+  early_stopping_patience: 12
+  num_workers: 4
+  seed: 42
+  device: cuda
+  mixup_alpha: 0.2
+  amp: true
+
+splits:
+  n_folds: 5
+  strategy: subject  # subject-independent
+
+checkpoint_dir: checkpoints/sisfall

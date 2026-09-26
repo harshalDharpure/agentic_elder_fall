@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\centering
+\caption{Sensitivity to the clinical cost ratio $\beta=c_{\mathrm{FN}}/c_{\mathrm{FP}}$ (SisFall, five-fold mean cost per $1000$ windows, $\mathcal{R}_\beta=\beta\cdot\mathrm{FN}+\mathrm{FP}$). The advantage of the stack is monotone in $\beta$: the more a deployment penalises missed falls relative to nuisance alarms, the larger the absolute saving. $\tau^\ast=1/(\beta{+}1)$ is the corresponding hard-decision Bayes threshold~\eqref{eq:tau_star}. The $\beta{=}10$ row is the paper's primary setting.}
+\label{tab:betacost}
+\begin{tabular}{ccl rr}
+\toprule
+$\beta$ & $\tau^\ast$ & Mode & Cost/1000 & $\Delta$ vs.\ Tier-1 \\
+\midrule
+5  & 0.167 & \texttt{tier1\_only} & 628 & --- \\
+5  & 0.167 & \textbf{\texttt{gate\_knn\_llm}} & \textbf{149} & $-479$ \\
+\addlinespace
+10 & 0.091 & \texttt{tier1\_only} & 1151 & --- \\
+10 & 0.091 & \textbf{\texttt{gate\_knn\_llm}} & \textbf{200} & $-951$ \\
+\addlinespace
+20 & 0.048 & \texttt{tier1\_only} & 2197 & --- \\
+20 & 0.048 & \textbf{\texttt{gate\_knn\_llm}} & \textbf{302} & $-1895$ \\
+\bottomrule
+\end{tabular}
+\end{table}

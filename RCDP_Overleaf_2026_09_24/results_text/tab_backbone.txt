@@ -1,0 +1,16 @@
+LABEL: tab:backbone
+CAPTION: HISTORICAL Fold-0 training-default rows retained for provenance; no longer the manuscript table. Current table uses E1/retrained five-fold summaries from backbone_f1.csv, with 20,000 test windows/fold. Do not substitute historical rows for the new table.
+
+{tabular}{lcccc}
+
+Model | F1 | Recall | Spec. | Params
+cnn1d | 0.721 | 0.985 | 0.277 | 43,330
+lstm | 0.700 | 0.986 | 0.197 | 201,986
+cnn_lstm | 0.694 | 0.995 | 0.155 | 86,914
+cnn_lstm_attn | 0.710 | 0.996 | 0.216 | 564,930
+tcn | 0.727 | 0.988 | 0.295 | 89,282
+modern_tcn | 0.737 | 0.990 | 0.326 | 30,314
+tsmixer | 0.695 | 0.984 | 0.181 | 224,562
+patchtst | 0.669 | 0.996 | 0.051 | 150,786
+transformer | 0.678 | 0.994 | 0.092 | 158,722
+{tabular}

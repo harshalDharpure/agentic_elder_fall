@@ -1,0 +1,11 @@
+\begin{table}[t]
+\centering
+\caption{Top backbones + agentic wrapper}
+\begin{tabular}{lccccccccccccccccc}
+\toprule
+Method & f1 & recall & specificity & precision & accuracy & missed_fall_rate & false_alarm_rate_near_fall & escalated_f1 & escalation_rate & expected_response_cost & ece & n_near_fall & n_escalated & backbone & delta_f1 & detector_f1 & mode \\
+\midrule
+cnn_lstm_attn+agentic & 0.678 & 0.906 & 0.413 & 0.542 & 0.627 & 0.094 & 0.588 & 0.417 & 0.552 & 742.000 & 0.082 & 160 & 552 & cnn_lstm_attn & -0.017 & 0.695 & agentic \\
+\bottomrule
+\end{tabular}
+\end{table}

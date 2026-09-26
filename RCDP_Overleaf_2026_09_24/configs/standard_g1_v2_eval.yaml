@@ -1,0 +1,36 @@
+# Eval G1 v2 checkpoints (natural prevalence, Youden)
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+backbones_config: configs/backbones.yaml
+
+protocol_name: standard_g1_v2
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+
+eval:
+  max_test: 30000
+  stratified: false
+  required_activities: []
+  min_near_fall_per_code: 0
+  decision_threshold_mode: youden
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results/standard_protocol_g1_v2
+  checkpoint_dir: checkpoints/standard_g1
+
+models:
+  - cnn_lstm_attn
+  - cnn1d
+  - tcn
+  - modern_tcn
+  - transformer
+
+primary_backbone: cnn_lstm_attn
+g1_f1_threshold: 0.95

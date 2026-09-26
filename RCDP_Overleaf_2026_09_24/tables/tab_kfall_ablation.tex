@@ -1,0 +1,16 @@
+\begin{table}[!t]
+\centering
+\caption{KFall Fold~0 cumulative ablation ($n{=}1000$, binary). Cost is already per $1000$ windows. As on SisFall, \texttt{gate\_only} reproduces \texttt{tier1\_only} exactly and the joint retrieval$+$reasoner configuration is the only one that improves both recall and cost. Absolute headroom is small because Tier-1 is near ceiling on this corpus.}
+\label{tab:kfallablation}
+\begin{tabular}{lccrc}
+\toprule
+Mode & F1 & Recall & Cost/1k & Esc.\ F1 \\
+\midrule
+\texttt{tier1\_only} & 0.992 & 0.998 & 17 & --- \\
+\texttt{gate\_only}  & 0.992 & 0.998 & 17 & 0.750 \\
+\texttt{gate\_knn}   & 0.991 & 0.994 & 36 & 0.400 \\
+\texttt{gate\_llm}   & 0.976 & 0.998 & 33 & 0.250 \\
+\textbf{\texttt{gate\_knn\_llm}} & \textbf{0.993} & \textbf{1.000} & \textbf{7} & \textbf{0.889} \\
+\bottomrule
+\end{tabular}
+\end{table}

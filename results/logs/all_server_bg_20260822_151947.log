@@ -1,0 +1,253 @@
+=== ALL SERVER EXPERIMENTS START 2026-08-22T15:19:47+05:30 ===
+DEVICE=cuda log=results/logs/all_server_bg_20260822_151947.log
+
+===== K-fold ambiguous bench backend=heuristic out=results/kfold_ambiguous_heuristic 2026-08-22T15:19:47+05:30 =====
+fold 0 already done — skip
+fold 1 already done — skip
+fold 2 already done — skip
+fold 3 already done — skip
+fold 4 already done — skip
+Complete architecture: gate_knn_llm | backend=heuristic
+Dataset: data/kfold_ambiguous (100 amb + 100 fall + 100 ADL per fold)
+
+fold    n     Acc      F1    Prec     Rec     FAR     Esc  AmbAcc     Cost
+--------------------------------------------------------------------------------
+   0  300   0.837   0.751   0.763   0.740   0.115   0.587   1.000      283
+   1  300   0.873   0.802   0.837   0.770   0.075   0.523   0.980      245
+   2  300   0.830   0.727   0.782   0.680   0.095   0.627   0.980      339
+   3  300   0.847   0.755   0.807   0.710   0.085   0.613   1.000      307
+   4  300   0.873   0.793   0.869   0.730   0.055   0.620   0.990      281
+--------------------------------------------------------------------------------
+mean±std Acc: 0.852 ± 0.018
+mean±std F1: 0.766 ± 0.028
+mean±std Prec: 0.811 ± 0.038
+mean±std Rec: 0.726 ± 0.030
+mean±std FAR: 0.085 ± 0.020
+mean±std Esc: 0.594 ± 0.038
+mean±std AmbAcc: 0.990 ± 0.009
+mean±std Cost: 291.000 ± 31.113
+
+Wrote results/kfold_ambiguous_heuristic/ALL_FOLDS_REPORT.txt
+===== DONE backend=heuristic 2026-08-22T15:19:47+05:30 =====
+
+===== K-fold ambiguous bench backend=ollama out=results/kfold_ambiguous 2026-08-22T15:19:47+05:30 =====
+fold 0 already done — skip
+fold 1 already done — skip
+fold 2 already done — skip
+fold 3 already done — skip
+fold 4 already done — skip
+Complete architecture: gate_knn_llm | backend=ollama
+Dataset: data/kfold_ambiguous (100 amb + 100 fall + 100 ADL per fold)
+
+fold    n     Acc      F1    Prec     Rec     FAR     Esc  AmbAcc     Cost
+--------------------------------------------------------------------------------
+   0  300   0.900   0.868   0.773   0.990   0.145   0.587   0.950       39
+   1  300   0.927   0.894   0.861   0.930   0.075   0.523   0.980       85
+   2  300   0.920   0.892   0.811   0.990   0.115   0.627   0.970       33
+   3  300   0.930   0.902   0.843   0.970   0.090   0.613   0.990       48
+   4  300   0.943   0.922   0.855   1.000   0.085   0.620   0.940       17
+--------------------------------------------------------------------------------
+mean±std Acc: 0.924 ± 0.014
+mean±std F1: 0.896 ± 0.017
+mean±std Prec: 0.829 ± 0.033
+mean±std Rec: 0.976 ± 0.025
+mean±std FAR: 0.102 ± 0.025
+mean±std Esc: 0.594 ± 0.038
+mean±std AmbAcc: 0.966 ± 0.019
+mean±std Cost: 44.400 ± 22.677
+
+Wrote results/kfold_ambiguous/ALL_FOLDS_REPORT.txt
+===== DONE backend=ollama 2026-08-22T15:19:48+05:30 =====
+
+===== Primary ablations gate_knn_llm folds 0-4 2026-08-22T15:19:48+05:30 =====
+fold 0: gate_knn_llm already in results/fold0/ablation_fold0.json — skip
+fold 1: gate_knn_llm already in results/fold1/ablation_fold1.json — skip
+fold 2: gate_knn_llm already in results/fold2/ablation_fold2.json — skip
+fold 3: gate_knn_llm already in results/fold3/ablation_fold3.json — skip
+fold 4: gate_knn_llm already in results/fold4/ablation_fold4.json — skip
+
+===== Aggregate folds 2026-08-22T15:19:48+05:30 =====
+backbone: {'cnn1d': 5, 'lstm': 5, 'cnn_lstm': 5, 'cnn_lstm_attn': 5, 'tcn': 5, 'modern_tcn': 5, 'tsmixer': 5, 'patchtst': 5, 'transformer': 5, 'modern_tcn+agentic': 2, 'tcn+agentic': 2, 'cnn1d+agentic': 1, 'cnn_lstm_attn+agentic': 1}
+ablation: {'cnn_lstm_attn': 29, 'tier1_only': 5, 'gate_only': 5, 'gate_knn': 8, 'gate_llm': 10, 'gate_knn_llm': 49, 'gate_knn_llm_action_critic': 2, 'gate_knn_llm_action_critique': 10, 'gate_knn_actor_only': 3, 'gate_knn_actor_critic': 3, 'gate_knn_llm_actor_critic': 12, 'gate_knn_llm_actor_only': 4, 'gate_knn_llm_actor_critic_roleswap': 2, 'gate_knn_llm_contrastive_action_critique': 10, 'gate_knn_llm_crc_veto': 10, 'gate_knn_actor_critic_roleswap': 1}
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+ablation tests: [
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -936.0,
+    "std_delta": 151.7300233968215,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1061.075,
+      -818.0
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -936.0,
+    "std_delta": 151.7300233968215,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1061.075,
+      -818.0
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "false_alarm_rate_near_fall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -0.04,
+    "std_delta": 0.04476501144867495,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.06788915486182899,
+    "bootstrap_ci95": [
+      -0.07625,
+      -0.0062500000000000056
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.1321174457390705,
+    "std_delta": 0.015756702451621744,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.12004261651144903,
+      0.14419227496669196
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "recall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.21285211242250526,
+    "std_delta": 0.03668923892884753,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.18464111670578867,
+      0.2436800183076194
+    ]
+  }
+]
+llm: {'heuristic': 5, 'mistral:latest': 5, 'qwen2.5-coder:7b-instruct': 5}
+llm tests: [
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.9385742832279508,
+    "std_delta": 0.043282613417667176,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.8998742942660801,
+      0.9687267229719033
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -956.8,
+    "std_delta": 42.891724143475514,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -988.8399999999999,
+      -924.8
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -6378.666666666666,
+    "std_delta": 285.94482762316983,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -6592.266666666666,
+      -6165.333333333334
+    ]
+  }
+]
+agentic: {'agentic_ollama': 5}
+Wrote aggregate tables under results
+=== ALL SERVER EXPERIMENTS COMPLETE 2026-08-22T15:19:49+05:30 ===
+Reports:
+  results/kfold_ambiguous_heuristic/ALL_FOLDS_REPORT.txt
+  results/kfold_ambiguous/ALL_FOLDS_REPORT.txt
+  results/logs/all_server_bg_20260822_151947.log

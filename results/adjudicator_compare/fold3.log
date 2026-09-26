@@ -1,0 +1,118 @@
+Loading model=cnn_lstm_attn ckpt=checkpoints/standard/cnn_lstm_attn_fold3.pt
+collect escalated:   0%|          | 0/4000 [00:00<?, ?it/s]collect escalated:   1%|          | 37/4000 [00:00<00:10, 368.10it/s]collect escalated:   2%|▏         | 82/4000 [00:00<00:09, 411.24it/s]collect escalated:   3%|▎         | 126/4000 [00:00<00:09, 423.07it/s]collect escalated:   4%|▍         | 170/4000 [00:00<00:08, 427.53it/s]collect escalated:   5%|▌         | 215/4000 [00:00<00:08, 434.13it/s]collect escalated:   7%|▋         | 262/4000 [00:00<00:08, 445.52it/s]collect escalated:   8%|▊         | 307/4000 [00:00<00:08, 441.49it/s]collect escalated:   9%|▉         | 354/4000 [00:00<00:08, 447.27it/s]collect escalated:  10%|▉         | 399/4000 [00:00<00:08, 443.99it/s]collect escalated:  11%|█         | 444/4000 [00:01<00:08, 442.63it/s]collect escalated:  12%|█▏        | 489/4000 [00:01<00:07, 442.27it/s]collect escalated:  13%|█▎        | 534/4000 [00:01<00:07, 443.60it/s]collect escalated:  14%|█▍        | 579/4000 [00:01<00:07, 445.05it/s]collect escalated:  16%|█▌        | 625/4000 [00:01<00:07, 447.31it/s]collect escalated:  17%|█▋        | 671/4000 [00:01<00:07, 449.64it/s]collect escalated:  18%|█▊        | 716/4000 [00:01<00:07, 441.15it/s]collect escalated:  19%|█▉        | 761/4000 [00:01<00:07, 438.17it/s]collect escalated:  20%|██        | 807/4000 [00:01<00:07, 442.77it/s]collect escalated:  21%|██▏       | 853/4000 [00:01<00:07, 445.40it/s]collect escalated:  22%|██▏       | 898/4000 [00:02<00:06, 444.88it/s]collect escalated:  24%|██▎       | 943/4000 [00:02<00:06, 445.49it/s]collect escalated:  25%|██▍       | 988/4000 [00:02<00:06, 441.68it/s]collect escalated:  26%|██▌       | 1033/4000 [00:02<00:06, 437.18it/s]collect escalated:  27%|██▋       | 1078/4000 [00:02<00:06, 440.71it/s]collect escalated:  28%|██▊       | 1125/4000 [00:02<00:06, 446.51it/s]collect escalated:  29%|██▉       | 1171/4000 [00:02<00:06, 449.09it/s]collect escalated:  30%|██▉       | 1199/4000 [00:02<00:06, 441.84it/s]
+{
+  "fold": 3,
+  "backbone": "cnn_lstm_attn",
+  "n_escalated": 400,
+  "n_test": 160,
+  "feature_keys": [
+    "freefall_duration_s",
+    "impact_magnitude_g",
+    "post_impact_stillness_s",
+    "body_tilt_deg",
+    "duration_s",
+    "mean_acc_g",
+    "peak_gyro_dps"
+  ],
+  "rows": [
+    {
+      "name": "always_fall",
+      "n": 160,
+      "accuracy": 0.76875,
+      "precision": 0.76875,
+      "recall": 1.0,
+      "sensitivity": 0.9999999999999919,
+      "specificity": 0.0,
+      "f1": 0.8692579505300353,
+      "tp": 123,
+      "tn": 0,
+      "fp": 37,
+      "fn": 0
+    },
+    {
+      "name": "always_adl",
+      "n": 160,
+      "accuracy": 0.23125,
+      "precision": 0.0,
+      "recall": 0.0,
+      "sensitivity": 0.0,
+      "specificity": 0.9999999999999729,
+      "f1": 0.0,
+      "tp": 0,
+      "tn": 37,
+      "fp": 0,
+      "fn": 123
+    },
+    {
+      "name": "random",
+      "n": 160,
+      "accuracy": 0.575,
+      "precision": 0.8235294117647058,
+      "recall": 0.5691056910569106,
+      "sensitivity": 0.569105691056906,
+      "specificity": 0.5945945945945785,
+      "f1": 0.6730769230769231,
+      "tp": 70,
+      "tn": 22,
+      "fp": 15,
+      "fn": 53
+    },
+    {
+      "name": "majority_train",
+      "n": 160,
+      "accuracy": 0.76875,
+      "precision": 0.76875,
+      "recall": 1.0,
+      "sensitivity": 0.9999999999999919,
+      "specificity": 0.0,
+      "f1": 0.8692579505300353,
+      "tp": 123,
+      "tn": 0,
+      "fp": 37,
+      "fn": 0
+    },
+    {
+      "name": "heuristic",
+      "n": 160,
+      "accuracy": 0.23125,
+      "precision": 0.5,
+      "recall": 0.016260162601626018,
+      "sensitivity": 0.016260162601625886,
+      "specificity": 0.9459459459459203,
+      "f1": 0.031496062992125984,
+      "tp": 2,
+      "tn": 35,
+      "fp": 2,
+      "fn": 121
+    },
+    {
+      "name": "logreg",
+      "n": 160,
+      "accuracy": 0.55,
+      "precision": 0.7865168539325843,
+      "recall": 0.5691056910569106,
+      "sensitivity": 0.569105691056906,
+      "specificity": 0.4864864864864733,
+      "f1": 0.660377358490566,
+      "tp": 70,
+      "tn": 18,
+      "fp": 19,
+      "fn": 53
+    },
+    {
+      "name": "gbm",
+      "n": 160,
+      "accuracy": 0.66875,
+      "precision": 0.7692307692307693,
+      "recall": 0.8130081300813008,
+      "sensitivity": 0.8130081300812942,
+      "specificity": 0.18918918918918406,
+      "f1": 0.7905138339920948,
+      "tp": 100,
+      "tn": 7,
+      "fp": 30,
+      "fn": 23
+    }
+  ]
+}
+G2 verdict: {'gbm_f1': 0.7905138339920948, 'best_llm_f1': None, 'g2': 'gbm_only_no_llm'}

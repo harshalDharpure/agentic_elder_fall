@@ -1,0 +1,56 @@
+# G1 recovery v2: fix train/test prevalence mismatch + use full training data.
+# Prior failure mode: max_train=120k with stratified=True forced 50/50 falls
+# while test prevalence is ~0.34 → Youden F1 stuck ~0.74.
+
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+backbones_config: configs/backbones.yaml
+agentic_config: configs/agentic.yaml
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+
+train:
+  epochs: 50
+  batch_size: 512
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.0
+  patience: 10
+  mixup_alpha: 0.0
+  amp: true
+  max_train: null          # full fold train set (~1.05M windows)
+  max_val: 20000
+  use_pos_weight: true
+  decision_threshold_mode: youden
+  subsample_stratified: false   # keep natural prevalence when capping
+  val_subsample_stratified: false
+
+eval:
+  max_test: 30000
+  stratified: false
+  required_activities: []
+  min_near_fall_per_code: 0
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results/standard_g1_v2
+  checkpoint_dir: checkpoints/standard_g1
+
+models:
+  - cnn_lstm_attn
+
+agentic:
+  top_n: 1
+  primary_backbone: cnn_lstm_attn
+  backend: heuristic
+  llm_backends: [heuristic]
+
+latency:
+  warmup: 5
+  repeats: 20

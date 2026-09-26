@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Backbone zoo (detector-only, SisFall)}
+\begin{tabular}{lccccccccc}
+\toprule
+Method & f1 & recall & specificity & precision & accuracy & params & latency_ms & mode & n \\
+\midrule
+cnn1d & 0.798 & 0.783 & 0.820 & 0.813 & 0.801 & 43330 & 0.365 & detector & 20000 \\
+lstm & 0.791 & 0.781 & 0.807 & 0.802 & 0.794 & 201986 & 1.449 & detector & 20000 \\
+cnn_lstm & 0.808 & 0.763 & 0.874 & 0.859 & 0.819 & 86914 & 0.707 & detector & 20000 \\
+tcn & 0.826 & 0.829 & 0.821 & 0.823 & 0.825 & 89282 & 4.572 & detector & 20000 \\
+modern_tcn & 0.836 & 0.820 & 0.859 & 0.853 & 0.839 & 30314 & 1.938 & detector & 20000 \\
+tsmixer & 0.725 & 0.643 & 0.870 & 0.832 & 0.756 & 224562 & 1.583 & detector & 20000 \\
+patchtst & 0.669 & 0.683 & 0.641 & 0.656 & 0.662 & 150786 & 0.919 & detector & 20000 \\
+transformer & 0.748 & 0.698 & 0.833 & 0.807 & 0.765 & 158722 & 0.969 & detector & 20000 \\
+\bottomrule
+\end{tabular}
+\end{table}

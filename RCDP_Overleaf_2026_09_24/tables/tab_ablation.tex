@@ -1,0 +1,16 @@
+\begin{table}[!t]
+\centering
+\caption{Cumulative ablation ladder on SisFall Fold~0 under the full archived budget ($n{=}4000$). \emph{Cost} is the absolute clinical cost $10\cdot\mathrm{FN}{+}\mathrm{FP}$ and \emph{Cost/1k} the same quantity normalised per $1000$ windows for comparison with Table~\ref{tab:perfold}. \texttt{gate\_only} reproduces \texttt{tier1\_only} exactly because, with no System~2 attached, deferred windows fall back to Tier-1 \texttt{argmax}; only its escalated-subset F1 differs. \texttt{gate\_llm} buys recall at the price of a near-tripled near-fall false-alarm rate. Retrieval and language-model reasoning are complementary: neither alone reaches the full stack.}
+\label{tab:ablation}
+\begin{tabular}{lccrrcc}
+\toprule
+Mode & F1 & Recall & Cost & Cost/1k & Near-fall FAR & Esc.\ F1 \\
+\midrule
+\texttt{tier1\_only} & 0.788 & 0.787 & 4596 & 1149 & 0.219 & --- \\
+\texttt{gate\_only}  & 0.788 & 0.787 & 4596 & 1149 & 0.219 & 0.175 \\
+\texttt{gate\_knn}   & 0.789 & 0.764 & 4972 & 1243 & 0.188 & 0.026 \\
+\texttt{gate\_llm}   & 0.760 & 0.924 & 2491 & 623  & 0.625 & 0.445 \\
+\textbf{\texttt{gate\_knn\_llm}} & \textbf{0.907} & \textbf{0.993} & \textbf{516} & \textbf{129} & 0.212 & \textbf{0.952} \\
+\bottomrule
+\end{tabular}
+\end{table}

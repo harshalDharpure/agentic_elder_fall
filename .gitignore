@@ -1,23 +1,38 @@
-# Large / regenerable data — keep local, not on GitHub
+# Large / regenerable binary data — keep local (too large / redistributable from source)
 data/raw/
 data/processed/**/*.npz
 data/memory/
 checkpoints/
+Q1-J.bundle
+*.bundle
+
+# Nested accidental recursive copies (do not push)
+results/harshal/
+
+# Legacy Overleaf trees replaced by RCDP_Overleaf_2026_09_24/
 overleaf_rcdp/
 overleaf_rcdp.zip
 paper/
-logs/
+
+# Vision pilot paths (optional local)
 src/agentic_fall/vision/
 configs/vision_urfall.yaml
 results/vision/
-results/**/*.log
+
+# Process / runtime junk
 results/**/*.flag
 results/**/*.pid
 results/**/*.out
-# Keep processed meta JSON tracked if present
+results/nohup_*.out
+results/**/nohup*.out
+**/FULL_RUN.pid
+**/OVERNIGHT.pid
+**/Q1_WAITER.pid
+**/WAIT_FOLD1.pid
 
-# Nested accidental copies (do not push)
-results/harshal/
+# Only exclude the huge Ollama server dump (110MB+); keep other experiment logs
+results/**/ollama_serve.log
+**/ollama_serve.log
 
 # Python / tooling
 __pycache__/
@@ -29,33 +44,9 @@ venv/
 .DS_Store
 .cursor/
 *.swp
-
-# Editor / OS
 .idea/
 .vscode/
 
-# Huge runtime logs (keep JSON/CSV/MD/TeX results)
-results/**/*.out
-results/nohup_*.out
-results/**/nohup*.out
-**/FULL_RUN.pid
-**/OVERNIGHT.pid
-**/Q1_WAITER.pid
-**/WAIT_FOLD1.pid
-
-paper/*.aux
-paper/*.bbl
-paper/*.blg
-paper/*.log
-paper/*.out
-
-# Local push helper
-*.bundle
-
-# Copyrighted third-party PDFs / notes (not project artifacts)
+# Copyrighted third-party PDFs / notes
 mtp_papers/
 papers.txt
-
-# Huge runtime logs
-results/**/ollama_serve.log
-**/*.log

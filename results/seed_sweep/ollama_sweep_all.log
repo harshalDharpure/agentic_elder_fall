@@ -1,0 +1,26 @@
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+{'seed': 42, 'fold': 0, 'tier1_f1': 0.7469586374695864, 'tier1_recall': 0.7156177156177156, 'stack_backend': 'ollama', 'stack_f1': 0.9087048832271762, 'stack_recall': 0.9976689976689976, 'stack_cost': 95.0, 'stack_cost_per_1000': 95.0, 'n': 1000, 'tau_low': 0.07105263157894737, 'tau_high': 0.55}
+{'seed': 43, 'fold': 0, 'tier1_f1': 0.7404674046740467, 'tier1_recall': 0.7099056603773585, 'stack_backend': 'ollama', 'stack_f1': 0.9065520945220193, 'stack_recall': 0.9952830188679245, 'stack_cost': 105.0, 'stack_cost_per_1000': 105.0, 'n': 1000, 'tau_low': 0.11315789473684211, 'tau_high': 0.55}
+epoch 001  loss=0.6311  f1=0.7297  acc=0.7608  rec=0.6456  spec=0.8760
+epoch 002  loss=0.5485  f1=0.7243  acc=0.7614  rec=0.6268  spec=0.8960
+epoch 003  loss=0.5323  f1=0.7226  acc=0.7476  rec=0.6576  spec=0.8376
+epoch 004  loss=0.5285  f1=0.7376  acc=0.7524  rec=0.6960  spec=0.8088
+epoch 005  loss=0.5311  f1=0.7168  acc=0.7446  rec=0.6464  spec=0.8428
+epoch 006  loss=0.5299  f1=0.7271  acc=0.7548  rec=0.6532  spec=0.8564
+epoch 007  loss=0.5184  f1=0.7395  acc=0.7560  rec=0.6928  spec=0.8192
+epoch 008  loss=0.5204  f1=0.7370  acc=0.7500  rec=0.7004  spec=0.7996
+epoch 009  loss=0.5124  f1=0.7401  acc=0.7618  rec=0.6784  spec=0.8452
+epoch 010  loss=0.5118  f1=0.7429  acc=0.7608  rec=0.6912  spec=0.8304
+epoch 011  loss=0.5241  f1=0.7532  acc=0.7568  rec=0.7424  spec=0.7712
+epoch 012  loss=0.5060  f1=0.7505  acc=0.7592  rec=0.7244  spec=0.7940
+epoch 013  loss=0.4987  f1=0.7458  acc=0.7626  rec=0.6964  spec=0.8288
+epoch 014  loss=0.5017  f1=0.7487  acc=0.7586  rec=0.7192  spec=0.7980
+epoch 015  loss=0.5014  f1=0.7539  acc=0.7598  rec=0.7360  spec=0.7836
+epoch 016  loss=0.4959  f1=0.7498  acc=0.7556  rec=0.7324  spec=0.7788
+epoch 017  loss=0.4982  f1=0.7586  acc=0.7684  rec=0.7280  spec=0.8088
+epoch 018  loss=0.4884  f1=0.7562  acc=0.7656  rec=0.7272  spec=0.8040
+epoch 019  loss=0.4885  f1=0.7573  acc=0.7632  rec=0.7388  spec=0.7876
+epoch 020  loss=0.4975  f1=0.7572  acc=0.7660  rec=0.7296  spec=0.8024
+{'seed': 44, 'fold': 0, 'tier1_f1': 0.7463768115942029, 'tier1_recall': 0.7253521126760564, 'stack_backend': 'ollama', 'stack_f1': 0.8987341772151899, 'stack_recall': 1.0, 'stack_cost': 96.0, 'stack_cost_per_1000': 96.0, 'n': 1000, 'tau_low': 0.07105263157894737, 'tau_high': 0.55}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/seed_sweep/seed_sweep_fold0.json

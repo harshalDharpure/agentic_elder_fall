@@ -1,0 +1,24 @@
+\begin{table*}[!t]
+\centering
+\caption{Open problems named in the base detector paper~\cite{bhatti2025beyond}, and which component of RCDP addresses each. The final row is the honesty constraint on our claims.}
+\label{tab:bhattigaps}
+\begin{tabular}{@{}p{0.45\linewidth} p{0.50\linewidth}@{}}
+\toprule
+Limitation acknowledged in~\cite{bhatti2025beyond} & Corresponding RCDP component and evidence \\
+\midrule
+Softmax force-labels every window; residual sit/stand and near-fall confusion
+ & Dual-threshold \textbf{confidence gate} routes the ambiguous band to System~2 (Tables~\ref{tab:ambiguoussisfall},~\ref{tab:conformalgate}) \\
+Explainability limited to attention weights
+ & Serialised biomechanical \textbf{evidence} $\Sigma(\mathbf{x})$ $+$ grounded chain-of-thought rationale, measured by $\mathcal{G}_{\mathrm{faith}}$ (Table~\ref{tab:grounding}) \\
+No case memory or precedent reuse
+ & MiniLM \textbf{$k$-NN retrieval} over labelled evidence strings; ablated in Tables~\ref{tab:ablation},~\ref{tab:knnk} \\
+Detection only; no clinical response policy
+ & Cost-sensitive \textbf{Action Agent} over $\{$emergency, notify, monitor, log$\}$ under $\mathcal{R}_\beta$ (Table~\ref{tab:betacost}) \\
+No treatment of the false-negative/false-positive asymmetry
+ & Gate and action thresholds calibrated to $\beta{=}10$; sensitivity reported for $\beta\in\{5,10,20\}$ (Table~\ref{tab:betacost}) \\
+\midrule
+Published result: $36$-class multi-phase F1 $\approx0.98$ at $\approx20$\,ms
+ & \emph{Not contested.} We claim only that the same Tier-1 backbone, frozen, attains better recall and lower clinical cost under uncertainty when wrapped in RCDP (Tables~\ref{tab:perfold},~\ref{tab:kfallperfold}) \\
+\bottomrule
+\end{tabular}
+\end{table*}

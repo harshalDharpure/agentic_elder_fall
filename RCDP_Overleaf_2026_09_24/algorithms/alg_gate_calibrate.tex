@@ -1,0 +1,22 @@
+\begin{algorithm}[!t]
+\caption{Cost-calibrated dual-threshold gate, with split-conformal audit}
+\label{alg:gate}
+\begin{algorithmic}[1]
+\REQUIRE Subject-held-out calibration set $\{(p_i,y_i)\}_{i=1}^{n}$; costs $(\beta_{\mathrm{FN}},\beta_{\mathrm{FP}})$; deferral penalty $\lambda$; conformal level $\alpha$
+\STATE \textbf{/* Routing surrogate: edge errors plus deferral penalty */}
+\STATE $\mathcal{T}\leftarrow\{(t_\ell,t_h)\in \text{grid}^2 : t_\ell<t_h\}$
+\FORALL{$(t_\ell,t_h)\in\mathcal{T}$}
+  \STATE $E\leftarrow\{i: p_i\le t_\ell \text{ or } p_i\ge t_h\}$ \COMMENT{edge decisions}
+  \STATE $J(t_\ell,t_h)\leftarrow \beta_{\mathrm{FN}}\mathrm{FN}_{E}+\beta_{\mathrm{FP}}\mathrm{FP}_{E}+\lambda\,(n-|E|)$
+\ENDFOR
+\STATE $(\tau_{\mathrm{low}},\tau_{\mathrm{high}})\leftarrow\arg\min_{\mathcal{T}} J$ \COMMENT{ties broken toward lower deferral}
+\STATE \textbf{/* Split-conformal audit (reported, not deployed) */}
+\STATE $s_i\leftarrow 1-p_i$ if $y_i{=}1$, else $s_i\leftarrow p_i$
+\STATE $m\leftarrow\lceil (n{+}1)(1{-}\alpha)\rceil$
+\STATE $\hat{q}\leftarrow s_{(m)}$ if $m\le n$; otherwise $\hat{q}\leftarrow+\infty$
+\STATE For test $p$: $C(p)\leftarrow\{c\in\{0,1\}:\,1-\hat{p}(c)\le\hat{q}\}$
+\STATE Route at the edge if $|C(p)|{=}1$; otherwise defer \COMMENT{including an empty set}
+\STATE Report edge-decision FN rate and escalation rate for both gates
+\STATE \textbf{return} $(\tau_{\mathrm{low}},\tau_{\mathrm{high}},\hat{q})$
+\end{algorithmic}
+\end{algorithm}

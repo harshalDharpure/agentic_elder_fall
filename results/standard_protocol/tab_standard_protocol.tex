@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\centering
+\caption{Standard SisFall binary protocol (natural prevalence, subject-independent, Youden threshold). Gate G1: F1 $\ge$ 0.95.}
+\label{tab:standardprotocol}
+\begin{tabular}{lccc}
+\toprule
+Backbone & F1 & Recall & Spec. \\
+\midrule
+modern\_tcn & 0.742$\pm$0.015 & 0.745 & 0.867 \\
+\textbf{cnn\_lstm\_attn} & 0.718$\pm$0.022 & 0.756 & 0.820 \\
+tcn & 0.702$\pm$0.029 & 0.733 & 0.820 \\
+cnn1d & 0.701$\pm$0.031 & 0.751 & 0.799 \\
+cnn\_lstm & 0.696$\pm$0.010 & 0.741 & 0.803 \\
+lstm & 0.693$\pm$0.016 & 0.720 & 0.818 \\
+transformer & 0.690$\pm$0.012 & 0.742 & 0.792 \\
+tsmixer & 0.671$\pm$0.022 & 0.671 & 0.834 \\
+patchtst & 0.541$\pm$0.009 & 0.627 & 0.647 \\
+\bottomrule
+\end{tabular}
+\end{table}

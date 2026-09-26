@@ -1,0 +1,444 @@
+=== BUILD KFall ambiguous dataset 2026-08-22T15:57:04+05:30 ===
+fold0: n=300 ambiguous=100 (D18=50 D19=50) -> /DATA/tauseef_2121cs04/harshal/agentic_fall/data/kfold_ambiguous_kfall/fold0_ambiguous_eval.npz
+fold1: n=300 ambiguous=100 (D18=50 D19=50) -> /DATA/tauseef_2121cs04/harshal/agentic_fall/data/kfold_ambiguous_kfall/fold1_ambiguous_eval.npz
+fold2: n=300 ambiguous=100 (D18=50 D19=50) -> /DATA/tauseef_2121cs04/harshal/agentic_fall/data/kfold_ambiguous_kfall/fold2_ambiguous_eval.npz
+fold3: n=300 ambiguous=100 (D18=50 D19=50) -> /DATA/tauseef_2121cs04/harshal/agentic_fall/data/kfold_ambiguous_kfall/fold3_ambiguous_eval.npz
+fold4: n=300 ambiguous=100 (D18=50 D19=50) -> /DATA/tauseef_2121cs04/harshal/agentic_fall/data/kfold_ambiguous_kfall/fold4_ambiguous_eval.npz
+
+=== tier1_only baseline (fast) ===
+tier1_only:   0%|          | 0/300 [00:00<?, ?it/s]tier1_only:   3%|▎         | 10/300 [00:00<00:03, 93.60it/s]tier1_only:   7%|▋         | 21/300 [00:00<00:02, 100.90it/s]tier1_only:  11%|█         | 33/300 [00:00<00:02, 107.96it/s]tier1_only:  16%|█▋        | 49/300 [00:00<00:01, 126.05it/s]tier1_only:  23%|██▎       | 69/300 [00:00<00:01, 151.47it/s]tier1_only:  29%|██▉       | 88/300 [00:00<00:01, 162.29it/s]tier1_only:  35%|███▌      | 105/300 [00:00<00:01, 141.69it/s]tier1_only:  40%|████      | 120/300 [00:00<00:01, 131.12it/s]tier1_only:  45%|████▍     | 134/300 [00:01<00:01, 124.56it/s]tier1_only:  49%|████▉     | 147/300 [00:01<00:01, 120.02it/s]tier1_only:  53%|█████▎    | 160/300 [00:01<00:01, 116.75it/s]tier1_only:  57%|█████▋    | 172/300 [00:01<00:01, 116.71it/s]tier1_only:  61%|██████▏   | 184/300 [00:01<00:01, 114.19it/s]tier1_only:  65%|██████▌   | 196/300 [00:01<00:00, 112.55it/s]tier1_only:  69%|██████▉   | 208/300 [00:01<00:00, 112.86it/s]tier1_only:  73%|███████▎  | 220/300 [00:01<00:00, 111.35it/s]tier1_only:  77%|███████▋  | 232/300 [00:01<00:00, 111.48it/s]tier1_only:  81%|████████▏ | 244/300 [00:02<00:00, 111.64it/s]tier1_only:  85%|████████▌ | 256/300 [00:02<00:00, 110.32it/s]tier1_only:  89%|████████▉ | 268/300 [00:02<00:00, 112.32it/s]tier1_only:  93%|█████████▎| 280/300 [00:02<00:00, 110.94it/s]tier1_only:  97%|█████████▋| 292/300 [00:02<00:00, 110.71it/s]tier1_only: 100%|██████████| 300/300 [00:02<00:00, 118.35it/s]
+{
+  "accuracy": 0.9766666666666667,
+  "precision": 0.9428571428571428,
+  "recall": 0.99,
+  "sensitivity": 0.9899999999999901,
+  "specificity": 0.9699999999999952,
+  "f1": 0.9658536585365853,
+  "tp": 99,
+  "tn": 194,
+  "fp": 6,
+  "fn": 1,
+  "escalation_rate": 0.0,
+  "n_escalated": 0,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.06,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.06,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.01,
+  "expected_response_cost": 16.0,
+  "false_alarms_per_1000": 20.0,
+  "emergency_rate": 0.1,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 55.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "tier1_only",
+  "far": 0.03,
+  "n": 300,
+  "cost_per_window": 0.05333333333333334,
+  "escalate_rate": 0.0
+}
+tier1_only:   0%|          | 0/300 [00:00<?, ?it/s]tier1_only:   2%|▏         | 7/300 [00:00<00:04, 67.64it/s]tier1_only:   6%|▌         | 17/300 [00:00<00:03, 81.68it/s]tier1_only:  10%|▉         | 29/300 [00:00<00:02, 96.83it/s]tier1_only:  13%|█▎        | 40/300 [00:00<00:02, 100.82it/s]tier1_only:  17%|█▋        | 52/300 [00:00<00:02, 106.67it/s]tier1_only:  21%|██        | 63/300 [00:00<00:02, 106.62it/s]tier1_only:  25%|██▌       | 75/300 [00:00<00:02, 108.30it/s]tier1_only:  29%|██▉       | 87/300 [00:00<00:01, 109.17it/s]tier1_only:  33%|███▎      | 98/300 [00:00<00:01, 108.94it/s]tier1_only:  37%|███▋      | 110/300 [00:01<00:01, 110.50it/s]tier1_only:  41%|████      | 122/300 [00:01<00:01, 109.41it/s]tier1_only:  45%|████▍     | 134/300 [00:01<00:01, 111.44it/s]tier1_only:  49%|████▊     | 146/300 [00:01<00:01, 111.06it/s]tier1_only:  53%|█████▎    | 158/300 [00:01<00:01, 110.43it/s]tier1_only:  57%|█████▋    | 170/300 [00:01<00:01, 111.93it/s]tier1_only:  61%|██████    | 182/300 [00:01<00:01, 110.25it/s]tier1_only:  65%|██████▍   | 194/300 [00:01<00:00, 111.85it/s]tier1_only:  69%|██████▊   | 206/300 [00:01<00:00, 111.23it/s]tier1_only:  73%|███████▎  | 218/300 [00:02<00:00, 109.93it/s]tier1_only:  77%|███████▋  | 230/300 [00:02<00:00, 111.71it/s]tier1_only:  81%|████████▏ | 244/300 [00:02<00:00, 119.26it/s]tier1_only:  89%|████████▉ | 268/300 [00:02<00:00, 153.63it/s]tier1_only:  97%|█████████▋| 291/300 [00:02<00:00, 175.56it/s]tier1_only: 100%|██████████| 300/300 [00:02<00:00, 121.44it/s]
+{
+  "accuracy": 0.99,
+  "precision": 0.970873786407767,
+  "recall": 1.0,
+  "sensitivity": 0.99999999999999,
+  "specificity": 0.9849999999999951,
+  "f1": 0.9852216748768473,
+  "tp": 100,
+  "tn": 197,
+  "fp": 3,
+  "fn": 0,
+  "escalation_rate": 0.0,
+  "n_escalated": 0,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.03,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.03,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.0,
+  "expected_response_cost": 3.0,
+  "false_alarms_per_1000": 10.0,
+  "emergency_rate": 0.06666666666666667,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 27.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "tier1_only",
+  "far": 0.015,
+  "n": 300,
+  "cost_per_window": 0.01,
+  "escalate_rate": 0.0
+}
+tier1_only:   0%|          | 0/300 [00:00<?, ?it/s]tier1_only:   3%|▎         | 9/300 [00:00<00:03, 84.42it/s]tier1_only:   7%|▋         | 22/300 [00:00<00:02, 105.60it/s]tier1_only:  13%|█▎        | 38/300 [00:00<00:02, 129.46it/s]tier1_only:  20%|█▉        | 59/300 [00:00<00:01, 157.27it/s]tier1_only:  25%|██▌       | 75/300 [00:00<00:01, 157.74it/s]tier1_only:  30%|███       | 91/300 [00:00<00:01, 137.04it/s]tier1_only:  35%|███▌      | 106/300 [00:00<00:01, 128.43it/s]tier1_only:  40%|████      | 120/300 [00:00<00:01, 122.67it/s]tier1_only:  44%|████▍     | 133/300 [00:01<00:01, 120.01it/s]tier1_only:  49%|████▊     | 146/300 [00:01<00:01, 117.16it/s]tier1_only:  53%|█████▎    | 158/300 [00:01<00:01, 115.94it/s]tier1_only:  57%|█████▋    | 170/300 [00:01<00:01, 114.88it/s]tier1_only:  61%|██████    | 182/300 [00:01<00:01, 113.01it/s]tier1_only:  65%|██████▍   | 194/300 [00:01<00:00, 113.94it/s]tier1_only:  69%|██████▊   | 206/300 [00:01<00:00, 112.62it/s]tier1_only:  73%|███████▎  | 218/300 [00:01<00:00, 111.03it/s]tier1_only:  77%|███████▋  | 230/300 [00:01<00:00, 112.89it/s]tier1_only:  81%|████████  | 242/300 [00:02<00:00, 111.46it/s]tier1_only:  85%|████████▍ | 254/300 [00:02<00:00, 110.95it/s]tier1_only:  89%|████████▊ | 266/300 [00:02<00:00, 112.26it/s]tier1_only:  93%|█████████▎| 278/300 [00:02<00:00, 111.95it/s]tier1_only:  97%|█████████▋| 290/300 [00:02<00:00, 112.22it/s]tier1_only: 100%|██████████| 300/300 [00:02<00:00, 118.12it/s]
+{
+  "accuracy": 0.9633333333333334,
+  "precision": 0.908256880733945,
+  "recall": 0.99,
+  "sensitivity": 0.9899999999999901,
+  "specificity": 0.9499999999999953,
+  "f1": 0.9473684210526315,
+  "tp": 99,
+  "tn": 190,
+  "fp": 10,
+  "fn": 1,
+  "escalation_rate": 0.0,
+  "n_escalated": 0,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.09,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.09,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.01,
+  "expected_response_cost": 20.0,
+  "false_alarms_per_1000": 33.333333333333336,
+  "emergency_rate": 0.06666666666666667,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 75.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "tier1_only",
+  "far": 0.05,
+  "n": 300,
+  "cost_per_window": 0.06666666666666667,
+  "escalate_rate": 0.0
+}
+tier1_only:   0%|          | 0/300 [00:00<?, ?it/s]tier1_only:   3%|▎         | 9/300 [00:00<00:03, 85.38it/s]tier1_only:   7%|▋         | 21/300 [00:00<00:02, 102.43it/s]tier1_only:  11%|█         | 32/300 [00:00<00:02, 105.25it/s]tier1_only:  15%|█▍        | 44/300 [00:00<00:02, 108.60it/s]tier1_only:  19%|█▊        | 56/300 [00:00<00:02, 109.83it/s]tier1_only:  22%|██▏       | 67/300 [00:00<00:02, 108.79it/s]tier1_only:  26%|██▋       | 79/300 [00:00<00:02, 110.14it/s]tier1_only:  30%|███       | 91/300 [00:00<00:01, 109.89it/s]tier1_only:  34%|███▍      | 102/300 [00:00<00:01, 108.74it/s]tier1_only:  38%|███▊      | 114/300 [00:01<00:01, 110.96it/s]tier1_only:  42%|████▏     | 126/300 [00:01<00:01, 110.27it/s]tier1_only:  46%|████▌     | 138/300 [00:01<00:01, 112.30it/s]tier1_only:  50%|█████     | 150/300 [00:01<00:01, 110.56it/s]tier1_only:  54%|█████▍    | 162/300 [00:01<00:01, 110.69it/s]tier1_only:  58%|█████▊    | 174/300 [00:01<00:01, 110.99it/s]tier1_only:  62%|██████▏   | 186/300 [00:01<00:01, 109.81it/s]tier1_only:  66%|██████▌   | 198/300 [00:01<00:00, 112.01it/s]tier1_only:  70%|███████   | 210/300 [00:01<00:00, 110.44it/s]tier1_only:  74%|███████▍  | 222/300 [00:02<00:00, 110.19it/s]tier1_only:  80%|████████  | 241/300 [00:02<00:00, 131.91it/s]tier1_only:  87%|████████▋ | 262/300 [00:02<00:00, 153.29it/s]tier1_only:  93%|█████████▎| 278/300 [00:02<00:00, 141.55it/s]tier1_only:  98%|█████████▊| 293/300 [00:02<00:00, 132.72it/s]tier1_only: 100%|██████████| 300/300 [00:02<00:00, 117.26it/s]
+{
+  "accuracy": 0.99,
+  "precision": 0.970873786407767,
+  "recall": 1.0,
+  "sensitivity": 0.99999999999999,
+  "specificity": 0.9849999999999951,
+  "f1": 0.9852216748768473,
+  "tp": 100,
+  "tn": 197,
+  "fp": 3,
+  "fn": 0,
+  "escalation_rate": 0.0,
+  "n_escalated": 0,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.03,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.03,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.0,
+  "expected_response_cost": 3.0,
+  "false_alarms_per_1000": 10.0,
+  "emergency_rate": 0.06333333333333334,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 30.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "tier1_only",
+  "far": 0.015,
+  "n": 300,
+  "cost_per_window": 0.01,
+  "escalate_rate": 0.0
+}
+tier1_only:   0%|          | 0/300 [00:00<?, ?it/s]tier1_only:   4%|▎         | 11/300 [00:00<00:02, 101.19it/s]tier1_only:   9%|▊         | 26/300 [00:00<00:02, 127.14it/s]tier1_only:  13%|█▎        | 40/300 [00:00<00:01, 130.61it/s]tier1_only:  18%|█▊        | 54/300 [00:00<00:01, 133.62it/s]tier1_only:  23%|██▎       | 68/300 [00:00<00:01, 133.16it/s]tier1_only:  27%|██▋       | 82/300 [00:00<00:01, 134.70it/s]tier1_only:  32%|███▏      | 97/300 [00:00<00:01, 137.28it/s]tier1_only:  37%|███▋      | 111/300 [00:00<00:01, 136.61it/s]tier1_only:  42%|████▏     | 125/300 [00:00<00:01, 135.60it/s]tier1_only:  47%|████▋     | 140/300 [00:01<00:01, 135.94it/s]tier1_only:  52%|█████▏    | 155/300 [00:01<00:01, 138.60it/s]tier1_only:  56%|█████▋    | 169/300 [00:01<00:00, 136.64it/s]tier1_only:  61%|██████    | 183/300 [00:01<00:00, 136.15it/s]tier1_only:  66%|██████▌   | 197/300 [00:01<00:00, 134.93it/s]tier1_only:  71%|███████   | 212/300 [00:01<00:00, 136.56it/s]tier1_only:  78%|███████▊  | 234/300 [00:01<00:00, 159.59it/s]tier1_only:  84%|████████▎ | 251/300 [00:01<00:00, 151.96it/s]tier1_only:  89%|████████▉ | 267/300 [00:01<00:00, 147.51it/s]tier1_only:  94%|█████████▍| 282/300 [00:02<00:00, 143.37it/s]tier1_only:  99%|█████████▉| 297/300 [00:02<00:00, 141.08it/s]tier1_only: 100%|██████████| 300/300 [00:02<00:00, 139.04it/s]
+{
+  "accuracy": 0.97,
+  "precision": 0.9252336448598131,
+  "recall": 0.99,
+  "sensitivity": 0.9899999999999901,
+  "specificity": 0.9599999999999952,
+  "f1": 0.9565217391304348,
+  "tp": 99,
+  "tn": 192,
+  "fp": 8,
+  "fn": 1,
+  "escalation_rate": 0.0,
+  "n_escalated": 0,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.08,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.08,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.01,
+  "expected_response_cost": 18.0,
+  "false_alarms_per_1000": 26.666666666666668,
+  "emergency_rate": 0.11333333333333333,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 62.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "tier1_only",
+  "far": 0.04,
+  "n": 300,
+  "cost_per_window": 0.06,
+  "escalate_rate": 0.0
+}
+
+=== gate_knn_llm NO CRITIC backend=ollama ===
+--- fold 0 ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+gate_knn_llm:   0%|          | 0/300 [00:00<?, ?it/s]gate_knn_llm:   1%|          | 2/300 [00:14<35:28,  7.14s/it]gate_knn_llm:   1%|▏         | 4/300 [00:22<26:48,  5.44s/it]gate_knn_llm:   2%|▏         | 5/300 [00:30<29:29,  6.00s/it]gate_knn_llm:   2%|▏         | 6/300 [00:38<32:51,  6.71s/it]gate_knn_llm:   3%|▎         | 8/300 [00:44<24:53,  5.12s/it]gate_knn_llm:   4%|▍         | 13/300 [00:55<15:29,  3.24s/it]gate_knn_llm:   6%|▋         | 19/300 [01:03<10:32,  2.25s/it]gate_knn_llm:   8%|▊         | 23/300 [01:11<10:05,  2.18s/it]gate_knn_llm:   8%|▊         | 25/300 [01:19<11:33,  2.52s/it]gate_knn_llm:   9%|▊         | 26/300 [01:28<15:05,  3.31s/it]gate_knn_llm:   9%|▉         | 28/300 [01:37<16:05,  3.55s/it]gate_knn_llm:  10%|▉         | 29/300 [01:47<20:56,  4.64s/it]gate_knn_llm:  10%|█         | 31/300 [01:57<21:20,  4.76s/it]gate_knn_llm:  11%|█         | 32/300 [02:09<26:38,  5.96s/it]gate_knn_llm:  12%|█▏        | 35/300 [02:20<21:51,  4.95s/it]gate_knn_llm:  12%|█▏        | 37/300 [02:31<22:32,  5.14s/it]gate_knn_llm:  13%|█▎        | 39/300 [02:42<23:10,  5.33s/it]gate_knn_llm:  15%|█▍        | 44/300 [02:55<16:34,  3.89s/it]gate_knn_llm:  15%|█▌        | 45/300 [03:06<20:13,  4.76s/it]gate_knn_llm:  15%|█▌        | 46/300 [03:18<24:55,  5.89s/it]gate_knn_llm:  16%|█▋        | 49/300 [03:29<21:02,  5.03s/it]gate_knn_llm:  17%|█▋        | 50/300 [03:38<23:38,  5.67s/it]gate_knn_llm:  19%|█▉        | 57/300 [03:53<14:01,  3.46s/it]gate_knn_llm:  19%|█▉        | 58/300 [04:05<17:55,  4.45s/it]gate_knn_llm:  20%|██        | 61/300 [04:17<17:00,  4.27s/it]gate_knn_llm:  21%|██        | 62/300 [04:27<20:21,  5.13s/it]gate_knn_llm:  22%|██▏       | 66/300 [04:40<16:38,  4.27s/it]gate_knn_llm:  23%|██▎       | 68/300 [04:54<19:01,  4.92s/it]gate_knn_llm:  24%|██▍       | 72/300 [05:08<16:29,  4.34s/it]gate_knn_llm:  24%|██▍       | 73/300 [05:19<19:28,  5.15s/it]gate_knn_llm:  25%|██▌       | 76/300 [05:30<17:37,  4.72s/it]gate_knn_llm:  26%|██▌       | 78/300 [05:42<18:24,  4.97s/it]gate_knn_llm:  29%|██▊       | 86/300 [05:55<10:38,  2.98s/it]gate_knn_llm:  29%|██▉       | 88/300 [06:08<12:51,  3.64s/it]gate_knn_llm:  30%|██▉       | 89/300 [06:18<15:25,  4.39s/it]gate_knn_llm:  30%|███       | 90/300 [06:28<17:58,  5.14s/it]gate_knn_llm:  31%|███       | 92/300 [06:41<19:00,  5.48s/it]gate_knn_llm:  31%|███       | 93/300 [06:52<21:49,  6.33s/it]gate_knn_llm:  31%|███▏      | 94/300 [07:03<25:14,  7.35s/it]gate_knn_llm:  32%|███▏      | 95/300 [07:16<28:56,  8.47s/it]gate_knn_llm:  33%|███▎      | 100/300 [07:28<15:49,  4.75s/it]gate_knn_llm:  34%|███▎      | 101/300 [07:39<19:00,  5.73s/it]gate_knn_llm:  35%|███▍      | 104/300 [07:53<17:31,  5.37s/it]gate_knn_llm:  38%|███▊      | 113/300 [08:08<09:28,  3.04s/it]gate_knn_llm:  39%|███▊      | 116/300 [08:24<10:53,  3.55s/it]gate_knn_llm:  39%|███▉      | 117/300 [08:42<15:13,  4.99s/it]gate_knn_llm:  40%|███▉      | 119/300 [08:56<16:14,  5.38s/it]gate_knn_llm:  40%|████      | 120/300 [09:12<20:44,  6.92s/it]gate_knn_llm:  42%|████▏     | 127/300 [09:29<12:19,  4.28s/it]gate_knn_llm:  45%|████▌     | 135/300 [09:42<08:14,  3.00s/it]gate_knn_llm:  45%|████▌     | 136/300 [09:55<10:27,  3.82s/it]gate_knn_llm:  46%|████▌     | 138/300 [10:13<12:53,  4.78s/it]gate_knn_llm:  47%|████▋     | 142/300 [10:27<11:26,  4.34s/it]gate_knn_llm:  49%|████▊     | 146/300 [10:43<10:51,  4.23s/it]gate_knn_llm:  50%|████▉     | 149/300 [11:01<11:43,  4.66s/it]gate_knn_llm:  50%|█████     | 150/300 [11:18<15:04,  6.03s/it]gate_knn_llm:  51%|█████     | 152/300 [11:41<18:11,  7.37s/it]gate_knn_llm:  52%|█████▏    | 156/300 [11:55<13:59,  5.83s/it]gate_knn_llm:  53%|█████▎    | 159/300 [12:10<13:03,  5.56s/it]gate_knn_llm:  53%|█████▎    | 160/300 [12:26<16:02,  6.88s/it]gate_knn_llm:  56%|█████▌    | 168/300 [12:40<08:27,  3.84s/it]gate_knn_llm:  61%|██████    | 182/300 [12:54<04:13,  2.14s/it]gate_knn_llm:  61%|██████▏   | 184/300 [13:05<04:51,  2.51s/it]gate_knn_llm:  62%|██████▏   | 185/300 [13:21<06:38,  3.47s/it]gate_knn_llm:  62%|██████▏   | 186/300 [13:34<08:16,  4.35s/it]gate_knn_llm:  62%|██████▏   | 187/300 [13:50<10:51,  5.77s/it]gate_knn_llm:  64%|██████▎   | 191/300 [14:04<08:52,  4.88s/it]gate_knn_llm:  66%|██████▌   | 198/300 [14:21<06:10,  3.63s/it]gate_knn_llm:  67%|██████▋   | 200/300 [14:36<07:09,  4.30s/it]gate_knn_llm:  67%|██████▋   | 201/300 [14:51<09:01,  5.47s/it]gate_knn_llm:  70%|██████▉   | 209/300 [15:09<05:31,  3.64s/it]gate_knn_llm:  70%|███████   | 210/300 [15:22<06:47,  4.53s/it]gate_knn_llm:  71%|███████   | 213/300 [15:38<06:51,  4.73s/it]gate_knn_llm:  72%|███████▏  | 217/300 [15:54<06:14,  4.52s/it]gate_knn_llm:  73%|███████▎  | 219/300 [16:09<06:51,  5.08s/it]gate_knn_llm:  73%|███████▎  | 220/300 [16:23<08:15,  6.19s/it]gate_knn_llm:  74%|███████▎  | 221/300 [16:39<09:59,  7.58s/it]gate_knn_llm:  75%|███████▍  | 224/300 [16:52<08:01,  6.33s/it]gate_knn_llm:  75%|███████▌  | 225/300 [17:05<09:18,  7.45s/it]gate_knn_llm:  75%|███████▌  | 226/300 [17:22<11:15,  9.13s/it]gate_knn_llm:  77%|███████▋  | 232/300 [17:44<06:31,  5.76s/it]gate_knn_llm:  78%|███████▊  | 235/300 [18:00<06:09,  5.69s/it]gate_knn_llm:  79%|███████▊  | 236/300 [18:14<07:08,  6.69s/it]gate_knn_llm:  80%|███████▉  | 239/300 [18:29<06:15,  6.16s/it]gate_knn_llm:  80%|████████  | 241/300 [18:45<06:24,  6.52s/it]gate_knn_llm:  82%|████████▏ | 245/300 [19:00<04:56,  5.40s/it]gate_knn_llm:  82%|████████▏ | 247/300 [19:14<05:06,  5.77s/it]gate_knn_llm:  83%|████████▎ | 249/300 [19:29<05:19,  6.26s/it]gate_knn_llm:  84%|████████▎ | 251/300 [19:45<05:26,  6.67s/it]gate_knn_llm:  84%|████████▍ | 252/300 [19:58<06:09,  7.70s/it]gate_knn_llm:  85%|████████▌ | 256/300 [20:13<04:13,  5.75s/it]gate_knn_llm:  86%|████████▌ | 257/300 [20:27<05:01,  7.01s/it]gate_knn_llm:  89%|████████▉ | 267/300 [20:27<01:15,  2.30s/it]gate_knn_llm:  89%|████████▉ | 267/300 [20:40<01:15,  2.30s/it]gate_knn_llm:  90%|████████▉ | 269/300 [20:41<01:33,  3.03s/it]gate_knn_llm:  91%|█████████ | 273/300 [20:56<01:27,  3.24s/it]gate_knn_llm:  92%|█████████▏| 276/300 [21:09<01:25,  3.56s/it]gate_knn_llm:  93%|█████████▎| 279/300 [21:25<01:24,  4.02s/it]gate_knn_llm:  94%|█████████▎| 281/300 [21:38<01:26,  4.54s/it]gate_knn_llm:  95%|█████████▍| 284/300 [21:55<01:17,  4.82s/it]gate_knn_llm:  95%|█████████▌| 285/300 [22:10<01:32,  6.13s/it]gate_knn_llm:  98%|█████████▊| 293/300 [22:25<00:25,  3.65s/it]gate_knn_llm:  98%|█████████▊| 294/300 [22:50<00:34,  5.68s/it]gate_knn_llm:  99%|█████████▊| 296/300 [23:04<00:23,  5.90s/it]gate_knn_llm:  99%|█████████▉| 298/300 [23:18<00:12,  6.24s/it]gate_knn_llm: 100%|██████████| 300/300 [23:31<00:00,  6.21s/it]gate_knn_llm: 100%|██████████| 300/300 [23:31<00:00,  4.70s/it]
+{
+  "accuracy": 0.9933333333333333,
+  "precision": 0.9803921568627451,
+  "recall": 1.0,
+  "sensitivity": 0.99999999999999,
+  "specificity": 0.9899999999999951,
+  "f1": 0.9900990099009901,
+  "tp": 100,
+  "tn": 198,
+  "fp": 2,
+  "fn": 0,
+  "escalation_rate": 0.3466666666666667,
+  "n_escalated": 104,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.0,
+  "escalated_f1": 0.5,
+  "false_alarm_rate_ambiguous": 0.0,
+  "ambiguous_f1": 0.5,
+  "missed_fall_rate": 0.0,
+  "expected_response_cost": 2.0,
+  "false_alarms_per_1000": 6.666666666666667,
+  "emergency_rate": 0.1,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 31.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "gate_knn_llm",
+  "far": 0.01,
+  "n": 300,
+  "cost_per_window": 0.006666666666666667,
+  "escalate_rate": 0.3466666666666667
+}
+--- fold 1 ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+gate_knn_llm:   0%|          | 0/300 [00:00<?, ?it/s]gate_knn_llm:   1%|          | 2/300 [00:14<36:18,  7.31s/it]gate_knn_llm:   3%|▎         | 9/300 [00:31<15:34,  3.21s/it]gate_knn_llm:   4%|▍         | 12/300 [00:46<18:19,  3.82s/it]gate_knn_llm:   5%|▍         | 14/300 [01:00<22:08,  4.65s/it]gate_knn_llm:   6%|▌         | 18/300 [01:14<19:42,  4.19s/it]gate_knn_llm:   8%|▊         | 25/300 [01:26<13:27,  2.94s/it]gate_knn_llm:  10%|▉         | 29/300 [01:40<13:48,  3.06s/it]gate_knn_llm:  10%|█         | 31/300 [01:55<17:19,  3.86s/it]gate_knn_llm:  11%|█         | 33/300 [02:09<19:49,  4.45s/it]gate_knn_llm:  11%|█▏        | 34/300 [02:25<26:14,  5.92s/it]gate_knn_llm:  12%|█▏        | 37/300 [02:39<23:58,  5.47s/it]gate_knn_llm:  13%|█▎        | 38/300 [02:54<29:59,  6.87s/it]gate_knn_llm:  14%|█▎        | 41/300 [03:13<28:31,  6.61s/it]gate_knn_llm:  15%|█▌        | 45/300 [03:30<23:39,  5.57s/it]gate_knn_llm:  16%|█▌        | 48/300 [03:45<22:43,  5.41s/it]gate_knn_llm:  16%|█▋        | 49/300 [03:58<26:52,  6.42s/it]gate_knn_llm:  17%|█▋        | 50/300 [04:14<33:08,  7.95s/it]gate_knn_llm:  17%|█▋        | 51/300 [04:28<37:29,  9.03s/it]gate_knn_llm:  17%|█▋        | 52/300 [04:42<41:07,  9.95s/it]gate_knn_llm:  18%|█▊        | 53/300 [04:55<44:08, 10.72s/it]gate_knn_llm:  18%|█▊        | 54/300 [05:09<46:50, 11.42s/it]gate_knn_llm:  19%|█▉        | 57/300 [05:24<33:27,  8.26s/it]gate_knn_llm:  20%|█▉        | 59/300 [05:38<31:08,  7.75s/it]gate_knn_llm:  20%|██        | 60/300 [05:50<34:31,  8.63s/it]gate_knn_llm:  20%|██        | 61/300 [06:05<39:37,  9.95s/it]gate_knn_llm:  21%|██▏       | 64/300 [06:18<28:43,  7.30s/it]gate_knn_llm:  22%|██▏       | 65/300 [06:33<34:08,  8.72s/it]gate_knn_llm:  23%|██▎       | 68/300 [06:49<27:40,  7.16s/it]gate_knn_llm:  23%|██▎       | 69/300 [07:05<33:45,  8.77s/it]gate_knn_llm:  23%|██▎       | 70/300 [07:20<38:10,  9.96s/it]gate_knn_llm:  25%|██▌       | 75/300 [07:36<22:37,  6.03s/it]gate_knn_llm:  26%|██▌       | 77/300 [07:50<23:05,  6.21s/it]gate_knn_llm:  26%|██▌       | 78/300 [08:03<26:45,  7.23s/it]gate_knn_llm:  27%|██▋       | 81/300 [08:13<20:51,  5.72s/it]gate_knn_llm:  28%|██▊       | 83/300 [08:25<21:14,  5.87s/it]gate_knn_llm:  28%|██▊       | 85/300 [08:42<23:41,  6.61s/it]gate_knn_llm:  29%|██▊       | 86/300 [08:56<27:32,  7.72s/it]gate_knn_llm:  29%|██▉       | 87/300 [09:08<30:30,  8.59s/it]gate_knn_llm:  29%|██▉       | 88/300 [09:22<34:36,  9.80s/it]gate_knn_llm:  30%|███       | 90/300 [09:36<30:33,  8.73s/it]gate_knn_llm:  31%|███       | 93/300 [09:50<23:39,  6.86s/it]gate_knn_llm:  32%|███▏      | 95/300 [10:05<24:06,  7.06s/it]gate_knn_llm:  33%|███▎      | 98/300 [10:19<20:36,  6.12s/it]gate_knn_llm:  33%|███▎      | 99/300 [10:33<24:41,  7.37s/it]gate_knn_llm:  37%|███▋      | 110/300 [10:48<09:53,  3.12s/it]gate_knn_llm:  39%|███▊      | 116/300 [11:04<08:56,  2.92s/it]gate_knn_llm:  41%|████▏     | 124/300 [11:16<06:55,  2.36s/it]gate_knn_llm:  42%|████▏     | 126/300 [11:27<08:01,  2.77s/it]gate_knn_llm:  43%|████▎     | 128/300 [11:41<09:50,  3.44s/it]gate_knn_llm:  43%|████▎     | 129/300 [11:56<13:01,  4.57s/it]gate_knn_llm:  46%|████▋     | 139/300 [12:11<07:20,  2.74s/it]gate_knn_llm:  48%|████▊     | 145/300 [12:23<06:30,  2.52s/it]gate_knn_llm:  49%|████▊     | 146/300 [12:35<08:09,  3.18s/it]gate_knn_llm:  50%|████▉     | 149/300 [12:48<08:46,  3.49s/it]gate_knn_llm:  50%|█████     | 151/300 [13:00<09:46,  3.94s/it]gate_knn_llm:  53%|█████▎    | 160/300 [13:11<05:43,  2.45s/it]gate_knn_llm:  58%|█████▊    | 174/300 [13:23<03:17,  1.57s/it]gate_knn_llm:  58%|█████▊    | 175/300 [13:36<04:34,  2.19s/it]gate_knn_llm:  59%|█████▊    | 176/300 [13:48<05:59,  2.90s/it]gate_knn_llm:  59%|█████▉    | 177/300 [14:02<08:01,  3.92s/it]gate_knn_llm:  60%|██████    | 181/300 [14:14<07:11,  3.63s/it]gate_knn_llm:  61%|██████▏   | 184/300 [14:26<07:02,  3.64s/it]gate_knn_llm:  65%|██████▌   | 195/300 [14:41<04:04,  2.32s/it]gate_knn_llm:  65%|██████▌   | 196/300 [14:53<05:16,  3.05s/it]gate_knn_llm:  68%|██████▊   | 203/300 [15:06<04:04,  2.52s/it]gate_knn_llm:  68%|██████▊   | 204/300 [15:17<05:09,  3.22s/it]gate_knn_llm:  68%|██████▊   | 205/300 [15:29<06:25,  4.06s/it]gate_knn_llm:  69%|██████▉   | 207/300 [15:44<07:33,  4.87s/it]gate_knn_llm:  70%|██████▉   | 209/300 [15:58<08:03,  5.32s/it]gate_knn_llm:  70%|███████   | 210/300 [16:10<09:25,  6.28s/it]gate_knn_llm:  70%|███████   | 211/300 [16:22<10:51,  7.32s/it]gate_knn_llm:  71%|███████   | 212/300 [16:36<12:43,  8.68s/it]gate_knn_llm:  71%|███████   | 213/300 [16:52<14:48, 10.21s/it]gate_knn_llm:  72%|███████▏  | 215/300 [17:04<12:10,  8.59s/it]gate_knn_llm:  72%|███████▏  | 216/300 [17:18<13:51,  9.89s/it]gate_knn_llm:  74%|███████▎  | 221/300 [17:32<07:20,  5.58s/it]gate_knn_llm:  75%|███████▍  | 224/300 [17:46<06:40,  5.27s/it]gate_knn_llm:  75%|███████▌  | 225/300 [18:01<08:09,  6.53s/it]gate_knn_llm:  77%|███████▋  | 230/300 [18:15<05:26,  4.67s/it]gate_knn_llm:  79%|███████▉  | 238/300 [18:27<03:08,  3.04s/it]gate_knn_llm:  80%|███████▉  | 239/300 [18:41<03:58,  3.91s/it]gate_knn_llm:  80%|████████  | 240/300 [18:55<05:04,  5.08s/it]gate_knn_llm:  82%|████████▏ | 245/300 [19:11<03:55,  4.28s/it]gate_knn_llm:  83%|████████▎ | 248/300 [19:25<03:48,  4.39s/it]gate_knn_llm:  85%|████████▍ | 254/300 [19:38<02:36,  3.41s/it]gate_knn_llm:  85%|████████▌ | 255/300 [19:51<03:14,  4.33s/it]gate_knn_llm:  85%|████████▌ | 256/300 [20:04<03:53,  5.31s/it]gate_knn_llm:  87%|████████▋ | 262/300 [20:18<02:25,  3.82s/it]gate_knn_llm:  88%|████████▊ | 264/300 [20:31<02:36,  4.34s/it]gate_knn_llm:  89%|████████▊ | 266/300 [20:42<02:36,  4.60s/it]gate_knn_llm:  89%|████████▉ | 267/300 [20:55<03:07,  5.69s/it]gate_knn_llm:  89%|████████▉ | 268/300 [21:08<03:38,  6.82s/it]gate_knn_llm:  91%|█████████ | 273/300 [21:23<02:10,  4.83s/it]gate_knn_llm:  93%|█████████▎| 278/300 [21:36<01:25,  3.87s/it]gate_knn_llm:  94%|█████████▍| 282/300 [21:51<01:08,  3.83s/it]gate_knn_llm:  94%|█████████▍| 283/300 [22:04<01:21,  4.81s/it]gate_knn_llm:  95%|█████████▍| 284/300 [22:18<01:35,  5.96s/it]gate_knn_llm:  96%|█████████▌| 288/300 [22:31<00:58,  4.84s/it]gate_knn_llm:  96%|█████████▋| 289/300 [22:45<01:06,  6.08s/it]gate_knn_llm:  99%|█████████▊| 296/300 [22:58<00:14,  3.65s/it]gate_knn_llm: 100%|██████████| 300/300 [22:58<00:00,  4.60s/it]
+{
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "sensitivity": 0.99999999999999,
+  "specificity": 0.999999999999995,
+  "f1": 1.0,
+  "tp": 100,
+  "tn": 200,
+  "fp": 0,
+  "fn": 0,
+  "escalation_rate": 0.3333333333333333,
+  "n_escalated": 100,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.0,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.0,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.0,
+  "expected_response_cost": 0.0,
+  "false_alarms_per_1000": 0.0,
+  "emergency_rate": 0.06666666666666667,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 15.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "gate_knn_llm",
+  "far": 0.0,
+  "n": 300,
+  "cost_per_window": 0.0,
+  "escalate_rate": 0.3333333333333333
+}
+--- fold 2 ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+gate_knn_llm:   0%|          | 0/300 [00:00<?, ?it/s]gate_knn_llm:   0%|          | 1/300 [00:14<1:14:20, 14.92s/it]gate_knn_llm:   1%|          | 3/300 [00:26<40:32,  8.19s/it]  gate_knn_llm:   1%|▏         | 4/300 [00:38<46:08,  9.35s/it]gate_knn_llm:   2%|▏         | 5/300 [00:50<50:10, 10.20s/it]gate_knn_llm:   3%|▎         | 8/300 [01:02<32:28,  6.67s/it]gate_knn_llm:   4%|▎         | 11/300 [01:16<27:29,  5.71s/it]gate_knn_llm:   6%|▌         | 18/300 [01:29<15:51,  3.37s/it]gate_knn_llm:   8%|▊         | 23/300 [01:42<14:20,  3.11s/it]gate_knn_llm:   8%|▊         | 25/300 [01:55<17:13,  3.76s/it]gate_knn_llm:   9%|▊         | 26/300 [02:09<22:21,  4.89s/it]gate_knn_llm:  10%|█         | 31/300 [02:22<17:21,  3.87s/it]gate_knn_llm:  11%|█         | 33/300 [02:35<19:29,  4.38s/it]gate_knn_llm:  12%|█▏        | 35/300 [02:48<21:33,  4.88s/it]gate_knn_llm:  12%|█▏        | 37/300 [03:01<23:05,  5.27s/it]gate_knn_llm:  14%|█▍        | 42/300 [03:12<16:23,  3.81s/it]gate_knn_llm:  16%|█▌        | 47/300 [03:28<15:03,  3.57s/it]gate_knn_llm:  16%|█▌        | 48/300 [03:43<19:49,  4.72s/it]gate_knn_llm:  16%|█▋        | 49/300 [03:56<24:29,  5.85s/it]gate_knn_llm:  18%|█▊        | 54/300 [04:10<17:51,  4.36s/it]gate_knn_llm:  19%|█▊        | 56/300 [04:25<20:18,  4.99s/it]gate_knn_llm:  20%|██        | 60/300 [04:34<15:58,  3.99s/it]gate_knn_llm:  23%|██▎       | 68/300 [04:49<11:04,  2.87s/it]gate_knn_llm:  26%|██▌       | 78/300 [05:02<07:53,  2.13s/it]gate_knn_llm:  27%|██▋       | 81/300 [05:15<09:03,  2.48s/it]gate_knn_llm:  28%|██▊       | 84/300 [05:29<10:27,  2.91s/it]gate_knn_llm:  29%|██▊       | 86/300 [05:45<13:18,  3.73s/it]gate_knn_llm:  29%|██▉       | 88/300 [06:00<15:49,  4.48s/it]gate_knn_llm:  31%|███       | 92/300 [06:13<13:50,  3.99s/it]gate_knn_llm:  32%|███▏      | 97/300 [06:27<12:11,  3.60s/it]gate_knn_llm:  36%|███▋      | 109/300 [06:43<07:14,  2.28s/it]gate_knn_llm:  37%|███▋      | 111/300 [06:55<08:35,  2.73s/it]gate_knn_llm:  38%|███▊      | 114/300 [07:08<09:33,  3.08s/it]gate_knn_llm:  40%|███▉      | 119/300 [07:20<08:33,  2.84s/it]gate_knn_llm:  43%|████▎     | 128/300 [07:32<06:12,  2.16s/it]gate_knn_llm:  44%|████▎     | 131/300 [07:43<06:49,  2.42s/it]gate_knn_llm:  45%|████▍     | 134/300 [07:55<07:39,  2.77s/it]gate_knn_llm:  46%|████▌     | 138/300 [08:07<07:31,  2.79s/it]gate_knn_llm:  48%|████▊     | 145/300 [08:19<06:09,  2.38s/it]gate_knn_llm:  49%|████▉     | 148/300 [08:30<06:33,  2.59s/it]gate_knn_llm:  50%|█████     | 151/300 [08:43<07:26,  3.00s/it]gate_knn_llm:  51%|█████     | 152/300 [08:56<09:47,  3.97s/it]gate_knn_llm:  53%|█████▎    | 159/300 [09:09<06:58,  2.97s/it]gate_knn_llm:  53%|█████▎    | 160/300 [09:24<09:26,  4.04s/it]gate_knn_llm:  55%|█████▌    | 166/300 [09:36<07:02,  3.15s/it]gate_knn_llm:  56%|█████▌    | 167/300 [09:52<09:40,  4.36s/it]gate_knn_llm:  56%|█████▌    | 168/300 [10:05<11:56,  5.43s/it]gate_knn_llm:  57%|█████▋    | 170/300 [10:21<13:01,  6.01s/it]gate_knn_llm:  57%|█████▋    | 171/300 [10:34<15:15,  7.10s/it]gate_knn_llm:  58%|█████▊    | 174/300 [10:47<12:34,  5.99s/it]gate_knn_llm:  58%|█████▊    | 175/300 [11:04<16:00,  7.68s/it]gate_knn_llm:  59%|█████▊    | 176/300 [11:16<17:42,  8.57s/it]gate_knn_llm:  59%|█████▉    | 177/300 [11:28<18:51,  9.20s/it]gate_knn_llm:  60%|█████▉    | 179/300 [11:42<16:49,  8.35s/it]gate_knn_llm:  62%|██████▏   | 185/300 [11:53<08:25,  4.40s/it]gate_knn_llm:  64%|██████▎   | 191/300 [12:08<06:21,  3.50s/it]gate_knn_llm:  64%|██████▍   | 192/300 [12:22<08:14,  4.57s/it]gate_knn_llm:  65%|██████▌   | 195/300 [12:37<08:16,  4.73s/it]gate_knn_llm:  66%|██████▌   | 197/300 [12:50<08:37,  5.03s/it]gate_knn_llm:  66%|██████▌   | 198/300 [13:03<10:31,  6.19s/it]gate_knn_llm:  67%|██████▋   | 200/300 [13:17<10:36,  6.37s/it]gate_knn_llm:  67%|██████▋   | 202/300 [13:31<10:42,  6.55s/it]gate_knn_llm:  68%|██████▊   | 203/300 [13:46<12:55,  7.99s/it]gate_knn_llm:  68%|██████▊   | 204/300 [14:01<15:02,  9.40s/it]gate_knn_llm:  68%|██████▊   | 205/300 [14:13<15:50, 10.01s/it]gate_knn_llm:  69%|██████▊   | 206/300 [14:29<17:55, 11.44s/it]gate_knn_llm:  70%|██████▉   | 209/300 [14:43<12:01,  7.93s/it]gate_knn_llm:  71%|███████   | 213/300 [14:57<08:21,  5.77s/it]gate_knn_llm:  72%|███████▏  | 215/300 [15:09<08:19,  5.87s/it]gate_knn_llm:  73%|███████▎  | 219/300 [15:23<06:30,  4.81s/it]gate_knn_llm:  73%|███████▎  | 220/300 [15:36<07:52,  5.91s/it]gate_knn_llm:  74%|███████▍  | 222/300 [15:50<08:03,  6.20s/it]gate_knn_llm:  75%|███████▌  | 226/300 [16:01<05:47,  4.69s/it]gate_knn_llm:  76%|███████▌  | 227/300 [16:12<06:43,  5.52s/it]gate_knn_llm:  77%|███████▋  | 230/300 [16:24<05:53,  5.04s/it]gate_knn_llm:  77%|███████▋  | 231/300 [16:34<06:40,  5.81s/it]gate_knn_llm:  77%|███████▋  | 232/300 [16:46<07:49,  6.90s/it]gate_knn_llm:  78%|███████▊  | 233/300 [16:58<08:40,  7.77s/it]gate_knn_llm:  80%|███████▉  | 239/300 [17:07<03:57,  3.89s/it]gate_knn_llm:  80%|████████  | 241/300 [17:18<04:09,  4.22s/it]gate_knn_llm:  81%|████████  | 242/300 [17:30<05:04,  5.26s/it]gate_knn_llm:  84%|████████▎ | 251/300 [17:39<02:03,  2.52s/it]gate_knn_llm:  84%|████████▍ | 252/300 [17:50<02:37,  3.29s/it]gate_knn_llm:  84%|████████▍ | 253/300 [18:02<03:24,  4.35s/it]gate_knn_llm:  85%|████████▌ | 255/300 [18:15<03:39,  4.87s/it]gate_knn_llm:  85%|████████▌ | 256/300 [18:26<04:15,  5.80s/it]gate_knn_llm:  86%|████████▋ | 259/300 [18:38<03:29,  5.11s/it]gate_knn_llm:  88%|████████▊ | 264/300 [18:50<02:15,  3.76s/it]gate_knn_llm:  89%|████████▊ | 266/300 [18:59<02:15,  4.00s/it]gate_knn_llm:  89%|████████▉ | 267/300 [19:13<02:53,  5.26s/it]gate_knn_llm:  89%|████████▉ | 268/300 [19:24<03:20,  6.27s/it]gate_knn_llm:  90%|████████▉ | 269/300 [19:37<03:50,  7.43s/it]gate_knn_llm:  90%|█████████ | 270/300 [19:49<04:14,  8.48s/it]gate_knn_llm:  91%|█████████▏| 274/300 [20:03<02:28,  5.72s/it]gate_knn_llm:  92%|█████████▏| 275/300 [20:16<02:52,  6.88s/it]gate_knn_llm:  93%|█████████▎| 279/300 [20:27<01:43,  4.92s/it]gate_knn_llm:  93%|█████████▎| 280/300 [20:38<01:55,  5.79s/it]gate_knn_llm:  94%|█████████▍| 283/300 [20:49<01:25,  5.03s/it]gate_knn_llm:  96%|█████████▌| 287/300 [21:02<00:54,  4.21s/it]gate_knn_llm:  96%|█████████▌| 288/300 [21:13<01:01,  5.16s/it]gate_knn_llm:  97%|█████████▋| 291/300 [21:23<00:40,  4.47s/it]gate_knn_llm:  99%|█████████▉| 298/300 [21:36<00:06,  3.06s/it]gate_knn_llm: 100%|██████████| 300/300 [21:36<00:00,  4.32s/it]
+{
+  "accuracy": 0.9833333333333333,
+  "precision": 0.9523809523809523,
+  "recall": 1.0,
+  "sensitivity": 0.99999999999999,
+  "specificity": 0.9749999999999952,
+  "f1": 0.975609756097561,
+  "tp": 100,
+  "tn": 195,
+  "fp": 5,
+  "fn": 0,
+  "escalation_rate": 0.33666666666666667,
+  "n_escalated": 101,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.04,
+  "escalated_f1": 0.3333333333333333,
+  "false_alarm_rate_ambiguous": 0.04,
+  "ambiguous_f1": 0.3333333333333333,
+  "missed_fall_rate": 0.0,
+  "expected_response_cost": 5.0,
+  "false_alarms_per_1000": 16.666666666666668,
+  "emergency_rate": 0.06666666666666667,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 44.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "gate_knn_llm",
+  "far": 0.025,
+  "n": 300,
+  "cost_per_window": 0.016666666666666666,
+  "escalate_rate": 0.33666666666666667
+}
+--- fold 3 ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+gate_knn_llm:   0%|          | 0/300 [00:00<?, ?it/s]gate_knn_llm:   2%|▏         | 6/300 [00:12<10:03,  2.05s/it]gate_knn_llm:   4%|▎         | 11/300 [00:23<10:20,  2.15s/it]gate_knn_llm:   4%|▍         | 12/300 [00:34<16:12,  3.38s/it]gate_knn_llm:   5%|▌         | 16/300 [00:46<14:53,  3.15s/it]gate_knn_llm:   6%|▌         | 17/300 [00:56<19:33,  4.15s/it]gate_knn_llm:   6%|▌         | 18/300 [01:10<26:49,  5.71s/it]gate_knn_llm:   7%|▋         | 20/300 [01:19<24:28,  5.24s/it]gate_knn_llm:   7%|▋         | 21/300 [01:29<29:11,  6.28s/it]gate_knn_llm:   7%|▋         | 22/300 [01:42<35:19,  7.62s/it]gate_knn_llm:   8%|▊         | 23/300 [01:55<40:25,  8.76s/it]gate_knn_llm:   8%|▊         | 24/300 [02:05<42:20,  9.21s/it]gate_knn_llm:   9%|▊         | 26/300 [02:17<35:47,  7.84s/it]gate_knn_llm:   9%|▉         | 27/300 [02:26<37:12,  8.18s/it]gate_knn_llm:  11%|█         | 33/300 [02:37<17:32,  3.94s/it]gate_knn_llm:  12%|█▏        | 37/300 [02:48<15:15,  3.48s/it]gate_knn_llm:  13%|█▎        | 39/300 [03:00<17:39,  4.06s/it]gate_knn_llm:  14%|█▍        | 43/300 [03:12<15:19,  3.58s/it]gate_knn_llm:  17%|█▋        | 50/300 [03:18<09:27,  2.27s/it]gate_knn_llm:  17%|█▋        | 51/300 [03:28<12:21,  2.98s/it]gate_knn_llm:  18%|█▊        | 55/300 [03:39<11:50,  2.90s/it]gate_knn_llm:  20%|██        | 61/300 [03:51<10:10,  2.55s/it]gate_knn_llm:  22%|██▏       | 65/300 [04:00<09:36,  2.45s/it]gate_knn_llm:  22%|██▏       | 66/300 [04:08<11:31,  2.95s/it]gate_knn_llm:  25%|██▌       | 76/300 [04:19<07:03,  1.89s/it]gate_knn_llm:  26%|██▌       | 78/300 [04:29<08:33,  2.31s/it]gate_knn_llm:  26%|██▋       | 79/300 [04:39<11:00,  2.99s/it]gate_knn_llm:  27%|██▋       | 80/300 [04:52<15:14,  4.16s/it]gate_knn_llm:  29%|██▉       | 88/300 [05:01<08:46,  2.48s/it]gate_knn_llm:  30%|███       | 90/300 [05:13<10:31,  3.01s/it]gate_knn_llm:  31%|███       | 92/300 [05:22<11:41,  3.37s/it]gate_knn_llm:  32%|███▏      | 96/300 [05:34<10:57,  3.22s/it]gate_knn_llm:  33%|███▎      | 98/300 [05:44<12:04,  3.59s/it]gate_knn_llm:  34%|███▍      | 102/300 [05:56<11:02,  3.35s/it]gate_knn_llm:  35%|███▌      | 106/300 [06:04<09:13,  2.85s/it]gate_knn_llm:  36%|███▌      | 107/300 [06:21<14:14,  4.43s/it]gate_knn_llm:  37%|███▋      | 110/300 [06:31<13:06,  4.14s/it]gate_knn_llm:  37%|███▋      | 111/300 [06:42<15:41,  4.98s/it]gate_knn_llm:  38%|███▊      | 113/300 [06:54<16:28,  5.29s/it]gate_knn_llm:  39%|███▊      | 116/300 [07:04<14:08,  4.61s/it]gate_knn_llm:  41%|████      | 122/300 [07:13<08:54,  3.01s/it]gate_knn_llm:  41%|████      | 123/300 [07:24<11:21,  3.85s/it]gate_knn_llm:  42%|████▏     | 126/300 [07:34<10:33,  3.64s/it]gate_knn_llm:  42%|████▏     | 127/300 [07:45<13:21,  4.63s/it]gate_knn_llm:  44%|████▎     | 131/300 [07:55<10:37,  3.77s/it]gate_knn_llm:  45%|████▍     | 134/300 [08:07<10:23,  3.75s/it]gate_knn_llm:  45%|████▌     | 135/300 [08:16<12:29,  4.54s/it]gate_knn_llm:  46%|████▌     | 137/300 [08:27<13:05,  4.82s/it]gate_knn_llm:  46%|████▌     | 138/300 [08:39<16:06,  5.97s/it]gate_knn_llm:  48%|████▊     | 145/300 [08:51<08:32,  3.31s/it]gate_knn_llm:  49%|████▊     | 146/300 [09:01<10:18,  4.02s/it]gate_knn_llm:  50%|█████     | 150/300 [09:11<08:41,  3.48s/it]gate_knn_llm:  50%|█████     | 151/300 [09:22<10:50,  4.36s/it]gate_knn_llm:  51%|█████▏    | 154/300 [09:32<09:45,  4.01s/it]gate_knn_llm:  52%|█████▏    | 155/300 [09:45<12:36,  5.22s/it]gate_knn_llm:  53%|█████▎    | 159/300 [09:57<09:59,  4.25s/it]gate_knn_llm:  56%|█████▌    | 168/300 [10:07<05:18,  2.41s/it]gate_knn_llm:  58%|█████▊    | 173/300 [10:17<04:49,  2.28s/it]gate_knn_llm:  59%|█████▉    | 177/300 [10:26<04:41,  2.29s/it]gate_knn_llm:  60%|██████    | 180/300 [10:36<05:05,  2.54s/it]gate_knn_llm:  60%|██████    | 181/300 [10:45<06:16,  3.16s/it]gate_knn_llm:  61%|██████▏   | 184/300 [10:58<06:41,  3.46s/it]gate_knn_llm:  65%|██████▍   | 194/300 [11:07<03:28,  1.97s/it]gate_knn_llm:  65%|██████▌   | 195/300 [11:16<04:21,  2.49s/it]gate_knn_llm:  66%|██████▌   | 198/300 [11:26<04:34,  2.70s/it]gate_knn_llm:  66%|██████▋   | 199/300 [11:36<05:53,  3.50s/it]gate_knn_llm:  67%|██████▋   | 201/300 [11:46<06:20,  3.84s/it]gate_knn_llm:  68%|██████▊   | 203/300 [11:58<07:02,  4.35s/it]gate_knn_llm:  69%|██████▉   | 208/300 [12:09<05:09,  3.37s/it]gate_knn_llm:  71%|███████   | 212/300 [12:20<04:38,  3.16s/it]gate_knn_llm:  71%|███████▏  | 214/300 [12:31<05:12,  3.64s/it]gate_knn_llm:  72%|███████▏  | 216/300 [12:41<05:32,  3.96s/it]gate_knn_llm:  74%|███████▍  | 222/300 [12:53<03:49,  2.95s/it]gate_knn_llm:  75%|███████▍  | 224/300 [13:03<04:16,  3.37s/it]gate_knn_llm:  75%|███████▌  | 225/300 [13:13<05:12,  4.17s/it]gate_knn_llm:  77%|███████▋  | 232/300 [13:24<03:04,  2.71s/it]gate_knn_llm:  78%|███████▊  | 233/300 [13:35<04:01,  3.61s/it]gate_knn_llm:  80%|████████  | 241/300 [13:46<02:20,  2.38s/it]gate_knn_llm:  81%|████████  | 242/300 [13:55<02:54,  3.01s/it]gate_knn_llm:  82%|████████▏ | 245/300 [14:06<02:52,  3.14s/it]gate_knn_llm:  83%|████████▎ | 248/300 [14:15<02:43,  3.15s/it]gate_knn_llm:  84%|████████▎ | 251/300 [14:26<02:40,  3.27s/it]gate_knn_llm:  84%|████████▍ | 252/300 [14:36<03:12,  4.02s/it]gate_knn_llm:  85%|████████▌ | 256/300 [14:45<02:28,  3.38s/it]gate_knn_llm:  86%|████████▋ | 259/300 [14:55<02:17,  3.36s/it]gate_knn_llm:  87%|████████▋ | 260/300 [15:05<02:45,  4.14s/it]gate_knn_llm:  87%|████████▋ | 261/300 [15:16<03:23,  5.21s/it]gate_knn_llm:  88%|████████▊ | 263/300 [15:28<03:19,  5.38s/it]gate_knn_llm:  88%|████████▊ | 264/300 [15:38<03:46,  6.29s/it]gate_knn_llm:  89%|████████▉ | 268/300 [15:48<02:19,  4.36s/it]gate_knn_llm:  90%|████████▉ | 269/300 [15:58<02:41,  5.21s/it]gate_knn_llm:  91%|█████████ | 273/300 [16:06<01:41,  3.75s/it]gate_knn_llm:  92%|█████████▏| 277/300 [16:17<01:16,  3.32s/it]gate_knn_llm:  93%|█████████▎| 280/300 [16:26<01:04,  3.25s/it]gate_knn_llm:  94%|█████████▎| 281/300 [16:36<01:17,  4.09s/it]gate_knn_llm:  94%|█████████▍| 282/300 [16:45<01:28,  4.90s/it]gate_knn_llm:  95%|█████████▍| 284/300 [16:56<01:20,  5.05s/it]gate_knn_llm:  95%|█████████▌| 286/300 [17:07<01:11,  5.09s/it]gate_knn_llm:  96%|█████████▋| 289/300 [17:17<00:48,  4.41s/it]gate_knn_llm:  98%|█████████▊| 295/300 [17:28<00:15,  3.10s/it]gate_knn_llm:  99%|█████████▊| 296/300 [17:38<00:15,  3.90s/it]gate_knn_llm:  99%|█████████▉| 297/300 [17:52<00:15,  5.17s/it]gate_knn_llm: 100%|██████████| 300/300 [17:52<00:00,  3.57s/it]
+{
+  "accuracy": 0.9766666666666667,
+  "precision": 0.9345794392523364,
+  "recall": 1.0,
+  "sensitivity": 0.99999999999999,
+  "specificity": 0.9649999999999952,
+  "f1": 0.966183574879227,
+  "tp": 100,
+  "tn": 193,
+  "fp": 7,
+  "fn": 0,
+  "escalation_rate": 0.33666666666666667,
+  "n_escalated": 101,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.06,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.06,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.0,
+  "expected_response_cost": 7.0,
+  "false_alarms_per_1000": 23.333333333333332,
+  "emergency_rate": 0.06333333333333334,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 45.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "gate_knn_llm",
+  "far": 0.035,
+  "n": 300,
+  "cost_per_window": 0.023333333333333334,
+  "escalate_rate": 0.33666666666666667
+}
+--- fold 4 ---
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+gate_knn_llm:   0%|          | 0/300 [00:00<?, ?it/s]gate_knn_llm:   1%|▏         | 4/300 [00:11<13:36,  2.76s/it]gate_knn_llm:   2%|▏         | 6/300 [00:19<16:17,  3.33s/it]gate_knn_llm:   4%|▍         | 13/300 [00:28<09:21,  1.96s/it]gate_knn_llm:   5%|▌         | 16/300 [00:40<11:56,  2.52s/it]gate_knn_llm:   8%|▊         | 24/300 [00:49<08:25,  1.83s/it]gate_knn_llm:   8%|▊         | 25/300 [01:00<12:01,  2.62s/it]gate_knn_llm:   9%|▉         | 27/300 [01:12<14:49,  3.26s/it]gate_knn_llm:  10%|█         | 31/300 [01:21<13:00,  2.90s/it]gate_knn_llm:  11%|█         | 32/300 [01:31<16:34,  3.71s/it]gate_knn_llm:  11%|█▏        | 34/300 [01:41<17:54,  4.04s/it]gate_knn_llm:  14%|█▎        | 41/300 [01:52<11:26,  2.65s/it]gate_knn_llm:  14%|█▍        | 43/300 [02:03<13:31,  3.16s/it]gate_knn_llm:  15%|█▍        | 44/300 [02:11<16:02,  3.76s/it]gate_knn_llm:  17%|█▋        | 51/300 [02:23<11:05,  2.67s/it]gate_knn_llm:  17%|█▋        | 52/300 [02:31<13:15,  3.21s/it]gate_knn_llm:  18%|█▊        | 54/300 [02:42<15:04,  3.68s/it]gate_knn_llm:  18%|█▊        | 55/300 [02:52<18:39,  4.57s/it]gate_knn_llm:  20%|██        | 61/300 [03:04<12:33,  3.15s/it]gate_knn_llm:  21%|██        | 62/300 [03:13<15:12,  3.84s/it]gate_knn_llm:  21%|██        | 63/300 [03:34<24:37,  6.24s/it]gate_knn_llm:  21%|██▏       | 64/300 [03:41<25:04,  6.37s/it]gate_knn_llm:  22%|██▏       | 65/300 [03:49<26:07,  6.67s/it]gate_knn_llm:  22%|██▏       | 67/300 [04:00<24:37,  6.34s/it]gate_knn_llm:  23%|██▎       | 69/300 [04:11<23:16,  6.05s/it]gate_knn_llm:  23%|██▎       | 70/300 [04:22<26:15,  6.85s/it]gate_knn_llm:  25%|██▍       | 74/300 [04:33<17:55,  4.76s/it]gate_knn_llm:  26%|██▌       | 77/300 [04:45<16:35,  4.46s/it]gate_knn_llm:  27%|██▋       | 80/300 [04:56<15:33,  4.24s/it]gate_knn_llm:  27%|██▋       | 81/300 [05:07<18:37,  5.10s/it]gate_knn_llm:  29%|██▊       | 86/300 [05:18<13:13,  3.71s/it]gate_knn_llm:  30%|███       | 90/300 [05:29<11:49,  3.38s/it]gate_knn_llm:  30%|███       | 91/300 [05:41<14:53,  4.27s/it]gate_knn_llm:  32%|███▏      | 95/300 [05:49<11:31,  3.37s/it]gate_knn_llm:  33%|███▎      | 98/300 [06:02<12:23,  3.68s/it]gate_knn_llm:  36%|███▋      | 109/300 [06:11<06:16,  1.97s/it]gate_knn_llm:  37%|███▋      | 110/300 [06:23<08:23,  2.65s/it]gate_knn_llm:  38%|███▊      | 113/300 [06:34<09:08,  2.93s/it]gate_knn_llm:  39%|███▊      | 116/300 [06:45<09:29,  3.10s/it]gate_knn_llm:  43%|████▎     | 130/300 [06:54<04:26,  1.57s/it]gate_knn_llm:  44%|████▎     | 131/300 [07:03<05:38,  2.00s/it]gate_knn_llm:  45%|████▌     | 135/300 [07:13<05:47,  2.11s/it]gate_knn_llm:  48%|████▊     | 145/300 [07:24<04:11,  1.63s/it]gate_knn_llm:  49%|████▉     | 148/300 [07:34<04:50,  1.91s/it]gate_knn_llm:  50%|████▉     | 149/300 [07:43<06:15,  2.49s/it]gate_knn_llm:  52%|█████▏    | 156/300 [07:56<05:15,  2.19s/it]gate_knn_llm:  52%|█████▏    | 157/300 [08:08<07:11,  3.02s/it]gate_knn_llm:  53%|█████▎    | 160/300 [08:18<07:07,  3.06s/it]gate_knn_llm:  54%|█████▎    | 161/300 [08:28<08:57,  3.87s/it]gate_knn_llm:  56%|█████▌    | 167/300 [08:37<05:59,  2.70s/it]gate_knn_llm:  56%|█████▋    | 169/300 [08:46<06:36,  3.03s/it]gate_knn_llm:  57%|█████▋    | 170/300 [08:58<08:50,  4.08s/it]gate_knn_llm:  57%|█████▋    | 171/300 [09:09<10:51,  5.05s/it]gate_knn_llm:  59%|█████▊    | 176/300 [09:19<07:23,  3.58s/it]gate_knn_llm:  60%|██████    | 180/300 [09:30<06:31,  3.26s/it]gate_knn_llm:  60%|██████    | 181/300 [09:42<08:22,  4.22s/it]gate_knn_llm:  61%|██████    | 182/300 [09:51<09:44,  4.96s/it]gate_knn_llm:  61%|██████    | 183/300 [10:02<11:26,  5.87s/it]gate_knn_llm:  62%|██████▏   | 185/300 [10:12<10:44,  5.61s/it]gate_knn_llm:  62%|██████▏   | 187/300 [10:20<09:40,  5.14s/it]gate_knn_llm:  63%|██████▎   | 188/300 [10:30<11:21,  6.08s/it]gate_knn_llm:  63%|██████▎   | 189/300 [10:40<12:30,  6.76s/it]gate_knn_llm:  64%|██████▎   | 191/300 [10:50<11:10,  6.15s/it]gate_knn_llm:  64%|██████▍   | 192/300 [11:00<12:47,  7.10s/it]gate_knn_llm:  65%|██████▍   | 194/300 [11:09<10:38,  6.02s/it]gate_knn_llm:  66%|██████▌   | 198/300 [11:20<07:28,  4.40s/it]gate_knn_llm:  67%|██████▋   | 202/300 [11:33<06:14,  3.82s/it]gate_knn_llm:  69%|██████▊   | 206/300 [11:43<05:14,  3.34s/it]gate_knn_llm:  72%|███████▏  | 216/300 [11:55<02:57,  2.11s/it]gate_knn_llm:  73%|███████▎  | 218/300 [12:05<03:25,  2.51s/it]gate_knn_llm:  74%|███████▍  | 222/300 [12:14<03:12,  2.47s/it]gate_knn_llm:  74%|███████▍  | 223/300 [12:25<04:10,  3.25s/it]gate_knn_llm:  75%|███████▌  | 225/300 [12:35<04:31,  3.61s/it]gate_knn_llm:  76%|███████▋  | 229/300 [12:46<03:54,  3.31s/it]gate_knn_llm:  77%|███████▋  | 230/300 [13:01<05:25,  4.65s/it]gate_knn_llm:  78%|███████▊  | 234/300 [13:12<04:16,  3.88s/it]gate_knn_llm:  79%|███████▊  | 236/300 [13:20<04:09,  3.89s/it]gate_knn_llm:  80%|███████▉  | 239/300 [13:31<03:54,  3.85s/it]gate_knn_llm:  81%|████████  | 242/300 [13:41<03:34,  3.70s/it]gate_knn_llm:  81%|████████  | 243/300 [13:51<04:19,  4.55s/it]gate_knn_llm:  82%|████████▏ | 246/300 [14:02<03:49,  4.25s/it]gate_knn_llm:  82%|████████▏ | 247/300 [14:13<04:33,  5.16s/it]gate_knn_llm:  83%|████████▎ | 249/300 [14:24<04:25,  5.21s/it]gate_knn_llm:  84%|████████▍ | 253/300 [14:34<03:06,  3.97s/it]gate_knn_llm:  85%|████████▌ | 255/300 [14:46<03:23,  4.53s/it]gate_knn_llm:  86%|████████▋ | 259/300 [14:57<02:35,  3.79s/it]gate_knn_llm:  87%|████████▋ | 260/300 [15:07<03:05,  4.63s/it]gate_knn_llm:  87%|████████▋ | 262/300 [15:19<03:06,  4.91s/it]gate_knn_llm:  89%|████████▊ | 266/300 [15:29<02:13,  3.93s/it]gate_knn_llm:  92%|█████████▏| 276/300 [15:41<00:53,  2.25s/it]gate_knn_llm:  92%|█████████▏| 277/300 [15:52<01:07,  2.95s/it]gate_knn_llm:  93%|█████████▎| 278/300 [16:01<01:19,  3.61s/it]gate_knn_llm:  93%|█████████▎| 279/300 [16:10<01:29,  4.24s/it]gate_knn_llm:  94%|█████████▍| 282/300 [16:22<01:16,  4.22s/it]gate_knn_llm:  95%|█████████▍| 284/300 [16:33<01:11,  4.47s/it]gate_knn_llm:  95%|█████████▌| 285/300 [16:47<01:28,  5.88s/it]gate_knn_llm:  97%|█████████▋| 290/300 [17:02<00:44,  4.42s/it]gate_knn_llm:  97%|█████████▋| 292/300 [17:11<00:35,  4.40s/it]gate_knn_llm:  98%|█████████▊| 293/300 [17:21<00:36,  5.19s/it]gate_knn_llm:  99%|█████████▉| 297/300 [17:33<00:12,  4.24s/it]gate_knn_llm: 100%|█████████▉| 299/300 [17:44<00:04,  4.58s/it]gate_knn_llm: 100%|██████████| 300/300 [17:44<00:00,  3.55s/it]
+{
+  "accuracy": 0.99,
+  "precision": 0.9801980198019802,
+  "recall": 0.99,
+  "sensitivity": 0.9899999999999901,
+  "specificity": 0.9899999999999951,
+  "f1": 0.9850746268656716,
+  "tp": 99,
+  "tn": 198,
+  "fp": 2,
+  "fn": 1,
+  "escalation_rate": 0.3333333333333333,
+  "n_escalated": 100,
+  "n_d18": 50,
+  "n_d19": 50,
+  "n_near_fall": 100,
+  "false_alarm_rate_near_fall": 0.02,
+  "escalated_f1": 0.0,
+  "false_alarm_rate_ambiguous": 0.02,
+  "ambiguous_f1": 0.0,
+  "missed_fall_rate": 0.01,
+  "expected_response_cost": 12.0,
+  "false_alarms_per_1000": 6.666666666666667,
+  "emergency_rate": 0.11333333333333333,
+  "emergency_rate_adl": 0.0,
+  "emergency_rate_near_fall": 0.0,
+  "graded_action_cost": 38.0,
+  "rationale_grounding_rate": 0.0,
+  "name": "gate_knn_llm",
+  "far": 0.01,
+  "n": 300,
+  "cost_per_window": 0.04,
+  "escalate_rate": 0.3333333333333333
+}
+Complete architecture: gate_knn_llm | backend=ollama
+Dataset: data/kfold_ambiguous (100 amb + 100 fall + 100 ADL per fold)
+
+fold    n     Acc      F1    Prec     Rec     FAR     Esc  AmbAcc     Cost
+--------------------------------------------------------------------------------
+   0  300   0.993   0.990   0.980   1.000   0.010   0.347   1.000        2
+   1  300   1.000   1.000   1.000   1.000   0.000   0.333   1.000        0
+   2  300   0.983   0.976   0.952   1.000   0.025   0.337   0.960        5
+   3  300   0.977   0.966   0.935   1.000   0.035   0.337   0.940        7
+   4  300   0.990   0.985   0.980   0.990   0.010   0.333   0.980       12
+--------------------------------------------------------------------------------
+mean±std Acc: 0.989 ± 0.008
+mean±std F1: 0.983 ± 0.012
+mean±std Prec: 0.970 ± 0.023
+mean±std Rec: 0.998 ± 0.004
+mean±std FAR: 0.016 ± 0.012
+mean±std Esc: 0.337 ± 0.005
+mean±std AmbAcc: 0.976 ± 0.023
+mean±std Cost: 5.200 ± 4.167
+
+Wrote results/kfold_ambiguous_kfall/ALL_FOLDS_REPORT.txt
+Complete architecture: gate_knn_llm | backend=heuristic
+Dataset: data/kfold_ambiguous (100 amb + 100 fall + 100 ADL per fold)
+
+fold    n     Acc      F1    Prec     Rec     FAR     Esc  AmbAcc     Cost
+--------------------------------------------------------------------------------
+   0  300   0.977   0.966   0.943   0.990   0.030   0.000   0.940       16
+   1  300   0.990   0.985   0.971   1.000   0.015   0.000   0.970        3
+   2  300   0.963   0.947   0.908   0.990   0.050   0.000   0.910       20
+   3  300   0.990   0.985   0.971   1.000   0.015   0.000   0.970        3
+   4  300   0.970   0.957   0.925   0.990   0.040   0.000   0.920       18
+--------------------------------------------------------------------------------
+mean±std Acc: 0.978 ± 0.011
+mean±std F1: 0.968 ± 0.015
+mean±std Prec: 0.944 ± 0.025
+mean±std Rec: 0.994 ± 0.005
+mean±std FAR: 0.030 ± 0.014
+mean±std Esc: 0.000 ± 0.000
+mean±std AmbAcc: 0.942 ± 0.025
+mean±std Cost: 12.000 ± 7.457
+
+Wrote results/kfold_ambiguous_kfall_tier1/ALL_FOLDS_REPORT.txt
+KFall ambiguous bench — gate_knn_llm vs tier1_only (NO CRITIC)
+Dataset: data/kfold_ambiguous_kfall (100 D18/D19 + 100 fall + 100 ADL per fold)
+
+fold mode               F1    Rec   FN   FP   Cost  AmbAcc
+------------------------------------------------------------
+   0 tier1_only      0.966  0.990    1    6     16   0.940
+   0 gate_knn_llm    0.990  1.000    0    2      2   1.000
+     Δ              +0.024          -1   -4    -14
+
+   1 tier1_only      0.985  1.000    0    3      3   0.970
+   1 gate_knn_llm    1.000  1.000    0    0      0   1.000
+     Δ              +0.015          +0   -3     -3
+
+   2 tier1_only      0.947  0.990    1   10     20   0.910
+   2 gate_knn_llm    0.976  1.000    0    5      5   0.960
+     Δ              +0.028          -1   -5    -15
+
+   3 tier1_only      0.985  1.000    0    3      3   0.970
+   3 gate_knn_llm    0.966  1.000    0    7      7   0.940
+     Δ              -0.019          +0   +4     +4
+
+   4 tier1_only      0.957  0.990    1    8     18   0.920
+   4 gate_knn_llm    0.985  0.990    1    2     12   0.980
+     Δ              +0.029          +0   -6     -6
+
+mean tier1 Cost=12  stack Cost=5
+=== DONE 2026-08-22T17:43:08+05:30 ===

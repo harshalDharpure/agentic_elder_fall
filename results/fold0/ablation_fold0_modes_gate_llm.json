@@ -1,0 +1,40 @@
+{
+  "protocol_tag": "fast_1000_with_gate_llm",
+  "fold": 0,
+  "max_test": 1000,
+  "modes": [
+    "gate_llm"
+  ],
+  "rows": [
+    {
+      "name": "gate_llm",
+      "accuracy": 0.691,
+      "precision": 0.5906344410876133,
+      "recall": 0.9114219114219114,
+      "sensitivity": 0.9114219114219092,
+      "specificity": 0.5253940455341497,
+      "f1": 0.7167736021998167,
+      "tp": 391,
+      "tn": 300,
+      "fp": 271,
+      "fn": 38,
+      "escalation_rate": 0.443,
+      "n_escalated": 443,
+      "n_d18": 80,
+      "n_d19": 80,
+      "n_near_fall": 160,
+      "false_alarm_rate_near_fall": 0.525,
+      "escalated_f1": 0.38873239436619716,
+      "false_alarm_rate_ambiguous": 0.525,
+      "ambiguous_f1": 0.38873239436619716,
+      "missed_fall_rate": 0.08857808857808858,
+      "expected_response_cost": 651.0,
+      "latency_tier1_ms": 8.332455755442153,
+      "latency_escalated_ms": 8182.139738214005,
+      "latency_mean_ms": 3629.3290818845853,
+      "ece": 0.0890850057974458,
+      "protocol_tag": "fast_1000_with_gate_llm",
+      "max_test": 1000
+    }
+  ]
+}

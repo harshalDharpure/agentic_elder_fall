@@ -1,0 +1,20 @@
+\begin{table*}[!t]
+\centering
+\caption{Scope of this work relative to the base detector paper. The two studies optimise different objects: \cite{bhatti2025beyond} optimises a detector, we optimise the decision system wrapped around one. Consequently the only fair numerical comparison in our tables is \texttt{tier1\_only} versus \texttt{gate\_knn\_llm} on identical folds and checkpoints.}
+\label{tab:positioning}
+\begin{tabular}{@{}p{0.215\linewidth} p{0.33\linewidth} p{0.40\linewidth}@{}}
+\toprule
+Aspect & Bhatti \textit{et al.}~2025~\cite{bhatti2025beyond} & This work (RCDP) \\
+\midrule
+Object of optimisation & Detector architecture & Decision policy around a frozen detector \\
+Primary task & Multi-phase fall/ADL classification & Detection $+$ deferral $+$ explanation $+$ response \\
+Backbone & CNN--LSTM--Attention & \emph{Same} primary backbone (frozen) $+$ reference zoo \\
+Uncertainty & Softmax confidence & Cost-calibrated dual threshold $(\tau_{\mathrm{low}},\tau_{\mathrm{high}})$, audited by split conformal \\
+Explainability & Attention weights & Serialised biomechanical evidence $+$ grounded CoT rationale \\
+Case memory & None & MiniLM $k$-NN retrieval over labelled evidence strings \\
+Response policy & None & Cost-sensitive Action Agent under $\mathcal{R}_\beta$, $\beta{=}10$ \\
+Primary corpus & KFall (multi-class, multi-phase) & SisFall binary $+$ D18/D19 stress set; KFall binary second-dataset check \\
+Baseline we compare to & --- & \texttt{tier1\_only}: same checkpoint, same folds, same budget \\
+\bottomrule
+\end{tabular}
+\end{table*}

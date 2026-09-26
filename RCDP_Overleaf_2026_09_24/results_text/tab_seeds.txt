@@ -1,0 +1,11 @@
+LABEL: tab:seeds
+CAPTION: Multi-seed robustness on Fold 0 ($n=1000$). Stack backend: Ollama/Mistral.
+
+{tabular}{ccccc}
+
+Seed | Tier-1 F1 | Stack F1 | Stack Rec. | Cost/1k
+42 | 0.747 | 0.909 | 0.998 | 95
+43 | 0.740 | 0.907 | 0.995 | 105
+44 | 0.746 | 0.899 | 1.000 | 96
+Mean±std | 0.745±0.004 | 0.905±0.005 | --- | ---
+{tabular}

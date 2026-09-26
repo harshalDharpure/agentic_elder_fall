@@ -1,0 +1,32 @@
+epoch 001  loss=2.5085  f1=0.2530  acc=0.3864  rec=0.2530  spec=nan
+epoch 002  loss=1.9631  f1=0.3862  acc=0.4560  rec=0.3862  spec=nan
+epoch 003  loss=1.7658  f1=0.4099  acc=0.4962  rec=0.4099  spec=nan
+epoch 004  loss=1.6648  f1=0.4677  acc=0.5298  rec=0.4677  spec=nan
+epoch 005  loss=1.5657  f1=0.4399  acc=0.5346  rec=0.4399  spec=nan
+epoch 006  loss=1.5096  f1=0.5010  acc=0.5592  rec=0.5010  spec=nan
+epoch 007  loss=1.4641  f1=0.4862  acc=0.5630  rec=0.4862  spec=nan
+epoch 008  loss=1.4105  f1=0.4975  acc=0.5792  rec=0.4975  spec=nan
+epoch 009  loss=1.3689  f1=0.4797  acc=0.5702  rec=0.4797  spec=nan
+epoch 010  loss=1.3322  f1=0.4890  acc=0.5764  rec=0.4890  spec=nan
+epoch 011  loss=1.2949  f1=0.5206  acc=0.5930  rec=0.5206  spec=nan
+epoch 012  loss=1.2695  f1=0.5186  acc=0.5952  rec=0.5186  spec=nan
+epoch 013  loss=1.2436  f1=0.5223  acc=0.5878  rec=0.5223  spec=nan
+epoch 014  loss=1.2117  f1=0.5319  acc=0.5964  rec=0.5319  spec=nan
+epoch 015  loss=1.1930  f1=0.5318  acc=0.5956  rec=0.5318  spec=nan
+epoch 016  loss=1.1678  f1=0.5042  acc=0.5886  rec=0.5042  spec=nan
+epoch 017  loss=1.1481  f1=0.5223  acc=0.5986  rec=0.5223  spec=nan
+epoch 018  loss=1.1192  f1=0.5358  acc=0.6014  rec=0.5358  spec=nan
+epoch 019  loss=1.1033  f1=0.5540  acc=0.6060  rec=0.5540  spec=nan
+epoch 020  loss=1.0764  f1=0.5471  acc=0.6058  rec=0.5471  spec=nan
+epoch 021  loss=1.0594  f1=0.5335  acc=0.5924  rec=0.5335  spec=nan
+epoch 022  loss=1.0364  f1=0.5376  acc=0.5940  rec=0.5376  spec=nan
+epoch 023  loss=1.0263  f1=0.5310  acc=0.5950  rec=0.5310  spec=nan
+epoch 024  loss=1.0000  f1=0.5426  acc=0.5998  rec=0.5426  spec=nan
+epoch 025  loss=0.9744  f1=0.5495  acc=0.6086  rec=0.5495  spec=nan
+epoch 026  loss=0.9703  f1=0.5459  acc=0.6004  rec=0.5459  spec=nan
+epoch 027  loss=0.9508  f1=0.5394  acc=0.5964  rec=0.5394  spec=nan
+epoch 028  loss=0.9283  f1=0.5383  acc=0.6012  rec=0.5383  spec=nan
+epoch 029  loss=0.9208  f1=0.5378  acc=0.5998  rec=0.5378  spec=nan
+Early stopping at epoch 29
+macro_f1 0.5413650505453398 weighted_f1 0.5825586287110703 acc 0.58525
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/kfall_multiclass_fold0.json

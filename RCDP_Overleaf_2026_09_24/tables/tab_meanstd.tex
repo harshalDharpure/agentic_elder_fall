@@ -1,0 +1,24 @@
+\begin{table}[!t]
+\centering
+\caption{Main-ablation evaluation, five-fold mean$\pm$sample std on SisFall ($n{=}1000$/fold, prevalence $0.433{\pm}0.004$). All metrics are computed from the supplied counts in Table~\ref{tab:confusion} before rounding. No operating-point metrics from the separate timing run are substituted. Paired intervals are descriptive fold-bootstrap summaries (Table~\ref{tab:stats}).}
+\label{tab:meanstd}
+\begin{tabular}{lccccc}
+\toprule
+Mode & F1 & Recall & Prec. & Spec. & Cost/1000 \\
+\midrule
+\texttt{tier1\_only}
+ & 0.759 & 0.759 & 0.760 & 0.815 & 1151 \\
+ & {\scriptsize$\pm$0.014} & {\scriptsize$\pm$0.022} & {\scriptsize$\pm$0.032} & {\scriptsize$\pm$0.035} & {\scriptsize$\pm$93} \\
+\addlinespace
+\textbf{\texttt{gate\_knn\_llm}}
+ & \textbf{0.887} & \textbf{0.977} & \textbf{0.813} & \textbf{0.828} & \textbf{200} \\
+ & {\scriptsize$\pm$0.029} & {\scriptsize$\pm$0.037} & {\scriptsize$\pm$0.036} & {\scriptsize$\pm$0.039} & {\scriptsize$\pm$164} \\
+\midrule
+\multicolumn{6}{l}{\textit{Paired $\Delta$ (stack $-$ Tier-1), percentile bootstrap 95\% CI}} \\
+\midrule
+F1        & \multicolumn{5}{l}{$+0.128$ \quad $[0.117,\ 0.147]$ \quad 5/5 folds} \\
+Recall    & \multicolumn{5}{l}{$+0.218$ \quad $[0.187,\ 0.248]$ \quad 5/5 folds} \\
+Cost/1000 & \multicolumn{5}{l}{$-951$ \quad\; $[-1079,\ -825]$ \quad 5/5 folds} \\
+\bottomrule
+\end{tabular}
+\end{table}

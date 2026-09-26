@@ -1,0 +1,1007 @@
+=== KFall post-finish waiter START Saturday 08 August 2026 11:20:33 PM IST ===
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+{
+  "dataset": "kfall_binary",
+  "n_folds": 5,
+  "folds": [
+    {
+      "fold": 0,
+      "tier1_only": {
+        "f1": 0.9918032786885246,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 17.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.417832330102101,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.417832330102101
+      },
+      "gate_only": {
+        "f1": 0.9918032786885246,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 17.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.75,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.412627252105337,
+        "latency_escalated_ms": 6.225219555199146,
+        "latency_mean_ms": 6.407942059682682
+      },
+      "gate_knn": {
+        "f1": 0.9907502569373073,
+        "recall": 0.9938144329896907,
+        "cost_per_1000": 36.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.4,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.939498353749514,
+        "latency_escalated_ms": 41.653316114097834,
+        "latency_mean_ms": 7.807343797758222
+      },
+      "gate_llm": {
+        "f1": 0.9758064516129032,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 33.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.25,
+        "false_alarm_rate_near_fall": 0.225,
+        "false_alarm_rate_ambiguous": 0.225,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.731256100181968,
+        "latency_escalated_ms": 8147.603715993464,
+        "latency_mean_ms": 210.25306759751402
+      },
+      "gate_knn_llm": {
+        "f1": 0.9928352098259979,
+        "recall": 1.0,
+        "cost_per_1000": 7.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.8888888888888888,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.508277387429889,
+        "latency_escalated_ms": 10103.229657793418,
+        "latency_mean_ms": 258.9263118975796
+      }
+    },
+    {
+      "fold": 1,
+      "tier1_only": {
+        "f1": 0.9865841073271414,
+        "recall": 0.9958333333333333,
+        "cost_per_1000": 31.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.05,
+        "false_alarm_rate_ambiguous": 0.05,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.348479005508125,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.348479005508125
+      },
+      "gate_knn_llm": {
+        "f1": 0.9855670103092784,
+        "recall": 0.9958333333333333,
+        "cost_per_1000": 32.0,
+        "escalation_rate": 0.002,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.05,
+        "false_alarm_rate_ambiguous": 0.05,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.384387323754151,
+        "latency_escalated_ms": 11388.723780051805,
+        "latency_mean_ms": 29.149066109210253
+      }
+    },
+    {
+      "fold": 2,
+      "tier1_only": {
+        "f1": 0.9865005192107996,
+        "recall": 0.9937238493723849,
+        "cost_per_1000": 40.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.389506580075249,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.389506580075249
+      },
+      "gate_knn_llm": {
+        "f1": 0.9885773624091381,
+        "recall": 0.99581589958159,
+        "cost_per_1000": 29.0,
+        "escalation_rate": 0.01,
+        "escalated_f1": 0.8,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.471228169164423,
+        "latency_escalated_ms": 10437.146962247789,
+        "latency_mean_ms": 110.77798550995067
+      }
+    },
+    {
+      "fold": 3,
+      "tier1_only": {
+        "f1": 0.9916666666666667,
+        "recall": 0.9896049896049897,
+        "cost_per_1000": 53.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.025,
+        "false_alarm_rate_ambiguous": 0.025,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.421177508542314,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.421177508542314
+      },
+      "gate_knn_llm": {
+        "f1": 0.9948078920041536,
+        "recall": 0.9958419958419958,
+        "cost_per_1000": 23.0,
+        "escalation_rate": 0.008,
+        "escalated_f1": 1.0,
+        "false_alarm_rate_near_fall": 0.025,
+        "false_alarm_rate_ambiguous": 0.025,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.423959693723103,
+        "latency_escalated_ms": 10673.200632707449,
+        "latency_mean_ms": 91.75817307783291
+      }
+    },
+    {
+      "fold": 4,
+      "tier1_only": {
+        "f1": 0.9803108808290155,
+        "recall": 0.979296066252588,
+        "cost_per_1000": 109.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.3255904209800065,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.3255904209800065
+      },
+      "gate_knn_llm": {
+        "f1": 0.9886714727085479,
+        "recall": 0.9937888198757764,
+        "cost_per_1000": 38.0,
+        "escalation_rate": 0.011,
+        "escalated_f1": 1.0,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.441125342541414,
+        "latency_escalated_ms": 10491.025248330763,
+        "latency_mean_ms": 121.77155069541186
+      }
+    }
+  ],
+  "modes": {
+    "tier1_only": {
+      "n_folds": 5,
+      "f1_mean": 0.9873730905444296,
+      "f1_std": 0.004725464110102005,
+      "recall_mean": 0.9912792765786385,
+      "recall_std": 0.007373202414591454,
+      "cost_per_1000_mean": 50.0,
+      "cost_per_1000_std": 35.4964786985977,
+      "escalation_rate_mean": 0.0,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.0,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.0675,
+      "far_d18d19_std": 0.02877716108305334
+    },
+    "gate_only": {
+      "n_folds": 1,
+      "f1_mean": 0.9918032786885246,
+      "f1_std": 0.0,
+      "recall_mean": 0.9979381443298969,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 17.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.75,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.0875,
+      "far_d18d19_std": 0.0
+    },
+    "gate_knn": {
+      "n_folds": 1,
+      "f1_mean": 0.9907502569373073,
+      "f1_std": 0.0,
+      "recall_mean": 0.9938144329896907,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 36.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.4,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.075,
+      "far_d18d19_std": 0.0
+    },
+    "gate_llm": {
+      "n_folds": 1,
+      "f1_mean": 0.9758064516129032,
+      "f1_std": 0.0,
+      "recall_mean": 0.9979381443298969,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 33.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.25,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.225,
+      "far_d18d19_std": 0.0
+    },
+    "gate_knn_llm": {
+      "n_folds": 5,
+      "f1_mean": 0.9900917894514232,
+      "f1_std": 0.003692979618180532,
+      "recall_mean": 0.9962560097265392,
+      "recall_std": 0.00227201720378233,
+      "cost_per_1000_mean": 25.8,
+      "cost_per_1000_std": 11.819475453673908,
+      "escalation_rate_mean": 0.011200000000000002,
+      "escalation_rate_std": 0.00846758525200662,
+      "escalated_f1_mean": 0.7377777777777779,
+      "escalated_f1_std": 0.4208750437708748,
+      "far_d18d19_mean": 0.0625,
+      "far_d18d19_std": 0.024999999999999998
+    }
+  },
+  "paired_tests": [
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "f1",
+      "mean_delta": 0.002718698906993633,
+      "bootstrap_ci95": [
+        0.00022437308427425418,
+        0.0058470924070548325
+      ],
+      "wilcoxon_pvalue": 0.125,
+      "deltas": [
+        0.001031931137473352,
+        -0.0010170970178630112,
+        0.0020768431983384517,
+        0.0031412253374869525,
+        0.00836059187953242
+      ]
+    },
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "recall",
+      "mean_delta": 0.004976733147900547,
+      "bootstrap_ci95": [
+        0.0012431523098822561,
+        0.009943053421314251
+      ],
+      "wilcoxon_pvalue": 0.06788915486182899,
+      "deltas": [
+        0.0020618556701030855,
+        0.0,
+        0.0020920502092051096,
+        0.006237006237006182,
+        0.01449275362318836
+      ]
+    },
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "cost_per_1000",
+      "mean_delta": -24.2,
+      "bootstrap_ci95": [
+        -48.4,
+        -5.8
+      ],
+      "wilcoxon_pvalue": 0.125,
+      "deltas": [
+        -10.0,
+        1.0,
+        -11.0,
+        -30.0,
+        -71.0
+      ]
+    }
+  ],
+  "d18_d19_by_mode": {
+    "tier1_only": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 1,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.05,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 2,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 3,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.025,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 4,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      }
+    ],
+    "gate_only": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.75,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_knn": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 0.4,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_llm": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.225,
+        "esc_f1": 0.25,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_knn_llm": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.8888888888888888,
+        "esc_rate": 0.025
+      },
+      {
+        "fold": 1,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.05,
+        "esc_f1": 0.0,
+        "esc_rate": 0.002
+      },
+      {
+        "fold": 2,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 0.8,
+        "esc_rate": 0.01
+      },
+      {
+        "fold": 3,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.025,
+        "esc_f1": 1.0,
+        "esc_rate": 0.008
+      },
+      {
+        "fold": 4,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 1.0,
+        "esc_rate": 0.011
+      }
+    ]
+  }
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/kfall_external_summary.json
+=== LLM compare fold 0 Sunday 09 August 2026 12:16:35 AM IST ===
+fold0: 33 ambiguous cases; tau=(0.092,0.550)
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+heuristic:   0%|          | 0/33 [00:00<?, ?it/s]heuristic:   3%|▎         | 1/33 [00:00<00:23,  1.38it/s]heuristic:  12%|█▏        | 4/33 [00:00<00:04,  5.94it/s]heuristic:  21%|██        | 7/33 [00:00<00:02, 10.21it/s]heuristic:  30%|███       | 10/33 [00:01<00:01, 13.84it/s]heuristic:  39%|███▉      | 13/33 [00:01<00:01, 16.84it/s]heuristic:  48%|████▊     | 16/33 [00:01<00:00, 19.21it/s]heuristic:  58%|█████▊    | 19/33 [00:01<00:00, 21.02it/s]heuristic:  67%|██████▋   | 22/33 [00:01<00:00, 22.60it/s]heuristic:  76%|███████▌  | 25/33 [00:01<00:00, 23.54it/s]heuristic:  85%|████████▍ | 28/33 [00:01<00:00, 24.22it/s]heuristic:  94%|█████████▍| 31/33 [00:01<00:00, 25.21it/s]heuristic: 100%|██████████| 33/33 [00:01<00:00, 17.12it/s]
+heuristic {'f1': 0.16666666666666666, 'recall': 0.09090909090909091, 'expected_response_cost': 100.0}
+mistral:latest:   0%|          | 0/33 [00:00<?, ?it/s]mistral:latest:   3%|▎         | 1/33 [00:09<05:13,  9.81s/it]mistral:latest:   6%|▌         | 2/33 [00:22<05:50, 11.30s/it]mistral:latest:   9%|▉         | 3/33 [00:31<05:14, 10.47s/it]mistral:latest:  12%|█▏        | 4/33 [00:42<05:05, 10.52s/it]mistral:latest:  15%|█▌        | 5/33 [00:51<04:43, 10.12s/it]mistral:latest:  18%|█▊        | 6/33 [01:02<04:40, 10.40s/it]mistral:latest:  21%|██        | 7/33 [01:12<04:27, 10.29s/it]mistral:latest:  24%|██▍       | 8/33 [01:22<04:12, 10.12s/it]mistral:latest:  27%|██▋       | 9/33 [01:31<03:57,  9.90s/it]mistral:latest:  30%|███       | 10/33 [01:41<03:43,  9.72s/it]mistral:latest:  33%|███▎      | 11/33 [01:48<03:20,  9.11s/it]mistral:latest:  36%|███▋      | 12/33 [01:59<03:21,  9.61s/it]mistral:latest:  39%|███▉      | 13/33 [02:08<03:06,  9.34s/it]mistral:latest:  42%|████▏     | 14/33 [02:19<03:06,  9.82s/it]mistral:latest:  45%|████▌     | 15/33 [02:28<02:51,  9.52s/it]mistral:latest:  48%|████▊     | 16/33 [02:38<02:48,  9.89s/it]mistral:latest:  52%|█████▏    | 17/33 [02:48<02:36,  9.81s/it]mistral:latest:  55%|█████▍    | 18/33 [02:56<02:18,  9.20s/it]mistral:latest:  58%|█████▊    | 19/33 [03:08<02:20, 10.04s/it]mistral:latest:  61%|██████    | 20/33 [03:18<02:10, 10.06s/it]mistral:latest:  64%|██████▎   | 21/33 [03:26<01:52,  9.34s/it]mistral:latest:  67%|██████▋   | 22/33 [03:36<01:46,  9.72s/it]mistral:latest:  70%|██████▉   | 23/33 [03:46<01:38,  9.89s/it]mistral:latest:  73%|███████▎  | 24/33 [03:56<01:28,  9.85s/it]mistral:latest:  76%|███████▌  | 25/33 [04:06<01:18,  9.87s/it]mistral:latest:  79%|███████▉  | 26/33 [04:14<01:05,  9.33s/it]mistral:latest:  82%|████████▏ | 27/33 [04:24<00:57,  9.51s/it]mistral:latest:  85%|████████▍ | 28/33 [04:34<00:47,  9.55s/it]mistral:latest:  88%|████████▊ | 29/33 [04:44<00:38,  9.69s/it]mistral:latest:  91%|█████████ | 30/33 [04:54<00:29,  9.76s/it]mistral:latest:  94%|█████████▍| 31/33 [05:03<00:19,  9.54s/it]mistral:latest:  97%|█████████▋| 32/33 [05:12<00:09,  9.51s/it]mistral:latest: 100%|██████████| 33/33 [05:22<00:00,  9.58s/it]mistral:latest: 100%|██████████| 33/33 [05:22<00:00,  9.77s/it]
+mistral:latest {'f1': 0.88, 'recall': 1.0, 'expected_response_cost': 3.0}
+qwen2.5-coder:7b-instruct:   0%|          | 0/33 [00:00<?, ?it/s]qwen2.5-coder:7b-instruct:   3%|▎         | 1/33 [00:11<06:19, 11.87s/it]qwen2.5-coder:7b-instruct:   6%|▌         | 2/33 [00:17<04:17,  8.32s/it]qwen2.5-coder:7b-instruct:   9%|▉         | 3/33 [00:24<03:51,  7.73s/it]qwen2.5-coder:7b-instruct:  12%|█▏        | 4/33 [00:33<03:54,  8.07s/it]qwen2.5-coder:7b-instruct:  15%|█▌        | 5/33 [00:40<03:37,  7.76s/it]qwen2.5-coder:7b-instruct:  18%|█▊        | 6/33 [00:48<03:28,  7.73s/it]qwen2.5-coder:7b-instruct:  21%|██        | 7/33 [00:54<03:12,  7.41s/it]qwen2.5-coder:7b-instruct:  24%|██▍       | 8/33 [01:02<03:03,  7.34s/it]qwen2.5-coder:7b-instruct:  27%|██▋       | 9/33 [01:08<02:47,  6.99s/it]qwen2.5-coder:7b-instruct:  30%|███       | 10/33 [01:14<02:36,  6.79s/it]qwen2.5-coder:7b-instruct:  33%|███▎      | 11/33 [01:21<02:25,  6.63s/it]qwen2.5-coder:7b-instruct:  36%|███▋      | 12/33 [01:29<02:30,  7.18s/it]qwen2.5-coder:7b-instruct:  39%|███▉      | 13/33 [01:36<02:25,  7.28s/it]qwen2.5-coder:7b-instruct:  42%|████▏     | 14/33 [01:43<02:12,  6.99s/it]qwen2.5-coder:7b-instruct:  45%|████▌     | 15/33 [01:50<02:09,  7.18s/it]qwen2.5-coder:7b-instruct:  48%|████▊     | 16/33 [01:57<02:00,  7.11s/it]qwen2.5-coder:7b-instruct:  52%|█████▏    | 17/33 [02:04<01:51,  7.00s/it]qwen2.5-coder:7b-instruct:  55%|█████▍    | 18/33 [02:11<01:46,  7.10s/it]qwen2.5-coder:7b-instruct:  58%|█████▊    | 19/33 [02:18<01:38,  7.03s/it]qwen2.5-coder:7b-instruct:  61%|██████    | 20/33 [02:26<01:35,  7.35s/it]qwen2.5-coder:7b-instruct:  64%|██████▎   | 21/33 [02:33<01:24,  7.03s/it]qwen2.5-coder:7b-instruct:  67%|██████▋   | 22/33 [02:41<01:20,  7.34s/it]qwen2.5-coder:7b-instruct:  70%|██████▉   | 23/33 [02:48<01:13,  7.33s/it]qwen2.5-coder:7b-instruct:  73%|███████▎  | 24/33 [02:56<01:07,  7.52s/it]qwen2.5-coder:7b-instruct:  76%|███████▌  | 25/33 [03:04<01:02,  7.75s/it]qwen2.5-coder:7b-instruct:  79%|███████▉  | 26/33 [03:12<00:53,  7.62s/it]qwen2.5-coder:7b-instruct:  82%|████████▏ | 27/33 [03:19<00:45,  7.52s/it]qwen2.5-coder:7b-instruct:  85%|████████▍ | 28/33 [03:26<00:37,  7.49s/it]qwen2.5-coder:7b-instruct:  88%|████████▊ | 29/33 [03:34<00:29,  7.46s/it]qwen2.5-coder:7b-instruct:  91%|█████████ | 30/33 [03:42<00:23,  7.68s/it]qwen2.5-coder:7b-instruct:  94%|█████████▍| 31/33 [03:49<00:15,  7.52s/it]qwen2.5-coder:7b-instruct:  97%|█████████▋| 32/33 [03:56<00:07,  7.32s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 33/33 [04:04<00:00,  7.66s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 33/33 [04:04<00:00,  7.42s/it]
+qwen2.5-coder:7b-instruct {'f1': 0.5, 'recall': 1.0, 'expected_response_cost': 22.0}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/fold0/kfall_llm_compare_fold0.json
+=== LLM compare fold 1 Sunday 09 August 2026 12:26:19 AM IST ===
+fold1: 18 ambiguous cases; tau=(0.197,0.550)
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+heuristic:   0%|          | 0/18 [00:00<?, ?it/s]heuristic:   6%|▌         | 1/18 [00:00<00:10,  1.69it/s]heuristic:  22%|██▏       | 4/18 [00:00<00:01,  7.10it/s]heuristic:  39%|███▉      | 7/18 [00:00<00:00, 11.43it/s]heuristic:  56%|█████▌    | 10/18 [00:00<00:00, 15.08it/s]heuristic:  72%|███████▏  | 13/18 [00:01<00:00, 17.78it/s]heuristic:  89%|████████▉ | 16/18 [00:01<00:00, 20.77it/s]heuristic: 100%|██████████| 18/18 [00:01<00:00, 14.55it/s]
+heuristic {'f1': 0.0, 'recall': 0.0, 'expected_response_cost': 40.0}
+mistral:latest:   0%|          | 0/18 [00:00<?, ?it/s]mistral:latest:   6%|▌         | 1/18 [00:08<02:29,  8.82s/it]mistral:latest:  11%|█         | 2/18 [00:19<02:36,  9.79s/it]mistral:latest:  17%|█▋        | 3/18 [00:28<02:21,  9.41s/it]mistral:latest:  22%|██▏       | 4/18 [00:38<02:17,  9.79s/it]mistral:latest:  28%|██▊       | 5/18 [00:49<02:10, 10.03s/it]mistral:latest:  33%|███▎      | 6/18 [00:58<01:58,  9.86s/it]mistral:latest:  39%|███▉      | 7/18 [01:06<01:39,  9.08s/it]mistral:latest:  44%|████▍     | 8/18 [01:15<01:32,  9.22s/it]mistral:latest:  50%|█████     | 9/18 [01:26<01:27,  9.78s/it]mistral:latest:  56%|█████▌    | 10/18 [01:35<01:15,  9.45s/it]mistral:latest:  61%|██████    | 11/18 [01:45<01:08,  9.77s/it]mistral:latest:  67%|██████▋   | 12/18 [01:54<00:57,  9.56s/it]mistral:latest:  72%|███████▏  | 13/18 [02:05<00:48,  9.79s/it]mistral:latest:  78%|███████▊  | 14/18 [02:14<00:38,  9.68s/it]mistral:latest:  83%|████████▎ | 15/18 [02:23<00:28,  9.47s/it]mistral:latest:  89%|████████▉ | 16/18 [02:33<00:19,  9.51s/it]mistral:latest:  94%|█████████▍| 17/18 [02:41<00:09,  9.11s/it]mistral:latest: 100%|██████████| 18/18 [02:50<00:00,  9.23s/it]mistral:latest: 100%|██████████| 18/18 [02:50<00:00,  9.49s/it]
+mistral:latest {'f1': 1.0, 'recall': 1.0, 'expected_response_cost': 0.0}
+qwen2.5-coder:7b-instruct:   0%|          | 0/18 [00:00<?, ?it/s]qwen2.5-coder:7b-instruct:   6%|▌         | 1/18 [00:06<01:52,  6.63s/it]qwen2.5-coder:7b-instruct:  11%|█         | 2/18 [00:14<01:54,  7.18s/it]qwen2.5-coder:7b-instruct:  17%|█▋        | 3/18 [00:21<01:45,  7.04s/it]qwen2.5-coder:7b-instruct:  22%|██▏       | 4/18 [00:26<01:30,  6.46s/it]qwen2.5-coder:7b-instruct:  28%|██▊       | 5/18 [00:33<01:25,  6.60s/it]qwen2.5-coder:7b-instruct:  33%|███▎      | 6/18 [00:40<01:21,  6.80s/it]qwen2.5-coder:7b-instruct:  39%|███▉      | 7/18 [00:48<01:18,  7.10s/it]qwen2.5-coder:7b-instruct:  44%|████▍     | 8/18 [00:56<01:14,  7.48s/it]qwen2.5-coder:7b-instruct:  50%|█████     | 9/18 [01:03<01:05,  7.28s/it]qwen2.5-coder:7b-instruct:  56%|█████▌    | 10/18 [01:11<00:59,  7.42s/it]qwen2.5-coder:7b-instruct:  61%|██████    | 11/18 [01:18<00:51,  7.39s/it]qwen2.5-coder:7b-instruct:  67%|██████▋   | 12/18 [01:25<00:44,  7.37s/it]qwen2.5-coder:7b-instruct:  72%|███████▏  | 13/18 [01:31<00:34,  6.96s/it]qwen2.5-coder:7b-instruct:  78%|███████▊  | 14/18 [01:39<00:28,  7.14s/it]qwen2.5-coder:7b-instruct:  83%|████████▎ | 15/18 [01:47<00:22,  7.55s/it]qwen2.5-coder:7b-instruct:  89%|████████▉ | 16/18 [01:54<00:14,  7.31s/it]qwen2.5-coder:7b-instruct:  94%|█████████▍| 17/18 [02:00<00:06,  6.83s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 18/18 [02:08<00:00,  7.15s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 18/18 [02:08<00:00,  7.13s/it]
+qwen2.5-coder:7b-instruct {'f1': 0.36363636363636365, 'recall': 1.0, 'expected_response_cost': 14.0}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/fold1/kfall_llm_compare_fold1.json
+=== LLM compare fold 2 Sunday 09 August 2026 12:31:35 AM IST ===
+fold2: 7 ambiguous cases; tau=(0.450,0.655)
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+heuristic:   0%|          | 0/7 [00:00<?, ?it/s]heuristic:  14%|█▍        | 1/7 [00:00<00:03,  1.62it/s]heuristic:  57%|█████▋    | 4/7 [00:00<00:00,  6.57it/s]heuristic: 100%|██████████| 7/7 [00:00<00:00, 10.87it/s]heuristic: 100%|██████████| 7/7 [00:00<00:00,  8.06it/s]
+heuristic {'f1': 0.0, 'recall': 0.0, 'expected_response_cost': 30.0}
+mistral:latest:   0%|          | 0/7 [00:00<?, ?it/s]mistral:latest:  14%|█▍        | 1/7 [00:09<00:55,  9.21s/it]mistral:latest:  29%|██▊       | 2/7 [00:17<00:43,  8.75s/it]mistral:latest:  43%|████▎     | 3/7 [00:27<00:36,  9.05s/it]mistral:latest:  57%|█████▋    | 4/7 [00:36<00:27,  9.21s/it]mistral:latest:  71%|███████▏  | 5/7 [00:46<00:18,  9.32s/it]mistral:latest:  86%|████████▌ | 6/7 [00:57<00:10, 10.03s/it]mistral:latest: 100%|██████████| 7/7 [01:05<00:00,  9.34s/it]mistral:latest: 100%|██████████| 7/7 [01:05<00:00,  9.33s/it]
+mistral:latest {'f1': 1.0, 'recall': 1.0, 'expected_response_cost': 0.0}
+qwen2.5-coder:7b-instruct:   0%|          | 0/7 [00:00<?, ?it/s]qwen2.5-coder:7b-instruct:  14%|█▍        | 1/7 [00:07<00:42,  7.05s/it]qwen2.5-coder:7b-instruct:  29%|██▊       | 2/7 [00:14<00:37,  7.40s/it]qwen2.5-coder:7b-instruct:  43%|████▎     | 3/7 [00:23<00:32,  8.14s/it]qwen2.5-coder:7b-instruct:  57%|█████▋    | 4/7 [00:31<00:24,  8.13s/it]qwen2.5-coder:7b-instruct:  71%|███████▏  | 5/7 [00:40<00:16,  8.22s/it]qwen2.5-coder:7b-instruct:  86%|████████▌ | 6/7 [00:47<00:07,  7.81s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 7/7 [00:54<00:00,  7.52s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 7/7 [00:54<00:00,  7.73s/it]
+qwen2.5-coder:7b-instruct {'f1': 0.6, 'recall': 1.0, 'expected_response_cost': 4.0}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/fold2/kfall_llm_compare_fold2.json
+=== LLM compare fold 3 Sunday 09 August 2026 12:33:51 AM IST ===
+fold3: 14 ambiguous cases; tau=(0.218,0.550)
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+heuristic:   0%|          | 0/14 [00:00<?, ?it/s]heuristic:   7%|▋         | 1/14 [00:00<00:09,  1.38it/s]heuristic:  29%|██▊       | 4/14 [00:00<00:01,  5.84it/s]heuristic:  50%|█████     | 7/14 [00:00<00:00,  9.72it/s]heuristic:  71%|███████▏  | 10/14 [00:01<00:00, 12.74it/s]heuristic:  93%|█████████▎| 13/14 [00:01<00:00, 15.31it/s]heuristic: 100%|██████████| 14/14 [00:01<00:00, 10.80it/s]
+heuristic {'f1': 0.0, 'recall': 0.0, 'expected_response_cost': 20.0}
+mistral:latest:   0%|          | 0/14 [00:00<?, ?it/s]mistral:latest:   7%|▋         | 1/14 [00:09<02:07,  9.80s/it]mistral:latest:  14%|█▍        | 2/14 [00:19<01:58,  9.84s/it]mistral:latest:  21%|██▏       | 3/14 [00:29<01:50, 10.00s/it]mistral:latest:  29%|██▊       | 4/14 [00:38<01:36,  9.62s/it]mistral:latest:  36%|███▌      | 5/14 [00:49<01:31, 10.12s/it]mistral:latest:  43%|████▎     | 6/14 [01:01<01:25, 10.74s/it]mistral:latest:  50%|█████     | 7/14 [01:12<01:15, 10.81s/it]mistral:latest:  57%|█████▋    | 8/14 [01:21<01:00, 10.10s/it]mistral:latest:  64%|██████▍   | 9/14 [01:32<00:51, 10.28s/it]mistral:latest:  71%|███████▏  | 10/14 [01:41<00:40, 10.02s/it]mistral:latest:  79%|███████▊  | 11/14 [01:51<00:29,  9.92s/it]mistral:latest:  86%|████████▌ | 12/14 [02:01<00:19,  9.92s/it]mistral:latest:  93%|█████████▎| 13/14 [02:11<00:09,  9.98s/it]mistral:latest: 100%|██████████| 14/14 [02:19<00:00,  9.58s/it]mistral:latest: 100%|██████████| 14/14 [02:19<00:00,  9.99s/it]
+mistral:latest {'f1': 0.5714285714285714, 'recall': 1.0, 'expected_response_cost': 3.0}
+qwen2.5-coder:7b-instruct:   0%|          | 0/14 [00:00<?, ?it/s]qwen2.5-coder:7b-instruct:   7%|▋         | 1/14 [00:06<01:29,  6.86s/it]qwen2.5-coder:7b-instruct:  14%|█▍        | 2/14 [00:13<01:22,  6.89s/it]qwen2.5-coder:7b-instruct:  21%|██▏       | 3/14 [00:21<01:22,  7.49s/it]qwen2.5-coder:7b-instruct:  29%|██▊       | 4/14 [00:28<01:10,  7.07s/it]qwen2.5-coder:7b-instruct:  36%|███▌      | 5/14 [00:35<01:02,  7.00s/it]qwen2.5-coder:7b-instruct:  43%|████▎     | 6/14 [00:42<00:57,  7.16s/it]qwen2.5-coder:7b-instruct:  50%|█████     | 7/14 [00:48<00:47,  6.86s/it]qwen2.5-coder:7b-instruct:  57%|█████▋    | 8/14 [00:56<00:42,  7.08s/it]qwen2.5-coder:7b-instruct:  64%|██████▍   | 9/14 [01:02<00:34,  6.84s/it]qwen2.5-coder:7b-instruct:  71%|███████▏  | 10/14 [01:09<00:26,  6.68s/it]qwen2.5-coder:7b-instruct:  79%|███████▊  | 11/14 [01:17<00:21,  7.25s/it]qwen2.5-coder:7b-instruct:  86%|████████▌ | 12/14 [01:25<00:14,  7.42s/it]qwen2.5-coder:7b-instruct:  93%|█████████▎| 13/14 [01:32<00:07,  7.43s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 14/14 [01:40<00:00,  7.40s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 14/14 [01:40<00:00,  7.16s/it]
+qwen2.5-coder:7b-instruct {'f1': 0.25, 'recall': 1.0, 'expected_response_cost': 12.0}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/fold3/kfall_llm_compare_fold3.json
+=== LLM compare fold 4 Sunday 09 August 2026 12:38:09 AM IST ===
+fold4: 28 ambiguous cases; tau=(0.218,0.550)
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: libtorch_cuda_cu.so: cannot open shared object file: No such file or directory
+  warn(f"Failed to load image Python extension: {e}")
+heuristic:   0%|          | 0/28 [00:00<?, ?it/s]heuristic:   4%|▎         | 1/28 [00:00<00:20,  1.30it/s]heuristic:  14%|█▍        | 4/28 [00:00<00:04,  5.57it/s]heuristic:  25%|██▌       | 7/28 [00:01<00:02,  9.76it/s]heuristic:  36%|███▌      | 10/28 [00:01<00:01, 13.37it/s]heuristic:  46%|████▋     | 13/28 [00:01<00:00, 16.40it/s]heuristic:  57%|█████▋    | 16/28 [00:01<00:00, 18.84it/s]heuristic:  68%|██████▊   | 19/28 [00:01<00:00, 20.54it/s]heuristic:  79%|███████▊  | 22/28 [00:01<00:00, 21.20it/s]heuristic:  89%|████████▉ | 25/28 [00:01<00:00, 22.27it/s]heuristic: 100%|██████████| 28/28 [00:01<00:00, 23.28it/s]heuristic: 100%|██████████| 28/28 [00:01<00:00, 15.23it/s]
+heuristic {'f1': 0.2727272727272727, 'recall': 0.15789473684210525, 'expected_response_cost': 160.0}
+mistral:latest:   0%|          | 0/28 [00:00<?, ?it/s]mistral:latest:   4%|▎         | 1/28 [00:09<04:23,  9.77s/it]mistral:latest:   7%|▋         | 2/28 [00:21<04:37, 10.67s/it]mistral:latest:  11%|█         | 3/28 [00:30<04:12, 10.12s/it]mistral:latest:  14%|█▍        | 4/28 [00:40<04:03, 10.16s/it]mistral:latest:  18%|█▊        | 5/28 [00:50<03:52, 10.11s/it]mistral:latest:  21%|██▏       | 6/28 [01:00<03:41, 10.09s/it]mistral:latest:  25%|██▌       | 7/28 [01:10<03:29,  9.99s/it]mistral:latest:  29%|██▊       | 8/28 [01:19<03:12,  9.63s/it]mistral:latest:  32%|███▏      | 9/28 [01:30<03:09,  9.98s/it]mistral:latest:  36%|███▌      | 10/28 [01:41<03:04, 10.27s/it]mistral:latest:  39%|███▉      | 11/28 [01:50<02:51, 10.08s/it]mistral:latest:  43%|████▎     | 12/28 [02:03<02:51, 10.75s/it]mistral:latest:  46%|████▋     | 13/28 [02:13<02:39, 10.64s/it]mistral:latest:  50%|█████     | 14/28 [02:23<02:27, 10.52s/it]mistral:latest:  54%|█████▎    | 15/28 [02:34<02:16, 10.48s/it]mistral:latest:  57%|█████▋    | 16/28 [02:44<02:06, 10.57s/it]mistral:latest:  61%|██████    | 17/28 [02:54<01:53, 10.28s/it]mistral:latest:  64%|██████▍   | 18/28 [03:04<01:42, 10.21s/it]mistral:latest:  68%|██████▊   | 19/28 [03:14<01:30, 10.10s/it]mistral:latest:  71%|███████▏  | 20/28 [03:23<01:18,  9.80s/it]mistral:latest:  75%|███████▌  | 21/28 [03:32<01:07,  9.63s/it]mistral:latest:  79%|███████▊  | 22/28 [03:41<00:55,  9.25s/it]mistral:latest:  82%|████████▏ | 23/28 [03:49<00:45,  9.10s/it]mistral:latest:  86%|████████▌ | 24/28 [03:59<00:36,  9.19s/it]mistral:latest:  89%|████████▉ | 25/28 [04:08<00:27,  9.18s/it]mistral:latest:  93%|█████████▎| 26/28 [04:20<00:20, 10.11s/it]mistral:latest:  96%|█████████▋| 27/28 [04:30<00:09,  9.93s/it]mistral:latest: 100%|██████████| 28/28 [04:40<00:00, 10.10s/it]mistral:latest: 100%|██████████| 28/28 [04:40<00:00, 10.02s/it]
+mistral:latest {'f1': 0.9743589743589743, 'recall': 1.0, 'expected_response_cost': 1.0}
+qwen2.5-coder:7b-instruct:   0%|          | 0/28 [00:00<?, ?it/s]qwen2.5-coder:7b-instruct:   4%|▎         | 1/28 [00:08<03:51,  8.56s/it]qwen2.5-coder:7b-instruct:   7%|▋         | 2/28 [00:15<03:14,  7.47s/it]qwen2.5-coder:7b-instruct:  11%|█         | 3/28 [00:23<03:14,  7.78s/it]qwen2.5-coder:7b-instruct:  14%|█▍        | 4/28 [00:32<03:15,  8.14s/it]qwen2.5-coder:7b-instruct:  18%|█▊        | 5/28 [00:39<02:57,  7.71s/it]qwen2.5-coder:7b-instruct:  21%|██▏       | 6/28 [00:47<02:55,  7.99s/it]qwen2.5-coder:7b-instruct:  25%|██▌       | 7/28 [00:54<02:41,  7.69s/it]qwen2.5-coder:7b-instruct:  29%|██▊       | 8/28 [01:01<02:31,  7.56s/it]qwen2.5-coder:7b-instruct:  32%|███▏      | 9/28 [01:09<02:22,  7.50s/it]qwen2.5-coder:7b-instruct:  36%|███▌      | 10/28 [01:17<02:20,  7.82s/it]qwen2.5-coder:7b-instruct:  39%|███▉      | 11/28 [01:26<02:16,  8.02s/it]qwen2.5-coder:7b-instruct:  43%|████▎     | 12/28 [01:33<02:06,  7.90s/it]qwen2.5-coder:7b-instruct:  46%|████▋     | 13/28 [01:41<01:56,  7.78s/it]qwen2.5-coder:7b-instruct:  50%|█████     | 14/28 [01:48<01:47,  7.66s/it]qwen2.5-coder:7b-instruct:  54%|█████▎    | 15/28 [01:55<01:36,  7.40s/it]qwen2.5-coder:7b-instruct:  57%|█████▋    | 16/28 [02:02<01:26,  7.22s/it]qwen2.5-coder:7b-instruct:  61%|██████    | 17/28 [02:10<01:23,  7.61s/it]qwen2.5-coder:7b-instruct:  64%|██████▍   | 18/28 [02:18<01:15,  7.56s/it]qwen2.5-coder:7b-instruct:  68%|██████▊   | 19/28 [02:25<01:06,  7.38s/it]qwen2.5-coder:7b-instruct:  71%|███████▏  | 20/28 [02:32<00:59,  7.39s/it]qwen2.5-coder:7b-instruct:  75%|███████▌  | 21/28 [02:40<00:51,  7.36s/it]qwen2.5-coder:7b-instruct:  79%|███████▊  | 22/28 [02:46<00:42,  7.10s/it]qwen2.5-coder:7b-instruct:  82%|████████▏ | 23/28 [02:54<00:36,  7.21s/it]qwen2.5-coder:7b-instruct:  86%|████████▌ | 24/28 [03:00<00:28,  7.07s/it]qwen2.5-coder:7b-instruct:  89%|████████▉ | 25/28 [03:08<00:21,  7.32s/it]qwen2.5-coder:7b-instruct:  93%|█████████▎| 26/28 [03:17<00:15,  7.67s/it]qwen2.5-coder:7b-instruct:  96%|█████████▋| 27/28 [03:23<00:07,  7.39s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 28/28 [03:30<00:00,  7.24s/it]qwen2.5-coder:7b-instruct: 100%|██████████| 28/28 [03:30<00:00,  7.53s/it]
+qwen2.5-coder:7b-instruct {'f1': 0.8085106382978723, 'recall': 1.0, 'expected_response_cost': 9.0}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/fold4/kfall_llm_compare_fold4.json
+=== Multiclass context fold 0 Sunday 09 August 2026 12:46:37 AM IST ===
+Traceback (most recent call last):
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_kfall_multiclass.py", line 138, in <module>
+    main()
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_kfall_multiclass.py", line 107, in main
+    fit_model(
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/src/agentic_fall/eval/train_loop.py", line 156, in fit_model
+    val = evaluate(model, val_loader, device)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/src/agentic_fall/eval/train_loop.py", line 113, in evaluate
+    m = binary_metrics(ys, preds)
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/src/agentic_fall/eval/metrics.py", line 24, in binary_metrics
+    "precision": float(precision_score(yt, yp, zero_division=0)),
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 2190, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 186, in wrapper
+    return func(*args, **kwargs)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 1775, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 1564, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+{
+  "dataset": "kfall_binary",
+  "n_folds": 5,
+  "folds": [
+    {
+      "fold": 0,
+      "tier1_only": {
+        "f1": 0.9918032786885246,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 17.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.417832330102101,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.417832330102101
+      },
+      "gate_only": {
+        "f1": 0.9918032786885246,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 17.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.75,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.412627252105337,
+        "latency_escalated_ms": 6.225219555199146,
+        "latency_mean_ms": 6.407942059682682
+      },
+      "gate_knn": {
+        "f1": 0.9907502569373073,
+        "recall": 0.9938144329896907,
+        "cost_per_1000": 36.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.4,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.939498353749514,
+        "latency_escalated_ms": 41.653316114097834,
+        "latency_mean_ms": 7.807343797758222
+      },
+      "gate_llm": {
+        "f1": 0.9758064516129032,
+        "recall": 0.9979381443298969,
+        "cost_per_1000": 33.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.25,
+        "false_alarm_rate_near_fall": 0.225,
+        "false_alarm_rate_ambiguous": 0.225,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.731256100181968,
+        "latency_escalated_ms": 8147.603715993464,
+        "latency_mean_ms": 210.25306759751402
+      },
+      "gate_knn_llm": {
+        "f1": 0.9928352098259979,
+        "recall": 1.0,
+        "cost_per_1000": 7.0,
+        "escalation_rate": 0.025,
+        "escalated_f1": 0.8888888888888888,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.508277387429889,
+        "latency_escalated_ms": 10103.229657793418,
+        "latency_mean_ms": 258.9263118975796
+      }
+    },
+    {
+      "fold": 1,
+      "tier1_only": {
+        "f1": 0.9865841073271414,
+        "recall": 0.9958333333333333,
+        "cost_per_1000": 31.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.05,
+        "false_alarm_rate_ambiguous": 0.05,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.348479005508125,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.348479005508125
+      },
+      "gate_knn_llm": {
+        "f1": 0.9855670103092784,
+        "recall": 0.9958333333333333,
+        "cost_per_1000": 32.0,
+        "escalation_rate": 0.002,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.05,
+        "false_alarm_rate_ambiguous": 0.05,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.384387323754151,
+        "latency_escalated_ms": 11388.723780051805,
+        "latency_mean_ms": 29.149066109210253
+      }
+    },
+    {
+      "fold": 2,
+      "tier1_only": {
+        "f1": 0.9865005192107996,
+        "recall": 0.9937238493723849,
+        "cost_per_1000": 40.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.389506580075249,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.389506580075249
+      },
+      "gate_knn_llm": {
+        "f1": 0.9885773624091381,
+        "recall": 0.99581589958159,
+        "cost_per_1000": 29.0,
+        "escalation_rate": 0.01,
+        "escalated_f1": 0.8,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.471228169164423,
+        "latency_escalated_ms": 10437.146962247789,
+        "latency_mean_ms": 110.77798550995067
+      }
+    },
+    {
+      "fold": 3,
+      "tier1_only": {
+        "f1": 0.9916666666666667,
+        "recall": 0.9896049896049897,
+        "cost_per_1000": 53.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.025,
+        "false_alarm_rate_ambiguous": 0.025,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.421177508542314,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.421177508542314
+      },
+      "gate_knn_llm": {
+        "f1": 0.9948078920041536,
+        "recall": 0.9958419958419958,
+        "cost_per_1000": 23.0,
+        "escalation_rate": 0.008,
+        "escalated_f1": 1.0,
+        "false_alarm_rate_near_fall": 0.025,
+        "false_alarm_rate_ambiguous": 0.025,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.423959693723103,
+        "latency_escalated_ms": 10673.200632707449,
+        "latency_mean_ms": 91.75817307783291
+      }
+    },
+    {
+      "fold": 4,
+      "tier1_only": {
+        "f1": 0.9803108808290155,
+        "recall": 0.979296066252588,
+        "cost_per_1000": 109.0,
+        "escalation_rate": 0.0,
+        "escalated_f1": 0.0,
+        "false_alarm_rate_near_fall": 0.0875,
+        "false_alarm_rate_ambiguous": 0.0875,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.3255904209800065,
+        "latency_escalated_ms": 0.0,
+        "latency_mean_ms": 6.3255904209800065
+      },
+      "gate_knn_llm": {
+        "f1": 0.9886714727085479,
+        "recall": 0.9937888198757764,
+        "cost_per_1000": 38.0,
+        "escalation_rate": 0.011,
+        "escalated_f1": 1.0,
+        "false_alarm_rate_near_fall": 0.075,
+        "false_alarm_rate_ambiguous": 0.075,
+        "n_d18": 40,
+        "n_d19": 40,
+        "latency_tier1_ms": 6.441125342541414,
+        "latency_escalated_ms": 10491.025248330763,
+        "latency_mean_ms": 121.77155069541186
+      }
+    }
+  ],
+  "modes": {
+    "tier1_only": {
+      "n_folds": 5,
+      "f1_mean": 0.9873730905444296,
+      "f1_std": 0.004725464110102005,
+      "recall_mean": 0.9912792765786385,
+      "recall_std": 0.007373202414591454,
+      "cost_per_1000_mean": 50.0,
+      "cost_per_1000_std": 35.4964786985977,
+      "escalation_rate_mean": 0.0,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.0,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.0675,
+      "far_d18d19_std": 0.02877716108305334
+    },
+    "gate_only": {
+      "n_folds": 1,
+      "f1_mean": 0.9918032786885246,
+      "f1_std": 0.0,
+      "recall_mean": 0.9979381443298969,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 17.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.75,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.0875,
+      "far_d18d19_std": 0.0
+    },
+    "gate_knn": {
+      "n_folds": 1,
+      "f1_mean": 0.9907502569373073,
+      "f1_std": 0.0,
+      "recall_mean": 0.9938144329896907,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 36.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.4,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.075,
+      "far_d18d19_std": 0.0
+    },
+    "gate_llm": {
+      "n_folds": 1,
+      "f1_mean": 0.9758064516129032,
+      "f1_std": 0.0,
+      "recall_mean": 0.9979381443298969,
+      "recall_std": 0.0,
+      "cost_per_1000_mean": 33.0,
+      "cost_per_1000_std": 0.0,
+      "escalation_rate_mean": 0.025,
+      "escalation_rate_std": 0.0,
+      "escalated_f1_mean": 0.25,
+      "escalated_f1_std": 0.0,
+      "far_d18d19_mean": 0.225,
+      "far_d18d19_std": 0.0
+    },
+    "gate_knn_llm": {
+      "n_folds": 5,
+      "f1_mean": 0.9900917894514232,
+      "f1_std": 0.003692979618180532,
+      "recall_mean": 0.9962560097265392,
+      "recall_std": 0.00227201720378233,
+      "cost_per_1000_mean": 25.8,
+      "cost_per_1000_std": 11.819475453673908,
+      "escalation_rate_mean": 0.011200000000000002,
+      "escalation_rate_std": 0.00846758525200662,
+      "escalated_f1_mean": 0.7377777777777779,
+      "escalated_f1_std": 0.4208750437708748,
+      "far_d18d19_mean": 0.0625,
+      "far_d18d19_std": 0.024999999999999998
+    }
+  },
+  "paired_tests": [
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "f1",
+      "mean_delta": 0.002718698906993633,
+      "bootstrap_ci95": [
+        0.00022437308427425418,
+        0.0058470924070548325
+      ],
+      "wilcoxon_pvalue": 0.125,
+      "deltas": [
+        0.001031931137473352,
+        -0.0010170970178630112,
+        0.0020768431983384517,
+        0.0031412253374869525,
+        0.00836059187953242
+      ]
+    },
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "recall",
+      "mean_delta": 0.004976733147900547,
+      "bootstrap_ci95": [
+        0.0012431523098822561,
+        0.009943053421314251
+      ],
+      "wilcoxon_pvalue": 0.06788915486182899,
+      "deltas": [
+        0.0020618556701030855,
+        0.0,
+        0.0020920502092051096,
+        0.006237006237006182,
+        0.01449275362318836
+      ]
+    },
+    {
+      "left": "gate_knn_llm",
+      "right": "tier1_only",
+      "metric": "cost_per_1000",
+      "mean_delta": -24.2,
+      "bootstrap_ci95": [
+        -48.4,
+        -5.8
+      ],
+      "wilcoxon_pvalue": 0.125,
+      "deltas": [
+        -10.0,
+        1.0,
+        -11.0,
+        -30.0,
+        -71.0
+      ]
+    }
+  ],
+  "d18_d19_by_mode": {
+    "tier1_only": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 1,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.05,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 2,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 3,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.025,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      },
+      {
+        "fold": 4,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.0,
+        "esc_rate": 0.0
+      }
+    ],
+    "gate_only": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.75,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_knn": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 0.4,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_llm": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.225,
+        "esc_f1": 0.25,
+        "esc_rate": 0.025
+      }
+    ],
+    "gate_knn_llm": [
+      {
+        "fold": 0,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.0875,
+        "esc_f1": 0.8888888888888888,
+        "esc_rate": 0.025
+      },
+      {
+        "fold": 1,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.05,
+        "esc_f1": 0.0,
+        "esc_rate": 0.002
+      },
+      {
+        "fold": 2,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 0.8,
+        "esc_rate": 0.01
+      },
+      {
+        "fold": 3,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.025,
+        "esc_f1": 1.0,
+        "esc_rate": 0.008
+      },
+      {
+        "fold": 4,
+        "n_d18": 40,
+        "n_d19": 40,
+        "far": 0.075,
+        "esc_f1": 1.0,
+        "esc_rate": 0.011
+      }
+    ]
+  }
+}
+Wrote /DATA/tauseef_2121cs04/harshal/agentic_fall/results/kfall/kfall_external_summary.json
+wrote tab_bhatti_gaps.tex
+wrote tab_kfall_perfold.tex
+wrote tab_kfall_mean.tex
+wrote tab_kfall_ablation.tex
+wrote tab_kfall_llm.tex
+wrote tab_kfall_multiclass.tex
+wrote tab_bhatti_gaps.tex
+wrote tab_kfall_perfold.tex
+wrote tab_kfall_mean.tex
+wrote tab_kfall_ablation.tex
+wrote tab_kfall_llm.tex
+wrote tab_kfall_multiclass.tex
+main.tex already has KFall section
+updated Q1_SUBMISSION_PACK.md
+updated PROFESSOR_MEETING_BRIEF.md
+=== KFall post-finish DONE Sunday 09 August 2026 12:47:01 AM IST ===

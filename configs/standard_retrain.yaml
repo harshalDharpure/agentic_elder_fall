@@ -1,0 +1,57 @@
+# Retrain Tier-1 under standard (natural-prevalence) SisFall for G1 recovery.
+# Larger train budget than paper_protocol caps; no D18/D19 force-in at eval.
+
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+backbones_config: configs/backbones.yaml
+agentic_config: configs/agentic.yaml
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+
+train:
+  epochs: 60
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+  patience: 12
+  mixup_alpha: 0.1
+  amp: true
+  max_train: 120000   # 3× paper_protocol; fuller coverage
+  max_val: 10000
+  use_pos_weight: true
+  decision_threshold_mode: youden
+
+eval:
+  max_test: 20000
+  stratified: false
+  required_activities: []
+  min_near_fall_per_code: 0
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results/standard_retrain
+  checkpoint_dir: checkpoints/standard
+
+models:
+  - cnn_lstm_attn
+  - cnn1d
+  - tcn
+  - modern_tcn
+  - transformer
+
+agentic:
+  top_n: 1
+  primary_backbone: cnn_lstm_attn
+  backend: heuristic
+  llm_backends: [heuristic]
+
+latency:
+  warmup: 10
+  repeats: 50

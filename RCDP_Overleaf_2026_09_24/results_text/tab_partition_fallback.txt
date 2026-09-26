@@ -1,0 +1,13 @@
+LABEL: tab:partitionfallback
+CAPTION: Fixed-threshold control tau=1/(beta+1)=0.091, beta=10, no escalation. Bayes optimality requires calibrated posterior probabilities; no claim of superiority to every empirical threshold. Dagger values are approximate plug-in estimates, not logged fold-wise metrics. Stack classification metrics use main-ablation counts; duty cycle is from the separate timing run.
+
+{tabular}{lcc}
+
+Metric | Fixed threshold | gate_knn_llm
+F1 | 0.639±0.006 | 0.887±0.029
+Recall | 0.988±0.008 | 0.977±0.037
+Precision | 0.47 (dagger) | 0.813±0.036
+Specificity | 0.16 (dagger) | 0.828±0.039
+Cost/1000 | approximately 530 (dagger) | 200±164
+Escalation | 0.00 | 0.47
+{tabular}

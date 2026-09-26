@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\centering
+\caption{Five-fold detector-only SisFall context at the reported Youden operating points, $20{,}000$ standard-protocol windows/fold (prevalence $0.329$--$0.345$). E1 and retrained zoo are distinct checkpoint runs. Mean$\pm$sample std are recomputed from the supplied three-decimal fold F1 values; last-digit differences from separately supplied aggregate summaries can result from rounding. Neither run is the frozen main comparison or the separate $30{,}000$-window v2 evaluation. Scores describe tested implementations and training settings, not a universal architecture ranking.}
+\label{tab:backbone}
+\begin{tabular}{lcc}
+\toprule
+Model & E1 F1 & Retrained F1 \\
+\midrule
+CNN1D & 0.701$\pm$0.031 & 0.734$\pm$0.026 \\
+LSTM & 0.693$\pm$0.016 & 0.711$\pm$0.026 \\
+CNN--LSTM & 0.696$\pm$0.010 & 0.724$\pm$0.036 \\
+CNN--LSTM--Attention & 0.717$\pm$0.022 & 0.739$\pm$0.030 \\
+TCN & 0.702$\pm$0.029 & 0.747$\pm$0.034 \\
+ModernTCN & 0.743$\pm$0.015 & 0.760$\pm$0.030 \\
+TSMixer & 0.671$\pm$0.022 & 0.686$\pm$0.018 \\
+PatchTST & 0.541$\pm$0.009 & 0.566$\pm$0.014 \\
+Transformer & 0.690$\pm$0.013 & 0.703$\pm$0.017 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -9,6 +9,7 @@ import sys
 import time
 from pathlib import Path
 
+import numpy as np
 import torch
 from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm
@@ -114,7 +115,9 @@ def main():
 
     npz = ROOT / tcfg["processed_dir"] / f"windows_w{tcfg['window']}_h{tcfg['hop']}.npz"
     ds = SisFallDataset(npz, channels=int(tcfg["channels"]))
-    verify_dataset_near_falls(ds, pcfg["eval"]["required_activities"])
+    req = list(pcfg["eval"].get("required_activities") or [])
+    if req:
+        verify_dataset_near_falls(ds, req)
 
     split = make_fold_split(
         ds,
@@ -126,11 +129,40 @@ def main():
     tr = pcfg["train"]
     ev = pcfg["eval"]
     min_nf = int(ev.get("min_near_fall_per_code", 0) or 0)
-    min_per = {c: min_nf for c in ev["required_activities"]} if min_nf else None
-    train_idx = subsample_indices(split.train_idx, ds.y, ds.activities, tr.get("max_train"), pcfg["seed"])
-    val_idx = subsample_indices(split.val_idx, ds.y, ds.activities, tr.get("max_val"), pcfg["seed"] + 1)
+    min_per = {c: min_nf for c in (ev.get("required_activities") or [])} if min_nf else None
+    # Default stratified=True forces 50/50 when capping — wrong for natural-prevalence G1.
+    train_strat = bool(tr.get("subsample_stratified", tr.get("stratified", True)))
+    val_strat = bool(tr.get("val_subsample_stratified", True))
+    test_strat = bool(ev.get("stratified", True))
+    train_idx = subsample_indices(
+        split.train_idx,
+        ds.y,
+        ds.activities,
+        tr.get("max_train"),
+        pcfg["seed"],
+        stratified=train_strat,
+    )
+    val_idx = subsample_indices(
+        split.val_idx,
+        ds.y,
+        ds.activities,
+        tr.get("max_val"),
+        pcfg["seed"] + 1,
+        stratified=val_strat,
+    )
     test_idx = subsample_indices(
-        split.test_idx, ds.y, ds.activities, ev.get("max_test"), pcfg["seed"] + 2, min_per_activity=min_per
+        split.test_idx,
+        ds.y,
+        ds.activities,
+        ev.get("max_test"),
+        pcfg["seed"] + 2,
+        stratified=test_strat,
+        min_per_activity=min_per,
+    )
+    print(
+        f"split sizes train={len(train_idx)} val={len(val_idx)} test={len(test_idx)} "
+        f"train_prev={float(np.mean([int(ds.y[i]) for i in train_idx])):.4f} "
+        f"train_stratified={train_strat}"
     )
 
     ckpt_dir = ensure_dir(ROOT / pcfg["paths"]["checkpoint_dir"])

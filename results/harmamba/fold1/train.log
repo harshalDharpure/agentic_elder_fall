@@ -1,0 +1,76 @@
+epoch 001  loss=0.6124  f1=0.6899  acc=0.7386  rec=0.5816  spec=0.8956
+epoch 002  loss=0.5511  f1=0.7023  acc=0.7474  rec=0.5960  spec=0.8988
+epoch 003  loss=0.5361  f1=0.7478  acc=0.7552  rec=0.7260  spec=0.7844
+epoch 004  loss=0.5303  f1=0.7477  acc=0.7590  rec=0.7144  spec=0.8036
+epoch 005  loss=0.5256  f1=0.7605  acc=0.7680  rec=0.7368  spec=0.7992
+epoch 006  loss=0.5118  f1=0.7644  acc=0.7732  rec=0.7360  spec=0.8104
+epoch 007  loss=0.5124  f1=0.7693  acc=0.7760  rec=0.7468  spec=0.8052
+epoch 008  loss=0.5046  f1=0.7844  acc=0.7814  rec=0.7952  spec=0.7676
+epoch 009  loss=0.4962  f1=0.7734  acc=0.7740  rec=0.7712  spec=0.7768
+epoch 010  loss=0.5046  f1=0.7601  acc=0.7786  rec=0.7016  spec=0.8556
+epoch 011  loss=0.5029  f1=0.7773  acc=0.7826  rec=0.7588  spec=0.8064
+epoch 012  loss=0.4891  f1=0.7904  acc=0.7812  rec=0.8252  spec=0.7372
+epoch 013  loss=0.4845  f1=0.7662  acc=0.7790  rec=0.7244  spec=0.8336
+epoch 014  loss=0.4902  f1=0.7861  acc=0.7902  rec=0.7712  spec=0.8092
+epoch 015  loss=0.4906  f1=0.7850  acc=0.7874  rec=0.7764  spec=0.7984
+epoch 016  loss=0.4811  f1=0.7935  acc=0.7820  rec=0.8376  spec=0.7264
+epoch 017  loss=0.4667  f1=0.7797  acc=0.7848  rec=0.7616  spec=0.8080
+epoch 018  loss=0.4741  f1=0.7952  acc=0.7958  rec=0.7928  spec=0.7988
+epoch 019  loss=0.4621  f1=0.7881  acc=0.7794  rec=0.8204  spec=0.7384
+epoch 020  loss=0.4678  f1=0.7887  acc=0.7928  rec=0.7736  spec=0.8120
+epoch 021  loss=0.4623  f1=0.7834  acc=0.7864  rec=0.7724  spec=0.8004
+epoch 022  loss=0.4533  f1=0.7930  acc=0.7908  rec=0.8016  spec=0.7800
+epoch 023  loss=0.4559  f1=0.7909  acc=0.7908  rec=0.7912  spec=0.7904
+epoch 024  loss=0.4521  f1=0.7976  acc=0.7928  rec=0.8164  spec=0.7692
+epoch 025  loss=0.4427  f1=0.7908  acc=0.7920  rec=0.7864  spec=0.7976
+epoch 026  loss=0.4457  f1=0.7937  acc=0.7944  rec=0.7912  spec=0.7976
+epoch 027  loss=0.4448  f1=0.7938  acc=0.7830  rec=0.8356  spec=0.7304
+epoch 028  loss=0.4439  f1=0.7955  acc=0.7952  rec=0.7968  spec=0.7936
+epoch 029  loss=0.4503  f1=0.7936  acc=0.7998  rec=0.7696  spec=0.8300
+epoch 030  loss=0.4468  f1=0.7906  acc=0.7904  rec=0.7912  spec=0.7896
+epoch 031  loss=0.4423  f1=0.7948  acc=0.7912  rec=0.8088  spec=0.7736
+epoch 032  loss=0.4433  f1=0.7995  acc=0.7938  rec=0.8220  spec=0.7656
+epoch 033  loss=0.4609  f1=0.7975  acc=0.7948  rec=0.8080  spec=0.7816
+epoch 034  loss=0.4389  f1=0.7947  acc=0.7942  rec=0.7964  spec=0.7920
+epoch 035  loss=0.4294  f1=0.7973  acc=0.7966  rec=0.8000  spec=0.7932
+epoch 036  loss=0.4271  f1=0.7987  acc=0.7946  rec=0.8148  spec=0.7744
+epoch 037  loss=0.4335  f1=0.7983  acc=0.7958  rec=0.8080  spec=0.7836
+epoch 038  loss=0.4259  f1=0.7983  acc=0.7952  rec=0.8104  spec=0.7800
+epoch 039  loss=0.4305  f1=0.7976  acc=0.7954  rec=0.8064  spec=0.7844
+epoch 040  loss=0.4398  f1=0.7984  acc=0.7962  rec=0.8072  spec=0.7852
+{
+  "fold": 1,
+  "model": "harmamba",
+  "best_val_f1": 0.7994553588795954,
+  "decision_threshold": 0.131,
+  "val_at_threshold": {
+    "accuracy": 0.673,
+    "precision": 0.6060829040961492,
+    "recall": 0.9884,
+    "sensitivity": 0.9883999999999996,
+    "specificity": 0.35759999999999986,
+    "f1": 0.7514064162992246,
+    "tp": 2471,
+    "tn": 894,
+    "fp": 1606,
+    "fn": 29
+  },
+  "test": {
+    "accuracy": 0.63525,
+    "precision": 0.5802391441157961,
+    "recall": 0.9365159979685119,
+    "sensitivity": 0.9365159979685115,
+    "specificity": 0.3431806991629737,
+    "f1": 0.7165339032446085,
+    "tp": 1844,
+    "tn": 697,
+    "fp": 1334,
+    "fn": 125,
+    "n": 4000,
+    "decision_threshold": 0.131
+  },
+  "checkpoint": "/DATA/tauseef_2121cs04/harshal/agentic_fall/checkpoints/backbones/harmamba_fold1.pt",
+  "n_train": 40000,
+  "n_val": 5000,
+  "n_test": 4000
+}

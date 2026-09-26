@@ -1,0 +1,12 @@
+LABEL: tab:kfallmean
+CAPTION: KFall five-fold mean$$std (binary Fall/ADL). Paired deltas are stack$-$Tier-1.
+
+{tabular}{lccc}
+
+Mode | F1 | Recall | Cost/1000
+tier1_only | 0.987±0.005 | 0.991±0.007 | 50±35
+gate_knn_llm | 0.990±0.004 | 0.996±0.002 | 26±12
+f1 | +0.003 | [0.000, 0.006] | p=0.1250
+recall | +0.005 | [0.001, 0.010] | p=0.0679
+cost_per_1000 | -24.200 | [-48.400, -5.800] | p=0.1250
+{tabular}

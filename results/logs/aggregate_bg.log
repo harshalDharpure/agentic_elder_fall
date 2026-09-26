@@ -1,0 +1,179 @@
+backbone: {'cnn1d': 5, 'lstm': 5, 'cnn_lstm': 5, 'cnn_lstm_attn': 5, 'tcn': 5, 'modern_tcn': 5, 'tsmixer': 5, 'patchtst': 5, 'transformer': 5, 'modern_tcn+agentic': 2, 'tcn+agentic': 2, 'cnn1d+agentic': 1, 'cnn_lstm_attn+agentic': 1}
+ablation: {'cnn_lstm_attn': 29, 'tier1_only': 5, 'gate_only': 5, 'gate_knn': 8, 'gate_llm': 10, 'gate_knn_llm': 49, 'gate_knn_llm_action_critic': 2, 'gate_knn_llm_action_critique': 10, 'gate_knn_actor_only': 3, 'gate_knn_actor_critic': 3, 'gate_knn_llm_actor_critic': 12, 'gate_knn_llm_actor_only': 4, 'gate_knn_llm_actor_critic_roleswap': 2, 'gate_knn_llm_contrastive_action_critique': 10, 'gate_knn_llm_crc_veto': 10, 'gate_knn_actor_critic_roleswap': 1}
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/scipy/stats/_wilcoxon.py:199: UserWarning: Sample size too small for normal approximation.
+  temp = _wilcoxon_iv(x, y, zero_method, correction, alternative, method, axis)
+ablation tests: [
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -936.0,
+    "std_delta": 151.7300233968215,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1061.075,
+      -818.0
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -936.0,
+    "std_delta": 151.7300233968215,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -1061.075,
+      -818.0
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "false_alarm_rate_near_fall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -0.04,
+    "std_delta": 0.04476501144867495,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.06788915486182899,
+    "bootstrap_ci95": [
+      -0.07625,
+      -0.0062500000000000056
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.1321174457390705,
+    "std_delta": 0.015756702451621744,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.12004261651144903,
+      0.14419227496669196
+    ]
+  },
+  {
+    "left": "gate_knn_llm",
+    "right": "tier1_only",
+    "metric": "recall",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.21285211242250526,
+    "std_delta": 0.03668923892884753,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.18464111670578867,
+      0.2436800183076194
+    ]
+  }
+]
+llm: {'heuristic': 5, 'mistral:latest': 5, 'qwen2.5-coder:7b-instruct': 5}
+llm tests: [
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "f1",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": 0.9385742832279508,
+    "std_delta": 0.043282613417667176,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      0.8998742942660801,
+      0.9687267229719033
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "expected_response_cost",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -956.8,
+    "std_delta": 42.891724143475514,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -988.8399999999999,
+      -924.8
+    ]
+  },
+  {
+    "left": "mistral:latest",
+    "right": "heuristic",
+    "metric": "cost_per_1000",
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n": 5,
+    "mean_delta": -6378.666666666666,
+    "std_delta": 285.94482762316983,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_pvalue": 0.0625,
+    "bootstrap_ci95": [
+      -6592.266666666666,
+      -6165.333333333334
+    ]
+  }
+]
+agentic: {'agentic_ollama': 5}
+Wrote aggregate tables under results

@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{Paired backend F1 on SisFall, using the reported same $150$ escalated case IDs/fold and supplied evidence/neighbours. Qwen denotes \texttt{qwen2.5-coder:7b-instruct}. Count-derived costs and an always-fall control on these same class totals appear in Table~\ref{tab:adjudicator}. The feature-classifier set is separate, so this is not a matched comparison against GBM.}
+\label{tab:llm}
+\begin{tabular}{cccc}
+\toprule
+Fold & Heuristic F1 & Mistral-7B F1 & Qwen2.5 F1 \\
+\midrule
+0 & 0.042 & 0.959 & 0.807 \\
+1 & 0.105 & 0.977 & 0.874 \\
+2 & 0.000 & 0.975 & 0.819 \\
+3 & 0.021 & 0.984 & 0.802 \\
+4 & 0.000 & 0.966 & 0.813 \\
+\midrule
+Mean$\pm$std & 0.034$\pm$0.044 & \textbf{0.972$\pm$0.010} & 0.823$\pm$0.029 \\
+\bottomrule
+\end{tabular}
+\end{table}

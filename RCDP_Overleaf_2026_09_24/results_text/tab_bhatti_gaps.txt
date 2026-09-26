@@ -1,0 +1,12 @@
+LABEL: tab:bhattigaps
+CAPTION: Bhatti et al. 2025 limitations versus our multi-agent answers (complementary Q1 claim).
+
+{tabular}{p{0.42}p{0.48}}
+
+Bhatti et al. gap | Our multi-agent response
+Softmax force-labels every window; D18/D19 sit/stand confusion | Dual-threshold Confidence Gate escalates ambiguous band
+Explainability limited to attention weights | Biomechanical evidence + LLM chain-of-thought JSON
+No retrieval / case memory | MiniLM k-NN Memory agent
+Detection only; no clinical response policy | Cost-sensitive Action Agent (10+1)
+Published focus: 36-class multi-phase F1~~98%, 20\,ms | Fair claim: same Tier-1 + agents improve recall/cost under uncertainty (SisFall+KFall)
+{tabular}

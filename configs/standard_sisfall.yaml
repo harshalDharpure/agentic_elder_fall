@@ -1,0 +1,46 @@
+# Standard SisFall binary protocol (G1 / E1)
+# Natural prevalence, NO D18/D19 force-in, subject-independent folds.
+# Evaluates existing frozen checkpoints — does not retrain by default.
+
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+backbones_config: configs/backbones.yaml
+paper_protocol: configs/paper_protocol.yaml  # for model list / costs / paths
+
+protocol_name: standard_natural
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+
+eval:
+  # Cap for wall-clock; sampling preserves natural fall prevalence (NOT 50/50).
+  max_test: 20000
+  stratified: false
+  required_activities: []
+  min_near_fall_per_code: 0
+  decision_threshold_mode: youden  # literature-comparable; also report cost
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results/standard_protocol
+  checkpoint_dir: checkpoints/backbones
+
+# Paper zoo (9); harmamba logged separately if present
+models:
+  - cnn1d
+  - lstm
+  - cnn_lstm
+  - cnn_lstm_attn
+  - tcn
+  - modern_tcn
+  - tsmixer
+  - patchtst
+  - transformer
+
+primary_backbone: cnn_lstm_attn
+g1_f1_threshold: 0.95

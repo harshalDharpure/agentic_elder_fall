@@ -1,0 +1,64 @@
+=== KFall external START Saturday 08 August 2026 11:13:52 PM IST ===
+=== fold 0 Saturday 08 August 2026 11:13:52 PM IST ===
+epoch 001  loss=0.4416  f1=0.9556  acc=0.9542  rec=0.9856  spec=0.9228
+epoch 002  loss=0.2568  f1=0.9785  acc=0.9782  rec=0.9916  spec=0.9648
+epoch 003  loss=0.2287  f1=0.9847  acc=0.9846  rec=0.9932  spec=0.9760
+epoch 004  loss=0.2257  f1=0.9834  acc=0.9832  rec=0.9928  spec=0.9736
+epoch 005  loss=0.2381  f1=0.9832  acc=0.9830  rec=0.9932  spec=0.9728
+epoch 006  loss=0.2170  f1=0.9857  acc=0.9856  rec=0.9900  spec=0.9812
+epoch 007  loss=0.2333  f1=0.9869  acc=0.9868  rec=0.9920  spec=0.9816
+epoch 008  loss=0.2292  f1=0.9871  acc=0.9870  rec=0.9944  spec=0.9796
+epoch 009  loss=0.2117  f1=0.9880  acc=0.9880  rec=0.9904  spec=0.9856
+epoch 010  loss=0.2299  f1=0.9890  acc=0.9890  rec=0.9904  spec=0.9876
+epoch 011  loss=0.2487  f1=0.9869  acc=0.9868  rec=0.9968  spec=0.9768
+epoch 012  loss=0.2162  f1=0.9888  acc=0.9888  rec=0.9884  spec=0.9892
+epoch 013  loss=0.2133  f1=0.9887  acc=0.9886  rec=0.9948  spec=0.9824
+epoch 014  loss=0.2224  f1=0.9893  acc=0.9892  rec=0.9964  spec=0.9820
+epoch 015  loss=0.2359  f1=0.9894  acc=0.9894  rec=0.9900  spec=0.9888
+epoch 016  loss=0.2191  f1=0.9887  acc=0.9886  rec=0.9956  spec=0.9816
+Traceback (most recent call last):
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/multiprocessing/reductions.py", line 495, in rebuild_storage_fd
+    fd = df.detach()
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/connection.py", line 508, in Client
+    answer_challenge(c, authkey)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/connection.py", line 752, in answer_challenge
+    message = connection.recv_bytes(256)         # reject large message
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 3924389) is killed by signal: Terminated. 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_kfall_external.py", line 286, in <module>
+    main()
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_kfall_external.py", line 230, in main
+    fit_model(
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/src/agentic_fall/eval/train_loop.py", line 153, in fit_model
+    loss = train_one_epoch(
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/src/agentic_fall/eval/train_loop.py", line 65, in train_one_epoch
+    for batch in loader:
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+  File "/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1146, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 3924389, 3924452) exited unexpectedly
+=== fold 1 Saturday 08 August 2026 11:18:13 PM IST ===

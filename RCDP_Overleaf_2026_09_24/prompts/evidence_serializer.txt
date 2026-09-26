@@ -1,0 +1,12 @@
+Evidence string fields (one bullet per line), from serialize_evidence():
+- Free-fall duration: {freefall_duration_s:.3f}s
+- Impact magnitude: {impact_magnitude_g:.2f}g
+- Post-impact stillness: {post_impact_stillness_s:.2f}s
+- Body tilt change: {body_tilt_deg:.1f} deg
+- Event duration: {duration_s:.2f}s
+- Mean acceleration: {mean_acc_g:.2f}g
+- Peak gyroscope: {peak_gyro_dps:.1f} deg/s
+- Activity context code: {activity}   # when available
+- Tier-1 fall probability: {p_fall:.3f}  # when available
+
+Retrieval: sentence-transformers/all-MiniLM-L6-v2, cosine, k=5, training-fold memory only.
