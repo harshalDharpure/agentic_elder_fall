@@ -1,0 +1,21 @@
+\begin{algorithm}[!t]
+\caption{RCDP inference for one inertial window}
+\label{alg:rcdp}
+\begin{algorithmic}[1]
+\REQUIRE Window $\mathbf{x}\in\mathbb{R}^{C\times T}$; frozen primary detector $f_\theta$; gate $(\tau_{\mathrm{low}},\tau_{\mathrm{high}})$; case memory $\mathcal{M}$; reasoner $\mathcal{L}$; optional critique $\mathcal{C}$; action policy $\mathcal{A}$; width $k$
+\STATE $p\leftarrow \mathrm{softmax}(f_\theta(\mathbf{x}))_1$ \COMMENT{block 2; no weight update}
+\STATE $r\leftarrow\varnothing$
+\IF{$p\le\tau_{\mathrm{low}}$}
+  \STATE $\hat{y}\leftarrow\mathrm{ADL}$; \; $a\leftarrow\texttt{log}$ \COMMENT{block 3a}
+\ELSIF{$p\ge\tau_{\mathrm{high}}$}
+  \STATE $\hat{y}\leftarrow\mathrm{Fall}$; \; $a\leftarrow\texttt{emergency}$ \COMMENT{block 3a}
+\ELSE
+  \STATE $\Sigma\leftarrow\textsc{SerializeEvidence}(\mathbf{x},p)$ \COMMENT{block 3b}
+  \STATE $N_k\leftarrow\textsc{TopK}(\mathcal{M},\Sigma,k)$ \COMMENT{block 3c, \eqref{eq:cosine}}
+  \STATE $(\hat{y},s,r)\leftarrow\mathcal{L}(\Sigma,N_k)$ \COMMENT{block 3d}
+  \STATE $(s,r)\leftarrow\mathcal{C}(\hat{y},s,r,\Sigma)$ \COMMENT{block 3e; $\hat{y}$ immutable}
+  \STATE $a\leftarrow\mathcal{A}(\hat{y},s,\Sigma)$ \COMMENT{block 4, simulated}
+\ENDIF
+\STATE \textbf{return} $(\hat{y},a,r)$ \COMMENT{block 5}
+\end{algorithmic}
+\end{algorithm}

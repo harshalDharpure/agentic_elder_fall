@@ -1,0 +1,16 @@
+\begin{table}[!t]
+\centering
+\caption{Sensor-perturbation robustness of primary-detector routing under the cost gate (SisFall, five-fold mean F1). Rotations apply a random rigid rotation of the sensor frame with the stated bound, emulating garment or mounting drift; resampling emulates a different device sampling rate. Degradation is graceful---the worst case, $\pm15^\circ$, loses $0.014$ F1---so the ambiguous band is not an artefact of one exact sensor placement.}
+\label{tab:robustness}
+\begin{tabular}{lcc}
+\toprule
+Condition & Mean F1 & $\Delta$ vs.\ clean \\
+\midrule
+clean             & 0.768 $\pm$ 0.017 & --- \\
+resample 100\,Hz  & 0.766 $\pm$ 0.016 & $-0.002$ \\
+resample 50\,Hz   & 0.766 $\pm$ 0.015 & $-0.002$ \\
+rotate $\pm10^\circ$ & 0.763 $\pm$ 0.020 & $-0.005$ \\
+rotate $\pm15^\circ$ & 0.754 $\pm$ 0.023 & $-0.014$ \\
+\bottomrule
+\end{tabular}
+\end{table}

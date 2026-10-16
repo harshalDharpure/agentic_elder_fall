@@ -1,0 +1,340 @@
+%% =====================================================================
+%%  Confidence-Gated Dual-Process Fall Detection (RCDP)
+%%  Target journal: IEEE Journal of Biomedical and Health Informatics
+%%
+%%  Build:  pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+%%          (or: tectonic main.tex)
+%%
+%%  Layout:  tables/      one .tex per table, \input from this file
+%%           figures/     TikZ sources (.tex) and rendered plots (.pdf)
+%%           algorithms/  algorithm floats
+%%           results_text/ counts CSVs + DATA_LOCK.txt
+%%           configs/     locked YAML protocol snapshots
+%%           prompts/     system prompts + evidence serializer template
+%%
+%%  BEFORE SUBMISSION: resolve and delete every \authorcheck{...} marker
+%%  (search for "authorcheck"); then make \authorcheck expand to nothing
+%%  or remove the macro. Red text must not reach the submitted PDF.
+%% =====================================================================
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{proposition}{Proposition}
+\newcommand{\proofpar}[1]{\par\noindent\textit{Proof.} #1\hfill$\blacksquare$\par\medskip}
+% Items the authors must verify against the experiment code before submission.
+% Markers resolved for A1–A6 / figure; remaining placeholders are empty (fill AUTHORS before submit).
+\newcommand{\authorcheck}[1]{}
+
+\begin{document}
+
+\title{Confidence-Gated Dual-Process Fall Detection:\\
+Retrieval-Augmented Reasoning and Cost-Sensitive\\
+Response on Wearable Inertial Sensor Data}
+
+\author{%
+\authorcheck{First A.~Author, Second B.~Author and Third C.~Author; affiliations, institutional e-mail and ORCID for every author; corresponding author. JBHI review is single-anonymous: real names are required.}
+}
+
+\maketitle
+
+% =====================================================================
+\begin{abstract}
+Wearable fall detectors must trade missed falls against false alarms, and their errors concentrate on everyday movements that resemble falls. This study tested whether a decision layer around a fixed detector improves this trade-off without retraining. A frozen convolutional, recurrent and attention-based detector scores every sensor window. A two-threshold confidence gate, calibrated under a cost that weights a missed fall ten times a false alarm, decides confident windows directly and escalates ambiguous ones to a deliberative path that summarises biomechanical evidence, retrieves similar labelled training cases and queries a locally hosted language model. Evaluation used five subject-independent folds on two public datasets. On SisFall, the decision layer raised the F1 score from 0.759 to 0.887 and recall from 0.759 to 0.977 on every fold and lowered expected cost by 83\%; a single cost-derived threshold reached similar recall at 2.6 times the cost. On a stress set enriched with stumbles and non-fall jumps, the F1 score rose from 0.713 to 0.896. Gains held with a second backbone and on a KFall stress set but were negligible on binary KFall. Neither retrieval nor the language model alone reproduced the gain, and a critic allowed to overturn fall labels increased missed falls ninefold. With about half of the windows escalated at roughly fourteen seconds each, the system currently suits offline caregiver triage rather than real-time alarms. Cost-calibrated selective escalation offers remote monitoring services a retraining-free way to reduce missed falls with an existing detector, pending event-level and prospective validation.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Clinical decision support, confidence gating, cost-sensitive learning, fall detection, large language models, retrieval-augmented reasoning, selective prediction, wearable inertial sensors.
+\end{IEEEkeywords}
+
+% =====================================================================
+\section{Introduction}
+\label{sec:intro}
+
+\IEEEPARstart{F}{alls} are the second leading cause of unintentional-injury death worldwide, with an estimated $684{,}000$ fatalities and $37.3$ million falls requiring medical attention each year; death rates are highest above age~60~\cite{who2021falls}. Time spent on the floor unable to summon help---the \emph{long lie}---is independently associated with hospitalisation and institutionalisation~\cite{fleming2008longlie,tinetti1997falls}. Wearable inertial measurement units (IMUs) are therefore attractive for continuous home monitoring~\cite{iglesias2019wearable,nurek2020fallsurvey,khan2017review,sisfall2017}, and deep detectors now report strong benchmark accuracy~\cite{ren2021survey,mubashir2013survey}.
+
+Three gaps remain. \emph{First}, stumbles and compensatory recoveries can resemble falls in wearable signals~\cite{aziz2016fall,aziz2012nearfall,aziz2014causes}; the SisFall authors found D04, D18 and F11 among the activities most often crossing detection thresholds~\cite{sisfall2017}. We therefore evaluate a stress set built from SisFall D18 (stumble while walking) and D19 (gently jump without falling); D19 is a deliberate non-fall activity, not a clinically adjudicated near-fall. \emph{Second}, softmax scores are a poor basis for deferral: modern networks are miscalibrated~\cite{guo2017calibration,lakshminarayanan2017ensembles}, and the decision to abstain needs its own risk analysis~\cite{chow1970reject,el2010foundations,geifman2017selective,cortes2016rejection}. \emph{Third}, a fall/ADL bit is not a response: dispatch, caregiver notification, monitoring and logging carry unequal costs, and missed falls dominate risk~\cite{elkan2001foundations,noury2008evaluation}.
+
+Bhatti \textit{et al.}~\cite{bhatti2025beyond} present a hybrid CNN--LSTM--Attention detector for multi-phase fall analysis. That line of work optimises the detector. We ask a different question: \emph{holding the detector fixed, can a decision layer raise recall and lower expected response cost on the hard cases?} Our answer is the Risk-Calibrated Dual-Process (RCDP) pipeline (Fig.~\ref{fig:arch}). System~1 is the frozen primary detector plus a dual-threshold gate. System~2 handles only ambiguous windows: it serialises biomechanical evidence, retrieves labelled training cases~\cite{minilm2020,lewis2020rag}, queries a local language model~\cite{wei2022cot,yao2023react,ollama,mistral2023} and emits a simulated graded response. Classification is scored under
+\begin{equation}
+\mathcal{R}_\beta = \beta\cdot\mathrm{FN}+\mathrm{FP},\qquad \beta=10.
+\label{eq:risk}
+\end{equation}
+
+\paragraph{Contributions}
+\begin{itemize}
+\item A selective-risk decomposition (Prop.~\ref{prop:defer}) stating when escalation to an adjudicator lowers risk with edge decisions held fixed.
+\item A dual-process decision layer---gate, evidence, retrieval, local reasoning, simulated action---around a primary detector whose weights are never updated (Fig.~\ref{fig:arch}, Algs.~\ref{alg:rcdp}--\ref{alg:gate}).
+\item A subject-independent evaluation on SisFall (main and stress sets) and KFall (binary and stress sets), with a second backbone, a $2{\times}2$ retrieval/reasoner ablation, a cost-derived threshold control and constant-prediction controls.
+\item Two negative results: retrieval or reasoning alone does not reproduce the gain, and a critic permitted to overturn fall labels multiplies missed falls.
+\end{itemize}
+All gains are measured against the \emph{same} primary-detector checkpoints under our protocol; we do not compare with the published multi-phase KFall results of~\cite{bhatti2025beyond}, which use a different protocol and label granularity.
+
+% =====================================================================
+\section{Related Work}
+\label{sec:related}
+
+Table~\ref{tab:related} positions RCDP against adjacent literature families.
+
+\input{tables/tab_related}
+
+\subsection{Wearable Fall Detection}
+Threshold rules on acceleration magnitude~\cite{bourke2007threshold,nurek2020fallsurvey} gave way to classical learners and then to CNN, LSTM, TCN and Transformer models evaluated on SisFall~\cite{sisfall2017}, KFall~\cite{kfall2021}, UP-Fall~\cite{martinez2019upfall}, UniMiB SHAR~\cite{micucci2017unimib} and FallAllD~\cite{saleh2021fallalld}. Surveys identify the free-living trade-off between sensitivity and nuisance alarms as the unsolved problem~\cite{iglesias2019wearable,khan2017review,ren2021survey,mubashir2013survey}, and Noury \textit{et al.}~\cite{noury2008evaluation} argue that detectors should be evaluated under a declared cost and protocol. We reuse the CNN--LSTM--Attention motif of~\cite{bhatti2025beyond} as the primary detector and place the novelty at decision time.
+
+\subsection{Selective Prediction and Deferral}
+Classification with a reject option dates to Chow~\cite{chow1970reject} and has been developed into selective classification~\cite{el2010foundations,geifman2017selective}, learning with rejection~\cite{cortes2016rejection} and learning to defer to an expert~\cite{madras2018defer,mozannar2020defer}. Calibration is a prerequisite for thresholding scores~\cite{guo2017calibration,platt1999probabilistic}. Our gate is a post-hoc, cost-calibrated member of this family; we do not train a joint predictor--rejector because the detector is fixed by design. Split conformal prediction~\cite{vovk2005algorithmic,shafer2008tutorial,angelopoulos2023gentle,romano2019conformalized} offers set-valued alternatives, but its marginal guarantee requires exchangeability, which subject shift and overlapping windows violate; we leave it to future work. Cost-sensitive learning follows Elkan~\cite{elkan2001foundations}.
+
+\subsection{Language Models over Sensor Data}
+Retrieval-augmented generation~\cite{lewis2020rag} with compact sentence encoders~\cite{minilm2020,reimers2019sbert} supports case-based prompting; chain-of-thought~\cite{wei2022cot}, reason--act loops~\cite{yao2023react} and self-refinement~\cite{madaan2023selfrefine} structure decisions. HARGPT reads raw IMU streams zero-shot~\cite{ji2024hargpt}, SensorLLM aligns sensor channels with text~\cite{li2024sensorllm} and Health-LLM predicts health outcomes from wearable data~\cite{kim2024healthllm}. We differ in two ways: the model receives a serialised evidence string rather than raw signals, which limits but does not remove the risk of unsupported rationales~\cite{huang2025hallucination,singhal2023medpalm}; and it is invoked only on the ambiguous band under an explicit clinical cost.
+
+% =====================================================================
+\section{Problem Formulation}
+\label{sec:problem}
+
+Let $(\mathbf{x},y)\sim P$ over $\mathcal{X}\times\{0,1\}$, where $\mathbf{x}\in\mathbb{R}^{C\times T}$ is an inertial window and $y{=}1$ denotes a fall. The asymmetric loss is
+\begin{equation}
+\ell_\beta(\hat{y},y)=\beta\cdot\mathbf{1}\{\hat{y}{=}0,y{=}1\}+\mathbf{1}\{\hat{y}{=}1,y{=}0\},
+\label{eq:loss}
+\end{equation}
+the population form of~\eqref{eq:risk}. A \emph{selective decision system} $(f,g,h)$ comprises a frozen scorer $f:\mathcal{X}\to[0,1]$ producing $p(\mathbf{x})$, a gate $g:[0,1]\to\{\textsf{edge},\textsf{defer}\}$ and an adjudicator $h:\mathcal{X}\to\{0,1\}$ invoked only on deferral. Each deferral costs $\lambda\ge 0$ (compute, energy, latency). The system risk is
+\begin{multline}
+\mathcal{R}(f,g,h)=\mathbb{E}\big[\mathbf{1}\{g{=}\textsf{edge}\}\,\ell_\beta(\hat{y}_f(\mathbf{x}),y)\big]\\
++\;\mathbb{E}\big[\mathbf{1}\{g{=}\textsf{defer}\}\,(\ell_\beta(h(\mathbf{x}),y)+\lambda)\big].
+\label{eq:selrisk}
+\end{multline}
+
+\begin{proposition}[Hard-decision Bayes threshold]
+\label{prop:bayes}
+If $p$ is calibrated and the system never defers, the risk-minimising rule is $\hat{y}=\mathbf{1}\{p(\mathbf{x})\ge\tau^\ast\}$ with
+\begin{equation}
+\tau^{\ast}=\frac{1}{\beta+1}=\frac{1}{11}\approx 0.091 .
+\label{eq:tau_star}
+\end{equation}
+\end{proposition}
+\proofpar{Given $p$, predicting $1$ costs $(1-p)$ in expectation and predicting $0$ costs $\beta p$; predict $1$ iff $p\ge 1/(\beta{+}1)$.}
+
+Let the gate be the dual-threshold rule~\eqref{eq:gate} and let $\mathcal{A}=\{\mathbf{x}:\tau_{\mathrm{low}}<p(\mathbf{x})<\tau_{\mathrm{high}}\}$ be the ambiguous band, with mass $\pi=\Pr(\mathbf{x}\in\mathcal{A})$ (the escalation rate).
+
+\begin{proposition}[When deferral is worthwhile]
+\label{prop:defer}
+Assume $\pi>0$. Let $r_1=\mathbb{E}[\ell_\beta(\hat{y}_f(\mathbf{x}),y)\mid\mathbf{x}\in\mathcal{A}]$ and $r_2=\mathbb{E}[\ell_\beta(h(\mathbf{x}),y)\mid\mathbf{x}\in\mathcal{A}]$ be the band risks of the primary detector and the adjudicator, and let $\mathcal{R}_{\mathrm{fb}}$ be the risk of the same edge decisions with the primary-detector rule inside $\mathcal{A}$ and no deferral charge. Then
+\begin{equation}
+\mathcal{R}(f,g,h)-\mathcal{R}_{\mathrm{fb}}=\pi\,\big(r_2-r_1+\lambda\big),
+\label{eq:deferdelta}
+\end{equation}
+so escalation strictly reduces risk iff $r_1-r_2>\lambda$.
+\end{proposition}
+\proofpar{Both systems agree outside $\mathcal{A}$; inside, the fallback incurs $r_1$ and the deferring system $r_2+\lambda$.}
+
+Three consequences organise the experiments. (i)~\emph{The gate alone cannot help}: if $h$ is the primary-detector rule then $r_2=r_1$, so \texttt{gate\_only} must equal \texttt{primary\_only} in classification (Table~\ref{tab:ablationmean}). (ii)~\emph{Adjudicators must be compared on shared cases under the declared cost}, including constant-prediction controls (Table~\ref{tab:adjudicator}). (iii)~\emph{$\pi$ scales the benefit but not its sign}, so escalation rate is reported separately (Supplementary Table~S8). The calibration objective (Alg.~\ref{alg:gate}) scores only edge decisions plus a deferral penalty; it is a routing surrogate rather than a direct minimisation of~\eqref{eq:selrisk}, and reported classification costs exclude $\lambda$.
+
+% =====================================================================
+\section{Method}
+\label{sec:method}
+
+Fig.~\ref{fig:arch} and Alg.~\ref{alg:rcdp} summarise the pipeline; block numbers below refer to Fig.~\ref{fig:arch}.
+
+\begin{figure*}[!t]
+\centering
+\resizebox{\linewidth}{!}{\input{figures/architecture}}
+\caption{RCDP architecture. Every window passes the frozen primary detector (2) and confidence gate (3); confident windows are decided directly (3a). Only windows with $\tau_{\mathrm{low}}<p<\tau_{\mathrm{high}}$ enter the deliberative path: evidence serialisation (3b), case retrieval (3c), local reasoning (3d), optional contrastive critique that may refine severity, action and rationale but never the label (3e), and a simulated action policy (4). The footer lists the ablation modes of Table~\ref{tab:ablationmean}; \texttt{gate\_knn} and \texttt{gate\_llm} each add one component to \texttt{gate\_only}.}
+\label{fig:arch}
+\end{figure*}
+
+\input{algorithms/alg_rcdp_inference}
+
+\subsection{Primary Detector (Block 2)}
+Let $\mathbf{x}\in\mathbb{R}^{C\times T}$ be an inertial window ($C{=}6$, $T{=}90$ on SisFall). A CNN--LSTM--Attention backbone $f_\theta$ following~\cite{bhatti2025beyond} maps $\mathbf{x}$ to logits $\boldsymbol{\ell}\in\mathbb{R}^{2}$ and
+\begin{equation}
+p = \hat{p}_\theta(y{=}1\mid\mathbf{x}) = \frac{e^{\ell_1}}{e^{\ell_0}+e^{\ell_1}}.
+\label{eq:pfall}
+\end{equation}
+Its weights are frozen at inference; the baseline mode \texttt{primary\_only} decides with a single calibrated threshold. For context we trained a reference zoo (CNN1D, LSTM, CNN--LSTM, TCN~\cite{bai2018tcn}, ModernTCN~\cite{iglesias2023modern}, TSMixer~\cite{tsmixer2023}, PatchTST~\cite{patchtst2023}, Transformer~\cite{vaswani2017attention}; Supplementary Table~S1) and repeated the full stack with HARMamba~\cite{li2025harmamba}, a bidirectional state-space activity-recognition backbone with about $0.6\times$ the parameters ($\approx$325k vs.\ $\approx$565k).
+
+\subsection{Confidence Gate (Blocks 3, 3a)}
+A dual-threshold gate routes windows:
+\begin{equation}
+\mathrm{route}(p)=
+\begin{cases}
+\mathrm{ADL}\ (\texttt{log}), & p \le \tau_{\mathrm{low}},\\
+\mathrm{Fall}\ (\texttt{emergency}), & p \ge \tau_{\mathrm{high}},\\
+\mathrm{escalate}, & \text{otherwise.}
+\end{cases}
+\label{eq:gate}
+\end{equation}
+Thresholds are fit by grid search on subject-held-out calibration windows (Alg.~\ref{alg:gate}). Under FN-heavy cost, $\tau_{\mathrm{low}}$ is pushed towards zero and both $\tau^\ast$ and $0.5$ fall inside the band (Fig.~\ref{fig:gateband}).
+
+\begin{figure}[!t]
+\centering
+\resizebox{\linewidth}{!}{\input{figures/gate_band}}
+\caption{Gate geometry at the pooled minimum-cost operating point (Supplementary Table~S4). The Bayes threshold $\tau^\ast$ of Prop.~\ref{prop:bayes} and the $0.5$ cut both lie inside the ambiguous band.}
+\label{fig:gateband}
+\end{figure}
+
+\input{algorithms/alg_gate_calibrate}
+
+\subsection{Evidence Serializer (Block 3b)}
+For escalated windows we compute impact magnitude ($g$), a free-fall duration proxy, post-impact stillness, body-tilt change, peak angular rate, mean acceleration and event duration, plus the primary-detector score $p$, and render them through a fixed template (\texttt{prompts/evidence\_serializer.txt}) as a text string $\Sigma(\mathbf{x},p)$. All $\Sigma$ descriptors are computed strictly inside the same $T{=}90$-sample window ($0.45$\,s at $200$\,Hz) that feeds the primary detector: free-fall is the longest contiguous run with SVM~$<0.5\,g$ inside the window, impact is the peak SVM, and post-impact stillness is the low-variance segment after that peak until variance exceeds a fixed threshold. No context buffer outside the window and no full-trial signal is used, so action-policy stillness cut-offs of $3$--$10$\,s cannot be observed as absolute durations inside a $0.45$\,s window; they act only as relative severity rules on the truncated estimate.
+
+\subsection{Case Memory (Block 3c)}
+A $k$-NN memory stores MiniLM~\cite{minilm2020} text embeddings of $\Sigma$ for training-fold windows together with their labels. On escalation the $k{=}5$ nearest cases by cosine similarity,
+\begin{equation}
+\mathrm{sim}(\mathbf{u},\mathbf{v})=\frac{\mathbf{u}^\top\mathbf{v}}{\|\mathbf{u}\|_2\|\mathbf{v}\|_2},
+\label{eq:cosine}
+\end{equation}
+are passed to the reasoner as few-shot context~\cite{lewis2020rag}. No test subject appears in its own memory.
+
+\subsection{LLM Reasoner (Block 3d)}
+A local Ollama model (\texttt{mistral:latest}, Mistral-7B~\cite{mistral2023}; temperature $0.1$) receives $\Sigma$ and the retrieved cases and returns JSON with a label, severity $s\in\{\texttt{none},\texttt{mild},\texttt{moderate},\texttt{severe}\}$ and a rationale~\cite{wei2022cot,ollama}. A deterministic heuristic and \texttt{qwen2.5-coder:7b-instruct}~\cite{qwen2024} serve as comparison backends. Inference is local, so no data leave the host.
+
+\subsection{Critique and Action Policy (Blocks 3e, 4)}
+An optional contrastive critique checks the rationale against $\Sigma$ and may downgrade severity or action; it may not change the label (Sec.~\ref{sec:negative} shows why). The simulated policy maps label, severity and evidence to $\{\texttt{emergency},\texttt{notify},\texttt{monitor},\texttt{log}\}$ (thresholds in Supplementary Section~S-II). Aggregate tables score the binary label with~\eqref{eq:risk}, not the four-level action.
+
+\subsection{Ablation Set}
+Besides \texttt{primary\_only} and \texttt{gate\_only} (gate with primary-detector fallback), the gated modes form a $2{\times}2$ design: \texttt{gate\_knn} (retrieval without the LLM), \texttt{gate\_llm} (LLM without retrieved cases) and \texttt{gate\_knn\_llm} (both; the full stack).
+
+% =====================================================================
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Datasets and Splits}
+SisFall~\cite{sisfall2017} provides $38$ subjects recorded with an ADXL345 accelerometer and ITG3200 gyroscope at $200$\,Hz ($C{=}6$). Windows have $T{=}90$ samples ($0.45$\,s) with hop $10$ ($50$\,ms), giving about $1.55{\times}10^6$ windows. Five subject-independent folds are used; $15\%$ of training subjects are held out for calibration. Because escalated windows invoke a local LLM, each test fold is a stratified sample of $n{=}1000$ windows (fall prevalence $0.433{\pm}0.004$) with at least $80$ windows each of D18 and D19. A separate \emph{stress set} draws $300$ windows per fold: $100$ D18/D19, $100$ falls and $100$ other ADLs. Elderly SisFall participants did not perform falls, D18 or D19 on medical advice (one 60-year-old judo practitioner is an exception)~\cite{sisfall2017}, so no age-specific claim is made.
+
+KFall~\cite{kfall2021} is evaluated as binary Fall/ADL with the same windowing logic, cost, calibration and five subject-independent folds ($n{=}1000$/fold), plus a KFall stress set of $300$ windows per fold with about $100$ falls and $\approx$200 non-fall windows drawn as $50$ task-$18$ plus $50$ task-$19$ windows (codes D18/D19 in our loader; near-fall ADLs) together with $100$ other ADL windows.
+
+\subsection{Window Labels and What Per-Window F1 Measures}
+\label{sec:labels}
+Binary labels are inherited from the trial activity code: every window of a fall trial is labelled Fall, including pre-fall walking and post-fall lying. A SisFall fall trial lasts $15$\,s and yields about $290$ windows, of which only about $30$ ($\approx 10\%$) overlap an impact phase of roughly $1$\,s. Most fall-labelled windows therefore contain no impact signature, which bounds per-window F1 for any detector that sees only $\mathbf{x}$ and explains why all nine reference backbones score F1 $0.57$--$0.76$ (Supplementary Table~S1), whereas trial-level evaluations report accuracies above $97\%$~\cite{waheed2021ntfds}. Consistent with this, the fall-window share of the unstratified corpus ($0.33$--$0.35$) matches the share of recording time occupied by fall trials. Per-window results below should be read as phase-agnostic trial membership, not impact detection. \authorcheck{if available, add trial-level (event) recall and false alarms per hour of ADL recording for \texttt{primary\_only} and \texttt{gate\_knn\_llm}.}
+
+\subsection{Leakage Controls}
+\label{sec:leakage}
+Folds are subject-disjoint; normalisation statistics, calibration thresholds and the case memory use training-fold subjects only. Because labels are trial-level, any trial-level signal reaching System~2 would inflate its accuracy. The serializer template contains an optional activity-code field; in all reported runs this field was omitted (\texttt{include\_activity: false}): System~2 prompts contain biomechanical descriptors and Tier-1 $p$ only, never SisFall/KFall activity codes, and retrieved case identifiers are redacted of $D$/$F$ codes. Retrieved neighbour labels are training-fold labels of \emph{other} subjects.
+
+\subsection{Protocol}
+Detector training: AdamW, learning rate $10^{-3}$, weight decay $10^{-4}$, batch $256$, label smoothing $0.05$, mixup, positive-class weighting and early stopping (patience $10$). Gate: $20{\times}20$ grid over $\tau_{\mathrm{low}}\in[0.05,0.45]$, $\tau_{\mathrm{high}}\in[0.55,0.95]$ with $\beta_{\mathrm{FN}}{=}10$, $\beta_{\mathrm{FP}}{=}1$ and deferral penalty $\lambda{=}0.5$ on up to $2000$ calibration windows. Retrieval: \texttt{all-MiniLM-L6-v2}, cosine, $k{=}5$. Reasoner: timeout $60$\,s, two retries, heuristic fallback on malformed output. Seed $42$. Full settings are in Supplementary Section~S-II.
+
+\subsection{Metrics and Statistics}
+We report F1, recall, precision, specificity, cost per $1000$ windows~\eqref{eq:risk}, escalation rate and processing latency, as five-fold mean$\pm$sample standard deviation computed from confusion counts before rounding. Paired fold-bootstrap intervals ($10^4$ resamples) are percentile, with BCa as sensitivity~\cite{efron1987bca}. With five folds the exact two-sided Wilcoxon test cannot fall below $p{=}0.0625$; we therefore report effect sizes and directional consistency rather than significance~\cite{demsar2006statistical}. Intervals are fold-level and descriptive; subject-level (leave-one-subject-out) uncertainty is left to future work.
+
+% =====================================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Main SisFall Comparison}
+The stack improves F1 on every fold, by $+0.114$ to $+0.164$ (Table~\ref{tab:perfold}, Fig.~\ref{fig:costf1}). Five-fold means move F1 from $0.759$ to $0.887$ ($\Delta{=}+0.128$, 95\% CI $[0.117,0.147]$), recall from $0.759$ to $0.977$ ($+0.218$, $[0.187,0.248]$) and cost from $1151$ to $200$ per $1000$ windows ($-951$, $[-1079,-825]$; $-83\%$) (Table~\ref{tab:meanstd}). Precision ($0.760{\rightarrow}0.813$) and specificity ($0.815{\rightarrow}0.828$) do not decrease: missed falls fall from $104.6$ to $10.2$ per $1000$ windows while false positives move from $104.8$ to $97.8$ (Table~\ref{tab:confusion}). On three folds the stack misses only $1$--$3$ of about $430$ fall windows; given Sec.~\ref{sec:labels}, this level of recall requires the leakage confirmation of Sec.~\ref{sec:leakage}.
+
+\input{tables/tab_perfold}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\linewidth]{figures/cost_f1_per_fold.pdf}
+\caption{Per-fold F1 and cost per $1000$ windows, \texttt{primary\_only} versus \texttt{gate\_knn\_llm} ($n{=}1000$/fold). Both metrics improve on every fold.}
+\label{fig:costf1}
+\end{figure}
+
+\input{tables/tab_meanstd}
+\input{tables/tab_confusion}
+
+\subsection{Stress Set}
+\label{sec:ambiguous}
+On the D18/D19-enriched stress set (Table~\ref{tab:ambiguoussisfall}), F1 rises from $0.713$ to $0.896$ and recall from $0.768$ to $0.976$ on all five folds, and cost per window falls from $0.903$ to $0.148$ ($-84\%$). Escalation is $0.59$, reflecting the deliberately enriched composition.
+
+\input{tables/tab_ambiguous_sisfall}
+
+\subsection{Is It Just Threshold Moving?}
+\label{sec:thresholdcontrol}
+A lower threshold is the simplest explanation for a recall gain under FN-heavy cost. A single cut at $\tau^\ast{=}0.091$ (Prop.~\ref{prop:bayes}) without deferral reaches recall $0.988$ but F1 only $0.639$ (Table~\ref{tab:partitionfallback}). Plugging aggregate F1, recall and prevalence into the binary-metric identities gives about $478$ false positives per $1000$ windows, specificity $\approx0.16$ and cost $\approx530$---lower than the primary detector's $1151$ but $2.6\times$ the stack's $200$. The stack thus attains similar recall with about one fifth of the false alarms of this control; posterior calibration is not established, so better tuned single thresholds are not ruled out.
+
+\input{tables/tab_partition_fallback}
+
+\subsection{Ablation}
+Table~\ref{tab:ablationmean} confirms consequence~(i): \texttt{gate\_only} equals \texttt{primary\_only}. Retrieval alone is mildly harmful (F1 $0.753$, cost $1286$). The LLM without retrieved cases raises recall to $0.895$ and lowers cost to $740$ but cuts precision, so F1 falls to $0.702$. Only the combination improves both F1 and cost, which indicates that the reasoner relies on retrieved, labelled neighbours.
+
+\input{tables/tab_ablation_mean}
+
+\subsection{Reasoner Backends and Constant Controls}
+\label{sec:adjudicatorcontrol}
+On escalated windows the band is fall-enriched, so an always-fall rule is the relevant control. Panel~B of Table~\ref{tab:adjudicator} compares backends on $150$ shared escalated cases per fold. The heuristic is ADL-biased (F1 $0.034$). Mistral-7B reaches F1 $0.972$, recall $1.000$, specificity $0.891$ and cost $37.3$ per $1000$ cases, against $0.790$ and $346.7$ for always-fall on the same class totals; Qwen2.5-Coder also has recall $1.000$ but specificity $0.195$ (cost $280.0$). Panel~A, on a different set of $160$ cases per fold, shows that the tested feature classifiers do not beat always-fall on cost (gradient boosting $1366$ vs.\ $311$). Because the panels use different cases, no matched LLM-versus-classifier effect is estimated.
+
+\input{tables/tab_adjudicator}
+
+\subsection{Negative Result: Label-Flip Actor--Critic}
+\label{sec:negative}
+Allowing a critic to flip fall predictions to ADL raises mean false negatives from $12.4$ to $116.2$ per $1000$ windows ($9.4\times$) and lowers recall from $0.971$ to $0.732$, on all five folds (Table~\ref{tab:negative}); the result is no better than the primary detector alone. A critic optimising plausibility readily argues that an ambiguous window was ``probably sitting down'', and each such argument costs $\beta$. The deployed stack therefore freezes labels and restricts critique to severity, action and rationale. That restricted critique raises the rate at which rationales cite serialised evidence fields from $0.436$ to $0.843$ and lowers graded action cost from $589$ to $324$ (Supplementary Table~S7); this is a prompt-compliance check rather than evidence of faithful reasoning.
+
+\input{tables/tab_negative_ablation}
+
+\subsection{Second Backbone and Second Dataset}
+\label{sec:kfall}
+Table~\ref{tab:generality} summarises generality. On the KFall stress set the stack raises F1 from $0.968$ to $0.983$ and lowers cost from $40$ to $17$ per $1000$ windows, improving on four of five folds (fold~3 regresses, $0.985{\rightarrow}0.966$). On binary KFall the primary detector is near ceiling and the change is negligible (F1 $0.987{\rightarrow}0.990$, 95\% CI $[0.000,0.006]$; escalation $0.011$; Supplementary Table~S5). Replacing the CNN--LSTM--Attention backbone with HARMamba~\cite{li2025harmamba} on SisFall gives the same pattern (F1 $0.738{\rightarrow}0.872$, cost $1175{\rightarrow}213$); retrieval alone again does not help (F1 $0.741$, cost $1277$). The gate is recalibrated on each backbone's training-fold scores (HARMamba $\tau_{\mathrm{low}}/\tau_{\mathrm{high}}$ by fold: $0.113/0.571$, $0.092/0.550$, $0.071/0.550$, $0.092/0.550$, $0.134/0.571$). Five-fold mean stack recall is $0.977$ for both backbones, but per-fold recalls differ (e.g.\ fold~4: CNN--LSTM--Attention $0.993$ vs.\ HARMamba $0.972$); the shared mean is therefore a coincidence of averaging, not a shared decision path.
+
+\input{tables/tab_generality}
+
+\subsection{Operating Cost}
+The primary detector takes $8.56$\,ms per window; an escalated window takes $13.64$\,s, dominated by local decoding, and the mean is $6.37$\,s per window at escalation $0.468$ (Supplementary Table~S9, Fig.~\ref{fig:timeline}). Against a $50$\,ms stride, dense overlapping windows would require processing about $127\times$ faster than measured. RCDP in its current form is therefore an offline or near-real-time caregiver-triage layer that reviews candidate events within tens of seconds, not a real-time alarm or a pre-impact protection system.
+
+\begin{figure}[!t]
+\centering
+\resizebox{\linewidth}{!}{\input{figures/latency_timeline}}
+\caption{Processing timescales (five-fold means, Supplementary Table~S9); acquisition, queueing and caregiver response are excluded.}
+\label{fig:timeline}
+\end{figure}
+
+% =====================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Where the Gain Comes From}
+The threshold control and the ablation jointly rule out the two cheapest explanations. Moving a single threshold buys recall with false alarms; the stack buys the same recall while keeping specificity. Neither retrieval nor the reasoner alone suffices: the LLM without neighbours over-calls falls, and retrieval without the LLM under-calls them. In the terms of Prop.~\ref{prop:defer}, the combined adjudicator achieves $r_2\ll r_1$ on the band (escalated-case cost $37.3$ vs.\ $346.7$ for always-fall), and the gain survives a change of backbone. Whether $r_1-r_2$ exceeds a deployment-specific $\lambda$ depends on the compute budget, which is why latency is reported separately. The advantage grows with $\beta$ ($-479$, $-951$, $-1895$ per $1000$ windows at $\beta{=}5,10,20$; Supplementary Table~S6).
+
+\subsection{Comparison with Published Results}
+Published SisFall figures are not directly comparable. Waheed \textit{et al.}~\cite{waheed2021ntfds} report $97.21\%$ accuracy for NT-FDS, while our detectors reach F1 $0.57$--$0.76$ on dense, trial-labelled, subject-independent windows. As Sec.~\ref{sec:labels} explains, label granularity rather than detector quality accounts for most of this gap; windowing, label assignment, subject splits and prevalence must match before results can be compared.
+
+\subsection{Limitations}
+\label{sec:limitations}
+\emph{Label granularity and leakage.} Trial-level labels make per-window F1 a measure of trial membership. Conclusions about System~2 depend on confirming that no trial-level information reaches it (Sec.~\ref{sec:leakage}); event-level metrics are needed to translate results into alarms per day.
+
+\emph{Throughput and energy.} Escalation of $0.47$ (main) and $0.59$ (stress) at about $14$\,s per escalated window is roughly $127\times$ too slow for dense streaming on our hardware, and energy was not profiled. Event-triggered invocation, a quantised or distilled reasoner, or a cost-tuned classifier on the same evidence are the natural next steps.
+
+\emph{Statistics.} Five overlapping folds limit inference; intervals are descriptive, and leave-one-subject-out analysis remains to be done.
+
+\emph{Population and setting.} SisFall restricts older adults from the stress activities, the actions are simulated, and no caregiver-in-the-loop or free-living data were collected.
+
+\emph{Reproducibility.} Local LLM decoding is not bitwise reproducible (paired runs differ by up to $0.022$ F1), and the mutable \texttt{mistral:latest} tag does not pin weights; digests must be recorded at release.
+
+% =====================================================================
+\section{Conclusion}
+\label{sec:concl}
+
+A confidence-gated decision layer around a frozen CNN--LSTM--Attention detector raised SisFall recall from $0.759$ to $0.977$ and cut expected cost by $83\%$ on every fold, at $2.6\times$ lower cost than a cost-derived single threshold, with consistent gains on a stress set, a second backbone and a KFall stress set. The gain requires retrieval and reasoning together, and labels must be protected from critique. With seconds-long adjudication on about half of the windows, the system is suited to offline caregiver triage; event-level evaluation, leakage-controlled replication and prospective study are needed before clinical use.
+
+% =====================================================================
+\section*{Ethical and Data-Use Statement}
+This retrospective study uses the public SisFall~\cite{sisfall2017} and KFall~\cite{kfall2021} datasets, whose collection ethics are documented by their authors; no new participant data were collected. Language-model inference ran locally. All actions were simulated; no alerts or interventions were issued. The cost ratio $\beta$ is an assumption, not a clinically validated utility.
+
+\section*{Author Declarations}
+\label{sec:authordecls}
+\authorcheck{CRediT contributions; funding with grant numbers or ``None''; conflicts of interest or ``The authors declare no competing interests''; acknowledgments. See AUTHOR\_DECLARATIONS.md.}
+
+\section*{Data and Code Availability}
+Table, figure and algorithm sources, verification scripts, per-fold confusion counts (\texttt{results\_text/}), locked YAML configurations (\texttt{configs/}) and prompt templates (\texttt{prompts/}) are provided. \authorcheck{add the public repository URL or DOI for code, split manifests and window-level predictions.} SisFall and KFall are available from their original authors. Supplementary material (\texttt{supplementary.pdf}) contains reproducibility notes (Section~S-I), full protocol settings (Section~S-II) and Tables~S1--S9.
+
+% Reproducibility notes, protocol details and Tables S1--S9 are in
+% supplementary.tex (compiled and uploaded separately).
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

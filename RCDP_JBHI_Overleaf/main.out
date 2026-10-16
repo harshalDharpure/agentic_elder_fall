@@ -1,0 +1,35 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Wearable Fall Detection}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Selective Prediction and Deferral}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Language Models over Sensor Data}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Problem Formulation}{}% 6
+\BOOKMARK [1][-]{section.4}{Method}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Primary Detector \(Block 2\)}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Confidence Gate \(Blocks 3, 3a\)}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Evidence Serializer \(Block 3b\)}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.4}{Case Memory \(Block 3c\)}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.5}{LLM Reasoner \(Block 3d\)}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.6}{Critique and Action Policy \(Blocks 3e, 4\)}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.7}{Ablation Set}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{Experimental Setup}{}% 15
+\BOOKMARK [2][-]{subsection.5.1}{Datasets and Splits}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.2}{Window Labels and What Per-Window F1 Measures}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.3}{Leakage Controls}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.4}{Protocol}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.5}{Metrics and Statistics}{section.5}% 20
+\BOOKMARK [1][-]{section.6}{Results}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{Main SisFall Comparison}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{Stress Set}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.3}{Is It Just Threshold Moving?}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.4}{Ablation}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.5}{Reasoner Backends and Constant Controls}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.6}{Negative Result: Label-Flip Actor\205Critic}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.7}{Second Backbone and Second Dataset}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.8}{Operating Cost}{section.6}% 29
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 30
+\BOOKMARK [2][-]{subsection.7.1}{Where the Gain Comes From}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.2}{Comparison with Published Results}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.3}{Limitations}{section.7}% 33
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 34
+\BOOKMARK [1][-]{section*.4}{References}{}% 35

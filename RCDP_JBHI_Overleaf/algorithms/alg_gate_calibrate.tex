@@ -1,0 +1,13 @@
+\begin{algorithm}[!t]
+\caption{Cost-calibrated dual-threshold gate}
+\label{alg:gate}
+\begin{algorithmic}[1]
+\REQUIRE Subject-held-out calibration set $\{(p_i,y_i)\}_{i=1}^{n}$; costs $(\beta_{\mathrm{FN}},\beta_{\mathrm{FP}})$; deferral penalty $\lambda$; threshold grid
+\STATE $\mathcal{T}\leftarrow\{(t_\ell,t_h)\in \text{grid}^2 : t_\ell<t_h\}$
+\FORALL{$(t_\ell,t_h)\in\mathcal{T}$}
+  \STATE $E\leftarrow\{i: p_i\le t_\ell \text{ or } p_i\ge t_h\}$ \COMMENT{edge decisions}
+  \STATE $J(t_\ell,t_h)\leftarrow \beta_{\mathrm{FN}}\mathrm{FN}_{E}+\beta_{\mathrm{FP}}\mathrm{FP}_{E}+\lambda\,(n-|E|)$
+\ENDFOR
+\STATE \textbf{return} $(\tau_{\mathrm{low}},\tau_{\mathrm{high}})\leftarrow\arg\min_{\mathcal{T}} J$ \COMMENT{ties toward lower deferral}
+\end{algorithmic}
+\end{algorithm}

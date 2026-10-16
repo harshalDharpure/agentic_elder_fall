@@ -1,0 +1,65 @@
+%% =====================================================================
+%%  Supplementary Material for:
+%%  Confidence-Gated Dual-Process Fall Detection (RCDP), IEEE JBHI
+%%
+%%  Build separately:  tectonic supplementary.tex  (or pdflatex x2)
+%%  Upload the PDF as "Supplementary Material" in ScholarOne.
+%%  Table order is fixed (S1--S9); main.tex cites these numbers literally.
+%%  Do not reorder the \input lines without updating main.tex.
+%% =====================================================================
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\authorcheck}[1]{}
+
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S-\Roman{section}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\begin{document}
+
+\title{Supplementary Material for\\ ``Confidence-Gated Dual-Process Fall Detection: Retrieval-Augmented Reasoning and Cost-Sensitive Response on Wearable Inertial Sensor Data''}
+\author{\authorcheck{Same author list as the main paper.}}
+\maketitle
+
+Table and section numbers prefixed with ``S'' refer to this document; all other numbers refer to the main paper.
+
+\section{Reproducibility Notes}
+\label{sup:repro}
+The baseline mode is called \texttt{primary\_only} in the paper; released configurations and result files use the legacy key \texttt{tier1\_only} (\texttt{configs/tier1\_sisfall.yaml}). Main classification results use the supplied main-ablation confusion counts, one observation per mode and fold; latency and escalation come from a separate timing run with identical TP/FN counts and FP differences of at most $2$ windows per fold. The shipped \texttt{configs/paper\_protocol.yaml} sets \texttt{primary\_backbone: cnn\_lstm\_attn} to match the main CNN--LSTM--Attention tables; HARMamba is a generality backbone only. The following scripts reproduce the tabulated arithmetic without a LaTeX installation:
+\begin{verbatim}
+python check_manuscript.py   # inputs, labels, cites, arity
+python check_numbers.py      # Mean rows vs. per-fold rows
+python check_reported_results.py # counts vs. tables
+python recompute_ci.py       # paired fold intervals
+\end{verbatim}
+
+\section{Protocol Details}
+\label{sup:protocol}
+\paragraph{Budgets} Seed $42$; \texttt{max\_train}${}={}$40000, \texttt{max\_val}${}={}$5000, \texttt{max\_cal}${}={}$2000; main \texttt{max\_test}${}={}$1000 with a D18/D19 quota of $80$ windows/code; LLM comparison $150$ escalated cases/fold; feature adjudicators $160$/fold; costs $\mathrm{FN}{=}10$, $\mathrm{FP}{=}1$.
+\paragraph{Gate grid} $\tau_{\mathrm{low}}$: $20$ points in $[0.05,0.45]$; $\tau_{\mathrm{high}}$: $20$ points in $[0.55,0.95]$; objective $\mathrm{FP}+\beta\,\mathrm{FN}+0.5\cdot(\text{deferred windows})$ over edge decisions; at least $20\%$ edge decisions (or $10$ windows) per candidate pair.
+\paragraph{Reasoner} Ollama at \texttt{127.0.0.1:11434}; \texttt{mistral:latest} (primary), \texttt{qwen2.5-coder:7b-instruct} (comparison); temperature $0.1$; timeout $60$\,s; two retries; heuristic fallback. Output JSON keys: \texttt{prediction}$\in\{\texttt{fall},\texttt{adl}\}$, \texttt{severity}$\in\{\texttt{none},\texttt{mild},\texttt{moderate},\texttt{severe}\}$, \texttt{confidence}$\in[0,1]$, \texttt{rationale}, \texttt{action}. Prompts are in \texttt{prompts/}.
+\paragraph{Action map (simulated)} Fall: impact $\ge 5\,g$ or stillness $\ge 10$\,s $\rightarrow$ emergency; impact $\ge 3\,g$ or stillness $\ge 3$\,s $\rightarrow$ notify; otherwise monitor. ADL: impact $\ge 2\,g$ or free-fall $\ge 0.12$\,s $\rightarrow$ monitor; otherwise log.
+
+\section{Supplementary Results}
+\label{sup:results}
+Tables~S1--S9 report detector-only context (backbone zoo, seeds, sensor perturbation), gate operating points, per-fold KFall results, cost-ratio sensitivity, rationale grounding, escalation and latency. The robustness and seed runs use different test slices from the main protocol, so their absolute values differ slightly from the per-fold table of the main paper (Table~II).
+
+\input{tables/tab_backbone}
+\input{tables/tab_seeds}
+\input{tables/tab_robustness}
+\input{tables/tab_pareto}
+\input{tables/tab_kfall_perfold}
+\input{tables/tab_beta_cost}
+\input{tables/tab_grounding}
+\input{tables/tab_escalation}
+\input{tables/tab_latency}
+
+\end{document}

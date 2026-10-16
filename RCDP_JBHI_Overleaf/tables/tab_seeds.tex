@@ -1,0 +1,17 @@
+\begin{table}[!t]
+\centering
+\caption{Multi-seed robustness on SisFall Fold~0 ($n{=}1000$, Ollama/Mistral backend). Seeds redraw the stratified test slice as well as training randomness, so absolute values differ from the Fold~0 row of the main-paper per-fold table (Table~II, which uses the locked seed-42 slice); the quantity of interest is the across-seed spread, not the level.}
+\label{tab:seeds}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{ccccc}
+\toprule
+Seed & Primary F1 & Stack F1 & Stack Rec. & Cost/1k \\
+\midrule
+42 & 0.747 & 0.909 & 0.998 & 95 \\
+43 & 0.740 & 0.907 & 0.995 & 105 \\
+44 & 0.746 & 0.899 & 1.000 & 96 \\
+\midrule
+Mean$\pm$std & 0.745$\pm$0.004 & \textbf{0.905$\pm$0.005} & 0.998$\pm$0.003 & 99$\pm$6 \\
+\bottomrule
+\end{tabular}
+\end{table}

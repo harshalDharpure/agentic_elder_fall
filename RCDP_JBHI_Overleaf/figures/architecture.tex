@@ -1,0 +1,111 @@
+% ---------------------------------------------------------------------
+% Fig. 1 -- RCDP architecture (dual-process view). Vector TikZ.
+% Requires tikz libraries arrows.meta, positioning, fit, calc.
+% Designed for figure*; wrap with \resizebox{\linewidth}{!}{...}.
+% Numbered blocks 1, 2, 3, 3a--3e, 4, 5 are referenced in the text.
+% ---------------------------------------------------------------------
+\begin{tikzpicture}[
+  font=\footnotesize\sffamily,
+  s1/.style={draw=blue!55!black, line width=0.5pt, rounded corners=2pt,
+             fill=blue!8, align=center, inner sep=3pt, minimum height=1.55cm},
+  s2/.style={draw=violet!60!black, line width=0.5pt, rounded corners=2pt,
+             fill=violet!8, align=center, inner sep=3pt, minimum height=1.55cm},
+  opt/.style={s2, dashed},
+  outbox/.style={draw=black!60, line width=0.5pt, rounded corners=2pt,
+             fill=black!6, align=center, inner sep=3pt, minimum height=1.55cm},
+  badge/.style={circle, fill=black!75, text=white, font=\scriptsize\sffamily\bfseries,
+             inner sep=0.8pt, minimum size=3.6mm},
+  arr/.style={-{Latex[length=2.2mm,width=1.6mm]}, line width=0.6pt},
+  darr/.style={-{Latex[length=2.2mm,width=1.6mm]}, line width=0.6pt, dashed},
+  lbl/.style={font=\scriptsize\sffamily, inner sep=1.5pt},
+  mode/.style={draw=black!50, rounded corners=1.5pt, fill=white,
+             font=\scriptsize\ttfamily, inner sep=2pt, minimum height=0.5cm}
+]
+
+% ---------- backdrops ----------
+\draw[draw=blue!35, dashed, rounded corners=4pt, fill=blue!3]
+  (-0.10,-1.05) rectangle (17.30,1.15);
+\draw[draw=violet!35, dashed, rounded corners=4pt, fill=violet!3]
+  (-0.10,-4.75) rectangle (17.30,-2.25);
+\node[lbl, anchor=south west, text=blue!45!black] at (-0.10,1.15)
+  {\textbf{System 1: every window}\; (measured processing $\approx$8.6\,ms/window)};
+\node[lbl, anchor=north west, text=violet!45!black] at (-0.10,-4.75)
+  {\textbf{System 2: ambiguous windows only}\; ($\approx$13.6\,s per escalated window; offline triage, not real-time alarm)};
+
+% ---------- System 1 row ----------
+\node[s1, text width=2.35cm] (in) at (1.35,0)
+  {Inertial window\\$\mathbf{x}\in\mathbb{R}^{C\times T}$\\[1pt]\scriptsize $C{=}6$, $T{=}90$ (0.45\,s)};
+\node[s1, text width=2.75cm] (det) at (4.80,0)
+  {Primary detector $f_\theta$\\\scriptsize CNN--LSTM--Attention\\\scriptsize weights frozen};
+\node[s1, text width=2.95cm] (gate) at (8.75,0)
+  {Confidence gate\\[1pt]\scriptsize
+   \begin{tabular}{@{}l@{\;$\rightarrow$\;}l@{}}
+   $p\le\tau_{\mathrm{low}}$ & ADL\\
+   $p\ge\tau_{\mathrm{high}}$ & Fall\\
+   otherwise & escalate
+   \end{tabular}};
+\node[outbox, text width=2.30cm] (direct) at (12.60,0)
+  {Direct decision\\\scriptsize Fall $\rightarrow$ emergency\\\scriptsize ADL $\rightarrow$ log};
+\node[outbox, text width=2.65cm] (outp) at (15.75,0)
+  {Pipeline output\\\scriptsize label $\hat{y}$, simulated\\\scriptsize action $a$, rationale $r$\\\scriptsize ($r$ escalated only)};
+
+\node[badge] at (in.north west)     {1};
+\node[badge] at (det.north west)    {2};
+\node[badge] at (gate.north west)   {3};
+\node[badge] at (direct.north west) {3a};
+\node[badge] at (outp.north west)   {5};
+
+\draw[arr] (in) -- (det);
+\draw[arr] (det) -- node[lbl, above] {$p$} (gate);
+\draw[arr] (gate) -- (direct);
+\draw[arr] (direct) -- (outp);
+
+% ---------- System 2 row ----------
+\node[s2, text width=2.35cm] (ev) at (1.60,-3.50)
+  {Evidence serializer\\$\Sigma(\mathbf{x},p)$\\\scriptsize impact, free-fall,\\\scriptsize stillness, tilt, $\omega_{\max}$};
+\node[s2, text width=2.45cm] (knn) at (5.05,-3.50)
+  {Case memory ($k$-NN)\\\scriptsize MiniLM text embedding\\\scriptsize of $\Sigma$; $k{=}5$;\\\scriptsize training folds only};
+\node[s2, text width=2.55cm] (llm) at (8.60,-3.50)
+  {Local LLM reasoner\\\scriptsize Mistral-7B (Ollama)\\\scriptsize JSON: label, severity,\\\scriptsize rationale};
+\node[opt, text width=2.55cm] (crit) at (12.20,-3.50)
+  {Contrastive critique\\\scriptsize (optional) grounds\\\scriptsize rationale, may downgrade\\\scriptsize action; \textbf{label frozen}};
+\node[s2, text width=2.45cm] (act) at (15.75,-3.50)
+  {Simulated action policy\\\scriptsize \{emergency, notify,\\\scriptsize monitor, log\}};
+
+\node[badge] at (ev.north west)   {3b};
+\node[badge] at (knn.north west)  {3c};
+\node[badge] at (llm.north west)  {3d};
+\node[badge] at (crit.north west) {3e};
+\node[badge] at (act.north west)  {4};
+
+\draw[darr] (gate.south) -- (8.75,-1.65) -| node[lbl, pos=0.25, above]
+  {escalate $(\mathbf{x},p)$ when $\tau_{\mathrm{low}}<p<\tau_{\mathrm{high}}$} (ev.north);
+\draw[arr] (ev) -- (knn);
+\draw[arr] (knn) -- node[lbl, above] {$\Sigma$, $N_k$} (llm);
+\draw[arr] (llm) -- node[lbl, above, font=\tiny] {$\hat{y},s,r$} (crit);
+\draw[arr] (crit) -- node[lbl, above, font=\tiny] {$\hat{y},s',r'$} (act);
+\draw[arr] (act) -- (outp);
+
+% ---------- footer: ablation set (2x2 design) and legend ----------
+\node[lbl, anchor=west] at (-0.10,-5.95) {\textbf{Ablation set:}};
+\node[mode] (m0) at (2.75,-5.95) {primary\_only};
+\node[mode] (m1) at (5.25,-5.95) {gate\_only};
+\node[mode] (m2) at (8.05,-5.50) {gate\_knn};
+\node[mode] (m3) at (8.05,-6.40) {gate\_llm};
+\node[mode] (m4) at (11.10,-5.95) {gate\_knn\_llm};
+\draw[arr] (m0) -- (m1);
+\draw[arr] (m1.east) -- ++(0.30,0) |- node[lbl, pos=0.75, above] {+3c} (m2.west);
+\draw[arr] (m1.east) -- ++(0.30,0) |- node[lbl, pos=0.75, below] {+3d} (m3.west);
+\draw[arr] (m2.east) -- ++(0.35,0) |- (m4.west);
+\draw[arr] (m3.east) -- ++(0.35,0) |- (m4.west);
+
+\node[s1, minimum height=0.35cm, minimum width=0.5cm] (lg1) at (13.20,-5.65) {};
+\node[lbl, anchor=west] at (lg1.east) {System 1};
+\node[s2, minimum height=0.35cm, minimum width=0.5cm] (lg2) at (13.20,-6.25) {};
+\node[lbl, anchor=west] at (lg2.east) {System 2};
+\node[outbox, minimum height=0.35cm, minimum width=0.5cm] (lg3) at (15.30,-5.65) {};
+\node[lbl, anchor=west] at (lg3.east) {output};
+\draw[darr] (14.95,-6.25) -- (15.55,-6.25);
+\node[lbl, anchor=west] at (15.60,-6.25) {escalation};
+
+\end{tikzpicture}

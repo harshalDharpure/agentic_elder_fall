@@ -1,1 +1,0 @@
-{"metrics": {"accuracy": 0.9, "f1": 0.85, "precision": 0.8, "recall": 0.9, "fp": 10, "tn": 90, "escalate_rate": 0.5, "expected_response_cost": 100.0, "per_bucket": {"ambiguous": {"accuracy": 0.95}}}, "backend": "test"}

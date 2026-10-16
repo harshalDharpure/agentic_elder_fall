@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\centering
+\caption{Rationale grounding. $\mathcal{G}_{\mathrm{faith}}$ is the fraction of rationales that mention at least one evidence field present in $\Sigma(\mathbf{x})$. It is a prompt-compliance check, not a measure of reasoning faithfulness or correctness: a rationale can cite a field and still reach the wrong conclusion. \emph{Graded cost} scores the four-level simulated action rather than the binary label. Contrastive critique with frozen labels raises $\mathcal{G}_{\mathrm{faith}}$ ($0.436{\rightarrow}0.843$) and lowers graded action cost by $45\%$.}
+\label{tab:grounding}
+\begin{tabular}{ccccc}
+\toprule
+\multirow{2}{*}{Fold} & \multicolumn{2}{c}{$\mathcal{G}_{\mathrm{faith}}$} & \multicolumn{2}{c}{Graded action cost} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & base & $+$critique & base & $+$critique \\
+\midrule
+0 & 0.430 & 0.851 & 544 & 268 \\
+1 & 0.340 & 0.749 & 901 & 599 \\
+2 & 0.471 & 0.871 & 535 & 261 \\
+3 & 0.482 & 0.874 & 428 & 216 \\
+4 & 0.459 & 0.868 & 537 & 274 \\
+\midrule
+Mean & 0.436 & \textbf{0.843} & 589 & \textbf{324} \\
+\bottomrule
+\end{tabular}
+\end{table}

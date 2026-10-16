@@ -1,0 +1,20 @@
+\begin{table*}[!t]
+\centering
+\caption{Per-fold comparison of the frozen primary detector (\texttt{primary\_only}) against the full stack (\texttt{gate\_knn\_llm}) on SisFall: $n{=}1000$ stratified windows per fold with forced D18/D19 coverage, subject-independent folds, identical checkpoints. Cost is $10\cdot\mathrm{FN}{+}\mathrm{FP}$ per $1000$ windows. The stack improves F1, recall and cost on every fold; deltas use the displayed rounded values; paired intervals are in Table~\ref{tab:meanstd}.}
+\label{tab:perfold}
+\begin{tabular}{c r ccc ccc cc}
+\toprule
+Fold & $n$ & \multicolumn{3}{c}{\texttt{primary\_only}} & \multicolumn{3}{c}{\texttt{gate\_knn\_llm}} & $\Delta$F1 & $\Delta$Cost \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+ & & F1 & Rec. & Cost/1k & F1 & Rec. & Cost/1k & & \\
+\midrule
+0 & 1000 & 0.774 & 0.781 & 1042 & 0.892 & 0.986 & 156 & $+0.118$ & $-886$  \\
+1 & 1000 & 0.737 & 0.748 & 1223 & 0.851 & 0.911 & 490 & $+0.114$ & $-733$  \\
+2 & 1000 & 0.755 & 0.783 & 1066 & 0.874 & 0.998 & 134 & $+0.119$ & $-932$  \\
+3 & 1000 & 0.766 & 0.732 & 1248 & 0.930 & 0.995 & 83  & $+0.164$ & $-1165$ \\
+4 & 1000 & 0.760 & 0.749 & 1175 & 0.887 & 0.993 & 136 & $+0.127$ & $-1039$ \\
+\midrule
+Mean & 1000 & 0.759 & 0.759 & 1151 & \textbf{0.887} & \textbf{0.977} & \textbf{200} & \textbf{+0.128} & $-951$ \\
+\bottomrule
+\end{tabular}
+\end{table*}

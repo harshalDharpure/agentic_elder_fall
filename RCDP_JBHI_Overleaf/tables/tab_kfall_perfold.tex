@@ -1,0 +1,20 @@
+\begin{table*}[!t]
+\centering
+\caption{Second-dataset evaluation on KFall, frozen primary detector versus full stack under the binary Fall/ADL protocol ($n{=}1000$/fold). This is not evidence of zero-shot transfer of SisFall-trained weights or formal non-inferiority. Fold~1 regresses; Fold~4 has the largest displayed F1 gain. Deltas below are computed from the displayed rounded values. Fold~4 primary row is consistent with its confusion counts (TP${=}473$, TN${=}508$, FP${=}9$, FN${=}10$; $483$ falls, not $\approx$499 as in other folds): F1 $0.980$, recall $0.979$, cost $109$.}
+\label{tab:kfallperfold}
+\begin{tabular}{c r ccc ccc cc}
+\toprule
+Fold & $n$ & \multicolumn{3}{c}{\texttt{primary\_only}} & \multicolumn{3}{c}{\texttt{gate\_knn\_llm}} & $\Delta$F1 & $\Delta$Cost \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+ & & F1 & Rec. & Cost/1k & F1 & Rec. & Cost/1k & & \\
+\midrule
+0 & 1000 & 0.992 & 0.998 & 17  & 0.993 & 1.000 & 7  & $+0.001$ & $-10$ \\
+1 & 1000 & 0.987 & 0.996 & 31  & 0.986 & 0.996 & 32 & $-0.001$ & $+1$  \\
+2 & 1000 & 0.987 & 0.994 & 40  & 0.989 & 0.996 & 29 & $+0.002$ & $-11$ \\
+3 & 1000 & 0.992 & 0.990 & 53  & 0.995 & 0.996 & 23 & $+0.003$ & $-30$ \\
+4 & 1000 & 0.980 & 0.979 & 109 & 0.989 & 0.994 & 38 & $+0.009$ & $-71$ \\
+\midrule
+Mean & 1000 & 0.987 & 0.991 & 50 & \textbf{0.990} & \textbf{0.996} & \textbf{26} & $+0.003$ & $-24.2$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
