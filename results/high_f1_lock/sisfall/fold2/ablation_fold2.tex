@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Baselines and agentic ablations (SisFall)}
+\begin{tabular}{lccccccccccccccccccccccccc}
+\toprule
+Method & f1 & recall & specificity & precision & accuracy & missed_fall_rate & false_alarm_rate_near_fall & escalated_f1 & escalation_rate & expected_response_cost & graded_action_cost & emergency_rate_adl & emergency_rate_near_fall & rationale_grounding_rate & ece & n_near_fall & n_escalated & false_alarms_per_1000 & veto_rate & veto_precision & induced_fn & certified_alpha & lambda_star & aurc & n \\
+\midrule
+cnn_lstm_attn & 0.764 & 0.776 & 0.804 & 0.752 & 0.792 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 1000 \\
+tier1_only & 0.764 & 0.776 & 0.804 & 0.752 & 0.792 & 0.224 & 0.163 & 0.000 & 0.000 & 1081.000 & 1521.000 & 0.000 & 0.000 & 0.000 & 0.060 & 160 & 0 & 111.000 & 0.000 & 0.000 & 0.000 & 0.050 & nan & nan &  \\
+gate_knn_llm & 0.810 & 0.834 & 0.829 & 0.788 & 0.831 & 0.166 & 0.138 & 0.504 & 0.467 & 817.000 & 1215.000 & 0.000 & 0.000 & 0.463 & 0.060 & 160 & 467 & 97.000 & 0.000 & 0.000 & 0.000 & 0.050 & nan & nan &  \\
+gate_knn_llm_fuse & 0.764 & 0.938 & 0.605 & 0.644 & 0.749 & 0.062 & 0.362 & 0.515 & 0.467 & 494.000 & 885.000 & 0.000 & 0.000 & 0.464 & 0.060 & 160 & 467 & 224.000 & 0.000 & 0.000 & 0.000 & 0.050 & nan & nan &  \\
+gate_knn_llm_action_critique & 0.810 & 0.834 & 0.829 & 0.788 & 0.831 & 0.166 & 0.138 & 0.504 & 0.467 & 817.000 & 924.000 & 0.000 & 0.000 & 0.891 & 0.060 & 160 & 467 & 97.000 & 0.000 & 0.000 & 0.000 & 0.050 & nan & nan &  \\
+\bottomrule
+\end{tabular}
+\end{table}

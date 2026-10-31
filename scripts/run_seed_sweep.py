@@ -49,7 +49,7 @@ def run_stack(model, ds, test_idx, memory_path, device, acfg, gate, backend: str
         backend=backend,
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
+        fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)),
     )
     pipe = AgenticPipeline(
         model=model,
@@ -175,7 +175,7 @@ def main():
         det.pop("y_true", None)
 
         # tier1_only via collapsed gate
-        gate = build_gate(acfg, model=model, ds=ds, cal_idx=train_idx, device=device, calibrate=True, max_cal=2000)
+        gate = build_gate(acfg, model=model, ds=ds, cal_idx=val_idx, device=device, calibrate=True, max_cal=2000)
         mem = ROOT / pcfg["paths"]["memory_dir"] / f"sisfall_fold{args.fold}.json"
         # For non-42 seeds, reuse fold memory as approximate case bank (text retrieval still helps).
         backend = "ollama" if args.with_ollama else "heuristic"

@@ -134,7 +134,7 @@ def main():
             backend=backend,
             base_url=acfg["llm"]["base_url"],
             model=model_name,
-            fallback_heuristic=True,
+            fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)),
         )
         pipe = AgenticPipeline(
             model=model,

@@ -150,7 +150,7 @@ def main():
         acfg,
         model=model,
         ds=ds,
-        cal_idx=split.train_idx,
+        cal_idx=split.val_idx,
         device=device,
         calibrate=True,
         max_cal=int(pcfg["eval"].get("max_cal", 2000)),
@@ -180,7 +180,7 @@ def main():
             temperature=float(acfg["llm"]["temperature"]),
             timeout_s=float(acfg["llm"]["timeout_s"]),
             max_retries=int(acfg["llm"]["max_retries"]),
-            fallback_heuristic=True,
+            fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)),
         )
         pipe = AgenticPipeline(
             model=model,

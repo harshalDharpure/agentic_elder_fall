@@ -202,6 +202,33 @@ def tune_decision_threshold(
     return best_t, best_m
 
 
+def calibrate_fusion_threshold(
+    scores: Sequence[float],
+    y_true: Sequence[int],
+    *,
+    cost_fn: float = 10.0,
+    cost_fp: float = 1.0,
+    grid: Sequence[float] | None = None,
+) -> tuple[float, float]:
+    """Pick fusion score threshold minimizing cost_fn*FN + cost_fp*FP on a cal set."""
+    import numpy as np
+
+    s = np.asarray(scores, dtype=np.float64)
+    y = np.asarray(y_true, dtype=np.int64)
+    if s.size == 0:
+        return 0.45, float("inf")
+    thr_grid = list(grid) if grid is not None else list(np.linspace(0.20, 0.80, 61))
+    best_t, best_c = 0.45, float("inf")
+    for t in thr_grid:
+        pred = (s >= float(t)).astype(np.int64)
+        fn = int(((y == 1) & (pred == 0)).sum())
+        fp = int(((y == 0) & (pred == 1)).sum())
+        c = cost_fn * fn + cost_fp * fp
+        if c < best_c:
+            best_c, best_t = float(c), float(t)
+    return best_t, best_c
+
+
 def build_gate(
     acfg: dict[str, Any],
     model: torch.nn.Module | None = None,
@@ -252,13 +279,22 @@ def load_paper_protocol(root: Path, path: str | Path = "configs/paper_protocol.y
     return load_config(root / path)
 
 
-def text_embedder(model_name: str):
+def text_embedder(model_name: str, *, allow_fallback: bool = True):
+    """Return a text→vector callable.
+
+    When ``allow_fallback=False`` (paper / no-leak mode), raise if
+    sentence-transformers cannot be loaded instead of using a random hash.
+    """
     try:
         from sentence_transformers import SentenceTransformer
 
         st = SentenceTransformer(model_name)
         return lambda t: st.encode(t, normalize_embeddings=True)
-    except Exception:
+    except Exception as e:
+        if not allow_fallback:
+            raise RuntimeError(
+                f"Required text embedder '{model_name}' unavailable: {e}"
+            ) from e
         rng = np.random.default_rng(0)
         W = rng.normal(size=(64, 384)).astype(np.float32)
 

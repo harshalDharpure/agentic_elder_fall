@@ -76,7 +76,7 @@ def build_crc_pipeline(model, memory_path, device, acfg, gate, *, feasible=False
         backend=acfg["llm"]["backend"],
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
+        fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)),
     )
     cfg = dict(acfg)
     adj = dict(acfg.get("adjudication") or {})
@@ -233,7 +233,7 @@ def main():
         acfg,
         model=model,
         ds=ds,
-        cal_idx=train_idx,
+        cal_idx=val_idx,
         device=device,
         calibrate=bool(ev.get("calibrate_gate", True)),
         max_cal=int(ev.get("max_cal", 2000)),

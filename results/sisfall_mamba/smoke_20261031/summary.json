@@ -1,0 +1,93 @@
+{
+  "smoke_only": true,
+  "folds": [
+    0
+  ],
+  "models": {
+    "cnn_lstm_attn": {
+      "f1_mean": 0.6702702702702703,
+      "f1_sample_std": null,
+      "per_fold": [
+        {
+          "fold": 0,
+          "model": "cnn_lstm_attn",
+          "best_val_f1": 0.6596858638743456,
+          "decision_threshold": 0.671,
+          "val_at_threshold": {
+            "accuracy": 0.5859375,
+            "precision": 0.5478260869565217,
+            "recall": 0.984375,
+            "sensitivity": 0.9843749999999847,
+            "specificity": 0.18749999999999709,
+            "f1": 0.7039106145251397,
+            "tp": 63,
+            "tn": 12,
+            "fp": 52,
+            "fn": 1
+          },
+          "test": {
+            "accuracy": 0.5234375,
+            "precision": 0.512396694214876,
+            "recall": 0.96875,
+            "sensitivity": 0.9687499999999849,
+            "specificity": 0.07812499999999879,
+            "f1": 0.6702702702702703,
+            "tp": 62,
+            "tn": 5,
+            "fp": 59,
+            "fn": 2,
+            "n": 128,
+            "decision_threshold": 0.671
+          },
+          "checkpoint": "/DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn/checkpoints/cnn_lstm_attn_fold0.pt",
+          "n_train": 256,
+          "n_val": 128,
+          "n_test": 128
+        }
+      ]
+    },
+    "harmamba": {
+      "f1_mean": 0.6666666666666666,
+      "f1_sample_std": null,
+      "per_fold": [
+        {
+          "fold": 0,
+          "model": "harmamba",
+          "best_val_f1": 0.0,
+          "decision_threshold": 0.05,
+          "val_at_threshold": {
+            "accuracy": 0.5,
+            "precision": 0.5,
+            "recall": 1.0,
+            "sensitivity": 0.9999999999999845,
+            "specificity": 0.0,
+            "f1": 0.6666666666666666,
+            "tp": 64,
+            "tn": 0,
+            "fp": 64,
+            "fn": 0
+          },
+          "test": {
+            "accuracy": 0.5,
+            "precision": 0.5,
+            "recall": 1.0,
+            "sensitivity": 0.9999999999999845,
+            "specificity": 0.0,
+            "f1": 0.6666666666666666,
+            "tp": 64,
+            "tn": 0,
+            "fp": 64,
+            "fn": 0,
+            "n": 128,
+            "decision_threshold": 0.05
+          },
+          "checkpoint": "/DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/harmamba/checkpoints/harmamba_fold0.pt",
+          "n_train": 256,
+          "n_val": 128,
+          "n_test": 128
+        }
+      ]
+    }
+  },
+  "mamba_minus_cnn_f1_percentage_points": -0.3603603603603678
+}

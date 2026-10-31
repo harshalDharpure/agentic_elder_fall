@@ -1,0 +1,9 @@
+=== NOLEAK System-2 START Saturday 17 October 2026 12:18:32 AM IST ===
+self-test OK
+[scrub] SKIP_SCRUB=1
+OK: no activity-code leakage found in scanned inputs
+[SisFall fold=0] Saturday 17 October 2026 12:18:51 AM IST
+  File "/DATA/tauseef_2121cs04/harshal/agentic_fall/scripts/run_ablations.py", line 293
+    )        if res.adjudicated:
+                               ^
+SyntaxError: invalid syntax

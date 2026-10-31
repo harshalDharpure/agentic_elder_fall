@@ -1,0 +1,36 @@
+binary: true
+channels: 6
+checkpoint_dir: checkpoints/sisfall
+dataset: sisfall
+hop: 10
+model:
+  attn_heads: 4
+  branch_channels: 16
+  conv_channels: 32
+  dropout_attn: 0.1
+  dropout_fc: 0.5
+  in_channels: 6
+  lstm_hidden:
+  - 256
+  - 128
+  use_se: false
+num_classes: 2
+processed_dir: data/processed/sisfall
+raw_dir: data/raw/sisfall
+sample_rate_hz: 200
+splits:
+  n_folds: 5
+  strategy: subject
+train:
+  amp: true
+  batch_size: 256
+  device: cuda
+  early_stopping_patience: 12
+  epochs: 80
+  label_smoothing: 0.05
+  lr: 0.001
+  mixup_alpha: 0.2
+  num_workers: 0
+  seed: 42
+  weight_decay: 0.0001
+window: 90

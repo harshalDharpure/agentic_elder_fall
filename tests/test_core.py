@@ -4,8 +4,12 @@ import torch
 
 from agentic_fall.agents.confidence_gate import ConfidenceGate
 from agentic_fall.agents.action_agent import ActionAgent
-from agentic_fall.agents.evidence import serialize_evidence
-from agentic_fall.agents.knn_memory import KNNMemory, MemoryCase
+from agentic_fall.agents.evidence import (
+    serialize_evidence,
+    evidence_contains_activity_code,
+    strip_activity_from_evidence,
+)
+from agentic_fall.agents.knn_memory import KNNMemory, MemoryCase, public_case_id
 from agentic_fall.agents.llm_reasoner import LLMReasoner
 from agentic_fall.features.biomechanics import extract_biomechanics
 from agentic_fall.data.windowing import sliding_windows
@@ -45,6 +49,38 @@ def test_biomechanics_shapes():
     text = serialize_evidence(feats, activity="F01", p_fall=0.62)
     assert "Free-fall" in text
     assert "Impact" in text
+    assert "Activity context" not in text  # default include_activity=False
+    leaky = serialize_evidence(feats, activity="F01", include_activity=True)
+    assert "Activity context code: F01" in leaky
+
+
+def test_activity_leak_helpers_and_case_id_redaction():
+    dirty = "- Free-fall duration: 0.2s\n- Activity context code: D18\n"
+    assert evidence_contains_activity_code(dirty)
+    clean = strip_activity_from_evidence(dirty)
+    assert not evidence_contains_activity_code(clean)
+    assert "D18" not in clean
+    raw = "D19_SA06_R05.txt_12"
+    assert public_case_id(raw).startswith("case_")
+    assert "D19" not in public_case_id(raw)
+    case = MemoryCase(
+        case_id=raw,
+        embedding=[1.0, 0.0],
+        label=0,
+        evidence_text=dirty,
+        features={},
+        activity="D18",
+    )
+    s = case.summary()
+    assert "D18" not in s and "D19" not in s
+    assert "case_" in s
+
+
+def test_reasoner_never_selects_activity_prompt():
+    reasoner = LLMReasoner(use_activity_prompt=True)
+    assert "Activity context code" not in reasoner._system_prompt(
+        "- Activity context code: F01"
+    )
 
 
 def test_sliding_windows():
@@ -493,4 +529,3 @@ def test_kfold_ambiguous_aggregate():
     summary = agg.aggregate(tmp, backend="test")
     assert len(summary["folds"]) == 5
     assert (tmp / "ALL_FOLDS_REPORT.txt").exists()
-

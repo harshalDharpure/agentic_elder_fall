@@ -1,6 +1,11 @@
 from .confidence_gate import ConfidenceGate, GateDecision
-from .evidence import serialize_evidence, evidence_caption
-from .knn_memory import KNNMemory, MemoryCase
+from .evidence import (
+    serialize_evidence,
+    evidence_caption,
+    evidence_contains_activity_code,
+    strip_activity_from_evidence,
+)
+from .knn_memory import KNNMemory, MemoryCase, public_case_id
 from .llm_reasoner import LLMReasoner, ReasoningResult
 from .action_agent import ActionAgent, ActionDecision
 from .constraints import ConstraintPack, build_constraint_pack, rationale_cites_sigma, veto_score
@@ -13,8 +18,11 @@ __all__ = [
     "GateDecision",
     "serialize_evidence",
     "evidence_caption",
+    "evidence_contains_activity_code",
+    "strip_activity_from_evidence",
     "KNNMemory",
     "MemoryCase",
+    "public_case_id",
     "LLMReasoner",
     "ReasoningResult",
     "ActionAgent",

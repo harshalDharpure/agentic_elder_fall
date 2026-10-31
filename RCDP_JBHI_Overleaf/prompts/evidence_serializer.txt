@@ -6,7 +6,7 @@ Evidence string fields (one bullet per line), from serialize_evidence():
 - Event duration: {duration_s:.2f}s
 - Mean acceleration: {mean_acc_g:.2f}g
 - Peak gyroscope: {peak_gyro_dps:.1f} deg/s
-- Activity context code: {activity}   # when available
+- # Dataset-specific metadata is intentionally omitted.
 - Tier-1 fall probability: {p_fall:.3f}  # when available
 
 Retrieval: sentence-transformers/all-MiniLM-L6-v2, cosine, k=5, training-fold memory only.

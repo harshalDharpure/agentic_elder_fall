@@ -60,7 +60,7 @@ def run_agentic_on_backbone(model, ds, test_idx, memory_path, device, acfg, back
     memory = KNNMemory(k=int(acfg["retrieval"]["k"]))
     if Path(memory_path).exists():
         memory.load(memory_path)
-    reasoner = LLMReasoner(backend=backend, fallback_heuristic=True)
+    reasoner = LLMReasoner(backend=backend, fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)))
     pipe = AgenticPipeline(
         model=model,
         gate=gate,
@@ -273,7 +273,7 @@ def main():
                 acfg,
                 model=model,
                 ds=ds,
-                cal_idx=train_idx,
+                cal_idx=val_idx,
                 device=device,
                 calibrate=bool(ev.get("calibrate_gate", True)),
                 max_cal=int(ev.get("max_cal", 2000)),

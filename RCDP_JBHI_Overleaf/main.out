@@ -15,21 +15,17 @@
 \BOOKMARK [1][-]{section.5}{Experimental Setup}{}% 15
 \BOOKMARK [2][-]{subsection.5.1}{Datasets and Splits}{section.5}% 16
 \BOOKMARK [2][-]{subsection.5.2}{Window Labels and What Per-Window F1 Measures}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.3}{Leakage Controls}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Subject Splits and Memory Hygiene}{section.5}% 18
 \BOOKMARK [2][-]{subsection.5.4}{Protocol}{section.5}% 19
 \BOOKMARK [2][-]{subsection.5.5}{Metrics and Statistics}{section.5}% 20
 \BOOKMARK [1][-]{section.6}{Results}{}% 21
 \BOOKMARK [2][-]{subsection.6.1}{Main SisFall Comparison}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.2}{Stress Set}{section.6}% 23
-\BOOKMARK [2][-]{subsection.6.3}{Is It Just Threshold Moving?}{section.6}% 24
-\BOOKMARK [2][-]{subsection.6.4}{Ablation}{section.6}% 25
-\BOOKMARK [2][-]{subsection.6.5}{Reasoner Backends and Constant Controls}{section.6}% 26
-\BOOKMARK [2][-]{subsection.6.6}{Negative Result: Label-Flip Actor\205Critic}{section.6}% 27
-\BOOKMARK [2][-]{subsection.6.7}{Second Backbone and Second Dataset}{section.6}% 28
-\BOOKMARK [2][-]{subsection.6.8}{Operating Cost}{section.6}% 29
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 30
-\BOOKMARK [2][-]{subsection.7.1}{Where the Gain Comes From}{section.7}% 31
-\BOOKMARK [2][-]{subsection.7.2}{Comparison with Published Results}{section.7}% 32
-\BOOKMARK [2][-]{subsection.7.3}{Limitations}{section.7}% 33
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 34
-\BOOKMARK [1][-]{section*.4}{References}{}% 35
+\BOOKMARK [2][-]{subsection.6.2}{Controls}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.3}{External Evaluation}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.4}{Operating Cost}{section.6}% 25
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 26
+\BOOKMARK [2][-]{subsection.7.1}{Where the Gain Comes From}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.2}{Comparison with Published Results}{section.7}% 28
+\BOOKMARK [2][-]{subsection.7.3}{Limitations}{section.7}% 29
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 30
+\BOOKMARK [1][-]{section*.4}{References}{}% 31

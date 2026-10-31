@@ -26,7 +26,7 @@
 \begin{document}
 
 \title{Supplementary Material for\\ ``Confidence-Gated Dual-Process Fall Detection: Retrieval-Augmented Reasoning and Cost-Sensitive Response on Wearable Inertial Sensor Data''}
-\author{\authorcheck{Same author list as the main paper.}}
+\author{Harshal Dharpure\\Indian Institute of Technology Patna\\\texttt{harshal\_2511ai30@iitp.ac.in}\\ORCID: not available}
 \maketitle
 
 Table and section numbers prefixed with ``S'' refer to this document; all other numbers refer to the main paper.
@@ -43,7 +43,7 @@ python recompute_ci.py       # paired fold intervals
 
 \section{Protocol Details}
 \label{sup:protocol}
-\paragraph{Budgets} Seed $42$; \texttt{max\_train}${}={}$40000, \texttt{max\_val}${}={}$5000, \texttt{max\_cal}${}={}$2000; main \texttt{max\_test}${}={}$1000 with a D18/D19 quota of $80$ windows/code; LLM comparison $150$ escalated cases/fold; feature adjudicators $160$/fold; costs $\mathrm{FN}{=}10$, $\mathrm{FP}{=}1$.
+\paragraph{Budgets} Seed $42$; \texttt{max\_train}${}={}$40000, \texttt{max\_val}${}={}$5000, \texttt{max\_cal}${}={}$2000; main \texttt{max\_test}${}={}$1000 with balanced near-fall coverage; LLM comparison $150$ escalated cases/fold; feature adjudicators $160$/fold; costs $\mathrm{FN}{=}10$, $\mathrm{FP}{=}1$.
 \paragraph{Gate grid} $\tau_{\mathrm{low}}$: $20$ points in $[0.05,0.45]$; $\tau_{\mathrm{high}}$: $20$ points in $[0.55,0.95]$; objective $\mathrm{FP}+\beta\,\mathrm{FN}+0.5\cdot(\text{deferred windows})$ over edge decisions; at least $20\%$ edge decisions (or $10$ windows) per candidate pair.
 \paragraph{Reasoner} Ollama at \texttt{127.0.0.1:11434}; \texttt{mistral:latest} (primary), \texttt{qwen2.5-coder:7b-instruct} (comparison); temperature $0.1$; timeout $60$\,s; two retries; heuristic fallback. Output JSON keys: \texttt{prediction}$\in\{\texttt{fall},\texttt{adl}\}$, \texttt{severity}$\in\{\texttt{none},\texttt{mild},\texttt{moderate},\texttt{severe}\}$, \texttt{confidence}$\in[0,1]$, \texttt{rationale}, \texttt{action}. Prompts are in \texttt{prompts/}.
 \paragraph{Action map (simulated)} Fall: impact $\ge 5\,g$ or stillness $\ge 10$\,s $\rightarrow$ emergency; impact $\ge 3\,g$ or stillness $\ge 3$\,s $\rightarrow$ notify; otherwise monitor. ADL: impact $\ge 2\,g$ or free-fall $\ge 0.12$\,s $\rightarrow$ monitor; otherwise log.

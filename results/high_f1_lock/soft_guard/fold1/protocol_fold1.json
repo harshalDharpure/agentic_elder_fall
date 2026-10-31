@@ -1,0 +1,10 @@
+{
+  "fold": 1,
+  "protocol_tag": "high_f1_soft_guard",
+  "max_test": 1000,
+  "modes": [
+    "tier1_only",
+    "gate_knn_llm",
+    "gate_knn_llm_action_critique"
+  ]
+}

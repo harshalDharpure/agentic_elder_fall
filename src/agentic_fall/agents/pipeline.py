@@ -40,6 +40,8 @@ class PipelineResult:
     adjudication: dict[str, Any] = field(default_factory=dict)
     veto_score: float | None = None
     vetoed: bool = False
+    knn_fall_frac: float | None = None
+    fusion_score: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
@@ -65,6 +67,13 @@ class AgenticPipeline:
         text_embed_fn=None,
         adjudicator: Adjudicator | None = None,
         allow_action_downgrade: bool = True,
+        include_activity: bool = False,
+        require_text_embedder: bool = False,
+        fuse_system2: bool = False,
+        fusion_threshold: float | None = None,
+        fusion_w_p: float = 0.45,
+        fusion_w_knn: float = 0.25,
+        fusion_w_llm: float = 0.30,
     ):
         self.model = model.to(device).eval()
         self.gate = gate
@@ -78,6 +87,18 @@ class AgenticPipeline:
         self.text_embed_fn = text_embed_fn
         self.adjudicator = adjudicator
         self.allow_action_downgrade = allow_action_downgrade
+        self.include_activity = bool(include_activity)
+        if self.include_activity:
+            raise ValueError(
+                "Activity/trial codes are label-derived and prohibited in the "
+                "submission pipeline; use a separate audit-only implementation."
+            )
+        self.require_text_embedder = bool(require_text_embedder)
+        self.fuse_system2 = bool(fuse_system2)
+        self.fusion_threshold = fusion_threshold
+        self.fusion_w_p = float(fusion_w_p)
+        self.fusion_w_knn = float(fusion_w_knn)
+        self.fusion_w_llm = float(fusion_w_llm)
 
     @torch.no_grad()
     def _tier1(self, x: torch.Tensor) -> tuple[float, np.ndarray]:
@@ -117,7 +138,12 @@ class AgenticPipeline:
             freefall_g_threshold=self.freefall_g_threshold,
             stillness_var_threshold=self.stillness_var_threshold,
         )
-        evidence = serialize_evidence(feats, activity=activity, p_fall=p_fall)
+        evidence = serialize_evidence(
+            feats,
+            activity=activity if self.include_activity else None,
+            p_fall=p_fall,
+            include_activity=self.include_activity,
+        )
         escalated = force_escalate or gate.route == "ambiguous"
         retrieved_summaries: list[str] = []
         source = "tier1"
@@ -128,6 +154,9 @@ class AgenticPipeline:
         adj_dict: dict[str, Any] = {}
         v_score: float | None = None
         vetoed = False
+        knn_fall_frac: float | None = None
+        fusion_score: float | None = None
+        cases_for_frac: list = []
 
         crc_on = (
             self.adjudicator is not None
@@ -145,6 +174,16 @@ class AgenticPipeline:
             and bool(self.adjudicator.screen_confident_fall)
             and (crc_on or action_crit_on)
         )
+
+        def _query_embedding(evidence_text: str, model_emb: np.ndarray) -> np.ndarray:
+            if self.text_embed_fn is not None:
+                return self.text_embed_fn(evidence_text)
+            if self.require_text_embedder:
+                raise RuntimeError(
+                    "Paper/no-leak mode requires a real text embedder; "
+                    "refusing silent model-embedding fallback."
+                )
+            return model_emb
 
         def _fetch_cases(query_emb):
             if (
@@ -171,11 +210,9 @@ class AgenticPipeline:
                 suggested = "log"
             actor_pred = pred
             if screen_conf and pred == "fall":
-                if self.text_embed_fn is not None:
-                    q = self.text_embed_fn(evidence)
-                else:
-                    q = emb
+                q = _query_embedding(evidence, emb)
                 cases = _fetch_cases(q)
+                cases_for_frac = cases
                 retrieved_summaries = [c.summary() for c in cases]
                 pack = build_constraint_pack(feats, p_fall, cases)
                 v_score = veto_score(pack)
@@ -236,11 +273,9 @@ class AgenticPipeline:
                 source=source if source not in ("tier1",) else "tier1",
             )
         else:
-            if self.text_embed_fn is not None:
-                q = self.text_embed_fn(evidence)
-            else:
-                q = emb
+            q = _query_embedding(evidence, emb)
             cases = _fetch_cases(q)
+            cases_for_frac = cases
             retrieved_summaries = [c.summary() for c in cases]
 
             if self.adjudicator is not None and self.adjudicator.enabled:
@@ -259,6 +294,36 @@ class AgenticPipeline:
                 pack = build_constraint_pack(feats, p_fall, cases)
                 v_score = veto_score(pack)
             source = reasoning.source
+
+            # Honest System-2 fusion (no activity codes): blend Tier-1, kNN vote, LLM.
+            if cases_for_frac:
+                knn_fall_frac = float(np.mean([int(c.label) for c in cases_for_frac]))
+            else:
+                knn_fall_frac = 0.5
+            llm_bin = 1.0 if reasoning.prediction == "fall" else 0.0
+            fusion_score = (
+                self.fusion_w_p * float(p_fall)
+                + self.fusion_w_knn * knn_fall_frac
+                + self.fusion_w_llm * llm_bin
+            )
+            if self.fuse_system2:
+                thr = 0.45 if self.fusion_threshold is None else float(self.fusion_threshold)
+                fused_pred = "fall" if fusion_score >= thr else "adl"
+                if fused_pred != reasoning.prediction:
+                    rationale = (
+                        f"{reasoning.rationale} | FUSE score={fusion_score:.3f} "
+                        f"(p={p_fall:.3f}, knn={knn_fall_frac:.2f}, llm={llm_bin:.0f}) "
+                        f" thr={thr:.3f} → {fused_pred}"
+                    )
+                    reasoning = ReasoningResult(
+                        prediction=fused_pred,
+                        severity=reasoning.severity if fused_pred == "fall" else "none",
+                        confidence=float(max(reasoning.confidence, abs(fusion_score - thr) + 0.5)),
+                        rationale=rationale,
+                        action=reasoning.action if fused_pred == "fall" else "monitor",
+                        source=f"{reasoning.source}+fuse",
+                    )
+                    source = reasoning.source
 
         allow_down = self.allow_action_downgrade and critic_verdict in ("reject", "revise")
         action = self.action_agent.decide(
@@ -289,8 +354,9 @@ class AgenticPipeline:
             adjudication=adj_dict,
             veto_score=v_score,
             vetoed=vetoed,
+            knn_fall_frac=knn_fall_frac,
+            fusion_score=fusion_score,
         )
-
 
 def build_adjudicator_from_config(acfg: dict, reasoner: LLMReasoner) -> Adjudicator | None:
     """Factory used by eval scripts."""

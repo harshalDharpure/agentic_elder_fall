@@ -65,11 +65,14 @@ def make_pipeline(
     memory = KNNMemory(k=int(acfg["retrieval"]["k"]))
     if use_knn and Path(memory_path).exists():
         memory.load(memory_path)
+    pipe_cfg = acfg.get("pipeline") or {}
+    include_activity = bool(pipe_cfg.get("include_activity", False))
+    require_embedder = bool(pipe_cfg.get("require_text_embedder", False))
     reasoner = LLMReasoner(
         backend=backend,
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
+        fallback_heuristic=bool(acfg.get("llm", {}).get("fallback_heuristic", False)),
     )
     if mode == "tier1_only":
         gate = ConfidenceGate(0.5, 0.5 + 1e-6)
@@ -81,9 +84,15 @@ def make_pipeline(
         action_agent=ActionAgent(),
         device=device,
         sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
-        text_embed_fn=text_embedder(acfg["retrieval"]["embedder"]) if use_knn else None,
+        text_embed_fn=(
+            text_embedder(acfg["retrieval"]["embedder"], allow_fallback=not require_embedder)
+            if use_knn
+            else None
+        ),
         adjudicator=None,
         allow_action_downgrade=True,
+        include_activity=include_activity,
+        require_text_embedder=require_embedder and use_knn,
     )
 
 
@@ -198,8 +207,11 @@ def main():
     train_idx = subsample_indices(
         split.train_idx, ds.y, ds.activities, pcfg["train"].get("max_train"), pcfg["seed"]
     )
+    val_idx = subsample_indices(
+        split.val_idx, ds.y, ds.activities, pcfg["train"].get("max_val"), pcfg["seed"] + 1
+    )
     gate = build_gate(
-        acfg, model=model, ds=ds, cal_idx=train_idx, device=device,
+        acfg, model=model, ds=ds, cal_idx=val_idx, device=device,
         calibrate=bool(pcfg["eval"].get("calibrate_gate", True)),
         max_cal=int(pcfg["eval"].get("max_cal", 2000)),
     )

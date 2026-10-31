@@ -1,0 +1,55 @@
+{
+  "protocol": "Q1_historical_agentic_ollama_activity_ON",
+  "source": "results/fold{f}/agentic_fold{f}.json",
+  "include_activity": true,
+  "note": "Proven lock before ACT_GUARD over-hardening. Mean F1\u22480.887, recall\u22480.977.",
+  "f1_mean": 0.8865787459634431,
+  "f1_std": 0.029696547849701847,
+  "precision_mean": 0.8125969719113748,
+  "recall_mean": 0.9765812525416571,
+  "cost_mean": 200.2,
+  "per_fold": [
+    {
+      "fold": 0,
+      "f1": 0.8924050632911392,
+      "precision": 0.815028901734104,
+      "recall": 0.986013986013986,
+      "expected_response_cost": 156.0,
+      "n": 1000
+    },
+    {
+      "fold": 1,
+      "f1": 0.8504273504273504,
+      "precision": 0.7975951903807615,
+      "recall": 0.9107551487414187,
+      "expected_response_cost": 491.0,
+      "n": 1000
+    },
+    {
+      "fold": 2,
+      "f1": 0.8736097067745198,
+      "precision": 0.7769784172661871,
+      "recall": 0.9976905311778291,
+      "expected_response_cost": 134.0,
+      "n": 1000
+    },
+    {
+      "fold": 3,
+      "f1": 0.9314775160599572,
+      "precision": 0.8752515090543259,
+      "recall": 0.9954233409610984,
+      "expected_response_cost": 82.0,
+      "n": 1000
+    },
+    {
+      "fold": 4,
+      "f1": 0.8849740932642487,
+      "precision": 0.7981308411214953,
+      "recall": 0.9930232558139535,
+      "expected_response_cost": 138.0,
+      "n": 1000
+    }
+  ],
+  "target_0_89": false,
+  "near_0_89": true
+}

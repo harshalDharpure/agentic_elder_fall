@@ -174,7 +174,7 @@ def experiment_knn_k(fold, ks, max_test, device, out_dir, use_ollama=False):
             backend=backend,
             base_url=acfg["llm"]["base_url"],
             model=acfg["llm"]["model"],
-            fallback_heuristic=True,
+            fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)),
         )
         pipe = AgenticPipeline(
             model=model,

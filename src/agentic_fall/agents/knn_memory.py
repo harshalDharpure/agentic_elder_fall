@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -9,6 +11,21 @@ import numpy as np
 from sklearn.neighbors import NearestNeighbors
 
 from ..utils.io import ensure_dir
+from .evidence import strip_activity_from_evidence
+
+# SisFall trial filenames look like D19_SA06_R05.txt — not hex digests (ef56).
+_LEAKY_ID_RE = re.compile(r"(?i)(?:^|[^A-Za-z0-9])([DF]\d{2})(?:[^A-Za-z0-9]|$)")
+
+
+def public_case_id(case_id: str) -> str:
+    """Hash case IDs that embed SisFall D/F filename codes before prompt use."""
+    cid = str(case_id or "")
+    if cid.startswith("case_") and not _LEAKY_ID_RE.search(cid):
+        return cid
+    if (not cid) or re.match(r"(?i)^[DF]\d{2}", cid) or _LEAKY_ID_RE.search(cid):
+        digest = hashlib.sha256(cid.encode("utf-8")).hexdigest()[:12]
+        return f"case_{digest}"
+    return cid
 
 
 @dataclass
@@ -18,13 +35,12 @@ class MemoryCase:
     label: int  # 0 ADL, 1 Fall
     evidence_text: str
     features: dict[str, float]
-    activity: str = ""
+    activity: str = ""  # internal only (hard-neg filter); never put in summary()
 
     def summary(self) -> str:
         tag = "FALL" if self.label == 1 else "ADL"
-        return (
-            f"Case {self.case_id}: {self.evidence_text.replace(chr(10), ' ')} → {tag}"
-        )
+        clean = strip_activity_from_evidence(self.evidence_text).replace("\n", " ")
+        return f"Case {public_case_id(self.case_id)}: {clean} → {tag}"
 
 
 class KNNMemory:

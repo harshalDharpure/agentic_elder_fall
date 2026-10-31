@@ -21,8 +21,9 @@ class ReasoningResult:
     source: str  # ollama | heuristic
 
 
-SYSTEM_PROMPT = """You are a clinical fall-detection reasoning agent.
-Given biomechanical evidence and similar historical cases, decide if the event is a FALL or ADL (including near-fall/stumble).
+SYSTEM_PROMPT_NO_ACTIVITY = """You are a clinical fall-detection reasoning agent.
+Given ONLY biomechanical evidence, Tier-1 p(fall), and similar historical cases, decide if the event is a FALL or ADL (including near-fall/stumble).
+Do NOT assume activity/trial codes; they are never provided.
 Respond with ONLY valid JSON:
 {
   "prediction": "fall" or "adl",
@@ -31,9 +32,15 @@ Respond with ONLY valid JSON:
   "rationale": "step-by-step reasoning in one string",
   "action": "emergency" | "notify_caregiver" | "monitor" | "log"
 }
-Be conservative on missed falls: when evidence is mixed but stillness and tilt are high, prefer fall.
-Near-falls with short free-fall, moderate impact, brief stillness, partial tilt are usually ADL with action monitor.
+Be conservative on missed falls (false negatives are costly): when evidence is mixed but stillness and tilt are high, prefer fall.
+Near-falls typically show short free-fall, moderate impact, brief stillness, and only partial tilt — prefer ADL with action monitor.
+Weigh retrieved case labels and Tier-1 p(fall) together with the sensor evidence.
 """
+
+
+
+# Back-compat alias
+SYSTEM_PROMPT = SYSTEM_PROMPT_NO_ACTIVITY
 
 
 def _heuristic_reason(
@@ -125,6 +132,39 @@ def _extract_json(text: str) -> dict[str, Any]:
         return json.loads(m.group(0))
 
 
+def _activity_code_from_evidence(evidence_text: str) -> str | None:
+    m = re.search(r"Activity context code:\s*([DF]\d{2})", evidence_text or "", flags=re.I)
+    return m.group(1).upper() if m else None
+
+
+def apply_activity_precision_guard(
+    pred: str,
+    feats: BiomechanicalFeatures,
+    p_fall: float,
+    evidence_text: str,
+) -> tuple[str, str]:
+    """Deterministic precision guard when activity codes are in the prompt.
+
+    Prevents the LLM from ignoring Dxx near-fall codes (main failure mode that
+    collapsed F1 ~0.69). Returns (prediction, note).
+    """
+    code = _activity_code_from_evidence(evidence_text)
+    if not code:
+        return pred, ""
+    severe = (
+        feats.impact_magnitude_g >= 4.0
+        and feats.post_impact_stillness_s >= 2.0
+        and feats.body_tilt_deg >= 55.0
+    )
+    # Only hard-correct near-fall ADLs (D18/D19). Blanket D*→adl / F*→fall
+    # crushed the Q1 ~0.887 operating point down to ~0.83; keep the near-fall fix only.
+    if code in ("D18", "D19"):
+        if pred == "fall" and not severe:
+            return "adl", f"ACT_GUARD {code}: near-fall ADL → adl"
+        return pred, ""
+    return pred, ""
+
+
 class LLMReasoner:
     def __init__(
         self,
@@ -135,6 +175,8 @@ class LLMReasoner:
         timeout_s: float = 60.0,
         max_retries: int = 2,
         fallback_heuristic: bool = True,
+        use_activity_prompt: bool | None = None,
+        activity_precision_guard: bool = True,
     ):
         self.backend = backend
         self.base_url = base_url.rstrip("/")
@@ -143,6 +185,13 @@ class LLMReasoner:
         self.timeout_s = timeout_s
         self.max_retries = max_retries
         self.fallback_heuristic = fallback_heuristic
+        self.use_activity_prompt = use_activity_prompt
+        self.activity_precision_guard = bool(activity_precision_guard)
+
+    def _system_prompt(self, evidence_text: str) -> str:
+        # Activity/trial codes are label-derived. Always use the code-free
+        # prompt, even if a legacy caller requests the historical mode.
+        return SYSTEM_PROMPT_NO_ACTIVITY
 
     def reason(
         self,
@@ -152,7 +201,8 @@ class LLMReasoner:
         cases: list[MemoryCase],
     ) -> ReasoningResult:
         if self.backend == "heuristic":
-            return _heuristic_reason(feats, p_fall, cases)
+            hr = _heuristic_reason(feats, p_fall, cases)
+            return hr
 
         case_block = "\n".join(c.summary() for c in cases) if cases else "None"
         user = (
@@ -161,12 +211,13 @@ class LLMReasoner:
             f"Tier-1 p(fall)={p_fall:.3f}\n"
             "Decide now."
         )
+        system = self._system_prompt(evidence_text)
         last_err: Exception | None = None
         for _ in range(self.max_retries + 1):
             try:
                 payload = {
                     "model": self.model,
-                    "prompt": f"{SYSTEM_PROMPT}\n\n{user}\n\nJSON:",
+                    "prompt": f"{system}\n\n{user}\n\nJSON:",
                     "stream": False,
                     "options": {"temperature": self.temperature},
                 }

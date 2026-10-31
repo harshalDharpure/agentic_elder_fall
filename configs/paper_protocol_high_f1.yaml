@@ -1,0 +1,61 @@
+# High-F1 protocol: reproduce ≥0.89 SisFall stack (activity ON).
+# Outputs → results/high_f1_lock/  (separate from noleak_lock)
+
+seed: 42
+dataset: sisfall
+tier1_config: configs/tier1_sisfall.yaml
+agentic_config: configs/agentic_high_f1.yaml
+backbones_config: configs/backbones.yaml
+
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+
+train:
+  epochs: 40
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.05
+  patience: 10
+  mixup_alpha: 0.1
+  amp: true
+  max_train: 40000
+  max_val: 5000
+  use_pos_weight: true
+  decision_threshold_mode: cost
+
+eval:
+  max_test: 1000
+  agentic_max_samples: 1000
+  llm_max_cases: 150
+  min_near_fall_per_code: 80
+  calibrate_gate: true
+  gate_cal_split: val
+  max_cal: 2000
+  required_activities: [D18, D19]
+
+agentic:
+  top_n: 3
+  primary_backbone: cnn_lstm_attn
+  backend: ollama
+  llm_backends: [heuristic, "mistral:latest"]
+  # Submission protocol: trial/activity codes are label-derived and prohibited.
+  include_activity: false
+
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+paths:
+  results_dir: results/high_f1_lock
+  checkpoint_dir: checkpoints/backbones
+  memory_dir: data/memory
+
+models:
+  - cnn_lstm_attn
+  - harmamba
+
+latency:
+  warmup: 10
+  repeats: 50

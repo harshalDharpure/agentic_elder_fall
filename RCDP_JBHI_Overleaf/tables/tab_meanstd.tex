@@ -1,25 +1,25 @@
 \begin{table}[!t]
 \centering
-\caption{SisFall main protocol, five-fold mean$\pm$sample std ($n{=}1000$/fold, fall prevalence $0.433{\pm}0.004$), computed from the counts in Table~\ref{tab:confusion} before rounding. Paired intervals are fold-level percentile bootstrap ($10^4$ resamples, seed $42$); BCa intervals are F1 $[0.117,0.154]$, recall $[0.181,0.244]$, cost $[-1084,-834]$. The exact two-sided Wilcoxon $p$ is $0.0625$ for every metric (the minimum attainable with five pairs). Five overlapping folds make these intervals descriptive, not subject-level confidence intervals.}
+\caption{SisFall submission protocol, five-fold aggregate ($n{=}1000$/fold). Values are descriptive aggregates; unavailable precision and specificity aggregates are not imputed.}
 \label{tab:meanstd}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lccccc}
 \toprule
 Mode & F1 & Recall & Prec. & Spec. & Cost/1k \\
 \midrule
-\texttt{primary\_only}
- & 0.759 & 0.759 & 0.760 & 0.815 & 1151 \\
- & {\scriptsize$\pm$0.014} & {\scriptsize$\pm$0.022} & {\scriptsize$\pm$0.032} & {\scriptsize$\pm$0.035} & {\scriptsize$\pm$93} \\
+\texttt{tier1\_only}
+ & 0.768 & 0.773 & -- & -- & 1086.6 \\
+ & {\scriptsize$\pm$0.019} & {\scriptsize$\pm$0.015} & -- & -- & {\scriptsize$\pm$80.6} \\
 \addlinespace
-\textbf{\texttt{gate\_knn\_llm}}
- & \textbf{0.887} & \textbf{0.977} & \textbf{0.813} & \textbf{0.828} & \textbf{200} \\
- & {\scriptsize$\pm$0.029} & {\scriptsize$\pm$0.037} & {\scriptsize$\pm$0.036} & {\scriptsize$\pm$0.039} & {\scriptsize$\pm$164} \\
+\textbf{\texttt{specialist\_tier1\_blend}}
+ & \textbf{0.772} & \textbf{0.774} & -- & -- & \textbf{1079.6} \\
+ & {\scriptsize$\pm$0.025} & {\scriptsize$\pm$0.023} & -- & -- & {\scriptsize$\pm$115.3} \\
 \midrule
 \multicolumn{6}{l}{\textit{Paired $\Delta$ (stack $-$ primary), 95\% percentile CI}} \\
 \midrule
-F1        & \multicolumn{5}{l}{$+0.128$ \quad $[0.117,\ 0.147]$ \quad 5/5 folds} \\
-Recall    & \multicolumn{5}{l}{$+0.218$ \quad $[0.187,\ 0.248]$ \quad 5/5 folds} \\
-Cost/1k & \multicolumn{5}{l}{$-951$ \quad\; $[-1079,\ -825]$ \quad 5/5 folds} \\
+F1        & \multicolumn{5}{l}{$+0.005$ \quad 3/5 folds better} \\
+Recall    & \multicolumn{5}{l}{$+0.001$ \quad 3/5 folds better} \\
+Cost/1k & \multicolumn{5}{l}{$-7.0$ \quad\; descriptive aggregate} \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -1,0 +1,62 @@
+agentic:
+  backend: ollama
+  include_activity: false
+  llm_backends:
+  - heuristic
+  - mistral:latest
+  - qwen2.5-coder:7b-instruct
+  primary_backbone: cnn_lstm_attn
+  top_n: 3
+agentic_config: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn/agentic.yaml
+backbones_config: configs/backbones.yaml
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+dataset: sisfall
+eval:
+  agentic_max_samples: 128
+  calibrate_gate: true
+  gate_cal_split: val
+  llm_max_cases: 150
+  max_cal: 2000
+  max_test: 128
+  min_near_fall_per_code: 0
+  required_activities:
+  - D18
+  - D19
+latency:
+  repeats: 50
+  warmup: 10
+models:
+- cnn1d
+- lstm
+- cnn_lstm
+- cnn_lstm_attn
+- tcn
+- modern_tcn
+- tsmixer
+- patchtst
+- transformer
+- harmamba
+paths:
+  results_dir: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn
+  checkpoint_dir: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn/checkpoints
+  memory_dir: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn/memory
+seed: 42
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+tier1_config: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn/tier1.yaml
+train:
+  amp: false
+  batch_size: 256
+  decision_threshold_mode: cost
+  epochs: 1
+  label_smoothing: 0.05
+  lr: 0.001
+  max_train: 256
+  max_val: 128
+  mixup_alpha: 0.1
+  patience: 1
+  use_pos_weight: true
+  weight_decay: 0.0001

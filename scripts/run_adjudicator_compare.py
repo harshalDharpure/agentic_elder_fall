@@ -121,7 +121,7 @@ def _label_to_bin(label) -> int:
 
 
 def heuristic_pred(meta: list[dict]) -> np.ndarray:
-    reasoner = LLMReasoner(backend="heuristic", fallback_heuristic=True)
+    reasoner = LLMReasoner(backend="heuristic", fallback_heuristic=False)
     out = []
     for m in meta:
         from agentic_fall.features.biomechanics import BiomechanicalFeatures
@@ -149,7 +149,7 @@ def train_sklearn(X_tr, y_tr, X_te, kind: str):
 
 
 def llm_pred(meta: list[dict], backend: str, max_n: int) -> np.ndarray:
-    reasoner = LLMReasoner(backend=backend, fallback_heuristic=True)
+    reasoner = LLMReasoner(backend=backend, fallback_heuristic=False)
     out = []
     for m in tqdm(meta[:max_n], desc=f"llm:{backend}"):
         from agentic_fall.features.biomechanics import BiomechanicalFeatures
@@ -230,7 +230,7 @@ def main() -> None:
         acfg,
         model=model,
         ds=ds,
-        cal_idx=split.train_idx,
+        cal_idx=split.val_idx,
         device=device,
         calibrate=True,
         max_cal=int(ev.get("max_cal", 2000)),

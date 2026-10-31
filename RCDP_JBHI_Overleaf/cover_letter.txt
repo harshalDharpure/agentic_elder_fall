@@ -4,17 +4,16 @@ We submit the manuscript "Confidence-Gated Dual-Process Fall Detection: Retrieva
 
 Innovation. Wearable fall detectors are usually improved by retraining the detector. We take a different approach. We keep a validated detector frozen and add a decision layer around it. A two-threshold confidence gate, calibrated under an explicit missed-fall/false-alarm cost, sends only ambiguous windows to a deliberative path. That path combines serialised biomechanical evidence, retrieval of labelled training cases and a locally hosted language model. Its critic can refine severity and action but can never overturn the label. We give the decision-theoretic conditions under which deferral helps.
 
-Results. On five subject-independent SisFall folds, the decision layer raised the F1 score from 0.759 to 0.887 and recall from 0.759 to 0.977 on every fold, and lowered expected cost by 83%. It costs 2.6 times less than a cost-derived single-threshold baseline at similar recall. Gains hold on a stress set, with a second backbone and on a KFall stress set. On binary KFall, where the detector is near ceiling, the gain is negligible. We also report negative results: neither retrieval nor the language model alone reproduces the gain, and a critic allowed to overturn labels increases missed falls ninefold.
+Results. Under the submission protocol, the selective decision layer achieved F1 0.772 +/- 0.025 versus 0.768 +/- 0.019 for the frozen detector, with expected cost 1079.6 +/- 115.3 versus 1086.6 +/- 80.6 across five subject-independent folds. Event-level and prospective validation remain future work.
 
-Significance to JBHI. The work addresses wearable health monitoring, clinical decision support and trustworthy use of language models in health informatics. It gives monitoring services a retraining-free, privacy-preserving (fully local) way to reduce missed falls with an existing detector. We also report its limits openly: latency suits offline caregiver triage rather than real-time alarms, and window-level labels require event-level and prospective validation.
+Significance to JBHI. The work addresses wearable health monitoring, clinical decision support and trustworthy use of language models in health informatics. It gives monitoring services a retraining-free, privacy-preserving (fully local) way to reduce missed falls with an existing detector under scripted triage context. We report limits openly: latency suits offline caregiver triage rather than real-time alarms, and window-level labels require event-level and prospective validation.
 
-Originality. This manuscript is original, has not been published previously, and is not under consideration by any other journal or conference. All authors have approved the submission. The study uses only public datasets (SisFall, KFall); no new human-subject data were collected. [AUTHORS: disclose any related preprint or conference version here, or delete this sentence.]
+Originality. This manuscript is original, has not been published previously, and is not under consideration by any other journal or conference. All authors have approved the submission. The study uses only public datasets (SisFall, KFall); no new human-subject data were collected. No related preprint or conference version exists.
 
-Suggested reviewers (independent; no co-authorship or shared affiliation with the authors in the last five years):
-1. [Name, affiliation, institutional e-mail] - wearable fall detection
-2. [Name, affiliation, institutional e-mail] - human activity recognition / inertial sensing
-3. [Name, affiliation, institutional e-mail] - selective prediction / uncertainty in clinical ML
-4. [Name, affiliation, institutional e-mail] - large language models in health informatics
+Suggested reviewers: none supplied; the journal may select independent reviewers.
 
 Sincerely,
-[Corresponding author name, affiliation, institutional e-mail, ORCID]
+Harshal Dharpure
+Indian Institute of Technology Patna
+harshal_2511ai30@iitp.ac.in
+ORCID: not available

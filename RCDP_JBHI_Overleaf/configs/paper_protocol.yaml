@@ -27,22 +27,28 @@ train:
   decision_threshold_mode: cost  # cost | youden | f1
 
 eval:
-  max_test: 4000
+  # Locked Q1 tables use n=1000 / fold (agentic_max_samples). max_test caps the
+  # subsample pool before the agentic cap is applied by runners.
+  max_test: 1000
   agentic_max_samples: 1000
   llm_max_cases: 150
   min_near_fall_per_code: 80  # force D18/D19 into capped test slices
   calibrate_gate: true
+  # Gate τ calibrated on subject-held-out val (not train / not test).
+  gate_cal_split: val
   max_cal: 2000
   required_activities: [D18, D19]
 
 agentic:
   top_n: 3
-  # Main paper tables use CNN–LSTM–Attention; HARMamba is generality only.
   primary_backbone: cnn_lstm_attn
   # End-to-end agentic_eval should match ablation gate_knn_llm (ollama).
   # Paired LLM backend comparison remains in run_llm_compare.py.
   backend: ollama
   llm_backends: [heuristic, "mistral:latest", "qwen2.5-coder:7b-instruct"]
+  # Submission tables use the verified code-free protocol.
+  # Paper Sec. leakage discloses this; do not claim code-free free-living.
+  include_activity: false
 
 costs:
   cost_fn: 10.0

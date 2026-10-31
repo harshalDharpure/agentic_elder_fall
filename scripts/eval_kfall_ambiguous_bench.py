@@ -73,7 +73,7 @@ def make_pipeline(model, gate, memory_path, device, acfg, *, mode: str, backend:
         backend=backend,
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
+        fallback_heuristic=bool(acfg.get('llm', {}).get('fallback_heuristic', False)),
     )
     if mode == "tier1_only":
         gate = ConfidenceGate(0.5, 0.5 + 1e-6)

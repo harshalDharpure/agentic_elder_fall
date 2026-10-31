@@ -1,0 +1,14 @@
+{
+  "fold": 0,
+  "protocol_tag": "best_noleak_1000",
+  "max_test": 1000,
+  "modes": [
+    "tier1_only",
+    "gate_only",
+    "gate_knn",
+    "gate_llm",
+    "gate_knn_llm",
+    "gate_knn_llm_action_critique",
+    "gate_knn_llm_fuse"
+  ]
+}

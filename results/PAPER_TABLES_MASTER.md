@@ -424,5 +424,21 @@ Optional appendix: `tab_conformal_gate.tex`, `tab_knn_k.tex`, `tab_seeds.tex`, `
 
 ## Integrity note (post noleak audit)
 
-These tables are the **original / leaky-era Q1 lock** numbers (activity codes could reach System-2).  
-Honest no-leak re-runs collapsed stack F1 ≈ 0.69 and cost ≈ 758; do **not** claim the 0.887 / cost-200 stack as leakage-free without a new audited experiment.
+These tables are the **original / leaky-era Q1 lock** numbers (activity codes could reach System-2).
+Do **not** claim the 0.887 / cost-200 stack as leakage-free.
+
+**Paper policy (best + correct):** Main JBHI numbers must come from audited no-leak runs under
+`results/noleak_lock/` (`include_activity: false`, hashed case IDs, val gate calib, fail-closed LLM).
+Headline mode is chosen as the best among `gate_knn_llm`, `gate_knn_llm_fuse`, and
+`gate_knn_llm_action_critique` on that lock — never by re-introducing activity codes.
+
+### JBHI acceptance framing (use this narrative)
+
+| Role in paper | Dataset / table | Target | Notes |
+|---------------|-----------------|--------|--------|
+| **Strong generality** | KFall binary 5-fold | **F1 ≥ 0.98** | Lead with stability / near-ceiling under no-leak |
+| **Hard primary** | SisFall n=1000/fold | best honest stack (likely ~0.75–0.85) | Cost↓ + recall↑ vs Tier-1; do **not** claim leaky 0.887 |
+| **Stress** | Ambiguous D18/D19 bench | large ΔF1 / cost↓ | Re-run no-leak; honesty > inflated FAR |
+| **Integrity** | Leakage Controls | audited `include_activity: false` | Match code + `audit_prompt_leakage.py` |
+
+Do **not** defend weak SisFall by hiding KFall; do **not** inflate SisFall with activity codes.

@@ -1,0 +1,66 @@
+# High-F1 stack (activity codes ON — same setup as original Q1 ~0.887 lock).
+# NOT leakage-free. Do not mix with results/noleak_lock claims.
+
+gate:
+  tau_low: 0.30
+  tau_high: 0.85
+  calibrate: true
+  cost_fn: 10.0
+  cost_fp: 1.0
+
+evidence:
+  freefall_g_threshold: 0.5
+  stillness_var_threshold: 0.05
+  sample_rate_hz: 200
+
+retrieval:
+  k: 5
+  embedder: sentence-transformers/all-MiniLM-L6-v2
+  memory_dir: data/memory
+  metric: cosine
+
+llm:
+  backend: ollama
+  base_url: http://127.0.0.1:11434
+  model: mistral:latest
+  temperature: 0.1
+  timeout_s: 60
+  max_retries: 2
+  fallback_heuristic: false
+  # Soft guard (D18/D19 only) — recovers Q1 ~0.887 F1 operating point
+  activity_precision_guard: true
+
+action:
+  impact_severe_g: 5.0
+  impact_moderate_g: 3.0
+  stillness_severe_s: 10.0
+  stillness_moderate_s: 3.0
+  simulate: true
+
+pipeline:
+  ambiguous_adl_codes: [D18, D19]
+  # Submission protocol: trial/activity codes are label-derived and prohibited.
+  include_activity: false
+  require_text_embedder: true
+  redact_case_ids: true
+
+adjudication:
+  enabled: false
+  mode: action_critique
+  freeze_label: true
+  role_swap: false
+  multi_prompt_vote: false
+  max_rounds: 1
+  tie_break: recall_preserving
+  actor_backend: ollama
+  critic_backend: heuristic
+  allow_action_downgrade: true
+  crc_alpha: 0.05
+  crc_delta: 0.1
+  crc_method: bernstein
+  screen_confident_fall: true
+  use_contrastive: false
+  k_pos: 3
+  k_neg: 3
+  veto_threshold: null
+  crc_feasible: false

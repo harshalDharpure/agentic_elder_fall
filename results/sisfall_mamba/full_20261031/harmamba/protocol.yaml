@@ -1,0 +1,62 @@
+agentic:
+  backend: ollama
+  include_activity: false
+  llm_backends:
+  - heuristic
+  - mistral:latest
+  - qwen2.5-coder:7b-instruct
+  primary_backbone: harmamba
+  top_n: 3
+agentic_config: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/full_20261031/harmamba/agentic.yaml
+backbones_config: configs/backbones.yaml
+costs:
+  cost_fn: 10.0
+  cost_fp: 1.0
+dataset: sisfall
+eval:
+  agentic_max_samples: 1000
+  calibrate_gate: true
+  gate_cal_split: val
+  llm_max_cases: 150
+  max_cal: 2000
+  max_test: 1000
+  min_near_fall_per_code: 80
+  required_activities:
+  - D18
+  - D19
+latency:
+  repeats: 50
+  warmup: 10
+models:
+- cnn1d
+- lstm
+- cnn_lstm
+- cnn_lstm_attn
+- tcn
+- modern_tcn
+- tsmixer
+- patchtst
+- transformer
+- harmamba
+paths:
+  results_dir: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/full_20261031/harmamba
+  checkpoint_dir: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/full_20261031/harmamba/checkpoints
+  memory_dir: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/full_20261031/harmamba/memory
+seed: 42
+splits:
+  n_folds: 5
+  val_fraction: 0.15
+tier1_config: /DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/full_20261031/harmamba/tier1.yaml
+train:
+  amp: true
+  batch_size: 256
+  decision_threshold_mode: cost
+  epochs: 40
+  label_smoothing: 0.05
+  lr: 0.001
+  max_train: 40000
+  max_val: 5000
+  mixup_alpha: 0.1
+  patience: 10
+  use_pos_weight: true
+  weight_decay: 0.0001

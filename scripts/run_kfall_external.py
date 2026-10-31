@@ -27,7 +27,7 @@ from agentic_fall.agents import (
     LLMReasoner,
 )
 from agentic_fall.agents.evidence import serialize_evidence
-from agentic_fall.agents.knn_memory import MemoryCase
+from agentic_fall.agents.knn_memory import MemoryCase, public_case_id
 from agentic_fall.data.kfall import KFallDataset, prepare_kfall
 from agentic_fall.eval.metrics import agentic_metrics
 from agentic_fall.eval.protocol import build_gate, subsample_indices, text_embedder
@@ -55,7 +55,10 @@ def _subject_split(ds: KFallDataset, fold: int, n_folds: int, seed: int, val_fra
 
 def build_kfall_memory(model, ds, train_idx, device, acfg, mem_path: Path, max_cases: int = 2000):
     memory = KNNMemory(k=int(acfg["retrieval"]["k"]), metric=acfg["retrieval"].get("metric", "cosine"))
-    embed = text_embedder(acfg["retrieval"]["embedder"])
+    pipe_cfg = acfg.get("pipeline") or {}
+    include_activity = bool(pipe_cfg.get("include_activity", False))
+    require_embedder = bool(pipe_cfg.get("require_text_embedder", True))
+    embed = text_embedder(acfg["retrieval"]["embedder"], allow_fallback=not require_embedder)
     idx = list(train_idx)
     if len(idx) > max_cases:
         rng = np.random.default_rng(0)
@@ -66,11 +69,6 @@ def build_kfall_memory(model, ds, train_idx, device, acfg, mem_path: Path, max_c
     with torch.no_grad():
         for batch in tqdm(loader, desc="kfall_memory"):
             x = batch["x"].to(device)
-            out = model(x)
-            # cnn_lstm_attn returns (logits, emb)
-            if isinstance(out, tuple):
-                _, emb = out
-                emb = emb.cpu().numpy()
             for i in range(x.size(0)):
                 win = batch["x"][i].numpy().T
                 feats = extract_biomechanics(
@@ -79,11 +77,16 @@ def build_kfall_memory(model, ds, train_idx, device, acfg, mem_path: Path, max_c
                     freefall_g_threshold=float(acfg["evidence"]["freefall_g_threshold"]),
                     stillness_var_threshold=float(acfg["evidence"]["stillness_var_threshold"]),
                 )
-                text = serialize_evidence(feats, activity=str(batch["activity"][i]))
+                text = serialize_evidence(
+                    feats,
+                    activity=str(batch["activity"][i]),
+                    include_activity=include_activity,
+                )
                 te = np.asarray(embed(text), dtype=np.float32)
+                raw_id = f"kfall_{int(batch['index'][i])}"
                 memory.add(
                     MemoryCase(
-                        case_id=f"kfall_{int(batch['index'][i])}",
+                        case_id=public_case_id(raw_id),
                         embedding=te.tolist(),
                         label=int(batch["y"][i]),
                         evidence_text=text,
@@ -104,11 +107,14 @@ def run_mode(model, ds, test_idx, memory_path, device, acfg, mode, gate):
     backend = "ollama" if use_llm else "heuristic"
     if mode == "gate_knn":
         backend = "heuristic"
+    pipe_cfg = acfg.get("pipeline") or {}
+    include_activity = bool(pipe_cfg.get("include_activity", False))
+    require_embedder = bool(pipe_cfg.get("require_text_embedder", False))
     reasoner = LLMReasoner(
         backend=backend,
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
+        fallback_heuristic=bool(acfg.get("llm", {}).get("fallback_heuristic", False)),
     )
     local_gate = gate
     if mode == "tier1_only":
@@ -121,7 +127,13 @@ def run_mode(model, ds, test_idx, memory_path, device, acfg, mode, gate):
         action_agent=ActionAgent(),
         device=device,
         sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
-        text_embed_fn=text_embedder(acfg["retrieval"]["embedder"]) if use_knn else None,
+        text_embed_fn=(
+            text_embedder(acfg["retrieval"]["embedder"], allow_fallback=not require_embedder)
+            if use_knn
+            else None
+        ),
+        include_activity=include_activity,
+        require_text_embedder=require_embedder and use_knn,
     )
     y_true, y_pred, esc, acts, lats, ps = [], [], [], [], [], []
     for batch in tqdm(DataLoader(Subset(ds, test_idx), batch_size=1, shuffle=False), desc=mode):
@@ -267,7 +279,7 @@ def main():
         acfg,
         model=model,
         ds=ds,
-        cal_idx=tr_idx,
+        cal_idx=va_idx,
         device=device,
         calibrate=bool(kcfg.get("eval", {}).get("calibrate_gate", True)),
         max_cal=int(kcfg.get("eval", {}).get("max_cal", 2000)),

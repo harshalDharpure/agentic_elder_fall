@@ -21,7 +21,6 @@
 \citation{iglesias2019wearable,nurek2020fallsurvey,khan2017review,sisfall2017}
 \citation{ren2021survey,mubashir2013survey}
 \citation{aziz2016fall,aziz2012nearfall,aziz2014causes}
-\citation{sisfall2017}
 \citation{guo2017calibration,lakshminarayanan2017ensembles}
 \citation{chow1970reject,el2010foundations,geifman2017selective,cortes2016rejection}
 \citation{elkan2001foundations,noury2008evaluation}
@@ -43,13 +42,6 @@
 \citation{iglesias2019wearable,khan2017review,ren2021survey,mubashir2013survey}
 \citation{noury2008evaluation}
 \citation{bhatti2025beyond}
-\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
-\newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
-\newlabel{eq:risk}{{1}{1}{Introduction}{equation.1.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {I-}0a}Contributions}{1}{paragraph.1.0.0.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{section.2}\protected@file@percent }
-\newlabel{sec:related}{{II}{1}{Related Work}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Wearable Fall Detection}{1}{subsection.2.1}\protected@file@percent }
 \citation{chow1970reject}
 \citation{el2010foundations,geifman2017selective}
 \citation{cortes2016rejection}
@@ -57,6 +49,13 @@
 \citation{guo2017calibration,platt1999probabilistic}
 \citation{vovk2005algorithmic,shafer2008tutorial,angelopoulos2023gentle,romano2019conformalized}
 \citation{elkan2001foundations}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
+\newlabel{eq:risk}{{1}{1}{Introduction}{equation.1.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {I-}0a}Contributions}{1}{paragraph.1.0.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{II}{1}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Wearable Fall Detection}{1}{subsection.2.1}\protected@file@percent }
 \citation{lewis2020rag}
 \citation{minilm2020,reimers2019sbert}
 \citation{wei2022cot}
@@ -90,6 +89,8 @@
 \citation{mistral2023}
 \citation{wei2022cot,ollama}
 \citation{qwen2024}
+\citation{sisfall2017}
+\citation{sisfall2017}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces RCDP inference for one inertial window}}{3}{algorithm.1}\protected@file@percent }
 \newlabel{alg:rcdp}{{1}{3}{Method}{algorithm.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Method}{3}{section.4}\protected@file@percent }
@@ -98,75 +99,49 @@
 \newlabel{eq:pfall}{{6}{3}{Primary Detector (Block 2)}{equation.4.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Confidence Gate (Blocks 3, 3a)}{3}{subsection.4.2}\protected@file@percent }
 \newlabel{eq:gate}{{7}{3}{Confidence Gate (Blocks 3, 3a)}{equation.4.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Evidence Serializer (Block 3b)}{3}{subsection.4.3}\protected@file@percent }
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Cost-calibrated dual-threshold gate}}{3}{algorithm.2}\protected@file@percent }
 \newlabel{alg:gate}{{2}{3}{Confidence Gate (Blocks 3, 3a)}{algorithm.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Evidence Serializer (Block 3b)}{3}{subsection.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Case Memory (Block 3c)}{3}{subsection.4.4}\protected@file@percent }
 \newlabel{eq:cosine}{{8}{3}{Case Memory (Block 3c)}{equation.4.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}LLM Reasoner (Block 3d)}{3}{subsection.4.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Critique and Action Policy (Blocks 3e, 4)}{3}{subsection.4.6}\protected@file@percent }
-\citation{sisfall2017}
-\citation{sisfall2017}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-G}}Ablation Set}{3}{subsection.4.7}\protected@file@percent }
 \citation{kfall2021}
-\citation{waheed2021ntfds}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces RCDP architecture. Every window passes the frozen primary detector (2) and confidence gate (3); confident windows are decided directly (3a). Only windows with $\tau _{\mathrm  {low}}<p<\tau _{\mathrm  {high}}$ enter the deliberative path: evidence serialisation (3b), case retrieval (3c), local reasoning (3d), optional contrastive critique that may refine severity, action and rationale but never the label (3e), and a simulated action policy (4). The footer lists the ablation modes of Table\nobreakspace  {}\ref  {tab:ablationmean}; \texttt  {gate\_knn} and \texttt  {gate\_llm} each add one component to \texttt  {gate\_only}.}}{4}{figure.1}\protected@file@percent }
-\newlabel{fig:arch}{{1}{4}{RCDP architecture. Every window passes the frozen primary detector (2) and confidence gate (3); confident windows are decided directly (3a). Only windows with $\tau _{\mathrm {low}}<p<\tau _{\mathrm {high}}$ enter the deliberative path: evidence serialisation (3b), case retrieval (3c), local reasoning (3d), optional contrastive critique that may refine severity, action and rationale but never the label (3e), and a simulated action policy (4). The footer lists the ablation modes of Table~\ref {tab:ablationmean}; \texttt {gate\_knn} and \texttt {gate\_llm} each add one component to \texttt {gate\_only}}{figure.1}{}}
+\citation{efron1987bca}
+\citation{demsar2006statistical}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces RCDP architecture. Every window passes the frozen primary detector (2) and confidence gate (3); confident windows are decided directly (3a). Only windows with $\tau _{\mathrm  {low}}<p<\tau _{\mathrm  {high}}$ enter the deliberative path: evidence serialisation (3b), case retrieval (3c), local reasoning (3d), and a simulated action policy (4).}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:arch}{{1}{4}{RCDP architecture. Every window passes the frozen primary detector (2) and confidence gate (3); confident windows are decided directly (3a). Only windows with $\tau _{\mathrm {low}}<p<\tau _{\mathrm {high}}$ enter the deliberative path: evidence serialisation (3b), case retrieval (3c), local reasoning (3d), and a simulated action policy (4)}{figure.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Gate geometry at the pooled minimum-cost operating point (Supplementary Table\nobreakspace  {}S4). The Bayes threshold $\tau ^\ast $ of Prop.\nobreakspace  {}\ref  {prop:bayes} and the $0.5$ cut both lie inside the ambiguous band.}}{4}{figure.2}\protected@file@percent }
 \newlabel{fig:gateband}{{2}{4}{Gate geometry at the pooled minimum-cost operating point (Supplementary Table~S4). The Bayes threshold $\tau ^\ast $ of Prop.~\ref {prop:bayes} and the $0.5$ cut both lie inside the ambiguous band}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-G}}Ablation Set}{4}{subsection.4.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {V}Experimental Setup}{4}{section.5}\protected@file@percent }
 \newlabel{sec:setup}{{V}{4}{Experimental Setup}{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Datasets and Splits}{4}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Window Labels and What Per-Window F1 Measures}{4}{subsection.5.2}\protected@file@percent }
 \newlabel{sec:labels}{{\mbox  {V-B}}{4}{Window Labels and What Per-Window F1 Measures}{subsection.5.2}{}}
-\citation{efron1987bca}
-\citation{demsar2006statistical}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Leakage Controls}{5}{subsection.5.3}\protected@file@percent }
-\newlabel{sec:leakage}{{\mbox  {V-C}}{5}{Leakage Controls}{subsection.5.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Protocol}{5}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Subject Splits and Memory Hygiene}{4}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:hygiene}{{\mbox  {V-C}}{4}{Subject Splits and Memory Hygiene}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Protocol}{4}{subsection.5.4}\protected@file@percent }
+\citation{waheed2021ntfds}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Per-fold F1 and cost per $1000$ windows, \texttt  {primary\_only} versus \texttt  {gate\_knn\_llm} ($n{=}1000$/fold). Both metrics improve on every fold.}}{5}{figure.3}\protected@file@percent }
+\newlabel{fig:costf1}{{3}{5}{Per-fold F1 and cost per $1000$ windows, \texttt {primary\_only} versus \texttt {gate\_knn\_llm} ($n{=}1000$/fold). Both metrics improve on every fold}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces SisFall submission protocol, five-fold aggregate ($n{=}1000$/fold). Values are descriptive aggregates; unavailable precision and specificity aggregates are not imputed.}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:meanstd}{{II}{5}{SisFall submission protocol, five-fold aggregate ($n{=}1000$/fold). Values are descriptive aggregates; unavailable precision and specificity aggregates are not imputed}{table.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Metrics and Statistics}{5}{subsection.5.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Results}{5}{section.6}\protected@file@percent }
 \newlabel{sec:results}{{VI}{5}{Results}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Main SisFall Comparison}{5}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Stress Set}{5}{subsection.6.2}\protected@file@percent }
-\newlabel{sec:ambiguous}{{\mbox  {VI-B}}{5}{Stress Set}{subsection.6.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Per-fold F1 and cost per $1000$ windows, \texttt  {primary\_only} versus \texttt  {gate\_knn\_llm} ($n{=}1000$/fold). Both metrics improve on every fold.}}{5}{figure.3}\protected@file@percent }
-\newlabel{fig:costf1}{{3}{5}{Per-fold F1 and cost per $1000$ windows, \texttt {primary\_only} versus \texttt {gate\_knn\_llm} ($n{=}1000$/fold). Both metrics improve on every fold}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Is It Just Threshold Moving?}{5}{subsection.6.3}\protected@file@percent }
-\newlabel{sec:thresholdcontrol}{{\mbox  {VI-C}}{5}{Is It Just Threshold Moving?}{subsection.6.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Ablation}{5}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Reasoner Backends and Constant Controls}{5}{subsection.6.5}\protected@file@percent }
-\newlabel{sec:adjudicatorcontrol}{{\mbox  {VI-E}}{5}{Reasoner Backends and Constant Controls}{subsection.6.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}Negative Result: Label-Flip Actor--Critic}{5}{subsection.6.6}\protected@file@percent }
-\newlabel{sec:negative}{{\mbox  {VI-F}}{5}{Negative Result: Label-Flip Actor--Critic}{subsection.6.6}{}}
-\citation{li2025harmamba}
-\citation{li2025harmamba}
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Per-fold comparison of the frozen primary detector (\texttt  {primary\_only}) against the full stack (\texttt  {gate\_knn\_llm}) on SisFall: $n{=}1000$ stratified windows per fold with forced D18/D19 coverage, subject-independent folds, identical checkpoints. Cost is $10\cdot \mathrm  {FN}{+}\mathrm  {FP}$ per $1000$ windows. The stack improves F1, recall and cost on every fold; deltas use the displayed rounded values; paired intervals are in Table\nobreakspace  {}\ref  {tab:meanstd}.}}{6}{table.2}\protected@file@percent }
-\newlabel{tab:perfold}{{II}{6}{Per-fold comparison of the frozen primary detector (\texttt {primary\_only}) against the full stack (\texttt {gate\_knn\_llm}) on SisFall: $n{=}1000$ stratified windows per fold with forced D18/D19 coverage, subject-independent folds, identical checkpoints. Cost is $10\cdot \mathrm {FN}{+}\mathrm {FP}$ per $1000$ windows. The stack improves F1, recall and cost on every fold; deltas use the displayed rounded values; paired intervals are in Table~\ref {tab:meanstd}}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces SisFall main protocol, five-fold mean$\pm $sample std ($n{=}1000$/fold, fall prevalence $0.433{\pm }0.004$), computed from the counts in Table\nobreakspace  {}\ref  {tab:confusion} before rounding. Paired intervals are fold-level percentile bootstrap ($10^4$ resamples, seed $42$); BCa intervals are F1 $[0.117,0.154]$, recall $[0.181,0.244]$, cost $[-1084,-834]$. The exact two-sided Wilcoxon $p$ is $0.0625$ for every metric (the minimum attainable with five pairs). Five overlapping folds make these intervals descriptive, not subject-level confidence intervals.}}{6}{table.3}\protected@file@percent }
-\newlabel{tab:meanstd}{{III}{6}{SisFall main protocol, five-fold mean$\pm $sample std ($n{=}1000$/fold, fall prevalence $0.433{\pm }0.004$), computed from the counts in Table~\ref {tab:confusion} before rounding. Paired intervals are fold-level percentile bootstrap ($10^4$ resamples, seed $42$); BCa intervals are F1 $[0.117,0.154]$, recall $[0.181,0.244]$, cost $[-1084,-834]$. The exact two-sided Wilcoxon $p$ is $0.0625$ for every metric (the minimum attainable with five pairs). Five overlapping folds make these intervals descriptive, not subject-level confidence intervals}{table.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Author-supplied main-ablation confusion counts on SisFall ($n{=}1000$/fold), with metrics recomputed before rounding. These supplied counts confirm the earlier integer reconstruction, including $437$ falls in folds\nobreakspace  {}1 and\nobreakspace  {}3. They yield mean costs $1150.8$ and $199.8$. Counts are aggregate records, not independent verification of prediction files or case identity. The separate timing run differs by $+1$, $-1$ and $+2$ false positives in stack folds\nobreakspace  {}1, 3 and\nobreakspace  {}4 and is not mixed into this table.}}{6}{table.4}\protected@file@percent }
-\newlabel{tab:confusion}{{IV}{6}{Author-supplied main-ablation confusion counts on SisFall ($n{=}1000$/fold), with metrics recomputed before rounding. These supplied counts confirm the earlier integer reconstruction, including $437$ falls in folds~1 and~3. They yield mean costs $1150.8$ and $199.8$. Counts are aggregate records, not independent verification of prediction files or case identity. The separate timing run differs by $+1$, $-1$ and $+2$ false positives in stack folds~1, 3 and~4 and is not mixed into this table}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-G}}Second Backbone and Second Dataset}{6}{subsection.6.7}\protected@file@percent }
-\newlabel{sec:kfall}{{\mbox  {VI-G}}{6}{Second Backbone and Second Dataset}{subsection.6.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-H}}Operating Cost}{6}{subsection.6.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion}{6}{section.7}\protected@file@percent }
-\newlabel{sec:discussion}{{VII}{6}{Discussion}{section.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}Where the Gain Comes From}{6}{subsection.7.1}\protected@file@percent }
-\citation{waheed2021ntfds}
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces SisFall stress benchmark: $300$ windows/fold, comprising $100$ D18/D19 non-fall stress activities, $100$ falls and $100$ other ADLs. D19 is not a clinically adjudicated near-fall. Cost/win is $(10\mathrm  {FN}+\mathrm  {FP})/n$; Esc. is the escalation rate. Mean recall improves by $0.208$ and classification cost falls by approximately $84\%$. This enriched set is not a free-living duty-cycle estimate; age-stratified results are unavailable (Sec.\nobreakspace  {}\ref  {sec:setup}). F1 deltas use the displayed rounded metrics.}}{7}{table.5}\protected@file@percent }
-\newlabel{tab:ambiguoussisfall}{{V}{7}{SisFall stress benchmark: $300$ windows/fold, comprising $100$ D18/D19 non-fall stress activities, $100$ falls and $100$ other ADLs. D19 is not a clinically adjudicated near-fall. Cost/win is $(10\mathrm {FN}+\mathrm {FP})/n$; Esc. is the escalation rate. Mean recall improves by $0.208$ and classification cost falls by approximately $84\%$. This enriched set is not a free-living duty-cycle estimate; age-stratified results are unavailable (Sec.~\ref {sec:setup}). F1 deltas use the displayed rounded metrics}{table.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces \textbf  {Fixed-threshold control.} Threshold $\tau ^\ast {=}1/(\beta {+}1){=}0.091$ for $\beta {=}10$, without deferral (SisFall, $n{=}1000$/fold). Bayes optimality requires calibrated posteriors; better empirically tuned thresholds are not ruled out. Values marked $^\dagger $ are approximate plug-in estimates from rounded aggregate F1, recall and main-run prevalence, not fold-wise measurements. All stack classification metrics use main-ablation counts, as in Table\nobreakspace  {}\ref  {tab:meanstd}; escalation is from the separate timing run.}}{7}{table.6}\protected@file@percent }
-\newlabel{tab:partitionfallback}{{VI}{7}{\textbf {Fixed-threshold control.} Threshold $\tau ^\ast {=}1/(\beta {+}1){=}0.091$ for $\beta {=}10$, without deferral (SisFall, $n{=}1000$/fold). Bayes optimality requires calibrated posteriors; better empirically tuned thresholds are not ruled out. Values marked $^\dagger $ are approximate plug-in estimates from rounded aggregate F1, recall and main-run prevalence, not fold-wise measurements. All stack classification metrics use main-ablation counts, as in Table~\ref {tab:meanstd}; escalation is from the separate timing run}{table.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Main-ablation evaluation, five-fold mean$\pm $sample std recomputed from supplied per-fold confusion counts ($n{=}1000$/fold). Each mode contributes once per fold. \texttt  {gate\_only} and \texttt  {primary\_only} have identical counts; cost excludes deferral overhead. The four gated modes form a $2{\times }2$ design (retrieval on/off $\times $ LLM on/off), not a cumulative ladder.}}{7}{table.7}\protected@file@percent }
-\newlabel{tab:ablationmean}{{VII}{7}{Main-ablation evaluation, five-fold mean$\pm $sample std recomputed from supplied per-fold confusion counts ($n{=}1000$/fold). Each mode contributes once per fold. \texttt {gate\_only} and \texttt {primary\_only} have identical counts; cost excludes deferral overhead. The four gated modes form a $2{\times }2$ design (retrieval on/off $\times $ LLM on/off), not a cumulative ladder}{table.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Processing timescales (five-fold means, Supplementary Table\nobreakspace  {}S9); acquisition, queueing and caregiver response are excluded.}}{7}{figure.4}\protected@file@percent }
-\newlabel{fig:timeline}{{4}{7}{Processing timescales (five-fold means, Supplementary Table~S9); acquisition, queueing and caregiver response are excluded}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}Comparison with Published Results}{7}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-C}}Limitations}{7}{subsection.7.3}\protected@file@percent }
-\newlabel{sec:limitations}{{\mbox  {VII-C}}{7}{Limitations}{subsection.7.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{7}{section.8}\protected@file@percent }
-\newlabel{sec:concl}{{VIII}{7}{Conclusion}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Controls}{5}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}External Evaluation}{5}{subsection.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Processing timescales (five-fold means, Supplementary Table\nobreakspace  {}S9); acquisition, queueing and caregiver response are excluded.}}{5}{figure.4}\protected@file@percent }
+\newlabel{fig:timeline}{{4}{5}{Processing timescales (five-fold means, Supplementary Table~S9); acquisition, queueing and caregiver response are excluded}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Operating Cost}{5}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion}{5}{section.7}\protected@file@percent }
+\newlabel{sec:discussion}{{VII}{5}{Discussion}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}Where the Gain Comes From}{5}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}Comparison with Published Results}{5}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-C}}Limitations}{5}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:limitations}{{\mbox  {VII-C}}{5}{Limitations}{subsection.7.3}{}}
 \citation{sisfall2017}
 \citation{kfall2021}
 \bibstyle{IEEEtran}
@@ -183,12 +158,6 @@
 \bibcite{aziz2016fall}{10}
 \bibcite{aziz2012nearfall}{11}
 \bibcite{aziz2014causes}{12}
-\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Adjudicator controls on two distinct SisFall escalated-case evaluations. Entries are five-fold mean$\pm $sample std, recomputed from supplied confusion counts. Cost is $(10\mathrm  {FN}+\mathrm  {FP})/n\times 1000$ within the escalated subset, excluding compute cost. Panel A has $160$ cases/fold; panel B has $150$ shared cases/fold. Panel B's always-fall row is derived exactly from its class totals, not borrowed from panel A. Comparisons are valid within panels; the table does not provide a matched GBM--Mistral comparison. Training-majority predictions coincide with always-fall in panel A.}}{8}{table.8}\protected@file@percent }
-\newlabel{tab:adjudicator}{{VIII}{8}{Adjudicator controls on two distinct SisFall escalated-case evaluations. Entries are five-fold mean$\pm $sample std, recomputed from supplied confusion counts. Cost is $(10\mathrm {FN}+\mathrm {FP})/n\times 1000$ within the escalated subset, excluding compute cost. Panel A has $160$ cases/fold; panel B has $150$ shared cases/fold. Panel B's always-fall row is derived exactly from its class totals, not borrowed from panel A. Comparisons are valid within panels; the table does not provide a matched GBM--Mistral comparison. Training-majority predictions coincide with always-fall in panel A}{table.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces \textbf  {Negative result.} Naive label-flip Actor--Critic (\texttt  {gate\_knn\_llm\_actor\_critic}) versus the primary stack on SisFall ($n{=}1000$/fold). Permitting the Critic to veto fall predictions inflates false negatives by an order of magnitude, which is the exact failure mode an FN-heavy cost penalises. Both columns come from one paired actor--critic run; its \texttt  {gate\_knn\_llm} column differs by ${\le }0.022$ F1 from Table\nobreakspace  {}\ref  {tab:perfold} because local-LLM decoding is non-deterministic.}}{8}{table.9}\protected@file@percent }
-\newlabel{tab:negative}{{IX}{8}{\textbf {Negative result.} Naive label-flip Actor--Critic (\texttt {gate\_knn\_llm\_actor\_critic}) versus the primary stack on SisFall ($n{=}1000$/fold). Permitting the Critic to veto fall predictions inflates false negatives by an order of magnitude, which is the exact failure mode an FN-heavy cost penalises. Both columns come from one paired actor--critic run; its \texttt {gate\_knn\_llm} column differs by ${\le }0.022$ F1 from Table~\ref {tab:perfold} because local-LLM decoding is non-deterministic}{table.9}{}}
-\newlabel{sec:authordecls}{{VIII}{8}{Author Declarations}{section*.2}{}}
-\@writefile{toc}{\contentsline {section}{References}{8}{section*.4}\protected@file@percent }
 \bibcite{guo2017calibration}{13}
 \bibcite{lakshminarayanan2017ensembles}{14}
 \bibcite{chow1970reject}{15}
@@ -206,6 +175,10 @@
 \bibcite{mistral2023}{27}
 \bibcite{bourke2007threshold}{28}
 \bibcite{kfall2021}{29}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{6}{section.8}\protected@file@percent }
+\newlabel{sec:concl}{{VIII}{6}{Conclusion}{section.8}{}}
+\newlabel{sec:authordecls}{{VIII}{6}{Author Declarations}{section*.2}{}}
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.4}\protected@file@percent }
 \bibcite{mozannar2020defer}{30}
 \bibcite{vovk2005algorithmic}{31}
 \bibcite{angelopoulos2023gentle}{32}
@@ -225,8 +198,6 @@
 \bibcite{singhal2023medpalm}{46}
 \bibcite{bai2018tcn}{47}
 \bibcite{iglesias2023modern}{48}
-\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces Generality of the decision layer: five-fold means, frozen primary detector (\texttt  {primary\_only}) versus full stack (\texttt  {gate\_knn\_llm}). Cost is $10\tmspace  +\thinmuskip {.1667em}\mathrm  {FN}+\mathrm  {FP}$ per $1000$ windows; KFall stress-set costs are rescaled from raw counts per $300$-window fold. ``Folds'' counts folds on which stack F1 exceeds primary F1. HARMamba gates were recalibrated per fold on HARMamba scores. Per-fold KFall binary results are in Supplementary Table\nobreakspace  {}S5.}}{9}{table.10}\protected@file@percent }
-\newlabel{tab:generality}{{X}{9}{Generality of the decision layer: five-fold means, frozen primary detector (\texttt {primary\_only}) versus full stack (\texttt {gate\_knn\_llm}). Cost is $10\,\mathrm {FN}+\mathrm {FP}$ per $1000$ windows; KFall stress-set costs are rescaled from raw counts per $300$-window fold. ``Folds'' counts folds on which stack F1 exceeds primary F1. HARMamba gates were recalibrated per fold on HARMamba scores. Per-fold KFall binary results are in Supplementary Table~S5}{table.10}{}}
 \bibcite{tsmixer2023}{49}
 \bibcite{patchtst2023}{50}
 \bibcite{vaswani2017attention}{51}

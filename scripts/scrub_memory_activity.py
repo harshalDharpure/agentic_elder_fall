@@ -24,6 +24,7 @@ from agentic_fall.agents.evidence import (  # noqa: E402
     evidence_contains_activity_code,
     strip_activity_from_evidence,
 )
+from agentic_fall.agents.knn_memory import public_case_id  # noqa: E402
 
 
 def get_text_embedder(model_name: str):
@@ -43,6 +44,7 @@ def get_text_embedder(model_name: str):
 def scrub_file(path: Path, embed_batch, batch_size: int = 256, dry_run: bool = False) -> dict:
     cases = json.loads(path.read_text())
     dirty = 0
+    id_dirty = 0
     texts: list[str] = []
     for c in cases:
         raw = c.get("evidence_text", "")
@@ -51,9 +53,21 @@ def scrub_file(path: Path, embed_batch, batch_size: int = 256, dry_run: bool = F
         clean = strip_activity_from_evidence(raw)
         c["evidence_text"] = clean
         texts.append(clean)
+        cid = str(c.get("case_id", ""))
+        redacted = public_case_id(cid)
+        if redacted != cid:
+            id_dirty += 1
+            c["case_id"] = redacted
+        # Keep activity for hard-neg filter; never appears in summary()/prompts.
 
     if dry_run:
-        return {"path": str(path), "n": len(cases), "dirty": dirty, "dry_run": True}
+        return {
+            "path": str(path),
+            "n": len(cases),
+            "dirty": dirty,
+            "id_dirty": id_dirty,
+            "dry_run": True,
+        }
 
     bak = path.with_suffix(path.suffix + ".with_activity.bak")
     if not bak.exists():
@@ -68,7 +82,15 @@ def scrub_file(path: Path, embed_batch, batch_size: int = 256, dry_run: bool = F
     path.write_text(json.dumps(cases))
     # verify
     still = sum(1 for c in cases if evidence_contains_activity_code(c["evidence_text"]))
-    return {"path": str(path), "n": len(cases), "dirty": dirty, "still_dirty": still}
+    still_id = sum(1 for c in cases if public_case_id(str(c.get("case_id", ""))) != str(c.get("case_id", "")))
+    return {
+        "path": str(path),
+        "n": len(cases),
+        "dirty": dirty,
+        "id_dirty": id_dirty,
+        "still_dirty": still,
+        "still_id_dirty": still_id,
+    }
 
 
 def main():
@@ -112,7 +134,9 @@ def main():
     for p in unique:
         info = scrub_file(p, embed_batch, batch_size=args.batch_size, dry_run=args.dry_run)
         print(info)
-        if not args.dry_run and info.get("still_dirty", 0) > 0:
+        if not args.dry_run and (
+            info.get("still_dirty", 0) > 0 or info.get("still_id_dirty", 0) > 0
+        ):
             raise SystemExit(f"scrub failed for {p}")
 
 

@@ -1,0 +1,39 @@
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/cuda/__init__.py:619: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+epoch 001  loss=0.8281  f1=0.6597  acc=0.4922  rec=0.9844  spec=0.0000
+{
+  "fold": 0,
+  "model": "cnn_lstm_attn",
+  "best_val_f1": 0.6596858638743456,
+  "decision_threshold": 0.671,
+  "val_at_threshold": {
+    "accuracy": 0.5859375,
+    "precision": 0.5478260869565217,
+    "recall": 0.984375,
+    "sensitivity": 0.9843749999999847,
+    "specificity": 0.18749999999999709,
+    "f1": 0.7039106145251397,
+    "tp": 63,
+    "tn": 12,
+    "fp": 52,
+    "fn": 1
+  },
+  "test": {
+    "accuracy": 0.5234375,
+    "precision": 0.512396694214876,
+    "recall": 0.96875,
+    "sensitivity": 0.9687499999999849,
+    "specificity": 0.07812499999999879,
+    "f1": 0.6702702702702703,
+    "tp": 62,
+    "tn": 5,
+    "fp": 59,
+    "fn": 2,
+    "n": 128,
+    "decision_threshold": 0.671
+  },
+  "checkpoint": "/DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/cnn_lstm_attn/checkpoints/cnn_lstm_attn_fold0.pt",
+  "n_train": 256,
+  "n_val": 128,
+  "n_test": 128
+}

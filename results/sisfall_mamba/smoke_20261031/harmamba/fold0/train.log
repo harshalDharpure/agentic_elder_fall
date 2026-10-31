@@ -1,0 +1,39 @@
+/DATA/tauseef_2121cs04/anaconda3/lib/python3.10/site-packages/torch/cuda/__init__.py:619: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+epoch 001  loss=0.8248  f1=0.0000  acc=0.5000  rec=0.0000  spec=1.0000
+{
+  "fold": 0,
+  "model": "harmamba",
+  "best_val_f1": 0.0,
+  "decision_threshold": 0.05,
+  "val_at_threshold": {
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "sensitivity": 0.9999999999999845,
+    "specificity": 0.0,
+    "f1": 0.6666666666666666,
+    "tp": 64,
+    "tn": 0,
+    "fp": 64,
+    "fn": 0
+  },
+  "test": {
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "sensitivity": 0.9999999999999845,
+    "specificity": 0.0,
+    "f1": 0.6666666666666666,
+    "tp": 64,
+    "tn": 0,
+    "fp": 64,
+    "fn": 0,
+    "n": 128,
+    "decision_threshold": 0.05
+  },
+  "checkpoint": "/DATA/tauseef_2121cs04/harshal/agentic_fall/results/sisfall_mamba/smoke_20261031/harmamba/checkpoints/harmamba_fold0.pt",
+  "n_train": 256,
+  "n_val": 128,
+  "n_test": 128
+}

@@ -27,6 +27,7 @@ from agentic_fall.data.sisfall import SisFallDataset
 from agentic_fall.eval.metrics import agentic_metrics, binary_metrics, crc_veto_metrics, metrics_to_latex
 from agentic_fall.eval.protocol import (
     build_gate,
+    calibrate_fusion_threshold,
     make_fold_split,
     subsample_indices,
     text_embedder,
@@ -172,10 +173,24 @@ ADJUDICATION_MODES = {
 }
 
 
-def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, gate):
+def run_agentic_variant(
+    model,
+    ds,
+    test_idx,
+    memory_path,
+    device,
+    acfg,
+    mode,
+    gate,
+    *,
+    fusion_threshold: float | None = None,
+):
     adj_spec = ADJUDICATION_MODES.get(mode)
     memory = KNNMemory(k=int(acfg["retrieval"]["k"]))
-    knn_modes = ("gate_knn", "gate_knn_llm", "gate_llm") + tuple(ADJUDICATION_MODES)
+    fuse_mode = mode == "gate_knn_llm_fuse"
+    knn_modes = ("gate_knn", "gate_knn_llm", "gate_llm", "gate_knn_llm_fuse") + tuple(
+        ADJUDICATION_MODES
+    )
     if Path(memory_path).exists() and mode in knn_modes:
         memory.load(memory_path)
 
@@ -183,20 +198,32 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
         use_llm = bool(adj_spec["use_llm"])
         use_knn = bool(adj_spec["use_knn"])
     else:
-        use_llm = mode in ("gate_llm", "gate_knn_llm")
-        use_knn = mode in ("gate_knn", "gate_knn_llm")
+        use_llm = mode in ("gate_llm", "gate_knn_llm", "gate_knn_llm_fuse")
+        use_knn = mode in ("gate_knn", "gate_knn_llm", "gate_knn_llm_fuse")
     backend = "ollama" if use_llm else "heuristic"
     if mode == "gate_knn":
         backend = "heuristic"
 
+    pipe_cfg = acfg.get("pipeline") or {}
+    include_activity = bool(pipe_cfg.get("include_activity", False))
+    require_embedder = bool(pipe_cfg.get("require_text_embedder", False))
+    fallback_heuristic = bool(acfg.get("llm", {}).get("fallback_heuristic", False))
+    llm_cfg = acfg.get("llm") or {}
+    act_guard = llm_cfg.get("activity_precision_guard", include_activity)
     reasoner = LLMReasoner(
         backend=backend,
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
+        fallback_heuristic=fallback_heuristic,
+        use_activity_prompt=bool(include_activity),
+        activity_precision_guard=bool(act_guard),
     )
     action_agent = ActionAgent()
-    embed = text_embedder(acfg["retrieval"]["embedder"]) if use_knn else None
+    embed = (
+        text_embedder(acfg["retrieval"]["embedder"], allow_fallback=not require_embedder)
+        if use_knn
+        else None
+    )
 
     local_gate = gate
     if mode == "tier1_only":
@@ -238,8 +265,11 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
         text_embed_fn=embed,
         adjudicator=adjudicator,
         allow_action_downgrade=allow_down,
+        include_activity=include_activity,
+        require_text_embedder=require_embedder and use_knn,
+        fuse_system2=fuse_mode,
+        fusion_threshold=fusion_threshold,
     )
-
     y_true, y_pred, esc, acts, lats, ps = [], [], [], [], [], []
     resp_actions, rationales = [], []
     pred_before, vetoed_flags, windows = [], [], []
@@ -247,6 +277,8 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
     loader = DataLoader(Subset(ds, test_idx), batch_size=1, shuffle=False)
     for batch in tqdm(loader, desc=mode):
         x = batch["x"][0]
+        # Pass activity for offline metrics (near-fall FAR); pipeline omits it from
+        # System-2 evidence when include_activity=false.
         res = pipe.run(x, x.numpy().T, activity=str(batch["activity"][0]))
         if mode == "gate_only" and res.escalated:
             yp = 1 if res.p_fall >= 0.5 else 0
@@ -274,6 +306,10 @@ def run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, ga
                 "final_pred": res.prediction,
                 "veto_score": float(res.veto_score) if res.veto_score is not None else None,
                 "vetoed": bool(res.vetoed),
+                "evidence_text": res.evidence_text,
+                "retrieved": list(res.retrieved),
+                "source": res.source,
+                "include_activity": include_activity,
             }
         )
         if res.adjudicated:
@@ -441,18 +477,35 @@ def main():
     rows.append({"name": primary, **m})
 
     memory_path = args.memory or str(ROOT / pcfg["paths"]["memory_dir"] / f"sisfall_fold{args.fold}.json")
+    gate_cal_split = str(ev.get("gate_cal_split", "val")).lower()
+    if gate_cal_split == "train":
+        cal_idx = train_idx
+    elif gate_cal_split == "val":
+        cal_idx = val_idx
+    else:
+        raise SystemExit(f"Unknown eval.gate_cal_split={gate_cal_split!r} (use val|train)")
     gate = build_gate(
         acfg,
         model=model,
         ds=ds,
-        cal_idx=train_idx,
+        cal_idx=cal_idx,
         device=device,
         calibrate=bool(ev.get("calibrate_gate", True)),
         max_cal=int(ev.get("max_cal", 2000)),
     )
-    print(f"Calibrated gate: tau_low={gate.tau_low:.3f}, tau_high={gate.tau_high:.3f}")
-
-    default_modes = ("tier1_only", "gate_only", "gate_knn", "gate_llm", "gate_knn_llm")
+    print(
+        f"Calibrated gate on {gate_cal_split} (n={len(cal_idx)}): "
+        f"tau_low={gate.tau_low:.3f}, tau_high={gate.tau_high:.3f}"
+    )
+    default_modes = (
+        "tier1_only",
+        "gate_only",
+        "gate_knn",
+        "gate_llm",
+        "gate_knn_llm",
+        "gate_knn_llm_fuse",
+        "gate_knn_llm_action_critique",
+    )
     allowed_modes = default_modes + tuple(ADJUDICATION_MODES.keys())
     if args.modes:
         modes = tuple(m.strip() for m in args.modes.split(",") if m.strip())
@@ -461,6 +514,65 @@ def main():
             raise SystemExit(f"Unknown ablation modes: {unknown}. Allowed: {allowed_modes}")
     else:
         modes = default_modes
+
+    fusion_threshold = None
+    if "gate_knn_llm_fuse" in modes:
+        # Calibrate fusion threshold on subject-held-out val (escalated windows only).
+        print("Calibrating System-2 fusion threshold on val…")
+        scores, ys = [], []
+        pipe_cfg = acfg.get("pipeline") or {}
+        include_activity = bool(pipe_cfg.get("include_activity", False))
+        require_embedder = bool(pipe_cfg.get("require_text_embedder", False))
+        mem = KNNMemory(k=int(acfg["retrieval"]["k"]))
+        if Path(memory_path).exists():
+            mem.load(memory_path)
+        llm_cfg = acfg.get("llm") or {}
+        act_guard = llm_cfg.get("activity_precision_guard", include_activity)
+        reasoner = LLMReasoner(
+            backend="ollama",
+            base_url=acfg["llm"]["base_url"],
+            model=acfg["llm"]["model"],
+            fallback_heuristic=bool(acfg.get("llm", {}).get("fallback_heuristic", False)),
+            use_activity_prompt=bool(include_activity),
+            activity_precision_guard=bool(act_guard),
+        )
+        fuse_probe = AgenticPipeline(
+            model=model,
+            gate=gate,
+            memory=mem,
+            reasoner=reasoner,
+            action_agent=ActionAgent(),
+            device=device,
+            sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
+            text_embed_fn=text_embedder(
+                acfg["retrieval"]["embedder"],
+                allow_fallback=not require_embedder,
+            ),
+            include_activity=include_activity,
+            require_text_embedder=require_embedder,
+            fuse_system2=False,
+        )
+        for batch in tqdm(
+            DataLoader(Subset(ds, val_idx[: int(ev.get("max_cal", 2000))]), batch_size=1),
+            desc="fuse_cal",
+        ):
+            res = fuse_probe.run(
+                batch["x"][0], batch["x"][0].numpy().T, activity=str(batch["activity"][0])
+            )
+            if not res.escalated or res.fusion_score is None:
+                continue
+            scores.append(float(res.fusion_score))
+            ys.append(int(batch["y"][0]))
+        fusion_threshold, fuse_cost = calibrate_fusion_threshold(
+            scores,
+            ys,
+            cost_fn=float(pcfg["costs"]["cost_fn"]),
+            cost_fp=float(pcfg["costs"]["cost_fp"]),
+        )
+        print(
+            f"Fusion threshold={fusion_threshold:.3f} "
+            f"(val escalated n={len(scores)}, cal_cost={fuse_cost:.1f})"
+        )
 
     protocol_tag = args.protocol_tag or (
         f"max_test_{max_test or 'all'}_modes_" + "_".join(modes)
@@ -491,14 +603,43 @@ def main():
         )
 
     for mode in modes:
-        am, windows = run_agentic_variant(model, ds, test_idx, memory_path, device, acfg, mode, gate)
+        am, windows = run_agentic_variant(
+            model,
+            ds,
+            test_idx,
+            memory_path,
+            device,
+            acfg,
+            mode,
+            gate,
+            fusion_threshold=fusion_threshold if mode == "gate_knn_llm_fuse" else None,
+        )
         am["protocol_tag"] = protocol_tag
         am["max_test"] = int(len(test_idx))
+        if mode == "gate_knn_llm_fuse" and fusion_threshold is not None:
+            am["fusion_threshold"] = float(fusion_threshold)
         rows.append({"name": mode, **am})
         if mode == "gate_knn_llm_crc_veto":
             save_json(
                 {"fold": args.fold, "windows": windows, "metrics": am},
                 out_dir / f"crc_veto_windows_fold{args.fold}.json",
+            )
+        # Persist System-2 surfaces for leak audit (evidence + retrieved summaries).
+        if mode in (
+            "gate_knn",
+            "gate_llm",
+            "gate_knn_llm",
+            "gate_knn_llm_fuse",
+        ) or mode in ADJUDICATION_MODES:
+            save_json(
+                {
+                    "fold": args.fold,
+                    "mode": mode,
+                    "include_activity": bool((acfg.get("pipeline") or {}).get("include_activity", False)),
+                    "windows": windows,
+                    "metrics": am,
+                },
+                out_dir / f"windows_{mode}_fold{args.fold}.json",
             )
         print(
             mode,
@@ -595,6 +736,7 @@ def main():
         "fold": args.fold,
         "max_test": int(len(test_idx)),
         "modes": mode_names or list(modes),
+        "include_activity": bool((acfg.get("pipeline") or {}).get("include_activity", False)),
         "rows": rows,
     }
     save_json(payload, main_json)

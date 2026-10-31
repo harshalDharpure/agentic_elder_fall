@@ -68,6 +68,7 @@ def main():
     min_per = {c: min_nf for c in ev["required_activities"]} if min_nf else None
     # Match ablation calibration subsample (seed / max_train) so gate taus align.
     train_idx = subsample_indices(split.train_idx, ds.y, ds.activities, tr.get("max_train"), pcfg["seed"])
+    val_idx = subsample_indices(split.val_idx, ds.y, ds.activities, tr.get("max_val"), pcfg["seed"] + 1)
     test_idx = subsample_indices(
         split.test_idx, ds.y, ds.activities, max_samples, pcfg["seed"] + 2, min_per_activity=min_per
     )
@@ -89,16 +90,21 @@ def main():
     model.load_state_dict(state["model"])
     model.to(device).eval()
 
+    gate_cal_split = str(ev.get("gate_cal_split", "val")).lower()
+    cal_idx = val_idx if gate_cal_split == "val" else train_idx
     gate = build_gate(
         acfg,
         model=model,
         ds=ds,
-        cal_idx=train_idx,
+        cal_idx=cal_idx,
         device=device,
         calibrate=bool(ev.get("calibrate_gate", True)),
         max_cal=int(ev.get("max_cal", 2000)),
     )
-    print(f"Calibrated gate: tau_low={gate.tau_low:.3f}, tau_high={gate.tau_high:.3f}")
+    print(
+        f"Calibrated gate on {gate_cal_split}: "
+        f"tau_low={gate.tau_low:.3f}, tau_high={gate.tau_high:.3f}"
+    )
 
     memory = KNNMemory(k=int(acfg["retrieval"]["k"]))
     memory.load(args.memory)
@@ -127,6 +133,8 @@ def main():
         stillness_moderate_s=float(acfg["action"]["stillness_moderate_s"]),
         simulate=bool(acfg["action"]["simulate"]),
     )
+    pipe_cfg = acfg.get("pipeline") or {}
+    require_embedder = bool(pipe_cfg.get("require_text_embedder", False))
     pipe = AgenticPipeline(
         model=model,
         gate=gate,
@@ -137,7 +145,12 @@ def main():
         sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
         freefall_g_threshold=float(acfg["evidence"]["freefall_g_threshold"]),
         stillness_var_threshold=float(acfg["evidence"]["stillness_var_threshold"]),
-        text_embed_fn=text_embedder(acfg["retrieval"]["embedder"]),
+        text_embed_fn=text_embedder(
+            acfg["retrieval"]["embedder"],
+            allow_fallback=not require_embedder,
+        ),
+        include_activity=bool(pipe_cfg.get("include_activity", False)),
+        require_text_embedder=require_embedder,
     )
 
     y_true, y_pred, escalated, activities, lats, pfalls = [], [], [], [], [], []

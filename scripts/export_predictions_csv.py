@@ -95,12 +95,14 @@ def main():
     if mem.exists():
         memory.load(mem)
     backend = "heuristic" if args.skip_llm else "ollama"
+    pipe_cfg = acfg.get("pipeline") or {}
+    include_activity = bool(pipe_cfg.get("include_activity", False))
+    require_embedder = bool(pipe_cfg.get("require_text_embedder", False))
     reasoner = LLMReasoner(
         backend=backend,
         base_url=acfg["llm"]["base_url"],
         model=acfg["llm"]["model"],
-        fallback_heuristic=True,
-        prompt_log_dir=str(ROOT / "results" / "prompt_audit" / f"export_fold{args.fold}"),
+        fallback_heuristic=bool(acfg.get("llm", {}).get("fallback_heuristic", False)),
     )
     pipe = AgenticPipeline(
         model=model,
@@ -110,8 +112,12 @@ def main():
         action_agent=ActionAgent(),
         device=device,
         sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
-        text_embed_fn=text_embedder(acfg["retrieval"]["embedder"]),
-        include_activity=False,
+        text_embed_fn=text_embedder(
+            acfg["retrieval"]["embedder"],
+            allow_fallback=not require_embedder,
+        ),
+        include_activity=include_activity,
+        require_text_embedder=require_embedder,
     )
     pipe_primary = AgenticPipeline(
         model=model,
@@ -121,7 +127,7 @@ def main():
         action_agent=ActionAgent(),
         device=device,
         sample_rate_hz=float(acfg["evidence"]["sample_rate_hz"]),
-        include_activity=False,
+        include_activity=include_activity,
     )
 
     min_per = {

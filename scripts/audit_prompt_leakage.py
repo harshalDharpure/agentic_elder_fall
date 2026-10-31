@@ -3,8 +3,8 @@
 
 Scans:
   - logged prompt text files under --prompts
-  - ablation / agentic result JSON ``windows[*].evidence`` / ``evidence_text``
-  - kNN memory JSON ``evidence_text`` fields
+  - ablation / agentic result JSON ``windows[*].evidence`` / ``evidence_text`` / ``retrieved``
+  - kNN memory JSON ``evidence_text`` and leaky ``case_id`` fields
 
 Exit code 1 if any leak is found.
 """
@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -19,7 +20,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from agentic_fall.agents.evidence import evidence_contains_activity_code  # noqa: E402
+from agentic_fall.agents.knn_memory import public_case_id  # noqa: E402
 
+# Match SisFall-style Dxx/Fxx tokens, not hex substrings inside case_* digests.
+_LEAKY_ID_RE = re.compile(r"(?i)(?:^|[^A-Za-z0-9])([DF]\d{2})(?:[^A-Za-z0-9]|$)|^([DF]\d{2})")
 
 def scan_text(label: str, text: str, hits: list[str]) -> None:
     if evidence_contains_activity_code(text):
@@ -64,18 +68,31 @@ def scan_result_json(path: Path, hits: list[str]) -> None:
             for key in ("evidence", "evidence_text", "prompt", "user_prompt"):
                 if key in w and isinstance(w[key], str):
                     scan_text(f"{path.name}:{key}[{i}]", w[key], hits)
+            retrieved = w.get("retrieved")
+            if isinstance(retrieved, list):
+                for j, r in enumerate(retrieved):
+                    if isinstance(r, str):
+                        scan_text(f"{path.name}:retrieved[{i},{j}]", r, hits)
     # memory-style list
     if isinstance(obj, list):
         for i, c in enumerate(obj[:500]):  # sample
             if isinstance(c, dict) and "evidence_text" in c:
                 scan_text(f"{path.name}:evidence_text[{i}]", c["evidence_text"], hits)
+            if isinstance(c, dict) and "case_id" in c:
+                cid = str(c["case_id"])
+                if _LEAKY_ID_RE.search(cid):
+                    hits.append(f"{path.name}:case_id[{i}]={cid}")
 
 
 def scan_memory(path: Path, hits: list[str], max_cases: int = 0) -> None:
     cases = json.loads(path.read_text())
     n = len(cases) if max_cases <= 0 else min(len(cases), max_cases)
     for i in range(n):
-        scan_text(f"{path.name}[{i}]", cases[i].get("evidence_text", ""), hits)
+        c = cases[i]
+        scan_text(f"{path.name}[{i}]", c.get("evidence_text", ""), hits)
+        cid = str(c.get("case_id", ""))
+        if _LEAKY_ID_RE.search(cid):
+            hits.append(f"{path.name}:case_id[{i}]={cid} (want {public_case_id(cid)})")
 
 
 def main():
@@ -90,6 +107,8 @@ def main():
         assert evidence_contains_activity_code("- Activity context code: D18")
         assert evidence_contains_activity_code("code F05 nearby")
         assert not evidence_contains_activity_code("- Free-fall duration: 0.2s")
+        assert _LEAKY_ID_RE.search("D19_SA06_R05.txt_12")
+        assert not _LEAKY_ID_RE.search("case_ab12cd34ef56")
         print("self-test OK")
         return
 

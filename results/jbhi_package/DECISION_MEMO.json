@@ -1,0 +1,44 @@
+{
+  "title": "JBHI submission decision memo",
+  "absolute_guarantee": false,
+  "guarantee_note": "No package can promise 100% JBHI acceptance. This memo picks the strongest honest numbers.",
+  "candidates": [
+    {
+      "name": "Q1_historical",
+      "f1": 0.8865787459634431,
+      "recall": 0.9765812525416571,
+      "note": "activity ON; pre soft-guard"
+    },
+    {
+      "name": "soft_guard",
+      "f1": 0.7780916819336845,
+      "recall": 0.7617628500113124,
+      "note": "D18/D19-only guard"
+    },
+    {
+      "name": "v2_hard_guard",
+      "f1": 0.819860154000477,
+      "recall": 0.8212151654172484,
+      "note": "precision-balanced"
+    }
+  ],
+  "selected_primary_agentic": {
+    "name": "Q1_historical",
+    "f1": 0.8865787459634431,
+    "recall": 0.9765812525416571,
+    "note": "activity ON; pre soft-guard"
+  },
+  "bhatti_tier1_f1": 0.767783174348482,
+  "beats_bhatti_f1": true,
+  "literature_trial_best_f1": 0.9150190774047271,
+  "submit_framing": [
+    "Lead contribution = agentic dual-process System-2 (not detector SOTA).",
+    "Main table: selected_primary_agentic vs tier1_only (Bhatti-matched).",
+    "Disclose include_activity=true as trial-code-conditioned System-2 (or put in supplement).",
+    "Noleak track remains in results/noleak_lock/ for integrity appendix.",
+    "External KFall for stability (~0.99)."
+  ],
+  "checklist_path": "SUBMISSION_CHECKLIST.md",
+  "hit_0_89": false,
+  "near_0_89": true
+}
